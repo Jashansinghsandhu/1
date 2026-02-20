@@ -185,17 +185,6 @@ REFERRAL_BET_COMMISSION_RATE = 0.001      # 0.1%
 DEPOSIT_ENABLED = True
 DEPOSITS_DB = "deposits.db"
 
-# OxaPay merchant API key — get yours at https://oxapay.com/
-OXAPAY_MERCHANT_KEY = "ONJRRF-JIWZG3-PIUVLS-E9ZRDT"   # Fill in your OxaPay merchant key
-# Publicly reachable URL where your bot runs (needed for OxaPay webhook callbacks)
-OXAPAY_WEBHOOK_HOST = "https://play-casino.app"   # e.g. "https://your-server.com"
-OXAPAY_WEBHOOK_PORT = 8080  # Port for the aiohttp webhook listener
-# Currencies accepted by your OxaPay merchant account
-OXAPAY_SUPPORTED_CURRENCIES = {"BTC", "ETH", "USDT", "LTC", "TRX", "BNB", "SOL"}
-
-# Runtime state for the OxaPay webhook server
-_oxapay_bot_ref = None            # Will hold the Telegram Bot instance (set at startup)
-_oxapay_processed_orders = set()  # In-memory duplicate-payment guard
 
 # ========================================
 # 🔐 SECURITY CRITICAL - FILL THESE VALUES
@@ -581,7 +570,14 @@ def get_active_balance_usd(user_id: int) -> float:
     return crypto_balance * price
 
 
-def get_total_balance_usd(user_id: int) -> float:
+def get_most_recent_active_game(user_id: int, game_type: str):
+    """Return the most recent active game session for a user and game type, or None."""
+    active = [g for g in game_sessions.values() if g.get('user_id') == user_id and g.get('status') == 'active' and g.get('game_type') == game_type]
+    if not active:
+        return None
+    return sorted(active, key=lambda g: g['timestamp'], reverse=True)[0]
+
+
     """Get total portfolio value in USD across all coins."""
     wallet = ensure_wallet_dict(user_id)
     total = 0.0
@@ -2487,49 +2483,6 @@ class DepositDatabase:
             return []
 
 
-class OxaPayService:
-    """OxaPay payment gateway integration."""
-
-    API_URL = "https://api.oxapay.com/merchants/request"
-
-    def __init__(self, merchant_key: str, webhook_host: str):
-        self.merchant_key = merchant_key
-        self.callback_url = f"{webhook_host}/oxapay_webhook" if webhook_host else ""
-
-    async def create_invoice(self, user_id: int, amount_usd: float, currency: str) -> str | None:
-        """Create an OxaPay invoice and return the payUrl, or None on failure."""
-        if not self.merchant_key:
-            logging.warning("OXAPAY_MERCHANT_KEY is not configured.")
-            return None
-        order_id = f"{user_id}_{int(datetime.now().timestamp())}"
-        payload = {
-            "merchant": self.merchant_key,
-            "amount": amount_usd,
-            "currency": currency,
-            "orderId": order_id,
-            "callbackUrl": self.callback_url,
-        }
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.post(self.API_URL, json=payload, timeout=aiohttp.ClientTimeout(total=15)) as resp:
-                    if resp.status != 200:
-                        logging.error(f"OxaPay invoice HTTP error {resp.status}")
-                        return None
-                    data = await resp.json()
-                    if data.get("result") == 100:
-                        return data.get("payLink") or data.get("payUrl")
-                    logging.error(f"OxaPay invoice error response: {data}")
-                    return None
-        except asyncio.TimeoutError:
-            logging.error("OxaPay create_invoice timed out")
-            return None
-        except aiohttp.ClientError as e:
-            logging.error(f"OxaPay create_invoice network error: {e}")
-            return None
-        except Exception as e:
-            logging.error(f"OxaPay create_invoice exception: {e}")
-            return None
-
 
 class HDWalletManager:
     """HD Wallet Manager for multi-chain address generation"""
@@ -3831,12 +3784,6 @@ def build_deposit_menu():
         apply_button_style(InlineKeyboardButton("🔙 Back", callback_data="back_to_main"), 'danger')  # RED
     ])
     
-    # Add OxaPay option if configured
-    if OXAPAY_MERCHANT_KEY:
-        keyboard_rows.append([
-            apply_button_style(InlineKeyboardButton("⚡ Deposit via OxaPay", callback_data="deposit_oxapay"), 'primary')
-        ])
-    
     text = (
         "💰 <b>Deposit Funds</b>\n\n"
         "Select a blockchain to get your unique deposit address:\n\n"
@@ -4092,270 +4039,6 @@ async def back_to_deposit_menu(update: Update, context: ContextTypes.DEFAULT_TYP
     await safe_edit_message(query, text, reply_markup=create_styled_keyboard(keyboard), parse_mode=ParseMode.HTML)
 
 
-# ===== OXAPAY DEPOSIT FLOW =====
-
-# ConversationHandler states for OxaPay
-OXAPAY_ASK_AMOUNT = "oxapay_ask_amount"
-OXAPAY_ASK_CURRENCY = "oxapay_ask_currency"
-
-
-async def oxapay_deposit_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Entry point: user clicks '⚡ Deposit via OxaPay'."""
-    query = update.callback_query
-    if not check_menu_ownership(query, context):
-        await query.answer("This menu is not for you.", show_alert=True)
-        return ConversationHandler.END
-    await query.answer()
-    await safe_edit_message(
-        query,
-        "⚡ <b>OxaPay Deposit</b>\n\n"
-        "How much USD would you like to deposit? (e.g. <code>20</code>)\n\n"
-        "<i>Type /cancel to abort.</i>",
-        parse_mode=ParseMode.HTML
-    )
-    return OXAPAY_ASK_AMOUNT
-
-
-async def oxapay_receive_amount(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """User sends USD amount."""
-    text = update.message.text.strip()
-    try:
-        amount = float(text)
-        if amount <= 0:
-            raise ValueError
-    except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Please enter a positive number, e.g. <code>20</code>.", parse_mode=ParseMode.HTML)
-        return OXAPAY_ASK_AMOUNT
-    context.user_data['oxapay_amount'] = amount
-    await update.message.reply_text(
-        "Which crypto would you like to pay with?\n\n"
-        "Supported: <code>BTC</code>, <code>ETH</code>, <code>USDT</code>, <code>LTC</code>, <code>TRX</code>\n\n"
-        "Type the currency symbol (e.g. <code>USDT</code>).\n<i>Type /cancel to abort.</i>",
-        parse_mode=ParseMode.HTML
-    )
-    return OXAPAY_ASK_CURRENCY
-
-
-async def oxapay_receive_currency(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """User sends currency, create OxaPay invoice and send link."""
-    currency = update.message.text.strip().upper()
-    if currency not in OXAPAY_SUPPORTED_CURRENCIES:
-        await update.message.reply_text(
-            f"❌ Unsupported currency. Choose from: {', '.join(sorted(OXAPAY_SUPPORTED_CURRENCIES))}",
-            parse_mode=ParseMode.HTML
-        )
-        return OXAPAY_ASK_CURRENCY
-
-    amount_usd = context.user_data.get('oxapay_amount', 0)
-    user_id = update.effective_user.id
-    svc = OxaPayService(OXAPAY_MERCHANT_KEY, OXAPAY_WEBHOOK_HOST)
-    pay_url = await svc.create_invoice(user_id, amount_usd, currency)
-
-    if pay_url:
-        await update.message.reply_text(
-            f"✅ <b>OxaPay Invoice Created!</b>\n\n"
-            f"Amount: <b>${amount_usd:.2f}</b> in <b>{currency}</b>\n\n"
-            f"👉 <a href=\"{pay_url}\">Click here to complete payment</a>\n\n"
-            f"<i>Your balance will be credited automatically after payment confirmation.</i>",
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True
-        )
-    else:
-        await update.message.reply_text(
-            "❌ Failed to create OxaPay invoice. Please try again later or contact support."
-        )
-    return ConversationHandler.END
-
-
-async def oxapay_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Cancel OxaPay flow."""
-    if update.message:
-        await update.message.reply_text("❌ OxaPay deposit cancelled.")
-    return ConversationHandler.END
-
-
-def verify_oxapay_signature(raw_body: bytes, received_hmac: str) -> bool:
-    """Verify the HMAC-SHA256 signature sent by OxaPay.
-
-    OxaPay signs the raw JSON body with the merchant key using HMAC-SHA256
-    and sends the hex-digest in the ``hmac`` field of the callback payload.
-    We recompute the digest over the raw body (before JSON parsing) and
-    compare in constant time.
-    """
-    expected = hmac.new(
-        OXAPAY_MERCHANT_KEY.encode(),
-        raw_body,
-        hashlib.sha256,
-    ).hexdigest()
-    return hmac.compare_digest(expected, received_hmac)
-
-
-async def oxapay_webhook_handler(request: aiohttp.web.Request) -> aiohttp.web.Response:
-    """aiohttp endpoint to receive OxaPay payment callbacks.
-
-    • Verifies HMAC-SHA256 signature using the merchant key.
-    • Guards against duplicate processing (in-memory set).
-    • Credits the user wallet and records the deposit in the DB.
-    • Sends a Telegram success message to the user.
-    • Always returns HTTP 200 so OxaPay does not keep retrying.
-    """
-    global _oxapay_bot_ref, _oxapay_processed_orders
-
-    # Always return 200 to OxaPay — errors are logged server-side.
-    ok = aiohttp.web.Response(text="ok")
-
-    try:
-        # ── 1. Read raw body (needed for HMAC before JSON parsing) ──
-        raw_body = await request.read()
-        data = json.loads(raw_body)
-        logging.info(f"OxaPay webhook received: {data}")
-
-        # ── 2. Signature verification ──
-        received_hmac = data.get("hmac", "")
-        if received_hmac:
-            # Strip the hmac field from the body before verification:
-            # OxaPay computes the HMAC over the payload *without* the hmac
-            # field itself, so we rebuild the body excluding it.
-            verify_data = {k: v for k, v in data.items() if k != "hmac"}
-            verify_body = json.dumps(verify_data, separators=(",", ":")).encode()
-            if not verify_oxapay_signature(verify_body, received_hmac):
-                logging.warning("OxaPay webhook: HMAC signature mismatch — ignoring callback")
-                return ok
-
-        # ── 3. Only process terminal success statuses ──
-        status = data.get("status", "").lower()
-        if status not in ("paid", "confirmed"):
-            return ok
-
-        # ── 4. Extract fields ──
-        order_id = data.get("orderId", "")
-        track_id = data.get("trackId", "")
-        amount_usd = float(data.get("amount", 0))
-        paid_currency = data.get("currency", "USDT").upper()
-        raw_pay = (
-            data.get("payAmount")
-            if data.get("payAmount") is not None
-            else data.get("pay_amount")
-        )
-        pay_amount = float(raw_pay) if raw_pay is not None else amount_usd
-
-        # ── 5. Duplicate guard (keyed on orderId which we control) ──
-        dedup_key = order_id
-        if dedup_key in _oxapay_processed_orders:
-            logging.info(f"OxaPay webhook: duplicate callback for {dedup_key} — skipping")
-            return ok
-        _oxapay_processed_orders.add(dedup_key)
-
-        # ── 6. Validate amount ──
-        if pay_amount <= 0:
-            logging.warning(
-                f"OxaPay webhook: pay_amount is {pay_amount} for orderId {order_id}, skipping credit"
-            )
-            return ok
-
-        # ── 7. Resolve Telegram user from orderId ({telegram_id}_{timestamp}) ──
-        telegram_id_str = order_id.split("_")[0] if "_" in order_id else ""
-        if not telegram_id_str.isdigit():
-            logging.warning(f"OxaPay webhook: unrecognised orderId {order_id}")
-            return ok
-        telegram_id = int(telegram_id_str)
-
-        # ── 8. Record deposit in the database ──
-        # OxaPay deposits land directly in the merchant account — no on-chain
-        # sweep is necessary — so we move the status straight to 'swept'.
-        db = global_deposit_db
-        try:
-            tx_ref = order_id
-            db.add_deposit(
-                tx_hash=tx_ref,
-                user_id=telegram_id,
-                chain="OXAPAY",
-                amount=pay_amount,
-                amount_usd=amount_usd,
-                to_address="oxapay",
-                token=paid_currency,
-            )
-            db.update_deposit_status(
-                tx_ref, "confirmed",
-                confirmed_at=datetime.now().isoformat(),
-            )
-            db.update_deposit_status(
-                tx_ref, "swept",
-                swept_at=datetime.now().isoformat(),
-            )
-        except Exception as db_err:
-            logging.error(f"OxaPay webhook: DB error for {order_id}: {db_err}")
-
-        # ── 9. Credit user wallet ──
-        if telegram_id in user_wallets:
-            credit_wallet_crypto(telegram_id, pay_amount, paid_currency)
-            if telegram_id in user_stats:
-                user_stats[telegram_id]["unwagered_deposit"] = (
-                    user_stats[telegram_id].get("unwagered_deposit", 0.0) + amount_usd
-                )
-            save_user_data(telegram_id)
-            logging.info(
-                f"OxaPay: credited {pay_amount} {paid_currency} "
-                f"(${amount_usd:.2f}) to user {telegram_id}"
-            )
-        else:
-            logging.warning(f"OxaPay webhook: user {telegram_id} not found in user_wallets")
-
-        # ── 10. Notify the user via Telegram ──
-        if _oxapay_bot_ref:
-            try:
-                await _oxapay_bot_ref.send_message(
-                    chat_id=telegram_id,
-                    text=(
-                        f"✅ <b>Deposit Confirmed!</b>\n\n"
-                        f"💰 <b>{pay_amount:.8f} {paid_currency}</b> "
-                        f"(${amount_usd:.2f})\n\n"
-                        f"Your balance has been credited. Good luck! 🎰"
-                    ),
-                    parse_mode="HTML",
-                )
-            except Exception as msg_err:
-                logging.error(
-                    f"OxaPay webhook: failed to notify user {telegram_id}: {msg_err}"
-                )
-
-        return ok
-
-    except Exception as e:
-        logging.error(f"OxaPay webhook error: {e}")
-        # Still return 200 so OxaPay does not retry on our server errors.
-        return ok
-
-
-async def start_oxapay_webhook_server(application=None):
-    """Start the aiohttp web server that receives OxaPay payment callbacks.
-
-    Parameters
-    ----------
-    application : telegram.ext.Application, optional
-        The running Telegram Application whose ``bot`` attribute is used to
-        send deposit-confirmation messages to users.
-    """
-    global _oxapay_bot_ref
-
-    if not OXAPAY_MERCHANT_KEY or not OXAPAY_WEBHOOK_HOST:
-        logging.info(
-            "OxaPay webhook server not started "
-            "(OXAPAY_MERCHANT_KEY or OXAPAY_WEBHOOK_HOST not set)."
-        )
-        return
-
-    # Store bot reference so the webhook handler can send Telegram messages.
-    if application is not None:
-        _oxapay_bot_ref = application.bot
-
-    app_web = aiohttp.web.Application()
-    app_web.router.add_post("/oxapay_webhook", oxapay_webhook_handler)
-    runner = aiohttp.web.AppRunner(app_web)
-    await runner.setup()
-    site = aiohttp.web.TCPSite(runner, "0.0.0.0", OXAPAY_WEBHOOK_PORT)
-    await site.start()
-    logging.info(f"OxaPay webhook server listening on 0.0.0.0:{OXAPAY_WEBHOOK_PORT}")
 
 
 # ===== BACKGROUND TASKS =====
@@ -7508,6 +7191,25 @@ async def blackjack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = update.message.text.strip().split()
     await ensure_user_in_wallets(user.id, user.username, context=context)
 
+    # Check for existing active blackjack game
+    game = get_most_recent_active_game(user.id, 'blackjack')
+    if game:
+        game_id = game['id']
+        player_value = calculate_hand_value(game['player_hand'])
+        dealer_show_card = game['dealer_hand'][0]
+        hand_text = format_hand("Your hand", game['player_hand'], player_value)
+        dealer_text = f"Dealer shows: {dealer_show_card}\n"
+        keyboard = [
+            [InlineKeyboardButton("👊 Hit", callback_data=f"bj_hit_{game_id}"),
+             InlineKeyboardButton("✋ Stand", callback_data=f"bj_stand_{game_id}")],
+        ]
+        await update.message.reply_text(
+            f"⚠️ You have an unfinished Blackjack game!\n\n{hand_text}\n{dealer_text}\n💰 Bet: ${game['bet_amount']:.2f}\n\nResume your game or use <code>/continue {game_id}</code>.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
+        return
+
     user_currency = get_user_currency(user.id)
     formatted_balance = format_currency(get_active_balance_usd(user.id), user_currency)
 
@@ -7852,6 +7554,26 @@ async def coin_flip_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     args = update.message.text.strip().split()
     await ensure_user_in_wallets(user.id, user.username, context=context)
+
+    # Check for existing active coin flip game
+    game = get_most_recent_active_game(user.id, 'coin_flip')
+    if game:
+        game_id = game['id']
+        multiplier = 2 ** game.get('streak', 0)
+        win_amount = game['bet_amount'] * multiplier
+        keyboard = [
+            [apply_button_style(InlineKeyboardButton("🪙 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+             apply_button_style(InlineKeyboardButton("🪙 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
+        ]
+        if game.get('streak', 0) > 0:
+            keyboard.append([apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')])
+        await update.message.reply_text(
+            f"⚠️ You have an unfinished Coin Flip game! (ID: <code>{game_id}</code>)\n\n💰 Bet: ${game['bet_amount']:.2f} | Streak: {game.get('streak', 0)}\n\nContinue your game or use <code>/continue {game_id}</code>.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=create_styled_keyboard(keyboard)
+        )
+        return
+
     if len(args) != 2:
         await update.message.reply_text("Usage: /flip amount or /flip all")
         return
@@ -8180,7 +7902,37 @@ async def highlow_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     args = update.message.text.strip().split()
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    
+
+    # Check for existing active high-low game
+    game = get_most_recent_active_game(user.id, 'highlow')
+    if game:
+        game_id = game['id']
+        current_card = game['current_card']
+        deck = game['deck']
+        streak = game.get('streak', 0)
+        current_multiplier = game.get('current_multiplier', 1.0)
+        card_name = get_card_name(current_card)
+        high_mult = calculate_highlow_multiplier(current_card, deck, "high")
+        low_mult = calculate_highlow_multiplier(current_card, deck, "low")
+        tie_mult = calculate_highlow_multiplier(current_card, deck, "tie")
+        row1 = []
+        if current_card != 13:
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+        if current_card != 1:
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+        row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+        row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
+        if streak > 0:
+            cashout_amount = game['bet_amount'] * current_multiplier
+            row3.append(apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${cashout_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success'))
+        keyboard = [row1, row2, row3]
+        await update.message.reply_text(
+            f"⚠️ You have an unfinished High-Low game! (ID: <code>{game_id}</code>)\n\n🃏 Current card: <b>{card_name}</b> | Streak: {streak} | Multiplier: {current_multiplier:.2f}x\n\nContinue your game or use <code>/continue {game_id}</code>.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=create_styled_keyboard(keyboard)
+        )
+        return
+
     if len(args) != 2:
         await update.message.reply_text(
             "Usage: /hl amount\n\nExamples:\n"
@@ -9694,8 +9446,28 @@ async def tower_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /tower and /tr commands with amount"""
     user = update.effective_user
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    
-    # Parse bet amount from command
+
+    # Check for existing active tower game
+    game = get_most_recent_active_game(user.id, 'tower')
+    if game:
+        game_id = game['id']
+        game_keyboard = build_tower_keyboard(game)
+        current_floor = game.get('current_floor', 0)
+        difficulty = game.get('difficulty', 'medium')
+        multiplier = TOWER_MULTIPLIERS[difficulty][current_floor] if current_floor > 0 else 1.0
+        potential_win = game['bet_amount'] * multiplier
+        action_row = []
+        if current_floor > 0:
+            action_row.append(apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${potential_win:.2f})", callback_data=f"tower_cashout_{game_id}"), 'success'))
+        if action_row:
+            game_keyboard.append(action_row)
+        await update.message.reply_text(
+            f"⚠️ You have an unfinished Tower game! (ID: <code>{game_id}</code>)\n\n💰 Bet: ${game['bet_amount']:.2f} | Floor: {current_floor}/9\n\nContinue your game or use <code>/continue {game_id}</code>.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(game_keyboard)
+        )
+        return
+
     try:
         if context.args and len(context.args) > 0:
             bet_str = context.args[0].lower()
@@ -19956,9 +19728,6 @@ async def post_init(application: Application):
     # Start the raffle monitoring task
     application.create_task(monitor_raffles_task(application))
 
-    # Start OxaPay webhook server (pass application so it can send Telegram messages)
-    application.create_task(start_oxapay_webhook_server(application))
-    
     logging.info("Background tasks started successfully via post_init")
 # --- Main Function ---)
 # ===== BONUS ADJUSTMENT SYSTEM =====
@@ -20497,19 +20266,6 @@ def main():
     app.add_handler(CallbackQueryHandler(check_deposit_status, pattern=r"^(deposit_history|check_deposit_)"))
     app.add_handler(CallbackQueryHandler(back_to_deposit_menu, pattern=r"^back_to_deposit_menu"))
 
-    # OxaPay ConversationHandler
-    oxapay_handler = ConversationHandler(
-        entry_points=[CallbackQueryHandler(oxapay_deposit_start, pattern=r"^deposit_oxapay$")],
-        states={
-            OXAPAY_ASK_AMOUNT: [MessageHandler(filters.TEXT & ~filters.COMMAND, oxapay_receive_amount)],
-            OXAPAY_ASK_CURRENCY: [MessageHandler(filters.TEXT & ~filters.COMMAND, oxapay_receive_currency)],
-        },
-        fallbacks=[CommandHandler("cancel", oxapay_cancel)],
-        per_user=True,
-        conversation_timeout=timedelta(minutes=5).total_seconds()
-    )
-    app.add_handler(oxapay_handler)
-
     # ===== RAIN SYSTEM HANDLERS =====
     app.add_handler(CallbackQueryHandler(join_rain_callback, pattern=r"^join_rain_"))
     
@@ -20767,7 +20523,21 @@ async def start_game_conversation_from_command(update: Update, context: ContextT
     command = update.message.text.split()[0].lower()
     game_type = 'mines' if command == '/mines' else 'tower'
     context.user_data['game_type'] = game_type
-    
+    user = update.effective_user
+    await ensure_user_in_wallets(user.id, user.username, context=context)
+
+    # Check for existing active mines game
+    if game_type == 'mines':
+        game = get_most_recent_active_game(user.id, 'mines')
+        if game:
+            game_id = game['id']
+            await update.message.reply_text(
+                f"⚠️ You have an unfinished Mines game! (ID: <code>{game_id}</code>)\n\n💰 Bet: ${game['bet_amount']:.2f} | Mines: {game.get('num_mines', '?')} | Picks: {len(game.get('picks', []))}\n\nContinue your game or use <code>/continue {game_id}</code>.",
+                parse_mode=ParseMode.HTML,
+                reply_markup=mines_keyboard(game_id)
+            )
+            return ConversationHandler.END
+
     # NEW: For /mines amount, parse bet amount from command
     if game_type == 'mines' and context.args and len(context.args) > 0:
         user = update.effective_user
