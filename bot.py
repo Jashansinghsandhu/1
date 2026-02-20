@@ -78,6 +78,19 @@ except ImportError:
     TON_AVAILABLE = False
     logging.warning("TON library not available. Install with: pip install pytoniq-core")
 
+# ===== OPTIONAL: OxaPay Deposit System =====
+# newdepositmethods.py must be in the same directory as bot.py
+try:
+    from newdepositmethods import register_oxapay_handlers, start_oxapay_webhook
+    from newdepositmethods import OXAPAY_MERCHANT_KEY as _OXAPAY_KEY
+    OXAPAY_MODULE_AVAILABLE = True
+    # Only show the OxaPay button when a real merchant key is configured
+    OXAPAY_BUTTON_ENABLED = bool(_OXAPAY_KEY and _OXAPAY_KEY != "sandbox")
+except ImportError:
+    OXAPAY_MODULE_AVAILABLE = False
+    OXAPAY_BUTTON_ENABLED = False
+    logging.info("newdepositmethods.py not found — OxaPay deposit system disabled.")
+
 # --- Bot Configuration ---
 BOT_TOKEN = "7956452112:AAGSZVLZz34ep8qCsLKnTRZambI67r_T3ro"
 HELPER_BOT_TOKEN = "8524914117:AAE1zTiTBm2npMdVguapC0HYbjFdaM56yyY"  # Add your second bot token here for load balancing PvP games in groups
@@ -3777,7 +3790,16 @@ def build_deposit_menu():
     
     if row_3:
         keyboard_rows.append(row_3)
-    
+
+    # OxaPay button (shown when newdepositmethods.py is present and key is configured)
+    if OXAPAY_BUTTON_ENABLED:
+        keyboard_rows.append([
+            apply_button_style(
+                InlineKeyboardButton("⚡ OxaPay (Card / Crypto)", callback_data="deposit_oxapay"),
+                'primary'
+            )
+        ])
+
     # Add bottom row - History BLUE, Back RED
     keyboard_rows.append([
         apply_button_style(InlineKeyboardButton("📊 Deposit History", callback_data="deposit_history"), 'primary'),  # BLUE
@@ -19728,6 +19750,10 @@ async def post_init(application: Application):
     # Start the raffle monitoring task
     application.create_task(monitor_raffles_task(application))
 
+    # Start OxaPay webhook server if newdepositmethods.py is present
+    if OXAPAY_MODULE_AVAILABLE:
+        application.create_task(start_oxapay_webhook(application))
+
     logging.info("Background tasks started successfully via post_init")
 # --- Main Function ---)
 # ===== BONUS ADJUSTMENT SYSTEM =====
@@ -20265,6 +20291,10 @@ def main():
     app.add_handler(CallbackQueryHandler(deposit_method_callback, pattern=r"^deposit_(ETH|BNB|BASE|TRON|SOLANA|TON)$"))
     app.add_handler(CallbackQueryHandler(check_deposit_status, pattern=r"^(deposit_history|check_deposit_)"))
     app.add_handler(CallbackQueryHandler(back_to_deposit_menu, pattern=r"^back_to_deposit_menu"))
+
+    # ===== OXAPAY DEPOSIT SYSTEM (newdepositmethods.py) =====
+    if OXAPAY_MODULE_AVAILABLE:
+        register_oxapay_handlers(app)
 
     # ===== RAIN SYSTEM HANDLERS =====
     app.add_handler(CallbackQueryHandler(join_rain_callback, pattern=r"^join_rain_"))
