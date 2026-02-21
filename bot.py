@@ -79,8 +79,8 @@ except ImportError:
     logging.warning("TON library not available. Install with: pip install pytoniq-core")
 
 # --- Bot Configuration ---
-BOT_TOKEN = "7956452112:AAGSZVLZz34ep8qCsLKnTRZambI67r_T3ro"
-HELPER_BOT_TOKEN = "8524914117:AAE1zTiTBm2npMdVguapC0HYbjFdaM56yyY"  # Add your second bot token here for load balancing PvP games in groups
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+HELPER_BOT_TOKEN = os.environ.get("HELPER_BOT_TOKEN", "")  # Add your second bot token here for load balancing PvP games in groups
 BOT_OWNER_IDS = [6083286836,6375756612]  # List of admin Telegram IDs. First ID receives withdrawal notifications.
 BOT_OWNER_ID = BOT_OWNER_IDS[0]  # Primary admin (backward compat for withdrawal notifications)
 
@@ -162,15 +162,15 @@ ROULETTE_IMAGE = "roulette_table.jpg"  # Change this to your image filename
 WIN_BROADCAST_CHANNEL_ID = "@playcasinowins"  # Example: "-1003848853417" or "@mychannel" or leave empty to disable
 
 ## NEW FEATURE - AI Integration ##
-PERPLEXITY_API_KEY = "[REDACTED]" # I will add this
+PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "") # I will add this
 # NEW FEATURE - MEXC Price Integration
-MEXC_API_KEY = "mx0vgltPHKyw92y4qZ" # I will add this
-MEXC_API_SECRET = "5f4f81217f514a799e4d77842bcc4a26" # I will add this
+MEXC_API_KEY = os.environ.get("MEXC_API_KEY", "") # I will add this
+MEXC_API_SECRET = os.environ.get("MEXC_API_SECRET", "") # I will add this
 
 # --- Escrow Configuration ---
 # LEAVE THESE BLANK - I will add them manually
-ESCROW_DEPOSIT_ADDRESS = "0xdda0e87f6c1344e07cfce9cefb12f3a286a0fb38"  # Your fixed BEP20 address for receiving escrow funds
-ESCROW_WALLET_PRIVATE_KEY = "0bbaf8d35b64859555b1a6acc7909ac349bced46b2fcf2c8d616343fec138353" # The private key for the above address to send funds
+ESCROW_DEPOSIT_ADDRESS = os.environ.get("ESCROW_DEPOSIT_ADDRESS", "")  # Your fixed BEP20 address for receiving escrow funds
+ESCROW_WALLET_PRIVATE_KEY = os.environ.get("ESCROW_WALLET_PRIVATE_KEY", "") # The private key for the above address to send funds
 ESCROW_DEPOSIT_NETWORK = "bsc"
 ESCROW_DEPOSIT_TOKEN_CONTRACT = "0x55d398326f99059fF775485246999027B3197955" # USDT BEP20
 ESCROW_DEPOSIT_TOKEN_DECIMALS = 18
@@ -186,7 +186,7 @@ DEPOSIT_ENABLED = True
 DEPOSITS_DB = "deposits.db"
 
 # OxaPay merchant API key — get yours at https://oxapay.com/
-OXAPAY_MERCHANT_KEY = "ONJRRF-JIWZG3-PIUVLS-E9ZRDT"   # Fill in your OxaPay merchant key
+OXAPAY_MERCHANT_KEY = os.environ.get("OXAPAY_MERCHANT_KEY", "")   # Fill in your OxaPay merchant key
 # Publicly reachable URL where your bot runs (needed for OxaPay webhook callbacks)
 OXAPAY_WEBHOOK_HOST = "https://play-casino.app"   # e.g. "https://your-server.com"
 OXAPAY_WEBHOOK_PORT = 8080  # Port for the aiohttp webhook listener
@@ -202,11 +202,11 @@ _oxapay_processed_orders = set()  # In-memory duplicate-payment guard
 # ========================================
 # Generate a 24-word mnemonic: https://iancoleman.io/bip39/
 # ⚠️ KEEP THIS SECRET! Anyone with this can access all deposit addresses
-MASTER_MNEMONIC = "inflict police tooth diesel ladder crawl pupil daughter label cliff clip visit base marine increase pizza kiwi royal knee panther half ill habit rookie"  # Example: "word1 word2 word3 ... word24"
+MASTER_MNEMONIC = os.environ.get("MASTER_MNEMONIC", "")  # Example: "word1 word2 word3 ... word24"
 
 # Hot wallet private key for gas funding (EVM format starting with 0x)
 # ⚠️ Keep minimal balance here (max $100 worth for gas only)
-HOT_WALLET_PRIVATE_KEY = "fea03d11d9993d1b357fb01ef238ab9e59457ca9c8df9fdb3c131bac8c034b93"  # Example: "0x1234567890abcdef..."
+HOT_WALLET_PRIVATE_KEY = os.environ.get("HOT_WALLET_PRIVATE_KEY", "")  # Example: "0x1234567890abcdef..."
 
 # Master wallet addresses where ALL deposits are swept to
 # ⚠️ Use cold wallets or hardware wallets for these!
@@ -17580,14 +17580,6 @@ async def raffles_back_callback(update: Update, context: ContextTypes.DEFAULT_TY
 @check_banned
 @check_maintenance
 ## NEW FEATURE - /level and /levelall commands ##
-def create_progress_bar(progress, total, length=10):
-    """Creates a text-based progress bar."""
-    if total <= 0:
-        return "▬" * length
-    filled_length = min(length, int(length * progress // total))
-    bar = '■' * filled_length + '□' * (length - filled_length)
-    return bar
-
 # NEW: Referral callback handlers
 async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Transfer accumulated referral commissions to main balance"""
