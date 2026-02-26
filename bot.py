@@ -155,7 +155,7 @@ LINK_SUPPORT = "https://t.me/jashanxjagy"  # Support link (e.g., "https://t.me/y
 ROULETTE_IMAGE = "roulette_table.jpg"  # Change this to your image filename
 
 # --- Win Broadcast Configuration ---
-# ⚠️ IMPORTANT: Can use either Channel ID or Username
+# <tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> IMPORTANT: Can use either Channel ID or Username
 # For Channel ID: Usually requires a "-100" prefix (e.g., "-1003848853417")
 # For Channel Username: Use @ prefix for public channels (e.g., "@mychannel")
 # Leave empty to disable win broadcasting
@@ -179,7 +179,7 @@ ESCROW_DEPOSIT_TOKEN_DECIMALS = 18
 REFERRAL_BET_COMMISSION_RATE = 0.001      # 0.1%
 
 # ===== DEPOSIT SYSTEM CONFIGURATION =====
-# ⚠️ IMPORTANT: Configure these values below for deposit system to work
+# <tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> IMPORTANT: Configure these values below for deposit system to work
 # No .env file needed - everything is configured directly in this file
 
 DEPOSIT_ENABLED = True
@@ -198,18 +198,18 @@ _oxapay_bot_ref = None            # Will hold the Telegram Bot instance (set at 
 _oxapay_processed_orders = set()  # In-memory duplicate-payment guard
 
 # ========================================
-# 🔐 SECURITY CRITICAL - FILL THESE VALUES
+# <tg-emoji emoji-id="5453901475648390219">⭐</tg-emoji> SECURITY CRITICAL - FILL THESE VALUES
 # ========================================
 # Generate a 24-word mnemonic: https://iancoleman.io/bip39/
-# ⚠️ KEEP THIS SECRET! Anyone with this can access all deposit addresses
+# <tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> KEEP THIS SECRET! Anyone with this can access all deposit addresses
 MASTER_MNEMONIC = "inflict police tooth diesel ladder crawl pupil daughter label cliff clip visit base marine increase pizza kiwi royal knee panther half ill habit rookie"  # Example: "word1 word2 word3 ... word24"
 
 # Hot wallet private key for gas funding (EVM format starting with 0x)
-# ⚠️ Keep minimal balance here (max $100 worth for gas only)
+# <tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> Keep minimal balance here (max $100 worth for gas only)
 HOT_WALLET_PRIVATE_KEY = "fea03d11d9993d1b357fb01ef238ab9e59457ca9c8df9fdb3c131bac8c034b93"  # Example: "0x1234567890abcdef..."
 
 # Master wallet addresses where ALL deposits are swept to
-# ⚠️ Use cold wallets or hardware wallets for these!
+# <tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> Use cold wallets or hardware wallets for these!
 MASTER_WALLETS = {
     "ETH": "0x3011d124812d638c3eb4743ebe2261a2b0e47806",      # Example: "0x1234567890abcdef1234567890abcdef12345678"
     "BNB": "0x3011d124812d638c3eb4743ebe2261a2b0e47806",      # Example: "0x1234567890abcdef1234567890abcdef12345678"
@@ -220,7 +220,7 @@ MASTER_WALLETS = {
 }
 
 # ========================================
-# 🌐 BLOCKCHAIN RPC ENDPOINTS (Optional)
+# <tg-emoji emoji-id="5900086068748752426">⭐</tg-emoji> BLOCKCHAIN RPC ENDPOINTS (Optional)
 # ========================================
 # Default public RPCs are provided - you can use your own for better performance
 RPC_ENDPOINTS = {
@@ -308,14 +308,14 @@ TOKEN_CONTRACTS = {
 }
 
 # ========================================
-# ⚙️ DEPOSIT SETTINGS (Optional - defaults provided)
+# <tg-emoji emoji-id="5409048419211682843">⭐</tg-emoji> DEPOSIT SETTINGS (Optional - defaults provided)
 # ========================================
 MIN_DEPOSIT_USD = 10.0       # Minimum deposit amount in USD
 SCAN_INTERVAL = 30            # How often to scan for deposits (seconds)
 SWEEP_INTERVAL = 60           # How often to process sweeps (seconds)
 
 # ========================================
-# 🌧️ RAIN SETTINGS
+# <tg-emoji emoji-id="5334544901428229844">⭐</tg-emoji> RAIN SETTINGS
 # ========================================
 RAIN_MIN_AMOUNT = 1.0         # Minimum USD value that can be rained
 RAIN_DURATION_SECONDS = 300   # How long the rain window stays open (seconds) - 5 minutes
@@ -516,8 +516,8 @@ LIVE_PRICES = {
     "LTC": 70.0,
 }
 CRYPTO_SYMBOLS = {
-    "USDT": "💵", "BTC": "₿", "ETH": "💎", "SOL": "◎",
-    "BNB": "🔶", "TRX": "🔷", "LTC": "🪙",
+    "USDT": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>", "BTC": "₿", "ETH": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>", "SOL": "◎",
+    "BNB": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>", "TRX": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>", "LTC": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>",
 }
 # Decimal precision per crypto: BTC gets 8, others get 5
 CRYPTO_PRECISION = {
@@ -816,14 +816,14 @@ def get_user_currency(user_id):
 
 ## NEW FEATURE - Achievements ##
 ACHIEVEMENTS = {
-    "wager_100": {"name": "🎲 Player", "description": "Wager a total of $100.", "emoji": "🎲", "type": "wager", "value": 100},
-    "wager_1000": {"name": "💰 High Roller", "description": "Wager a total of $1,000.", "emoji": "💰", "type": "wager", "value": 1000},
-    "wager_10000": {"name": "👑 Whale", "description": "Wager a total of $10,000.", "emoji": "👑", "type": "wager", "value": 10000},
-    "wins_50": {"name": "👍 Winner", "description": "Win 50 games.", "emoji": "👍", "type": "wins", "value": 50},
-    "wins_250": {"name": "🏆 Champion", "description": "Win 250 games.", "emoji": "🏆", "type": "wins", "value": 250},
-    "pvp_wins_25": {"name": "⚔️ Duelist", "description": "Win 25 PvP matches.", "emoji": "⚔️", "type": "pvp_wins", "value": 25},
-    "lucky_100x": {"name": "🌟 Lucky Star", "description": "Win a bet with a 100x or higher multiplier.", "emoji": "🌟", "type": "multiplier", "value": 100},
-    "referral_master": {"name": "🤝 Connector", "description": "Refer 5 active users.", "emoji": "🤝", "type": "referrals", "value": 5},
+    "wager_100": {"name": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Player", "description": "Wager a total of $100.", "emoji": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "type": "wager", "value": 100},
+    "wager_1000": {"name": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> High Roller", "description": "Wager a total of $1,000.", "emoji": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>", "type": "wager", "value": 1000},
+    "wager_10000": {"name": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Whale", "description": "Wager a total of $10,000.", "emoji": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji>", "type": "wager", "value": 10000},
+    "wins_50": {"name": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Winner", "description": "Win 50 games.", "emoji": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji>", "type": "wins", "value": 50},
+    "wins_250": {"name": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Champion", "description": "Win 250 games.", "emoji": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>", "type": "wins", "value": 250},
+    "pvp_wins_25": {"name": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Duelist", "description": "Win 25 PvP matches.", "emoji": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji>", "type": "pvp_wins", "value": 25},
+    "lucky_100x": {"name": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Lucky Star", "description": "Win a bet with a 100x or higher multiplier.", "emoji": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>", "type": "multiplier", "value": 100},
+    "referral_master": {"name": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Connector", "description": "Refer 5 active users.", "emoji": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji>", "type": "referrals", "value": 5},
 }
 ## NEW FEATURE - Level System ##
 # --- NEW LEVEL CONFIGURATION ---
@@ -875,8 +875,8 @@ TIER_RAKEBACK = {
 
 # Tier-specific emojis for level display
 TIER_EMOJI = {
-    "Bronze": "🥉", "Silver": "🥈", "Gold": "🥇", "Platinum": "⭐",
-    "Diamond": "💎", "Emerald": "🟢", "Ruby": "🔴", "Sapphire": "🔵"
+    "Bronze": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>", "Silver": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>", "Gold": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>", "Platinum": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>",
+    "Diamond": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>", "Emerald": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>", "Ruby": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>", "Sapphire": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
 }
 
 # Pre-calculate navigation map for the pagination buttons
@@ -921,7 +921,7 @@ def _progress_bar(current, target, length=10):
     if target == 0: return "▬" * length
     pct = min(1.0, current / target)
     fill = int(pct * length)
-    return "🔘" * fill + "▬" * (length - fill)
+    return "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>" * fill + "▬" * (length - fill)
 ## NEW FEATURE - Language Support ##
 # Comprehensive language system with 6 supported languages loaded from text files
 def get_user_lang(user_id):
@@ -1015,110 +1015,110 @@ LANGUAGES = {
     "en": {  # English
         "language_name": "English 🇬🇧",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>Welcome to Telegram Casino & Escrow Bot!</b> 🎰",
-        "hello": "👋 Hello {first_name}!",
-        "welcome_desc": "🎲 Experience the thrill of casino games or secure your trades with our automated Escrow system.",
-        "ai_feature": "✨ NEW: Chat with our <b>AI Assistant</b> for any questions or tasks!",
-        "current_balance": "💰 Current Balance: <b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Welcome to Telegram Casino & Escrow Bot!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hello {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Experience the thrill of casino games or secure your trades with our automated Escrow system.",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> NEW: Chat with our <b>AI Assistant</b> for any questions or tasks!",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current Balance: <b>{balance}</b>",
         "choose_option": "Choose an option below to get started:",
         
         # Buttons
-        "withdraw": "📤 Withdraw",
-        "games": "🎮 Games",
-        "more": "➕ More",
-        "stats": "📊 Statistics",
-        "settings": "⚙️ Settings",
-        "help": "❓ Help",
-        "bonuses": "🎁 Bonuses",
-        "escrow": "🔐 Escrow",
-        "ai_assistant": "🤖 AI Assistant",
-        "back": "🔙 Back",
-        "cancel": "❌ Cancel",
-        "confirm": "✅ Confirm",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Withdraw",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Games",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> More",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Statistics",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Help",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bonuses",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Escrow",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> AI Assistant",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Confirm",
         
         # Balance and Currency
-        "balance": "💰 Your balance: {balance}",
-        "your_balance": "💰 Your balance: {balance}",
-        "insufficient_balance": "❌ Insufficient balance. Please deposit to continue.",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your balance: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your balance: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please deposit to continue.",
         "locked_in_games": "+ {amount} locked in games",
         
         # Betting
         "enter_bet_amount": "Enter your bet amount:",
-        "bet_placed": "🎲 Bet placed: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bet placed: ${amount:.2f}",
         "invalid_amount": "Invalid amount. Please enter a valid number or 'all'.",
         "min_bet": "Minimum bet for this game is {amount}",
         "max_bet": "Maximum bet for this game is {amount}",
         
         # Game Results
-        "you_won": "🎉 You won {amount}!",
-        "you_lost": "😔 You lost. Better luck next time!",
-        "game_started": "🎮 Game started!",
-        "game_ended": "🎮 Game ended!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You won {amount}!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lost. Better luck next time!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Game started!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Game ended!",
         "round": "Round {round}",
         "waiting_for_opponent": "⏳ Waiting for opponent...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 You have successfully claimed your daily bonus of {amount}!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You have successfully claimed your daily bonus of {amount}!",
         "daily_claim_wait": "⏳ You have already claimed your daily bonus. Please wait {hours}h {minutes}m before claiming again.",
-        "daily_bonus": "🎁 Daily Bonus",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Daily Bonus",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>Achievement Unlocked!</b> 🏅\n\nYou have earned the <b>{emoji} {name}</b> badge!\n<i>{description}</i>",
-        "achievements": "🏅 Achievements",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Achievement Unlocked!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\nYou have earned the <b>{emoji} {name}</b> badge!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Achievements",
         "no_achievements": "You haven't unlocked any achievements yet. Start playing to earn badges!",
         
         # Language
-        "language_set": "✅ Language set to English",
-        "select_language": "🌍 <b>Select your language:</b>",
-        "language": "🌍 Language",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Language set to English",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Select your language:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Language",
         
         # Games Menu
-        "games_menu": "🎮 <b>Casino Games</b>\n\nChoose a category:",
-        "dice_games": "🎲 Dice Games",
-        "card_games": "🃏 Card Games",
-        "original_games": "⭐ Original Games",
-        "quick_games": "⚡ Quick Games",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Casino Games</b>\n\nChoose a category:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice Games",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Card Games",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Original Games",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Quick Games",
         
         # Settings
-        "settings_menu": "⚙️ <b>Settings</b>\n\nCustomize your experience:",
-        "withdrawal_address": "💳 Withdrawal Address",
-        "currency_settings": "💱 Currency",
-        "recovery_settings": "🔐 Recovery",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Settings</b>\n\nCustomize your experience:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdrawal Address",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Currency",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Recovery",
         
         # Help
-        "help_text": "❓ <b>Help & Commands</b>\n\nAvailable commands:\n/start - Main menu\n/games - Browse games\n/balance - Check balance\n/withdraw - Withdraw funds\n/stats - View statistics\n/daily - Claim daily bonus\n/help - Show this help\n\nFor support, contact @jashanxjagy",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Help & Commands</b>\n\nAvailable commands:\n/start - Main menu\n/games - Browse games\n/balance - Check balance\n/withdraw - Withdraw funds\n/stats - View statistics\n/daily - Claim daily bonus\n/help - Show this help\n\nFor support, contact @jashanxjagy",
         
         # Errors
-        "error_occurred": "❌ An error occurred. Please try again.",
-        "command_not_found": "❌ Command not found. Use /help to see available commands.",
-        "maintenance_mode": "🛠️ <b>Bot Under Maintenance</b> 🛠️\n\nThe bot is currently undergoing scheduled maintenance.",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Please try again.",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Command not found. Use /help to see available commands.",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot Under Maintenance</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\nThe bot is currently undergoing scheduled maintenance.",
         "banned_user": "You have been banned from using this bot.",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>Withdraw</b>\n\nEnter the amount you want to withdraw:",
-        "withdrawal_success": "✅ Withdrawal request submitted successfully!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Withdraw</b>\n\nEnter the amount you want to withdraw:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Withdrawal request submitted successfully!",
         "withdrawal_pending": "Your withdrawal is being processed...",
         
         # Admin
-        "admin_panel": "👑 <b>Admin Panel</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Admin Panel</b>",
         "admin_only": "This command is only available to administrators.",
         
         # Misc
-        "coming_soon": "🚧 Coming Soon!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Coming Soon!",
         "feature_disabled": "This feature is currently disabled.",
         "loading": "⏳ Loading...",
         "processing": "⏳ Processing...",
         
         # Game-specific messages
-        "dice_game": "🎲 Dice",
-        "darts_game": "🎯 Darts",
-        "football_game": "⚽ Football",
-        "bowling_game": "🎳 Bowling",
-        "blackjack_game": "🃏 Blackjack",
-        "roulette_game": "🎯 Roulette",
-        "slots_game": "🎰 Slots",
-        "play_vs_bot": "🤖 Play vs Bot",
-        "play_vs_player": "👤 Play vs Player",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slots",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play vs Bot",
+        "play_vs_player": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Play vs Player",
         "who_to_play": "Who do you want to play against?",
         "bot_rolling": "Bot is rolling...",
         "your_turn": "Your turn! Send {rolls} {emoji}!",
@@ -1127,16 +1127,16 @@ LANGUAGES = {
         "you_win_round": "You win this round!",
         "bot_wins_round": "Bot wins this round!",
         "tie_round": "It's a tie! No point.",
-        "you_win_game": "🏆 Congratulations! You beat the bot ({user_score}-{bot_score}) and win {amount}!",
-        "bot_wins_game": "😔 Bot wins the match ({bot_score}-{user_score}). You lost {amount}.",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Congratulations! You beat the bot ({user_score}-{bot_score}) and win {amount}!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Bot wins the match ({bot_score}-{user_score}). You lost {amount}.",
         "score_update": "Score: You {user_score} - {bot_score} Bot. (First to {target})",
         "roll_complete": "Roll {current}/{total} complete. Send {remaining} more {emoji}!",
-        "normal_mode": "🎮 Normal Mode",
-        "crazy_mode": "🔥 Crazy Mode",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Normal Mode",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crazy Mode",
         "select_mode": "Select game mode:",
         "select_rolls": "Select number of rolls:",
         "select_target": "Select target score:",
-        "game_created": "🎯 Game created! Waiting for opponent...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Game created! Waiting for opponent...",
         "usage_dice": "Usage: /dice <amount>\nExample: /dice 5 or /dice all",
         "usage_darts": "Usage: /darts <amount>\nExample: /darts 5 or /darts all",
         "usage_goal": "Usage: /goal <amount>\nExample: /goal 5 or /goal all",
@@ -1145,110 +1145,110 @@ LANGUAGES = {
     "es": {  # Spanish
         "language_name": "Español 🇪🇸",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>¡Bienvenido al Bot de Casino y Escrow de Telegram!</b> 🎰",
-        "hello": "👋 ¡Hola {first_name}!",
-        "welcome_desc": "🎲 Experimenta la emoción de los juegos de casino o asegura tus operaciones con nuestro sistema automatizado de Escrow.",
-        "ai_feature": "✨ NUEVO: ¡Chatea con nuestro <b>Asistente IA</b> para cualquier pregunta o tarea!",
-        "current_balance": "💰 Saldo Actual: <b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>¡Bienvenido al Bot de Casino y Escrow de Telegram!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> ¡Hola {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Experimenta la emoción de los juegos de casino o asegura tus operaciones con nuestro sistema automatizado de Escrow.",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> NUEVO: ¡Chatea con nuestro <b>Asistente IA</b> para cualquier pregunta o tarea!",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Saldo Actual: <b>{balance}</b>",
         "choose_option": "Elige una opción para comenzar:",
         
         # Buttons
-        "withdraw": "📤 Retirar",
-        "games": "🎮 Juegos",
-        "more": "➕ Más",
-        "stats": "📊 Estadísticas",
-        "settings": "⚙️ Configuración",
-        "help": "❓ Ayuda",
-        "bonuses": "🎁 Bonos",
-        "escrow": "🔐 Depósito en garantía",
-        "ai_assistant": "🤖 Asistente IA",
-        "back": "🔙 Atrás",
-        "cancel": "❌ Cancelar",
-        "confirm": "✅ Confirmar",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Retirar",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Juegos",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Más",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Estadísticas",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Configuración",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ayuda",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bonos",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Depósito en garantía",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Asistente IA",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Atrás",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancelar",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Confirmar",
         
         # Balance and Currency
-        "balance": "💰 Tu saldo: {balance}",
-        "your_balance": "💰 Tu saldo: {balance}",
-        "insufficient_balance": "❌ Saldo insuficiente. Por favor deposita para continuar.",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tu saldo: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tu saldo: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Saldo insuficiente. Por favor deposita para continuar.",
         "locked_in_games": "+ {amount} bloqueado en juegos",
         
         # Betting
         "enter_bet_amount": "Ingresa tu cantidad de apuesta:",
-        "bet_placed": "🎲 Apuesta realizada: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Apuesta realizada: ${amount:.2f}",
         "invalid_amount": "Cantidad inválida. Por favor ingresa un número válido o 'all'.",
         "min_bet": "La apuesta mínima para este juego es {amount}",
         "max_bet": "La apuesta máxima para este juego es {amount}",
         
         # Game Results
-        "you_won": "🎉 ¡Ganaste {amount}!",
-        "you_lost": "😔 Perdiste. ¡Mejor suerte la próxima vez!",
-        "game_started": "🎮 ¡Juego iniciado!",
-        "game_ended": "🎮 ¡Juego terminado!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> ¡Ganaste {amount}!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Perdiste. ¡Mejor suerte la próxima vez!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> ¡Juego iniciado!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> ¡Juego terminado!",
         "round": "Ronda {round}",
         "waiting_for_opponent": "⏳ Esperando oponente...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 ¡Has reclamado con éxito tu bono diario de {amount}!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> ¡Has reclamado con éxito tu bono diario de {amount}!",
         "daily_claim_wait": "⏳ Ya has reclamado tu bono diario. Por favor, espera {hours}h {minutes}m antes de volver a reclamar.",
-        "daily_bonus": "🎁 Bono Diario",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bono Diario",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>¡Logro Desbloqueado!</b> 🏅\n\n¡Has ganado la insignia <b>{emoji} {name}</b>!\n<i>{description}</i>",
-        "achievements": "🏅 Logros",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>¡Logro Desbloqueado!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\n¡Has ganado la insignia <b>{emoji} {name}</b>!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Logros",
         "no_achievements": "Aún no has desbloqueado ningún logro. ¡Comienza a jugar para ganar insignias!",
         
         # Language
-        "language_set": "✅ Idioma configurado a Español",
-        "select_language": "🌍 <b>Selecciona tu idioma:</b>",
-        "language": "🌍 Idioma",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Idioma configurado a Español",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Selecciona tu idioma:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Idioma",
         
         # Games Menu
-        "games_menu": "🎮 <b>Juegos de Casino</b>\n\nElige una categoría:",
-        "dice_games": "🎲 Juegos de Dados",
-        "card_games": "🃏 Juegos de Cartas",
-        "original_games": "⭐ Juegos Originales",
-        "quick_games": "⚡ Juegos Rápidos",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Juegos de Casino</b>\n\nElige una categoría:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Juegos de Dados",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Juegos de Cartas",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Juegos Originales",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Juegos Rápidos",
         
         # Settings
-        "settings_menu": "⚙️ <b>Configuración</b>\n\nPersonaliza tu experiencia:",
-        "withdrawal_address": "💳 Dirección de Retiro",
-        "currency_settings": "💱 Moneda",
-        "recovery_settings": "🔐 Recuperación",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Configuración</b>\n\nPersonaliza tu experiencia:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Dirección de Retiro",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Moneda",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Recuperación",
         
         # Help
-        "help_text": "❓ <b>Ayuda y Comandos</b>\n\nComandos disponibles:\n/start - Menú principal\n/games - Ver juegos\n/balance - Ver saldo\n/withdraw - Retirar fondos\n/stats - Ver estadísticas\n/daily - Reclamar bono diario\n/help - Mostrar esta ayuda\n\nPara soporte, contacta @jashanxjagy",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Ayuda y Comandos</b>\n\nComandos disponibles:\n/start - Menú principal\n/games - Ver juegos\n/balance - Ver saldo\n/withdraw - Retirar fondos\n/stats - Ver estadísticas\n/daily - Reclamar bono diario\n/help - Mostrar esta ayuda\n\nPara soporte, contacta @jashanxjagy",
         
         # Errors
-        "error_occurred": "❌ Ocurrió un error. Por favor intenta de nuevo.",
-        "command_not_found": "❌ Comando no encontrado. Usa /help para ver los comandos disponibles.",
-        "maintenance_mode": "🛠️ <b>Bot en Mantenimiento</b> 🛠️\n\nEl bot está actualmente en mantenimiento programado.",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ocurrió un error. Por favor intenta de nuevo.",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Comando no encontrado. Usa /help para ver los comandos disponibles.",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot en Mantenimiento</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\nEl bot está actualmente en mantenimiento programado.",
         "banned_user": "Has sido bloqueado del uso de este bot.",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>Retirar</b>\n\nIngresa la cantidad que deseas retirar:",
-        "withdrawal_success": "✅ ¡Solicitud de retiro enviada exitosamente!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Retirar</b>\n\nIngresa la cantidad que deseas retirar:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> ¡Solicitud de retiro enviada exitosamente!",
         "withdrawal_pending": "Tu retiro está siendo procesado...",
         
         # Admin
-        "admin_panel": "👑 <b>Panel de Administración</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Panel de Administración</b>",
         "admin_only": "Este comando solo está disponible para administradores.",
         
         # Misc
-        "coming_soon": "🚧 ¡Próximamente!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> ¡Próximamente!",
         "feature_disabled": "Esta característica está actualmente deshabilitada.",
         "loading": "⏳ Cargando...",
         "processing": "⏳ Procesando...",
         
         # Game-specific messages
-        "dice_game": "🎲 Dados",
-        "darts_game": "🎯 Dardos",
-        "football_game": "⚽ Fútbol",
-        "bowling_game": "🎳 Bolos",
-        "blackjack_game": "🃏 Blackjack",
-        "roulette_game": "🎯 Ruleta",
-        "slots_game": "🎰 Tragamonedas",
-        "play_vs_bot": "🤖 Jugar vs Bot",
-        "play_vs_player": "👤 Jugar vs Jugador",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dados",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dardos",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Fútbol",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bolos",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Ruleta",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Tragamonedas",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Jugar vs Bot",
+        "play_vs_player": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Jugar vs Jugador",
         "who_to_play": "¿Contra quién quieres jugar?",
         "bot_rolling": "El bot está tirando...",
         "your_turn": "¡Tu turno! ¡Envía {rolls} {emoji}!",
@@ -1257,16 +1257,16 @@ LANGUAGES = {
         "you_win_round": "¡Ganas esta ronda!",
         "bot_wins_round": "¡El bot gana esta ronda!",
         "tie_round": "¡Es un empate! Sin punto.",
-        "you_win_game": "🏆 ¡Felicidades! Venciste al bot ({user_score}-{bot_score}) y ganas {amount}!",
-        "bot_wins_game": "😔 El bot gana el partido ({bot_score}-{user_score}). Perdiste {amount}.",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> ¡Felicidades! Venciste al bot ({user_score}-{bot_score}) y ganas {amount}!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> El bot gana el partido ({bot_score}-{user_score}). Perdiste {amount}.",
         "score_update": "Puntuación: Tú {user_score} - {bot_score} Bot. (Primero a {target})",
         "roll_complete": "Tirada {current}/{total} completa. ¡Envía {remaining} más {emoji}!",
-        "normal_mode": "🎮 Modo Normal",
-        "crazy_mode": "🔥 Modo Loco",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Modo Normal",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Modo Loco",
         "select_mode": "Selecciona el modo de juego:",
         "select_rolls": "Selecciona el número de tiradas:",
         "select_target": "Selecciona puntuación objetivo:",
-        "game_created": "🎯 ¡Juego creado! Esperando oponente...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> ¡Juego creado! Esperando oponente...",
         "usage_dice": "Uso: /dice <cantidad>\nEjemplo: /dice 5 o /dice all",
         "usage_darts": "Uso: /darts <cantidad>\nEjemplo: /darts 5 o /darts all",
         "usage_goal": "Uso: /goal <cantidad>\nEjemplo: /goal 5 o /goal all",
@@ -1275,109 +1275,109 @@ LANGUAGES = {
     "fr": {  # French
         "language_name": "Français 🇫🇷",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>Bienvenue au Bot de Casino et Escrow Telegram!</b> 🎰",
-        "hello": "👋 Bonjour {first_name}!",
-        "welcome_desc": "🎲 Vivez l'excitation des jeux de casino ou sécurisez vos transactions avec notre système Escrow automatisé.",
-        "ai_feature": "✨ NOUVEAU: Chattez avec notre <b>Assistant IA</b> pour toute question ou tâche!",
-        "current_balance": "💰 Solde Actuel: <b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Bienvenue au Bot de Casino et Escrow Telegram!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Bonjour {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Vivez l'excitation des jeux de casino ou sécurisez vos transactions avec notre système Escrow automatisé.",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> NOUVEAU: Chattez avec notre <b>Assistant IA</b> pour toute question ou tâche!",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Solde Actuel: <b>{balance}</b>",
         "choose_option": "Choisissez une option ci-dessous pour commencer:",
         
         # Buttons
-        "withdraw": "📤 Retrait",
-        "games": "🎮 Jeux",
-        "more": "➕ Plus",
-        "stats": "📊 Statistiques",
-        "settings": "⚙️ Paramètres",
-        "help": "❓ Aide",
-        "bonuses": "🎁 Bonus",
-        "escrow": "🔐 Dépôt fiduciaire",
-        "ai_assistant": "🤖 Assistant IA",
-        "back": "🔙 Retour",
-        "cancel": "❌ Annuler",
-        "confirm": "✅ Confirmer",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Retrait",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Jeux",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Plus",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Statistiques",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Paramètres",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Aide",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bonus",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Dépôt fiduciaire",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Assistant IA",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Retour",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Annuler",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Confirmer",
         
         # Balance and Currency
-        "balance": "💰 Votre solde: {balance}",
-        "your_balance": "💰 Votre solde: {balance}",
-        "insufficient_balance": "❌ Solde insuffisant. Veuillez déposer pour continuer.",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Votre solde: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Votre solde: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Solde insuffisant. Veuillez déposer pour continuer.",
         "locked_in_games": "+ {amount} bloqué dans les jeux",
         
         # Betting
         "enter_bet_amount": "Entrez votre montant de pari:",
-        "bet_placed": "🎲 Pari placé: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Pari placé: ${amount:.2f}",
         "invalid_amount": "Montant invalide. Veuillez entrer un nombre valide ou 'all'.",
         "min_bet": "La mise minimale pour ce jeu est {amount}",
         "max_bet": "La mise maximale pour ce jeu est {amount}",
         
         # Game Results
-        "you_won": "🎉 Vous avez gagné {amount}!",
-        "you_lost": "😔 Vous avez perdu. Meilleure chance la prochaine fois!",
-        "game_started": "🎮 Jeu commencé!",
-        "game_ended": "🎮 Jeu terminé!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Vous avez gagné {amount}!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Vous avez perdu. Meilleure chance la prochaine fois!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Jeu commencé!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Jeu terminé!",
         "round": "Tour {round}",
         "waiting_for_opponent": "⏳ En attente de l'adversaire...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 Vous avez réclamé avec succès votre bonus quotidien de {amount}!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Vous avez réclamé avec succès votre bonus quotidien de {amount}!",
         "daily_claim_wait": "⏳ Vous avez déjà réclamé votre bonus quotidien. Veuillez attendre {hours}h {minutes}m avant de réclamer à nouveau.",
-        "daily_bonus": "🎁 Bonus Quotidien",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bonus Quotidien",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>Succès Débloqué!</b> 🏅\n\nVous avez gagné le badge <b>{emoji} {name}</b>!\n<i>{description}</i>",
-        "achievements": "🏅 Succès",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Succès Débloqué!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\nVous avez gagné le badge <b>{emoji} {name}</b>!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Succès",
         "no_achievements": "Vous n'avez pas encore débloqué de succès. Commencez à jouer pour gagner des badges!",
         
         # Language
-        "language_set": "✅ Langue définie sur Français",
-        "select_language": "🌍 <b>Sélectionnez votre langue:</b>",
-        "language": "🌍 Langue",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Langue définie sur Français",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Sélectionnez votre langue:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Langue",
         
         # Games Menu
-        "games_menu": "🎮 <b>Jeux de Casino</b>\n\nChoisissez une catégorie:",
-        "dice_games": "🎲 Jeux de Dés",
-        "card_games": "🃏 Jeux de Cartes",
-        "original_games": "⭐ Jeux Originaux",
-        "quick_games": "⚡ Jeux Rapides",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Jeux de Casino</b>\n\nChoisissez une catégorie:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Jeux de Dés",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Jeux de Cartes",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Jeux Originaux",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Jeux Rapides",
         
         # Settings
-        "settings_menu": "⚙️ <b>Paramètres</b>\n\nPersonnalisez votre expérience:",
-        "withdrawal_address": "💳 Adresse de Retrait",
-        "currency_settings": "💱 Devise",
-        "recovery_settings": "🔐 Récupération",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Paramètres</b>\n\nPersonnalisez votre expérience:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Adresse de Retrait",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Devise",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Récupération",
         
         # Help
-        "help_text": "❓ <b>Aide et Commandes</b>\n\nCommandes disponibles:\n/start - Menu principal\n/games - Parcourir les jeux\n/balance - Vérifier le solde\n/withdraw - Retirer des fonds\n/stats - Voir les statistiques\n/daily - Réclamer le bonus quotidien\n/help - Afficher cette aide\n\nPour le support, contactez @jashanxjagy",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Aide et Commandes</b>\n\nCommandes disponibles:\n/start - Menu principal\n/games - Parcourir les jeux\n/balance - Vérifier le solde\n/withdraw - Retirer des fonds\n/stats - Voir les statistiques\n/daily - Réclamer le bonus quotidien\n/help - Afficher cette aide\n\nPour le support, contactez @jashanxjagy",
         
         # Errors
-        "error_occurred": "❌ Une erreur s'est produite. Veuillez réessayer.",
-        "command_not_found": "❌ Commande non trouvée. Utilisez /help pour voir les commandes disponibles.",
-        "maintenance_mode": "🛠️ <b>Bot en Maintenance</b> 🛠️\n\nLe bot est actuellement en maintenance programmée.",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Une erreur s'est produite. Veuillez réessayer.",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Commande non trouvée. Utilisez /help pour voir les commandes disponibles.",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot en Maintenance</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\nLe bot est actuellement en maintenance programmée.",
         "banned_user": "Vous avez été banni de l'utilisation de ce bot.",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>Retrait</b>\n\nEntrez le montant que vous souhaitez retirer:",
-        "withdrawal_success": "✅ Demande de retrait soumise avec succès!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Retrait</b>\n\nEntrez le montant que vous souhaitez retirer:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demande de retrait soumise avec succès!",
         "withdrawal_pending": "Votre retrait est en cours de traitement...",
         
         # Admin
-        "admin_panel": "👑 <b>Panneau d'Administration</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Panneau d'Administration</b>",
         "admin_only": "Cette commande n'est disponible que pour les administrateurs.",
         
         # Misc
-        "coming_soon": "🚧 Bientôt disponible!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Bientôt disponible!",
         "feature_disabled": "Cette fonctionnalité est actuellement désactivée.",
         "loading": "⏳ Chargement...",
         "processing": "⏳ Traitement...",
         
         # Game-specific messages
-        "dice_game": "🎲 Dés",
-        "darts_game": "🎯 Fléchettes",
-        "football_game": "⚽ Football",
-        "bowling_game": "🎳 Bowling",
-        "blackjack_game": "🃏 Blackjack",
-        "roulette_game": "🎯 Roulette",
-        "slots_game": "🎰 Machines à sous",
-        "play_vs_bot": "🤖 Jouer vs Bot",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dés",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Fléchettes",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Machines à sous",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Jouer vs Bot",
         "play_vs_player": "?? Jouer vs Joueur",
         "who_to_play": "Contre qui voulez-vous jouer?",
         "bot_rolling": "Le bot lance...",
@@ -1387,16 +1387,16 @@ LANGUAGES = {
         "you_win_round": "Vous gagnez ce tour!",
         "bot_wins_round": "Le bot gagne ce tour!",
         "tie_round": "C'est une égalité! Aucun point.",
-        "you_win_game": "🏆 Félicitations! Vous avez battu le bot ({user_score}-{bot_score}) et gagnez {amount}!",
-        "bot_wins_game": "😔 Le bot gagne le match ({bot_score}-{user_score}). Vous avez perdu {amount}.",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Félicitations! Vous avez battu le bot ({user_score}-{bot_score}) et gagnez {amount}!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Le bot gagne le match ({bot_score}-{user_score}). Vous avez perdu {amount}.",
         "score_update": "Score: Vous {user_score} - {bot_score} Bot. (Premier à {target})",
         "roll_complete": "Lancer {current}/{total} terminé. Envoyez {remaining} de plus {emoji}!",
-        "normal_mode": "🎮 Mode Normal",
-        "crazy_mode": "🔥 Mode Fou",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Mode Normal",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mode Fou",
         "select_mode": "Sélectionnez le mode de jeu:",
         "select_rolls": "Sélectionnez le nombre de lancers:",
         "select_target": "Sélectionnez le score cible:",
-        "game_created": "🎯 Jeu créé! En attente d'adversaire...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Jeu créé! En attente d'adversaire...",
         "usage_dice": "Utilisation: /dice <montant>\nExemple: /dice 5 ou /dice all",
         "usage_darts": "Utilisation: /darts <montant>\nExemple: /darts 5 ou /darts all",
         "usage_goal": "Utilisation: /goal <montant>\nExemple: /goal 5 ou /goal all",
@@ -1405,110 +1405,110 @@ LANGUAGES = {
     "ru": {  # Russian
         "language_name": "Русский 🇷🇺",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>Добро пожаловать в Telegram Casino & Escrow Bot!</b> 🎰",
-        "hello": "👋 Здравствуйте, {first_name}!",
-        "welcome_desc": "🎲 Испытайте острые ощущения от азартных игр или обезопасьте свои сделки с помощью нашей автоматизированной системы Escrow.",
-        "ai_feature": "✨ НОВИНКА: Общайтесь с нашим <b>ИИ Помощником</b> для любых вопросов или задач!",
-        "current_balance": "💰 Текущий Баланс: <b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Добро пожаловать в Telegram Casino & Escrow Bot!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Здравствуйте, {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Испытайте острые ощущения от азартных игр или обезопасьте свои сделки с помощью нашей автоматизированной системы Escrow.",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> НОВИНКА: Общайтесь с нашим <b>ИИ Помощником</b> для любых вопросов или задач!",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Текущий Баланс: <b>{balance}</b>",
         "choose_option": "Выберите опцию ниже, чтобы начать:",
         
         # Buttons
-        "withdraw": "📤 Вывести",
-        "games": "🎮 Игры",
-        "more": "➕ Ещё",
-        "stats": "📊 Статистика",
-        "settings": "⚙️ Настройки",
-        "help": "❓ Помощь",
-        "bonuses": "🎁 Бонусы",
-        "escrow": "🔐 Эскроу",
-        "ai_assistant": "🤖 ИИ Помощник",
-        "back": "🔙 Назад",
-        "cancel": "❌ Отмена",
-        "confirm": "✅ Подтвердить",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Вывести",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Игры",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Ещё",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Статистика",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Настройки",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Помощь",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Бонусы",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Эскроу",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> ИИ Помощник",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Назад",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Отмена",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Подтвердить",
         
         # Balance and Currency
-        "balance": "💰 Ваш баланс: {balance}",
-        "your_balance": "💰 Ваш баланс: {balance}",
-        "insufficient_balance": "❌ Недостаточно средств. Пожалуйста, пополните счет.",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Ваш баланс: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Ваш баланс: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Недостаточно средств. Пожалуйста, пополните счет.",
         "locked_in_games": "+ {amount} заблокировано в играх",
         
         # Betting
         "enter_bet_amount": "Введите сумму ставки:",
-        "bet_placed": "🎲 Ставка сделана: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Ставка сделана: ${amount:.2f}",
         "invalid_amount": "Неверная сумма. Пожалуйста, введите правильное число или 'all'.",
         "min_bet": "Минимальная ставка для этой игры {amount}",
         "max_bet": "Максимальная ставка для этой игры {amount}",
         
         # Game Results
-        "you_won": "🎉 Вы выиграли {amount}!",
-        "you_lost": "😔 Вы проиграли. Удачи в следующий раз!",
-        "game_started": "🎮 Игра началась!",
-        "game_ended": "🎮 Игра закончилась!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Вы выиграли {amount}!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Вы проиграли. Удачи в следующий раз!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Игра началась!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Игра закончилась!",
         "round": "Раунд {round}",
         "waiting_for_opponent": "⏳ Ожидание противника...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 Вы успешно получили ежедневный бонус {amount}!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Вы успешно получили ежедневный бонус {amount}!",
         "daily_claim_wait": "⏳ Вы уже получили свой ежедневный бонус. Подождите {hours}ч {minutes}м перед следующим получением.",
-        "daily_bonus": "🎁 Ежедневный Бонус",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Ежедневный Бонус",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>Достижение Разблокировано!</b> 🏅\n\nВы получили значок <b>{emoji} {name}</b>!\n<i>{description}</i>",
-        "achievements": "🏅 Достижения",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Достижение Разблокировано!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\nВы получили значок <b>{emoji} {name}</b>!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Достижения",
         "no_achievements": "Вы еще не разблокировали никаких достижений. Начните играть, чтобы заработать значки!",
         
         # Language
-        "language_set": "✅ Язык установлен на Русский",
-        "select_language": "🌍 <b>Выберите ваш язык:</b>",
-        "language": "🌍 Язык",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Язык установлен на Русский",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Выберите ваш язык:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Язык",
         
         # Games Menu
-        "games_menu": "🎮 <b>Игры Казино</b>\n\nВыберите категорию:",
-        "dice_games": "🎲 Игры в Кости",
-        "card_games": "🃏 Карточные Игры",
-        "original_games": "⭐ Оригинальные Игры",
-        "quick_games": "⚡ Быстрые Игры",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Игры Казино</b>\n\nВыберите категорию:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Игры в Кости",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Карточные Игры",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Оригинальные Игры",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Быстрые Игры",
         
         # Settings
-        "settings_menu": "⚙️ <b>Настройки</b>\n\nНастройте свой опыт:",
-        "withdrawal_address": "💳 Адрес для Вывода",
-        "currency_settings": "💱 Валюта",
-        "recovery_settings": "🔐 Восстановление",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Настройки</b>\n\nНастройте свой опыт:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Адрес для Вывода",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Валюта",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Восстановление",
         
         # Help
-        "help_text": "❓ <b>Помощь и Команды</b>\n\nДоступные команды:\n/start - Главное меню\n/games - Просмотр игр\n/balance - Проверить баланс\n/withdraw - Вывести средства\n/stats - Просмотр статистики\n/daily - Получить ежедневный бонус\n/help - Показать эту помощь\n\nДля поддержки, свяжитесь @jashanxjagy",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Помощь и Команды</b>\n\nДоступные команды:\n/start - Главное меню\n/games - Просмотр игр\n/balance - Проверить баланс\n/withdraw - Вывести средства\n/stats - Просмотр статистики\n/daily - Получить ежедневный бонус\n/help - Показать эту помощь\n\nДля поддержки, свяжитесь @jashanxjagy",
         
         # Errors
-        "error_occurred": "❌ Произошла ошибка. Пожалуйста, попробуйте снова.",
-        "command_not_found": "❌ Команда не найдена. Используйте /help, чтобы увидеть доступные команды.",
-        "maintenance_mode": "🛠️ <b>Бот на Обслуживании</b> 🛠️\n\nБот в настоящее время находится на плановом обслуживании.",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Произошла ошибка. Пожалуйста, попробуйте снова.",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Команда не найдена. Используйте /help, чтобы увидеть доступные команды.",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Бот на Обслуживании</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\nБот в настоящее время находится на плановом обслуживании.",
         "banned_user": "Вы заблокированы от использования этого бота.",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>Вывод</b>\n\nВведите сумму, которую хотите вывести:",
-        "withdrawal_success": "✅ Запрос на вывод успешно отправлен!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Вывод</b>\n\nВведите сумму, которую хотите вывести:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Запрос на вывод успешно отправлен!",
         "withdrawal_pending": "Ваш вывод обрабатывается...",
         
         # Admin
-        "admin_panel": "👑 <b>Панель Администратора</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Панель Администратора</b>",
         "admin_only": "Эта команда доступна только администраторам.",
         
         # Misc
-        "coming_soon": "🚧 Скоро!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Скоро!",
         "feature_disabled": "Эта функция в настоящее время отключена.",
         "loading": "⏳ Загрузка...",
         "processing": "⏳ Обработка...",
         
         # Game-specific messages
-        "dice_game": "🎲 Кости",
-        "darts_game": "🎯 Дартс",
-        "football_game": "⚽ Футбол",
-        "bowling_game": "🎳 Боулинг",
-        "blackjack_game": "🃏 Блэкджек",
-        "roulette_game": "🎯 Рулетка",
-        "slots_game": "🎰 Слоты",
-        "play_vs_bot": "🤖 Играть с Ботом",
-        "play_vs_player": "👤 Играть с Игроком",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Кости",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Дартс",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Футбол",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Боулинг",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Блэкджек",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Рулетка",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Слоты",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Играть с Ботом",
+        "play_vs_player": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Играть с Игроком",
         "who_to_play": "С кем хотите играть?",
         "bot_rolling": "Бот бросает...",
         "your_turn": "Ваш ход! Отправьте {rolls} {emoji}!",
@@ -1517,16 +1517,16 @@ LANGUAGES = {
         "you_win_round": "Вы выиграли этот раунд!",
         "bot_wins_round": "Бот выиграл этот раунд!",
         "tie_round": "Ничья! Без очка.",
-        "you_win_game": "🏆 Поздравляем! Вы победили бота ({user_score}-{bot_score}) и выиграли {amount}!",
-        "bot_wins_game": "😔 Бот выиграл матч ({bot_score}-{user_score}). Вы проиграли {amount}.",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Поздравляем! Вы победили бота ({user_score}-{bot_score}) и выиграли {amount}!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Бот выиграл матч ({bot_score}-{user_score}). Вы проиграли {amount}.",
         "score_update": "Счёт: Вы {user_score} - {bot_score} Бот. (Первый до {target})",
         "roll_complete": "Бросок {current}/{total} завершён. Отправьте ещё {remaining} {emoji}!",
-        "normal_mode": "🎮 Обычный Режим",
-        "crazy_mode": "🔥 Сумасшедший Режим",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Обычный Режим",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Сумасшедший Режим",
         "select_mode": "Выберите режим игры:",
         "select_rolls": "Выберите количество бросков:",
         "select_target": "Выберите целевой счёт:",
-        "game_created": "🎯 Игра создана! Ожидание противника...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Игра создана! Ожидание противника...",
         "usage_dice": "Использование: /dice <сумма>\nПример: /dice 5 или /dice all",
         "usage_darts": "Использование: /darts <сумма>\nПример: /darts 5 или /darts all",
         "usage_goal": "Использование: /goal <сумма>\nПример: /goal 5 или /goal all",
@@ -1535,110 +1535,110 @@ LANGUAGES = {
     "hi": {  # Hindi
         "language_name": "हिन्दी 🇮🇳",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>टेलीग्राम कैसीनो और एस्क्रो बॉट में आपका स्वागत है!</b> 🎰",
-        "hello": "👋 नमस्ते {first_name}!",
-        "welcome_desc": "🎲 कैसीनो खेलों के रोमांच का अनुभव करें या हमारे स्वचालित एस्क्रो सिस्टम के साथ अपने लेन-देन को सुरक्षित रखें।",
-        "ai_feature": "✨ नया: किसी भी प्रश्न या कार्य के लिए हमारे <b>एआई सहायक</b> से चैट करें!",
-        "current_balance": "💰 वर्तमान शेष: <b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>टेलीग्राम कैसीनो और एस्क्रो बॉट में आपका स्वागत है!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> नमस्ते {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> कैसीनो खेलों के रोमांच का अनुभव करें या हमारे स्वचालित एस्क्रो सिस्टम के साथ अपने लेन-देन को सुरक्षित रखें।",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> नया: किसी भी प्रश्न या कार्य के लिए हमारे <b>एआई सहायक</b> से चैट करें!",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> वर्तमान शेष: <b>{balance}</b>",
         "choose_option": "शुरू करने के लिए नीचे एक विकल्प चुनें:",
         
         # Buttons
-        "withdraw": "📤 निकालें",
-        "games": "🎮 खेल",
-        "more": "➕ और",
-        "stats": "📊 आंकड़े",
-        "settings": "⚙️ सेटिंग्स",
-        "help": "❓ मदद",
-        "bonuses": "🎁 बोनस",
-        "escrow": "🔐 एस्क्रो",
-        "ai_assistant": "🤖 एआई सहायक",
-        "back": "🔙 वापस",
-        "cancel": "❌ रद्द करें",
-        "confirm": "✅ पुष्टि करें",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> निकालें",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> खेल",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> और",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> आंकड़े",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> सेटिंग्स",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> मदद",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> बोनस",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> एस्क्रो",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> एआई सहायक",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> वापस",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> रद्द करें",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> पुष्टि करें",
         
         # Balance and Currency
-        "balance": "💰 आपका शेष: {balance}",
-        "your_balance": "💰 आपका शेष: {balance}",
-        "insufficient_balance": "❌ अपर्याप्त शेष राशि। कृपया जारी रखने के लिए जमा करें।",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> आपका शेष: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> आपका शेष: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> अपर्याप्त शेष राशि। कृपया जारी रखने के लिए जमा करें।",
         "locked_in_games": "+ {amount} खेलों में लॉक",
         
         # Betting
         "enter_bet_amount": "अपनी दांव राशि दर्ज करें:",
-        "bet_placed": "🎲 दांव लगाया गया: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> दांव लगाया गया: ${amount:.2f}",
         "invalid_amount": "अमान्य राशि। कृपया एक वैध संख्या या 'all' दर्ज करें।",
         "min_bet": "इस खेल के लिए न्यूनतम दांव {amount} है",
         "max_bet": "इस खेल के लिए अधिकतम दांव {amount} है",
         
         # Game Results
-        "you_won": "🎉 आपने {amount} जीता!",
-        "you_lost": "😔 आप हार गए। अगली बार के लिए शुभकामनाएं!",
-        "game_started": "🎮 खेल शुरू हुआ!",
-        "game_ended": "🎮 खेल समाप्त हुआ!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> आपने {amount} जीता!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> आप हार गए। अगली बार के लिए शुभकामनाएं!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> खेल शुरू हुआ!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> खेल समाप्त हुआ!",
         "round": "राउंड {round}",
         "waiting_for_opponent": "⏳ प्रतिद्वंद्वी की प्रतीक्षा में...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 आपने सफलतापूर्वक {amount} का दैनिक बोनस प्राप्त किया!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> आपने सफलतापूर्वक {amount} का दैनिक बोनस प्राप्त किया!",
         "daily_claim_wait": "⏳ आपने पहले ही अपना दैनिक बोनस प्राप्त कर लिया है। कृपया {hours}घं {minutes}मि प्रतीक्षा करें।",
-        "daily_bonus": "🎁 दैनिक बोनस",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> दैनिक बोनस",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>उपलब्धि अनलॉक!</b> 🏅\n\nआपने <b>{emoji} {name}</b> बैज अर्जित किया!\n<i>{description}</i>",
-        "achievements": "🏅 उपलब्धियां",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>उपलब्धि अनलॉक!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\nआपने <b>{emoji} {name}</b> बैज अर्जित किया!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> उपलब्धियां",
         "no_achievements": "आपने अभी तक कोई उपलब्धि अनलॉक नहीं की है। बैज अर्जित करने के लिए खेलना शुरू करें!",
         
         # Language
-        "language_set": "✅ भाषा हिन्दी पर सेट की गई",
-        "select_language": "🌍 <b>अपनी भाषा चुनें:</b>",
-        "language": "🌍 भाषा",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> भाषा हिन्दी पर सेट की गई",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>अपनी भाषा चुनें:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> भाषा",
         
         # Games Menu
-        "games_menu": "🎮 <b>कैसीनो खेल</b>\n\nएक श्रेणी चुनें:",
-        "dice_games": "🎲 पासा खेल",
-        "card_games": "🃏 ताश के खेल",
-        "original_games": "⭐ मूल खेल",
-        "quick_games": "⚡ त्वरित खेल",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>कैसीनो खेल</b>\n\nएक श्रेणी चुनें:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> पासा खेल",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> ताश के खेल",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> मूल खेल",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> त्वरित खेल",
         
         # Settings
-        "settings_menu": "⚙️ <b>सेटिंग्स</b>\n\nअपने अनुभव को अनुकूलित करें:",
-        "withdrawal_address": "💳 निकासी पता",
-        "currency_settings": "💱 मुद्रा",
-        "recovery_settings": "🔐 पुनर्प्राप्ति",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>सेटिंग्स</b>\n\nअपने अनुभव को अनुकूलित करें:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> निकासी पता",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> मुद्रा",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> पुनर्प्राप्ति",
         
         # Help
-        "help_text": "❓ <b>सहायता और आदेश</b>\n\nउपलब्ध आदेश:\n/start - मुख्य मेनू\n/games - खेल ब्राउज़ करें\n/balance - शेष जांचें\n/withdraw - निकालें\n/stats - आंकड़े देखें\n/daily - दैनिक बोनस प्राप्त करें\n/help - यह सहायता दिखाएं\n\nसहायता के लिए, @jashanxjagy से संपर्क करें",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>सहायता और आदेश</b>\n\nउपलब्ध आदेश:\n/start - मुख्य मेनू\n/games - खेल ब्राउज़ करें\n/balance - शेष जांचें\n/withdraw - निकालें\n/stats - आंकड़े देखें\n/daily - दैनिक बोनस प्राप्त करें\n/help - यह सहायता दिखाएं\n\nसहायता के लिए, @jashanxjagy से संपर्क करें",
         
         # Errors
-        "error_occurred": "❌ एक त्रुटि हुई। कृपया पुन: प्रयास करें।",
-        "command_not_found": "❌ आदेश नहीं मिला। उपलब्ध आदेश देखने के लिए /help का उपयोग करें।",
-        "maintenance_mode": "🛠️ <b>बॉट रखरखाव में</b> 🛠️\n\nबॉट वर्तमान में निर्धारित रखरखाव में है।",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> एक त्रुटि हुई। कृपया पुन: प्रयास करें।",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> आदेश नहीं मिला। उपलब्ध आदेश देखने के लिए /help का उपयोग करें।",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>बॉट रखरखाव में</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\nबॉट वर्तमान में निर्धारित रखरखाव में है।",
         "banned_user": "आपको इस बॉट का उपयोग करने से प्रतिबंधित कर दिया गया है।",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>निकासी</b>\n\nवह राशि दर्ज करें जो आप निकालना चाहते हैं:",
-        "withdrawal_success": "✅ निकासी अनुरोध सफलतापूर्वक सबमिट किया गया!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>निकासी</b>\n\nवह राशि दर्ज करें जो आप निकालना चाहते हैं:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> निकासी अनुरोध सफलतापूर्वक सबमिट किया गया!",
         "withdrawal_pending": "आपकी निकासी प्रक्रिया में है...",
         
         # Admin
-        "admin_panel": "👑 <b>व्यवस्थापक पैनल</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>व्यवस्थापक पैनल</b>",
         "admin_only": "यह आदेश केवल व्यवस्थापकों के लिए उपलब्ध है।",
         
         # Misc
-        "coming_soon": "🚧 जल्द आ रहा है!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> जल्द आ रहा है!",
         "feature_disabled": "यह सुविधा वर्तमान में अक्षम है।",
         "loading": "⏳ लोड हो रहा है...",
         "processing": "⏳ प्रक्रिया में...",
         
         # Game-specific messages
-        "dice_game": "🎲 पासा",
-        "darts_game": "🎯 डार्ट्स",
-        "football_game": "⚽ फुटबॉल",
-        "bowling_game": "🎳 बॉलिंग",
-        "blackjack_game": "🃏 ब्लैकजैक",
-        "roulette_game": "🎯 रूले",
-        "slots_game": "🎰 स्लॉट्स",
-        "play_vs_bot": "🤖 बॉट के खिलाफ खेलें",
-        "play_vs_player": "👤 खिलाड़ी के खिलाफ खेलें",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> पासा",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> डार्ट्स",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> फुटबॉल",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> बॉलिंग",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> ब्लैकजैक",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> रूले",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> स्लॉट्स",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> बॉट के खिलाफ खेलें",
+        "play_vs_player": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> खिलाड़ी के खिलाफ खेलें",
         "who_to_play": "आप किसके खिलाफ खेलना चाहते हैं?",
         "bot_rolling": "बॉट रोल कर रहा है...",
         "your_turn": "आपकी बारी! {rolls} {emoji} भेजें!",
@@ -1647,16 +1647,16 @@ LANGUAGES = {
         "you_win_round": "आप यह राउंड जीत गए!",
         "bot_wins_round": "बॉट यह राउंड जीत गया!",
         "tie_round": "यह बराबरी है! कोई अंक नहीं।",
-        "you_win_game": "🏆 बधाई हो! आपने बॉट को हराया ({user_score}-{bot_score}) और {amount} जीता!",
-        "bot_wins_game": "😔 बॉट मैच जीत गया ({bot_score}-{user_score})। आपने {amount} खो दिया।",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> बधाई हो! आपने बॉट को हराया ({user_score}-{bot_score}) और {amount} जीता!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> बॉट मैच जीत गया ({bot_score}-{user_score})। आपने {amount} खो दिया।",
         "score_update": "स्कोर: आप {user_score} - {bot_score} बॉट। (पहले {target} तक)",
         "roll_complete": "रोल {current}/{total} पूरा। {remaining} और {emoji} भेजें!",
-        "normal_mode": "🎮 सामान्य मोड",
-        "crazy_mode": "🔥 पागल मोड",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> सामान्य मोड",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> पागल मोड",
         "select_mode": "गेम मोड चुनें:",
         "select_rolls": "रोल की संख्या चुनें:",
         "select_target": "लक्ष्य स्कोर चुनें:",
-        "game_created": "🎯 खेल बनाया गया! प्रतिद्वंद्वी की प्रतीक्षा में...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> खेल बनाया गया! प्रतिद्वंद्वी की प्रतीक्षा में...",
         "usage_dice": "उपयोग: /dice <राशि>\nउदाहरण: /dice 5 या /dice all",
         "usage_darts": "उपयोग: /darts <राशि>\nउदाहरण: /darts 5 या /darts all",
         "usage_goal": "उपयोग: /goal <राशि>\nउदाहरण: /goal 5 या /goal all",
@@ -1665,110 +1665,110 @@ LANGUAGES = {
     "zh": {  # Mandarin Chinese
         "language_name": "中文 🇨🇳",
         # Welcome and Main Menu - RESTORED ORIGINAL FULL TEXT
-        "welcome_title": "🎰 <b>欢迎来到Telegram赌场和托管机器人!</b> 🎰",
-        "hello": "👋 您好 {first_name}!",
-        "welcome_desc": "🎲 体验赌场游戏的刺激，或通过我们的自动化托管系统保护您的交易安全。",
-        "ai_feature": "✨ 新功能：与我们的<b>AI助手</b>聊天，解答任何问题或任务！",
-        "current_balance": "💰 当前余额：<b>{balance}</b>",
+        "welcome_title": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>欢迎来到Telegram赌场和托管机器人!</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "hello": "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> 您好 {first_name}!",
+        "welcome_desc": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 体验赌场游戏的刺激，或通过我们的自动化托管系统保护您的交易安全。",
+        "ai_feature": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 新功能：与我们的<b>AI助手</b>聊天，解答任何问题或任务！",
+        "current_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> 当前余额：<b>{balance}</b>",
         "choose_option": "选择下方选项开始：",
         
         # Buttons
-        "withdraw": "📤 提款",
-        "games": "🎮 游戏",
-        "more": "➕ 更多",
-        "stats": "📊 统计",
-        "settings": "⚙️ 设置",
-        "help": "❓ 帮助",
-        "bonuses": "🎁 奖金",
-        "escrow": "🔐 托管",
-        "ai_assistant": "🤖 AI助手",
-        "back": "🔙 返回",
-        "cancel": "❌ 取消",
-        "confirm": "✅ 确认",
+        "withdraw": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> 提款",
+        "games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 游戏",
+        "more": "<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> 更多",
+        "stats": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> 统计",
+        "settings": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> 设置",
+        "help": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> 帮助",
+        "bonuses": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> 奖金",
+        "escrow": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> 托管",
+        "ai_assistant": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> AI助手",
+        "back": "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> 返回",
+        "cancel": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> 取消",
+        "confirm": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 确认",
         
         # Balance and Currency
-        "balance": "💰 您的余额: {balance}",
-        "your_balance": "💰 您的余额: {balance}",
-        "insufficient_balance": "❌ 余额不足。请充值以继续。",
+        "balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> 您的余额: {balance}",
+        "your_balance": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> 您的余额: {balance}",
+        "insufficient_balance": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> 余额不足。请充值以继续。",
         "locked_in_games": "+ {amount} 锁定在游戏中",
         
         # Betting
         "enter_bet_amount": "输入您的投注金额:",
-        "bet_placed": "🎲 下注: ${amount:.2f}",
+        "bet_placed": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 下注: ${amount:.2f}",
         "invalid_amount": "无效金额。请输入有效数字或'all'。",
         "min_bet": "此游戏的最小投注额为 {amount}",
         "max_bet": "此游戏的最大投注额为 {amount}",
         
         # Game Results
-        "you_won": "🎉 您赢了{amount}!",
-        "you_lost": "😔 您输了。祝下次好运!",
-        "game_started": "🎮 游戏开始!",
-        "game_ended": "🎮 游戏结束!",
+        "you_won": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 您赢了{amount}!",
+        "you_lost": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> 您输了。祝下次好运!",
+        "game_started": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 游戏开始!",
+        "game_ended": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 游戏结束!",
         "round": "第{round}轮",
         "waiting_for_opponent": "⏳ 等待对手...",
         
         # Daily Bonus
-        "daily_claim_success": "🎉 您已成功领取{amount}的每日奖金!",
+        "daily_claim_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 您已成功领取{amount}的每日奖金!",
         "daily_claim_wait": "⏳ 您已经领取了每日奖金。请等待{hours}小时{minutes}分钟后再次领取。",
-        "daily_bonus": "🎁 每日奖金",
+        "daily_bonus": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> 每日奖金",
         
         # Achievements
-        "achievement_unlocked": "🏅 <b>成就解锁!</b> 🏅\n\n您获得了<b>{emoji} {name}</b>徽章!\n<i>{description}</i>",
-        "achievements": "🏅 成就",
+        "achievement_unlocked": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>成就解锁!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\n您获得了<b>{emoji} {name}</b>徽章!\n<i>{description}</i>",
+        "achievements": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 成就",
         "no_achievements": "您还没有解锁任何成就。开始游戏以赚取徽章!",
         
         # Language
-        "language_set": "✅ 语言已设置为中文",
-        "select_language": "🌍 <b>选择您的语言:</b>",
-        "language": "🌍 语言",
+        "language_set": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 语言已设置为中文",
+        "select_language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>选择您的语言:</b>",
+        "language": "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> 语言",
         
         # Games Menu
-        "games_menu": "🎮 <b>赌场游戏</b>\n\n选择一个类别:",
-        "dice_games": "🎲 骰子游戏",
-        "card_games": "🃏 纸牌游戏",
-        "original_games": "⭐ 原创游戏",
-        "quick_games": "⚡ 快速游戏",
+        "games_menu": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>赌场游戏</b>\n\n选择一个类别:",
+        "dice_games": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 骰子游戏",
+        "card_games": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 纸牌游戏",
+        "original_games": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> 原创游戏",
+        "quick_games": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> 快速游戏",
         
         # Settings
-        "settings_menu": "⚙️ <b>设置</b>\n\n自定义您的体验:",
-        "withdrawal_address": "💳 提款地址",
-        "currency_settings": "💱 货币",
-        "recovery_settings": "🔐 恢复",
+        "settings_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>设置</b>\n\n自定义您的体验:",
+        "withdrawal_address": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> 提款地址",
+        "currency_settings": "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> 货币",
+        "recovery_settings": "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> 恢复",
         
         # Help
-        "help_text": "❓ <b>帮助和命令</b>\n\n可用命令:\n/start - 主菜单\n/games - 浏览游戏\n/balance - 查看余额\n/withdraw - 提款\n/stats - 查看统计\n/daily - 领取每日奖金\n/help - 显示此帮助\n\n如需支持，请联系 @jashanxjagy",
+        "help_text": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>帮助和命令</b>\n\n可用命令:\n/start - 主菜单\n/games - 浏览游戏\n/balance - 查看余额\n/withdraw - 提款\n/stats - 查看统计\n/daily - 领取每日奖金\n/help - 显示此帮助\n\n如需支持，请联系 @jashanxjagy",
         
         # Errors
-        "error_occurred": "❌ 发生错误。请重试。",
-        "command_not_found": "❌ 命令未找到。使用 /help 查看可用命令。",
-        "maintenance_mode": "🛠️ <b>机器人维护中</b> 🛠️\n\n机器人目前正在进行计划维护。",
+        "error_occurred": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> 发生错误。请重试。",
+        "command_not_found": "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> 命令未找到。使用 /help 查看可用命令。",
+        "maintenance_mode": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>机器人维护中</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>\n\n机器人目前正在进行计划维护。",
         "banned_user": "您已被禁止使用此机器人。",
         
         # Deposit/Withdrawal
-        "withdrawal_menu": "📤 <b>提款</b>\n\n输入您要提款的金额:",
-        "withdrawal_success": "✅ 提款请求已成功提交!",
+        "withdrawal_menu": "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>提款</b>\n\n输入您要提款的金额:",
+        "withdrawal_success": "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> 提款请求已成功提交!",
         "withdrawal_pending": "您的提款正在处理中...",
         
         # Admin
-        "admin_panel": "👑 <b>管理面板</b>",
+        "admin_panel": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>管理面板</b>",
         "admin_only": "此命令仅对管理员可用。",
         
         # Misc
-        "coming_soon": "🚧 即将推出!",
+        "coming_soon": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> 即将推出!",
         "feature_disabled": "此功能目前已禁用。",
         "loading": "⏳ 加载中...",
         "processing": "⏳ 处理中...",
         
         # Game-specific messages
-        "dice_game": "🎲 骰子",
-        "darts_game": "🎯 飞镖",
-        "football_game": "⚽ 足球",
-        "bowling_game": "🎳 保龄球",
-        "blackjack_game": "🃏 二十一点",
-        "roulette_game": "🎯 轮盘",
-        "slots_game": "🎰 老虎机",
-        "play_vs_bot": "🤖 与机器人对战",
-        "play_vs_player": "👤 与玩家对战",
+        "dice_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 骰子",
+        "darts_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 飞镖",
+        "football_game": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> 足球",
+        "bowling_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 保龄球",
+        "blackjack_game": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 二十一点",
+        "roulette_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 轮盘",
+        "slots_game": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 老虎机",
+        "play_vs_bot": "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> 与机器人对战",
+        "play_vs_player": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> 与玩家对战",
         "who_to_play": "您想与谁对战?",
         "bot_rolling": "机器人正在掷骰子...",
         "your_turn": "轮到您了! 发送 {rolls} {emoji}!",
@@ -1777,16 +1777,16 @@ LANGUAGES = {
         "you_win_round": "您赢得本轮!",
         "bot_wins_round": "机器人赢得本轮!",
         "tie_round": "平局! 无分数。",
-        "you_win_game": "🏆 恭喜! 您击败了机器人 ({user_score}-{bot_score}) 并赢得{amount}!",
-        "bot_wins_game": "😔 机器人赢得比赛 ({bot_score}-{user_score})。您输了{amount}。",
+        "you_win_game": "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> 恭喜! 您击败了机器人 ({user_score}-{bot_score}) 并赢得{amount}!",
+        "bot_wins_game": "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> 机器人赢得比赛 ({bot_score}-{user_score})。您输了{amount}。",
         "score_update": "比分: 您 {user_score} - {bot_score} 机器人。(先到{target})",
         "roll_complete": "掷骰 {current}/{total} 完成。再发送 {remaining} 个 {emoji}!",
-        "normal_mode": "🎮 普通模式",
-        "crazy_mode": "🔥 疯狂模式",
+        "normal_mode": "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> 普通模式",
+        "crazy_mode": "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> 疯狂模式",
         "select_mode": "选择游戏模式:",
         "select_rolls": "选择掷骰次数:",
         "select_target": "选择目标分数:",
-        "game_created": "🎯 游戏已创建! 等待对手...",
+        "game_created": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> 游戏已创建! 等待对手...",
         "usage_dice": "用法: /dice <金额>\n示例: /dice 5 或 /dice all",
         "usage_darts": "用法: /darts <金额>\n示例: /darts 5 或 /darts all",
         "usage_goal": "用法: /goal <金额>\n示例: /goal 5 或 /goal all",
@@ -3435,8 +3435,8 @@ class BlockMonitor:
                             await bot.send_message(
                                 chat_id=telegram_id,
                                 text=(
-                                    f"🎉 <b>Deposit Received!</b>\n\n"
-                                    f"✅ <b>{new_native_amount:.6f} {symbol}</b> (${amount_usd:.2f}) "
+                                    f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Deposit Received!</b>\n\n"
+                                    f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>{new_native_amount:.6f} {symbol}</b> (${amount_usd:.2f}) "
                                     f"detected on {chain} and credited to your balance!"
                                 ),
                                 parse_mode=ParseMode.HTML
@@ -3530,8 +3530,8 @@ class BlockMonitor:
                                                 await bot.send_message(
                                                     chat_id=telegram_id,
                                                     text=(
-                                                        f"🎉 <b>Deposit Received!</b>\n\n"
-                                                        f"✅ <b>{token_amount:.2f} {token_name}</b> (${amount_usd:.2f}) "
+                                                        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Deposit Received!</b>\n\n"
+                                                        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>{token_amount:.2f} {token_name}</b> (${amount_usd:.2f}) "
                                                         f"detected on {chain} and credited to your balance!"
                                                     ),
                                                     parse_mode=ParseMode.HTML
@@ -3605,8 +3605,8 @@ class BlockMonitor:
                                         await bot.send_message(
                                             chat_id=telegram_id,
                                             text=(
-                                                f"🎉 <b>Deposit Received!</b>\n\n"
-                                                f"✅ <b>{new_token_amount:.2f} {token_name}</b> (${amount_usd:.2f}) "
+                                                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Deposit Received!</b>\n\n"
+                                                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>{new_token_amount:.2f} {token_name}</b> (${amount_usd:.2f}) "
                                                 f"detected on {chain} and credited to your balance!"
                                             ),
                                             parse_mode=ParseMode.HTML
@@ -3791,54 +3791,54 @@ def build_deposit_menu():
     """Build deposit menu dynamically based on available chains"""
     # Build chain list based on availability
     chains_text = [
-        "• 🔷 <b>Ethereum (ETH)</b> - ETH, USDT, USDC",
-        "• 🟡 <b>BNB Chain (BNB)</b> - BNB, USDT, USDC",
-        "• 🔵 <b>Base</b> - ETH, USDC",
+        "• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Ethereum (ETH)</b> - ETH, USDT, USDC",
+        "• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>BNB Chain (BNB)</b> - BNB, USDT, USDC",
+        "• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Base</b> - ETH, USDC",
     ]
     
     keyboard_rows = [
         [
-            apply_button_style(InlineKeyboardButton("🔷 Ethereum", callback_data="deposit_ETH"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("🟡 BNB Chain", callback_data="deposit_BNB"), 'primary')  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Ethereum", callback_data="deposit_ETH"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> BNB Chain", callback_data="deposit_BNB"), 'primary')  # BLUE
         ],
         [
-            apply_button_style(InlineKeyboardButton("🔵 Base", callback_data="deposit_BASE"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Base", callback_data="deposit_BASE"), 'primary'),  # BLUE
         ]
     ]
     
     # Add TRON if available
     if TRON_AVAILABLE:
-        chains_text.append("• 🔴 <b>TRON (TRX)</b> - TRX, USDT")
-        keyboard_rows[-1].append(apply_button_style(InlineKeyboardButton("🔴 TRON", callback_data="deposit_TRON"), 'primary'))  # BLUE
+        chains_text.append("• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>TRON (TRX)</b> - TRX, USDT")
+        keyboard_rows[-1].append(apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> TRON", callback_data="deposit_TRON"), 'primary'))  # BLUE
     
     # Add Solana if available
     row_3 = []
     if SOLANA_AVAILABLE:
-        chains_text.append("• 🟣 <b>Solana (SOL)</b> - SOL, USDT, USDC")
-        row_3.append(apply_button_style(InlineKeyboardButton("🟣 Solana", callback_data="deposit_SOLANA"), 'primary'))  # BLUE
+        chains_text.append("• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Solana (SOL)</b> - SOL, USDT, USDC")
+        row_3.append(apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Solana", callback_data="deposit_SOLANA"), 'primary'))  # BLUE
     
     # TON deposit removed as per requirements
     # if TON_AVAILABLE:
-    #     chains_text.append("• 💎 <b>TON</b> - TON")
-    #     row_3.append(InlineKeyboardButton("💎 TON", callback_data="deposit_TON"))
+    #     chains_text.append("• <tg-emoji emoji-id="5334812855847901773">⭐</tg-emoji> <b>TON</b> - TON")
+    #     row_3.append(InlineKeyboardButton("<tg-emoji emoji-id="5334812855847901773">⭐</tg-emoji> TON", callback_data="deposit_TON"))
     
     if row_3:
         keyboard_rows.append(row_3)
     
     # Add bottom row - History BLUE, Back RED
     keyboard_rows.append([
-        apply_button_style(InlineKeyboardButton("📊 Deposit History", callback_data="deposit_history"), 'primary'),  # BLUE
-        apply_button_style(InlineKeyboardButton("🔙 Back", callback_data="back_to_main"), 'danger')  # RED
+        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Deposit History", callback_data="deposit_history"), 'primary'),  # BLUE
+        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="back_to_main"), 'danger')  # RED
     ])
     
     # Add OxaPay option if configured
     if OXAPAY_MERCHANT_KEY:
         keyboard_rows.append([
-            apply_button_style(InlineKeyboardButton("⚡ Deposit via OxaPay", callback_data="deposit_oxapay"), 'primary')
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Deposit via OxaPay", callback_data="deposit_oxapay"), 'primary')
         ])
     
     text = (
-        "💰 <b>Deposit Funds</b>\n\n"
+        "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Deposit Funds</b>\n\n"
         "Select a blockchain to get your unique deposit address:\n\n"
         + "\n".join(chains_text) + "\n\n"
         f"<i>Minimum deposit: ${MIN_DEPOSIT_USD}</i>"
@@ -3852,14 +3852,14 @@ async def deposit_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     
     if not DEPOSIT_ENABLED:
-        await update.message.reply_text("❌ Deposits are currently disabled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deposits are currently disabled.")
         return
     
     # In group chats, don't show inline buttons - redirect to DM
     if update.effective_chat.type in ['group', 'supergroup']:
         bot_username = (await context.bot.get_me()).username
         await update.message.reply_text(
-            f"💎 To deposit, please message me privately: @{bot_username}"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> To deposit, please message me privately: @{bot_username}"
         )
         return
     
@@ -3891,14 +3891,14 @@ async def deposit_method_callback(update: Update, context: ContextTypes.DEFAULT_
     address = user_data.get(f"{chain.lower()}_address")
     
     if not address:
-        error_msg = f"❌ <b>Error Generating {chain} Address</b>\n\n"
+        error_msg = f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Error Generating {chain} Address</b>\n\n"
         if chain == 'TON':
             error_msg += "TON deposits are currently unavailable. The required library (pytoniq-core) is not installed.\n\n"
             error_msg += "Please contact the administrator or try another chain."
         else:
             error_msg += f"{chain} address could not be generated. Please try again or contact support."
         
-        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]]
         await safe_edit_message(
             query,
             error_msg,
@@ -3933,24 +3933,24 @@ async def deposit_method_callback(update: Update, context: ContextTypes.DEFAULT_
     info = chain_info.get(chain, {})
     
     text = (
-        f"💰 <b>{info['name']} Deposit Address</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>{info['name']} Deposit Address</b>\n\n"
         f"<code>{address}</code>\n\n"
         f"<b>Supported Assets:</b> {info['tokens']}\n"
         f"<b>Network:</b> {info['name']}\n"
         f"<b>Min Deposit:</b> ${MIN_DEPOSIT_USD}\n\n"
-        f"⚠️ <b>Important:</b>\n"
+        f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Important:</b>\n"
         f"• Only send {info['tokens']} to this address\n"
         f"• Deposits are automatically credited after {CONFIRMATIONS.get(chain, 10)} confirmations\n"
         f"• This is your personal deposit address\n\n"
         f"<i>Scan QR code or copy address above</i>\n\n"
-        f"⚠️ <b>IMPORTANT:</b> After you have sent your funds, you MUST tap the "
-        f"<b>🔄 Check Status</b> button below. The bot will then actively scan the "
+        f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>IMPORTANT:</b> After you have sent your funds, you MUST tap the "
+        f"<b><tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Check Status</b> button below. The bot will then actively scan the "
         f"blockchain for your deposit for the next 3 minutes."
     )
     
     keyboard = [
-        [InlineKeyboardButton("🔄 Check Status", callback_data=f"check_deposit_{chain}_{user_id}")],
-        [InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Check Status", callback_data=f"check_deposit_{chain}_{user_id}")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]
     ]
     
     await query.message.reply_photo(
@@ -4020,21 +4020,21 @@ async def check_deposit_status(update: Update, context: ContextTypes.DEFAULT_TYP
     }
     
     text = (
-        "📊 <b>Deposit Status</b>\n\n"
-        "✅ <b>Started scanning the blockchain for the next 3 minutes.</b>\n"
+        "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Deposit Status</b>\n\n"
+        "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Started scanning the blockchain for the next 3 minutes.</b>\n"
         "You will be notified automatically when your deposit arrives!\n\n"
     )
     if deposits:
-        text += "📋 <b>Recent Deposits:</b>\n\n"
+        text += "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Recent Deposits:</b>\n\n"
         for dep in deposits:
             tx_hash, chain, token, amount, amount_usd, status, created_at, confirmed_at = dep
             
             status_emoji = {
                 'pending': '⏳',
-                'confirmed': '✅',
-                'swept': '✅',
-                'failed': '❌'
-            }.get(status, '❓')
+                'confirmed': '<tg-emoji emoji-id="5319247469165433798">⭐</tg-emoji>',
+                'swept': '<tg-emoji emoji-id="5319247469165433798">⭐</tg-emoji>',
+                'failed': '<tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji>'
+            }.get(status, '<tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji>')
             
             asset = token or chain
             text += (
@@ -4052,8 +4052,8 @@ async def check_deposit_status(update: Update, context: ContextTypes.DEFAULT_TYP
         )
     
     keyboard = [
-        [InlineKeyboardButton("🔄 Scan Again", callback_data=f"check_deposit_{chain_to_check}_{user_id}" if chain_to_check else "deposit_history")],
-        [InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Scan Again", callback_data=f"check_deposit_{chain_to_check}_{user_id}" if chain_to_check else "deposit_history")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]
     ]
     
     # Use safe_edit_message to handle the transition from Photo -> Text
@@ -4100,7 +4100,7 @@ OXAPAY_ASK_CURRENCY = "oxapay_ask_currency"
 
 
 async def oxapay_deposit_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Entry point: user clicks '⚡ Deposit via OxaPay'."""
+    """Entry point: user clicks '<tg-emoji emoji-id="5451882707875276247">⭐</tg-emoji> Deposit via OxaPay'."""
     query = update.callback_query
     if not check_menu_ownership(query, context):
         await query.answer("This menu is not for you.", show_alert=True)
@@ -4108,7 +4108,7 @@ async def oxapay_deposit_start(update: Update, context: ContextTypes.DEFAULT_TYP
     await query.answer()
     await safe_edit_message(
         query,
-        "⚡ <b>OxaPay Deposit</b>\n\n"
+        "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>OxaPay Deposit</b>\n\n"
         "How much USD would you like to deposit? (e.g. <code>20</code>)\n\n"
         "<i>Type /cancel to abort.</i>",
         parse_mode=ParseMode.HTML
@@ -4124,7 +4124,7 @@ async def oxapay_receive_amount(update: Update, context: ContextTypes.DEFAULT_TY
         if amount <= 0:
             raise ValueError
     except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Please enter a positive number, e.g. <code>20</code>.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number, e.g. <code>20</code>.", parse_mode=ParseMode.HTML)
         return OXAPAY_ASK_AMOUNT
     context.user_data['oxapay_amount'] = amount
     await update.message.reply_text(
@@ -4141,7 +4141,7 @@ async def oxapay_receive_currency(update: Update, context: ContextTypes.DEFAULT_
     currency = update.message.text.strip().upper()
     if currency not in OXAPAY_SUPPORTED_CURRENCIES:
         await update.message.reply_text(
-            f"❌ Unsupported currency. Choose from: {', '.join(sorted(OXAPAY_SUPPORTED_CURRENCIES))}",
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Unsupported currency. Choose from: {', '.join(sorted(OXAPAY_SUPPORTED_CURRENCIES))}",
             parse_mode=ParseMode.HTML
         )
         return OXAPAY_ASK_CURRENCY
@@ -4153,16 +4153,16 @@ async def oxapay_receive_currency(update: Update, context: ContextTypes.DEFAULT_
 
     if pay_url:
         await update.message.reply_text(
-            f"✅ <b>OxaPay Invoice Created!</b>\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>OxaPay Invoice Created!</b>\n\n"
             f"Amount: <b>${amount_usd:.2f}</b> in <b>{currency}</b>\n\n"
-            f"👉 <a href=\"{pay_url}\">Click here to complete payment</a>\n\n"
+            f"<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> <a href=\"{pay_url}\">Click here to complete payment</a>\n\n"
             f"<i>Your balance will be credited automatically after payment confirmation.</i>",
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True
         )
     else:
         await update.message.reply_text(
-            "❌ Failed to create OxaPay invoice. Please try again later or contact support."
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Failed to create OxaPay invoice. Please try again later or contact support."
         )
     return ConversationHandler.END
 
@@ -4170,7 +4170,7 @@ async def oxapay_receive_currency(update: Update, context: ContextTypes.DEFAULT_
 async def oxapay_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel OxaPay flow."""
     if update.message:
-        await update.message.reply_text("❌ OxaPay deposit cancelled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> OxaPay deposit cancelled.")
     return ConversationHandler.END
 
 
@@ -4307,10 +4307,10 @@ async def oxapay_webhook_handler(request: aiohttp.web.Request) -> aiohttp.web.Re
                 await _oxapay_bot_ref.send_message(
                     chat_id=telegram_id,
                     text=(
-                        f"✅ <b>Deposit Confirmed!</b>\n\n"
-                        f"💰 <b>{pay_amount:.8f} {paid_currency}</b> "
+                        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Deposit Confirmed!</b>\n\n"
+                        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>{pay_amount:.8f} {paid_currency}</b> "
                         f"(${amount_usd:.2f})\n\n"
-                        f"Your balance has been credited. Good luck! 🎰"
+                        f"Your balance has been credited. Good luck! <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"
                     ),
                     parse_mode="HTML",
                 )
@@ -4433,7 +4433,7 @@ async def monitor_raffles_task(application):
                             try:
                                 await application.bot.send_message(
                                     chat_id=creator_id,
-                                    text=f"🎰 Raffle <code>{raffle_id}</code> ended with no participants. Prize ${prize:.2f} refunded.",
+                                    text=f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Raffle <code>{raffle_id}</code> ended with no participants. Prize ${prize:.2f} refunded.",
                                     parse_mode=ParseMode.HTML
                                 )
                             except:
@@ -4479,7 +4479,7 @@ async def monitor_raffles_task(application):
                                 await application.bot.send_message(
                                     chat_id=winner_id,
                                     text=(
-                                        f"🎉 <b>Congratulations!</b>\n\n"
+                                        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Congratulations!</b>\n\n"
                                         f"You won ${prize_per_winner:.2f} in raffle <code>{raffle_id}</code>!\n"
                                         f"Prize has been credited to your balance."
                                     ),
@@ -4494,11 +4494,11 @@ async def monitor_raffles_task(application):
                         await application.bot.send_message(
                             chat_id=creator_id,
                             text=(
-                                f"🎰 <b>Raffle Completed!</b>\n\n"
+                                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Raffle Completed!</b>\n\n"
                                 f"Raffle <code>{raffle_id}</code> has ended.\n"
-                                f"🏆 Winners: {len(winners)}\n"
-                                f"💰 Prize per winner: ${prize_per_winner:.2f}\n"
-                                f"🎫 Total tickets: {sum(participants.values())}"
+                                f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Winners: {len(winners)}\n"
+                                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Prize per winner: ${prize_per_winner:.2f}\n"
+                                f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Total tickets: {sum(participants.values())}"
                             ),
                             parse_mode=ParseMode.HTML
                         )
@@ -4720,7 +4720,7 @@ TOWER_DIFFICULTY_CONFIG = {
 CARD_VALUES = {
     'A': [1, 11], '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10
 }
-SUITS = ['♠', '♥', '♦', '♣']
+SUITS = ['<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>']
 RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 # --- MINES MULTIPLIER CHART (2% house edge applied) ---
@@ -4793,45 +4793,45 @@ KENO_PAYOUTS = {
 # New single emoji games with Telegram's native dice/emoji animations
 SINGLE_EMOJI_GAMES = {
     "darts": {
-        "emoji": "🎯",
+        "emoji": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
         "name": "Single Dart",
-        "dice_type": "🎯",  # Use emoji directly for Telegram API
+        "dice_type": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",  # Use emoji directly for Telegram API
         "multiplier": 1.15,
         "win_chance": 0.83,  # 83%
         "win_condition": lambda value: value >= 3,  # Dart hits the table (values 3-6)
         "win_description": "Dart hits the table"
     },
     "soccer": {
-        "emoji": "⚽",
+        "emoji": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",
         "name": "Single Soccer",
-        "dice_type": "⚽",  # Use emoji directly for Telegram API
+        "dice_type": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",  # Use emoji directly for Telegram API
         "multiplier": 1.53,
         "win_chance": 0.60,  # 60%
         "win_condition": lambda value: value in [3, 4, 5],  # Goal scored
         "win_description": "Goal scored"
     },
     "basket": {
-        "emoji": "🏀",
+        "emoji": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",
         "name": "Single Basket",
-        "dice_type": "🏀",  # Use emoji directly for Telegram API
+        "dice_type": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",  # Use emoji directly for Telegram API
         "multiplier": 2.25,
         "win_chance": 0.40,  # 40%
         "win_condition": lambda value: value in [4, 5],  # Ball goes in basket
         "win_description": "Ball goes in"
     },
     "bowling": {
-        "emoji": "🎳",
+        "emoji": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
         "name": "Single Bowling",
-        "dice_type": "🎳",  # Use emoji directly for Telegram API
+        "dice_type": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",  # Use emoji directly for Telegram API
         "multiplier": 5.00,
         "win_chance": 0.16,  # 16%
         "win_condition": lambda value: value == 6,  # Strike
         "win_description": "Strike!"
     },
     "slot": {
-        "emoji": "🎰",
+        "emoji": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
         "name": "Slot Machine",
-        "dice_type": "🎰",  # Use emoji directly for Telegram API
+        "dice_type": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",  # Use emoji directly for Telegram API
         "multiplier": 14.5,
         "win_chance": 0.0625,  # 6.25%
         "win_condition": lambda value: value in [1, 22, 43, 64],  # All same symbols (bar, grapes, lemon, seven)
@@ -5020,7 +5020,7 @@ async def smart_roll(context: ContextTypes.DEFAULT_TYPE, chat_id: int, emoji: st
             return (msg, True)  # Successfully used helper bot
         except Exception as e:
             # Log failure (Rate Limit or Permission error) but DO NOT CRASH
-            logging.warning(f"⚠️ Helper Bot failed (Failover active): {e}")
+            logging.warning(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Helper Bot failed (Failover active): {e}")
             # PROCEED TO FALLBACK BELOW...
             
     # 3. Fallback: Main Bot (Always works for DMs or if Helper failed)
@@ -5048,11 +5048,11 @@ async def create_provably_fair_button(game_id, context):
     try:
         bot_username = (await context.bot.get_me()).username
         pf_url = f"https://t.me/{bot_username}?start=provablyfair_{game_id}"
-        return InlineKeyboardButton("🔐 Provably Fair", url=pf_url)
+        return InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Provably Fair", url=pf_url)
     except Exception as e:
         logging.error(f"Error creating provably fair button: {e}")
         # Fallback to callback button if we can't get bot username
-        return InlineKeyboardButton("🔐 Provably Fair", callback_data=f"pf_show_{game_id}")
+        return InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Provably Fair", callback_data=f"pf_show_{game_id}")
 
 def generate_mine_positions(server_seed, client_seed, nonce, num_mines):
     """Generate deterministic mine positions for Mines game"""
@@ -5759,10 +5759,10 @@ async def ensure_user_in_wallets(user_id: int, username: str = None, referrer_id
                 await context.bot.send_message(
                     chat_id=user_id,
                     text=(
-                        "🔐 <b>Account Recovery Token</b>\n\n"
+                        "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Account Recovery Token</b>\n\n"
                         "Your account recovery token has been generated. Please save this token in a secure place. "
                         "It is the ONLY way to recover your account if you lose access to your Telegram account.\n\n"
-                        "<b>⚠️ IMPORTANT:</b>\n"
+                        "<b><tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> IMPORTANT:</b>\n"
                         "• Do NOT share this token with anyone\n"
                         "• Save it in a safe place offline\n"
                         "• You will need this token to use /recover command\n\n"
@@ -5923,17 +5923,17 @@ def format_balance_with_locked(user_id: int, currency: str = "USD") -> str:
     active_coin = get_active_currency(user_id)
     
     # Build multi-line balance
-    lines = [f"💰 Total Portfolio: ${total_usd:,.2f}\n"]
+    lines = [f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Portfolio: ${total_usd:,.2f}\n"]
     for coin, amount in wallet.items():
         if amount > 0 or coin == active_coin:
             price = LIVE_PRICES.get(coin, 1.0)
             usd_val = amount * price
-            symbol = CRYPTO_SYMBOLS.get(coin, "💎")
+            symbol = CRYPTO_SYMBOLS.get(coin, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
             formatted_amount = format_crypto_amount(amount, coin)
             if usd_val > 0.001 or coin == active_coin:
                 lines.append(f"{symbol} {coin}: ${usd_val:,.2f} ({formatted_amount} {coin})")
     
-    lines.append(f"\n🔹 Active Currency: {active_coin}")
+    lines.append(f"\n<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Active Currency: {active_coin}")
     
     locked_info = get_locked_balance_in_games(user_id)
     
@@ -5950,7 +5950,7 @@ def format_balance_with_locked(user_id: int, currency: str = "USD") -> str:
             locked_parts.append(f"${amount:,.2f} in game ( {game_type} )")
         
         locked_str = " + ".join(locked_parts)
-        lines.append(f"🔒 Locked: {locked_str}")
+        lines.append(f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Locked: {locked_str}")
     
     return "\n".join(lines)
 
@@ -6044,7 +6044,7 @@ async def check_and_award_level_up(user_id: int, context: ContextTypes.DEFAULT_T
             try:
                 await context.bot.send_message(
                     chat_id=user_id,
-                    text=(f"🎉 <b>Level Up!</b> 🎉\n\n"
+                    text=(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Level Up!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\n"
                           f"Congratulations! You have reached <b>{level_name}</b>.\n"
                           f"You have been awarded a one-time bonus of <b>${bonus:.2f}</b>!"),
                     parse_mode=ParseMode.HTML
@@ -6309,7 +6309,7 @@ def get_username_bonus_guidance():
     if BOT_USERNAME_TAG:
         # Use proper mention/link format instead of plain code
         tag_without_at = BOT_USERNAME_TAG.replace('@', '')
-        return (f"\n\n💡 <b>Tip:</b> Add <a href='https://t.me/{tag_without_at}'>{BOT_USERNAME_TAG}</a> to your Telegram name "
+        return (f"\n\n<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Tip:</b> Add <a href='https://t.me/{tag_without_at}'>{BOT_USERNAME_TAG}</a> to your Telegram name "
                 f"to get <b>5% extra</b> on all bonus claims (rakeback, weekly, monthly)!")
     return ""
 
@@ -6417,7 +6417,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     # Notify referrer
                     await context.bot.send_message(
                         chat_id=referrer_id,
-                        text=f"🎉 New referral! {user.mention_html()} has joined using your link.",
+                        text=f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> New referral! {user.mention_html()} has joined using your link.",
                         parse_mode=ParseMode.HTML
                     )
             except (ValueError, TypeError, BadRequest, Forbidden):
@@ -6444,7 +6444,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user_currency = get_user_currency(user.id)
             formatted_balance = format_balance_with_locked(user.id, user_currency)
             await update.message.reply_text(
-                f"💸 <b>Withdraw</b>\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Withdraw</b>\n\n"
                 f"<b>Your Balance:</b> {formatted_balance}\n\n"
                 f"Use /withdraw to start a withdrawal.",
                 parse_mode=ParseMode.HTML
@@ -6476,8 +6476,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("💎 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
-                apply_button_style(InlineKeyboardButton("💸 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
             ],
         ]
         
@@ -6489,7 +6489,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         formatted_crypto = format_crypto_amount(crypto_balance, active_coin)
         
         welcome_text = (
-            f"💵 <b>Balance:</b> ${balance_usd:,.2f} ({formatted_crypto} {active_coin})"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> ${balance_usd:,.2f} ({formatted_crypto} {active_coin})"
         )
         
         reply_markup = create_styled_keyboard(keyboard)
@@ -6508,20 +6508,20 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         # Row 1: Deposit & Withdraw with styles
         [
-            apply_button_style(InlineKeyboardButton("💎 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
         ],
         # Row 2: Games & More with styles
         [
-            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Games", callback_data="main_games"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> More", callback_data="main_more"), 'danger')  # RED
         ],
         # Row 3: Settings
     ]
 
     # Add Settings button only in DMs
     if update.effective_chat.type == "private":
-        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
@@ -6536,13 +6536,13 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_chat.type == "private":
         links_row = []
         if LINK_PORTAL:
-            links_row.append(InlineKeyboardButton("🌐 Portal", url=LINK_PORTAL).to_dict())
+            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Portal", url=LINK_PORTAL).to_dict())
         if LINK_CHANNEL:
-            links_row.append(InlineKeyboardButton("📢 Channel", url=LINK_CHANNEL).to_dict())
+            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Channel", url=LINK_CHANNEL).to_dict())
         
         links_row_2 = []
         if LINK_CHAT:
-            links_row_2.append(InlineKeyboardButton("💬 Chat", url=LINK_CHAT).to_dict())
+            links_row_2.append(InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> Chat", url=LINK_CHAT).to_dict())
         if LINK_SUPPORT:
             links_row_2.append(InlineKeyboardButton("🆘 Support", url=LINK_SUPPORT).to_dict())
         
@@ -6553,11 +6553,11 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             keyboard.append(links_row_2)
     
     welcome_text = (
-        "🐱 <b>Welcome to Casino ⚡</b>\n\n"
-        "⭐️ Casino - the best online mini-games platform on Telegram\n"
-        f"💵 <b>Balance:</b> {formatted_balance}\n"
-        f"👑 <b>Wagers:</b> {formatted_wagers}\n\n"
-        "🎮 Choose an option below to get started!"
+        "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> <b>Welcome to Casino <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji></b>\n\n"
+        "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Casino - the best online mini-games platform on Telegram\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> {formatted_balance}\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Wagers:</b> {formatted_wagers}\n\n"
+        "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Choose an option below to get started!"
     )
 
     # Create styled keyboard using helper function
@@ -6628,9 +6628,9 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if not DEPOSIT_ENABLED:
             await safe_edit_message(
                 query,
-                "❌ Deposits are currently disabled.",
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deposits are currently disabled.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
             )
             return
         
@@ -6643,22 +6643,22 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if not bot_settings.get("withdrawals_enabled", True):
             await safe_edit_message(
                 query,
-                "❌ <b>Withdrawals Disabled</b>\n\n"
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Withdrawals Disabled</b>\n\n"
                 "Withdrawals are temporarily disabled by the administrator. "
                 "Please contact support for more information.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
             )
             return
 
         if user.id in bot_settings.get("tempbanned_users", []):
             await safe_edit_message(
                 query,
-                "❌ <b>Withdrawals Disabled</b>\n\n"
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Withdrawals Disabled</b>\n\n"
                 "Your account is currently restricted from making withdrawals. "
                 "Please contact support for more information.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
             )
             return
 
@@ -6667,12 +6667,12 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if not withdrawal_address:
             await safe_edit_message(
                 query,
-                "💳 <b>Withdrawal Address Not Set</b>\n\n"
+                "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Withdrawal Address Not Set</b>\n\n"
                 "Please set your USDT-BEP20 withdrawal address in Settings first before requesting a withdrawal.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("⚙️ Go to Settings", callback_data="main_settings")],
-                    [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Go to Settings", callback_data="main_settings")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
                 ])
             )
             return
@@ -6685,7 +6685,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             price = LIVE_PRICES.get(coin, 1.0)
             usd_val = bal * price
             if usd_val > 0.01:
-                symbol = CRYPTO_SYMBOLS.get(coin, "💎")
+                symbol = CRYPTO_SYMBOLS.get(coin, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
                 formatted = format_crypto_amount(bal, coin)
                 keyboard.append([InlineKeyboardButton(
                     f"{symbol} {coin} - ${usd_val:,.2f} ({formatted})",
@@ -6696,15 +6696,15 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if len(keyboard) <= 1:
             await safe_edit_message(
                 query,
-                "❌ <b>No Balance</b>\n\nYou don't have any crypto balance to withdraw.",
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>No Balance</b>\n\nYou don't have any crypto balance to withdraw.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="back_to_main")]])
             )
             return
         
         await safe_edit_message(
             query,
-            f"💸 <b>Withdrawal - Select Coin</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Withdrawal - Select Coin</b>\n\n"
             f"<b>Withdrawal Address:</b> <code>{withdrawal_address}</code>\n\n"
             f"Select the crypto you want to withdraw:",
             parse_mode=ParseMode.HTML,
@@ -6720,10 +6720,10 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if not bot_settings.get("escrow_enabled", True):
             await safe_edit_message(
                 query,
-                "❌ <b>Escrow Feature Disabled</b>\n\n"
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Escrow Feature Disabled</b>\n\n"
                 "This feature is currently disabled by the owner.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
             )
             return
         await escrow_command(update, context, from_callback=True)
@@ -6742,29 +6742,29 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             if amount > 0.0 or coin == active_coin:
                 price = LIVE_PRICES.get(coin, 1.0)
                 usd_val = amount * price
-                symbol = CRYPTO_SYMBOLS.get(coin, "💎")
+                symbol = CRYPTO_SYMBOLS.get(coin, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
                 formatted = format_crypto_amount(amount, coin)
                 if usd_val > 0.001 or coin == active_coin:
                     portfolio_lines.append(f"{symbol} {coin}: ${usd_val:,.2f} ({formatted} {coin})")
 
         wallet_text = (
-            f"💼 <b>Your Wallet</b>\n\n"
-            f"💰 Total Portfolio: <b>${total_usd:,.2f}</b>\n\n"
+            f"<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> <b>Your Wallet</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Portfolio: <b>${total_usd:,.2f}</b>\n\n"
             + "\n".join(portfolio_lines) + "\n\n"
-            f"🔹 Active Currency: {active_coin}\n"
-            f"🎲 Total Wagered: ${stats.get('bets', {}).get('amount', 0.0):,.2f}\n"
-            f"🏆 Wins: {stats.get('bets', {}).get('wins', 0)}\n"
-            f"💔 Losses: {stats.get('bets', {}).get('losses', 0)}\n"
-            f"📈 P&L: <b>${stats.get('pnl', 0.0):,.2f}</b>\n"
-            f"💵 Total Deposited: ${total_deposits:,.2f}\n"
-            f"💸 Total Withdrawn: ${total_withdrawals:,.2f}"
+            f"<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Active Currency: {active_coin}\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Total Wagered: ${stats.get('bets', {}).get('amount', 0.0):,.2f}\n"
+            f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Wins: {stats.get('bets', {}).get('wins', 0)}\n"
+            f"<tg-emoji emoji-id='5402186569006210455'>⭐</tg-emoji> Losses: {stats.get('bets', {}).get('losses', 0)}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> P&L: <b>${stats.get('pnl', 0.0):,.2f}</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Deposited: ${total_deposits:,.2f}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Withdrawn: ${total_withdrawals:,.2f}"
         )
 
         keyboard = [
-            [InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw")],
-            [InlineKeyboardButton("📜 My Game Matches", callback_data="my_matches_0")],
-            [InlineKeyboardButton("🛡️ My Escrow Deals", callback_data="my_deals_0")],
-            [InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> My Game Matches", callback_data="my_matches_0")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> My Escrow Deals", callback_data="my_deals_0")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]
         ]
 
         # Send dashboard image with wallet text as new message (callback can't edit to photo)
@@ -6816,10 +6816,10 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if not bot_settings.get("ai_enabled", True):
             await safe_edit_message(
                 query,
-                "❌ <b>AI Assistant Disabled</b>\n\n"
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>AI Assistant Disabled</b>\n\n"
                 "This feature is currently disabled by the owner.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
             )
             return
         return await start_ai_conversation(update, context)
@@ -6830,10 +6830,10 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "🆘 <b>Support</b>\n\n"
             "Need help or have questions?\n"
             "Contact the bot owner:\n\n"
-            "👤 @jashanxjagy\n\n"
+            "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> @jashanxjagy\n\n"
             "We're here to help you 24/7!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
         )
 
     elif data == "main_help":
@@ -6842,18 +6842,18 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     elif data == "main_info":
         info_text = (
             "ℹ️ <b>Casino Rules & Info</b>\n\n"
-            "<b>🎰 General Rules:</b>\n"
+            "<b><tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> General Rules:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• All games use provably fair system\n"
             "• No refunds on completed bets\n"
             "• Contact support for disputes\n\n"
-            "<b>🛡️ Escrow Rules:</b>\n"
+            "<b><tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Escrow Rules:</b>\n"
             "• Use /escrow to start a secure trade.\n"
             "• Seller deposits funds into bot's secure wallet.\n"
             "• Buyer confirms receipt of goods/services.\n"
             "• Seller releases funds to the buyer.\n"
             "• All transactions are on the blockchain.\n\n"
-            "<b>⚠️ Responsible Gaming:</b>\n"
+            "<b><tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Responsible Gaming:</b>\n"
             "• Only bet what you can afford to lose\n"
             "• Set personal limits\n"
             "• Contact support if you need help"
@@ -6862,7 +6862,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             query,
             info_text,
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
         )
 
     ## NEW FEATURE ##
@@ -6892,11 +6892,11 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     elif data == "main_claim_gift":
         await safe_edit_message(
             query,
-            "🎟️ <b>Claim Gift Code</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Claim Gift Code</b>\n\n"
             "Use the command:\n<code>/claim YOUR_CODE</code>\n\n"
             "Example: <code>/claim GIFT-ABC12345</code>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
         )
     
     elif data == "main_stats":
@@ -6933,13 +6933,13 @@ async def start_command_inline(query, context):
     keyboard = [
         # Row 1: Deposit & Withdraw
         [
-            apply_button_style(InlineKeyboardButton("💎 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
         ],
         # Row 2: Games & More
         [
-            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Games", callback_data="main_games"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> More", callback_data="main_more"), 'danger')  # RED
         ],
         # Row 3: Settings
     ]
@@ -6947,14 +6947,14 @@ async def start_command_inline(query, context):
     # Add Settings button only in DMs - with better error handling
     try:
         if query.message and query.message.chat and query.message.chat.type == "private":
-            keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+            keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
     except AttributeError:
         # Default to adding settings if we can't determine chat type
-        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
-        keyboard.append([InlineKeyboardButton("🔧 Admin Panel", callback_data="admin_dashboard").to_dict()])
+        keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Admin Panel", callback_data="admin_dashboard").to_dict()])
 
     # Create links row - Only show in DMs to avoid spam in groups
     try:
@@ -6965,13 +6965,13 @@ async def start_command_inline(query, context):
     if is_private:
         links_row = []
         if LINK_PORTAL:
-            links_row.append(InlineKeyboardButton("🌐 Portal", url=LINK_PORTAL).to_dict())
+            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Portal", url=LINK_PORTAL).to_dict())
         if LINK_CHANNEL:
-            links_row.append(InlineKeyboardButton("📢 Channel", url=LINK_CHANNEL).to_dict())
+            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Channel", url=LINK_CHANNEL).to_dict())
         
         links_row_2 = []
         if LINK_CHAT:
-            links_row_2.append(InlineKeyboardButton("💬 Chat", url=LINK_CHAT).to_dict())
+            links_row_2.append(InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> Chat", url=LINK_CHAT).to_dict())
         if LINK_SUPPORT:
             links_row_2.append(InlineKeyboardButton("🆘 Support", url=LINK_SUPPORT).to_dict())
         
@@ -6982,11 +6982,11 @@ async def start_command_inline(query, context):
             keyboard.append(links_row_2)
 
     welcome_text = (
-        "🐱 <b>Welcome to Casino ⚡</b>\n\n"
-        "⭐️ Casino - the best online mini-games platform on Telegram\n"
-        f"💵 <b>Balance:</b> {formatted_balance}\n"
-        f"👑 <b>Wagers:</b> {formatted_wagers}\n\n"
-        "🎮 Choose an option below to get started!"
+        "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> <b>Welcome to Casino <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji></b>\n\n"
+        "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Casino - the best online mini-games platform on Telegram\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> {formatted_balance}\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Wagers:</b> {formatted_wagers}\n\n"
+        "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Choose an option below to get started!"
     )
 
     # Create styled keyboard using helper function
@@ -7016,15 +7016,15 @@ async def games_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if is_group:
         # Group chat: only House Games and Emoji Games, no official link, no back button
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🔥 House Games", callback_data="games_category_house"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🎲 Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> House Games", callback_data="games_category_house"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
         ]
     else:
         # DM: full menu
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🔥 House Games", callback_data="games_category_house"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🎲 Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
-            [InlineKeyboardButton("⚡ Official Group", url="https://t.me/playcsino").to_dict()],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> House Games", callback_data="games_category_house"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
+            [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Official Group", url="https://t.me/playcsino").to_dict()],
             [apply_button_style(InlineKeyboardButton(get_text("back", user_lang), callback_data="back_to_main"), 'danger')]  # RED
         ]
     text = get_text("games_menu", user_lang)
@@ -7075,45 +7075,45 @@ async def games_category_callback(update: Update, context: ContextTypes.DEFAULT_
         category = query.data.split('_')[-1]
 
     if category == "house":
-        text = "🏠 <b>House Games</b>\n\nChoose a game to see how to play:"
+        text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>House Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🃏 Blackjack", callback_data="game_blackjack"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("🎲 Dice Roll", callback_data="game_dice_roll"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🔮 Predict", callback_data="game_predict"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("🎯 Roulette", callback_data="game_roulette"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🎰 Slots", callback_data="game_slots"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("🏗️ Tower", callback_data="game_tower_start"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("💣 Mines", callback_data="game_mines_start"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("🎯 Keno", callback_data="game_keno"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🪙 Coin Flip", callback_data="game_coin_flip"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("🎴 High-Low", callback_data="game_highlow"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="game_blackjack"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice Roll", callback_data="game_dice_roll"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Predict", callback_data="game_predict"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="game_roulette"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slots", callback_data="game_slots"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="game_tower_start"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="game_mines_start"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="game_keno"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coin Flip", callback_data="game_coin_flip"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> High-Low", callback_data="game_highlow"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games"), 'danger')]  # RED
         ]
     elif category == "emoji":
-        text = "😀 <b>Emoji Games</b>\n\nChoose a category:"
+        text = "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Emoji Games</b>\n\nChoose a category:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🎮 Regular Games", callback_data="games_emoji_regular"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🎯 Single Emoji Games", callback_data="games_emoji_single"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Regular Games", callback_data="games_emoji_regular"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Single Emoji Games", callback_data="games_emoji_single"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games"), 'danger')]  # RED
         ]
     elif category == "emoji-regular":
-        text = "🎮 <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
+        text = "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🎲 Dice", callback_data="game_dice_bot"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🎯 Darts", callback_data="game_darts"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("⚽ Football", callback_data="game_football"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🎳 Bowling", callback_data="game_bowling"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice", callback_data="game_dice_bot"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts", callback_data="game_darts"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football", callback_data="game_football"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling", callback_data="game_bowling"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
         ]
     elif category == "emoji-single":
-        text = "🎯 <b>Single Emoji Games</b>\n\nQuick games with instant results!\n\nHow to play: Choose a game, set your bet, and watch the emoji!"
+        text = "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Single Emoji Games</b>\n\nQuick games with instant results!\n\nHow to play: Choose a game, set your bet, and watch the emoji!"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🎯 Darts (1.15x)", callback_data="game_single_darts"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("⚽ Soccer (1.53x)", callback_data="game_single_soccer"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🏀 Basket (2.25x)", callback_data="game_single_basket"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🎳 Bowling (5.00x)", callback_data="game_single_bowling"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🎰 Slot (14.5x)", callback_data="game_single_slot"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts (1.15x)", callback_data="game_single_darts"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Soccer (1.53x)", callback_data="game_single_soccer"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Basket (2.25x)", callback_data="game_single_basket"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling (5.00x)", callback_data="game_single_bowling"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slot (14.5x)", callback_data="game_single_slot"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
         ]
     else:
         return
@@ -7143,7 +7143,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     if data == "game_blackjack":
         await safe_edit_message(query,
-            "🃏 <b>Blackjack</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Get as close to 21 as possible\n"
@@ -7157,12 +7157,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Blackjack: 2.5x your bet\n"
             "• Push: Get your bet back",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_coin_flip":
         await safe_edit_message(query,
-            "🪙 <b>Coin Flip</b>\n\n"
+            "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Coin Flip</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Choose Heads or Tails\n"
@@ -7175,14 +7175,14 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 1 win: 2x\n"
             "• 2 wins: 4x\n"
             "• 3 wins: 8x\n"
-            "• And so on... 🚀",
+            "• And so on... <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
     
     elif data == "game_highlow":
         await safe_edit_message(query,
-            "🎴 <b>High-Low Card Game</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>High-Low Card Game</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• You're shown a card\n"
@@ -7197,11 +7197,11 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Ace is low (1), King is high (13)\n"
             "• Skip gives smaller multiplier but safer",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
     elif data == "game_limbo":
         await safe_edit_message(query,
-            "🚀 <b>LIMBO</b>\n\n"
+            "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>LIMBO</b>\n\n"
             "<b>How to play:</b>\n"
             "• Choose your target multiplier (1.01 - 1000.00)\n"
             "• A random outcome is generated\n"
@@ -7218,12 +7218,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             f"<b>Min bet:</b> ${MIN_BALANCE:.2f}",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]]
+                [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]]
             ),
         )
     elif data == "game_roulette":
         await safe_edit_message(query,
-            "🎯 <b>Roulette</b>\n\n"
+            "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Choose number (0-36), color, or type\n\n"
@@ -7244,12 +7244,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Red/Black, Even/Odd, High/Low: 1.96x\n"
             "• Columns: 2.92x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_dice_roll":
         await safe_edit_message(query,
-            "🎲 <b>Dice Roll</b>\n\n"
+            "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Dice Roll</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Choose number (1-6), even/odd, or high/low\n"
@@ -7266,12 +7266,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Exact number: 5.30x\n"
             "• Even/Odd/High/Low: 1.96x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_slots":
         await safe_edit_message(query,
-            "🎰 <b>Slots</b>\n\n"
+            "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Slots</b>\n\n"
             "<b>How to play:</b>\n"
             "• Bot rolls real Telegram slot machine\n"
             "• Get 3 matching symbols to win\n\n"
@@ -7283,12 +7283,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Triple 7s (JACKPOT): 20x\n"
             "• No match: 0x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_predict":
         await safe_edit_message(query,
-            "🔮 <b>Predict Dice</b>\n\n"
+            "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Predict Dice</b>\n\n"
             "<b>How to play:</b>\n"
             "• Predict if dice will be up (4-6) or down (1-3)\n"
             "• 2x payout on correct prediction\n\n"
@@ -7296,14 +7296,14 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <code>/predict amount up</code>\n"
             "• <code>/predict all down</code>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
 
 
     elif data == "game_keno":
         await safe_edit_message(query,
-            "🎯 <b>KENO</b>\n\n"
+            "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Pick 1-10 numbers from 1-40\n"
@@ -7321,12 +7321,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Check payout table in-game\n\n"
             "Uses provably fair system!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_crash":
         await safe_edit_message(query,
-            "📉 <b>CRASH</b>\n\n"
+            "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>CRASH</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Multiplier starts at 1.00x and rises\n"
@@ -7346,12 +7346,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• High multipliers are rare but exciting!\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_plinko":
         await safe_edit_message(query,
-            "🎪 <b>PLINKO</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>PLINKO</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Drop a ball through pegs\n"
@@ -7371,12 +7371,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <code>/plinko all high</code>\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_wheel":
         await safe_edit_message(query,
-            "🎡 <b>WHEEL OF FORTUNE</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>WHEEL OF FORTUNE</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Spin the wheel for prizes\n"
@@ -7395,12 +7395,12 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 30x-50x: Very Rare (~5%)\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_scratch":
         await safe_edit_message(query,
-            "🎫 <b>SCRATCH CARD</b>\n\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>SCRATCH CARD</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Buy a scratch card\n"
@@ -7413,20 +7413,20 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <code>/scratch 5</code> - Buy $5 card\n"
             "• <code>/scratch all</code> - Buy card with all balance\n\n"
             "<b>Symbol Multipliers:</b>\n"
-            "• 💎 Diamond: 100x\n"
-            "• 👑 Crown: 50x\n"
-            "• ⭐ Star: 20x\n"
-            "• 💰 Money: 10x\n"
-            "• 🍀 Clover: 5x\n"
-            "• 🎰 Slot: 2x\n\n"
+            "• <tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Diamond: 100x\n"
+            "• <tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Crown: 50x\n"
+            "• <tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Star: 20x\n"
+            "• <tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Money: 10x\n"
+            "• <tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Clover: 5x\n"
+            "• <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slot: 2x\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_coin_chain":
         await safe_edit_message(query,
-            "🪙 <b>COIN TOSS CHAIN</b>\n\n"
+            "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>COIN TOSS CHAIN</b>\n\n"
             "<b>How to play:</b>\n"
             f"• Minimum bet: ${MIN_BALANCE:.2f}\n"
             "• Toss a coin - Heads or Tails\n"
@@ -7448,7 +7448,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 10 wins: 613.11x (!)\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
         )
 
     # Single Emoji Games
@@ -7470,8 +7470,8 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 f"Simple, fast, and fun!",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(f"🎮 Play {game_config['emoji']}", callback_data=f"play_single_{game_key}")],
-                    [InlineKeyboardButton("🔙 Back", callback_data="games_category_emoji-single")]
+                    [InlineKeyboardButton(f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Play {game_config['emoji']}", callback_data=f"play_single_{game_key}")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_emoji-single")]
                 ])
             )
 
@@ -7484,13 +7484,13 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         game_name = game_name_map.get(game_key, game_key.replace("_", " ").title())
 
         keyboard = [
-            [InlineKeyboardButton(f"🤖 Play vs Bot", callback_data=f"pvb_start_{game_key}")],
-            [InlineKeyboardButton(f"👤 Play vs Player", callback_data=f"pvp_info_{game_key}")],
-            [InlineKeyboardButton("🔙 Back to Regular Games", callback_data="games_emoji_regular")]
+            [InlineKeyboardButton(f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play vs Bot", callback_data=f"pvb_start_{game_key}")],
+            [InlineKeyboardButton(f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Play vs Player", callback_data=f"pvp_info_{game_key}")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Regular Games", callback_data="games_emoji_regular")]
         ]
 
         await safe_edit_message(query,
-            f"🎮 <b>{game_name}</b>\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>{game_name}</b>\n\n"
             "Who do you want to play against?",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
@@ -7526,7 +7526,7 @@ async def blackjack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if get_active_balance_usd(user.id) < bet_amount_usd:
-        await send_insufficient_balance_message(update, f"❌ You don't have enough balance. Your balance: {formatted_balance}")
+        await send_insufficient_balance_message(update, f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Your balance: {formatted_balance}")
         return
 
     deduct_wallet(user.id, bet_amount_usd)
@@ -7598,7 +7598,7 @@ async def blackjack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             save_user_data(user.id)
             await update.message.reply_text(
                 f"{hand_text}\n{format_hand('Dealer hand', dealer_hand, dealer_value)}\n"
-                f"🤝 Push! Both have blackjack. Bet returned: {formatted_bet}\nGame ID: <code>{game_id}</code>",
+                f"<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Push! Both have blackjack. Bet returned: {formatted_bet}\nGame ID: <code>{game_id}</code>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
@@ -7612,24 +7612,24 @@ async def blackjack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             save_user_data(user.id)
             await update.message.reply_text(
                 f"{hand_text}\n{dealer_text}\n"
-                f"🎉 Blackjack! You win {currency_symbol}{winnings_currency:.2f}!\nGame ID: <code>{game_id}</code>",
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Blackjack! You win {currency_symbol}{winnings_currency:.2f}!\nGame ID: <code>{game_id}</code>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
         return
 
     keyboard = [
-        [InlineKeyboardButton("👊 Hit", callback_data=f"bj_hit_{game_id}"),
-         InlineKeyboardButton("✋ Stand", callback_data=f"bj_stand_{game_id}")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")],
     ]
 
     if len(player_hand) == 2 and get_active_balance_usd(user.id) >= bet_amount_usd:
-        keyboard.append([InlineKeyboardButton("⬆️ Double Down", callback_data=f"bj_double_{game_id}")])
+        keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Double Down", callback_data=f"bj_double_{game_id}")])
 
     await update.message.reply_text(
-        f"🃏 <b>Blackjack Started!</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack Started!</b> (ID: <code>{game_id}</code>)\n\n"
         f"{hand_text}\n{dealer_text}\n"
-        f"💰 Bet: {formatted_bet}",
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: {formatted_bet}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -7714,8 +7714,8 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             keyboard = [[await create_provably_fair_button(game_id, context)]]
             
             await query.edit_message_text(
-                f"🃏 <b>Blackjack</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n{dealer_text}\n\n"
-                f"💥 Bust! You lose ${game['bet_amount']:.2f}",
+                f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n{dealer_text}\n\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Bust! You lose ${game['bet_amount']:.2f}",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
@@ -7723,12 +7723,12 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             await handle_dealer_turn(query, context, game_id)
         else:
             keyboard = [
-                [InlineKeyboardButton("👊 Hit", callback_data=f"bj_hit_{game_id}"),
-                 InlineKeyboardButton("✋ Stand", callback_data=f"bj_stand_{game_id}")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
+                 InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")]
             ]
             await query.edit_message_text(
-                f"🃏 <b>Blackjack</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n{dealer_text}\n"
-                f"💰 Bet: ${game['bet_amount']:.2f}",
+                f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n{dealer_text}\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${game['bet_amount']:.2f}",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
@@ -7739,13 +7739,13 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     elif action == "double":
         if get_active_balance_usd(user.id) < game["bet_amount"]:
             # Show alert with deposit option
-            await query.answer("❌ Not enough balance to double down!", show_alert=True)
+            await query.answer("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Not enough balance to double down!", show_alert=True)
             # Edit message to show back button
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("🔙 Back to Game", callback_data=f"bj_continue_{game_id}")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Game", callback_data=f"bj_continue_{game_id}")]
             ])
             await query.edit_message_text(
-                f"❌ You don't have enough balance to double down.\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance to double down.\n\n"
                 f"Required: ${game['bet_amount']:.2f}\n"
                 f"Your balance: ${get_active_balance_usd(user.id):.2f}\n\n"
                 f"Please deposit to continue.",
@@ -7781,8 +7781,8 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             keyboard = [[await create_provably_fair_button(game_id, context)]]
             
             await query.edit_message_text(
-                f"🃏 <b>Blackjack - Doubled Down</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n\n"
-                f"💥 Bust! You lose ${game['bet_amount']:.2f}",
+                f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack - Doubled Down</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Bust! You lose ${game['bet_amount']:.2f}",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
@@ -7808,23 +7808,23 @@ async def handle_dealer_turn(query, context, game_id):
         # Regular win pays 1.94x (3% house edge)
         winnings = game["bet_amount"] * 1.94
         credit_wallet(user_id, winnings)
-        result = f"🎉 Dealer busts! You win ${winnings:.2f}!"
+        result = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Dealer busts! You win ${winnings:.2f}!"
         game['win'] = True
         update_stats_on_bet(user_id, game_id, original_bet, True, multiplier=1.94, context=context)
     elif dealer_value > player_value:
-        result = f"😢 Dealer wins with {dealer_value}. You lose ${game['bet_amount']:.2f}"
+        result = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Dealer wins with {dealer_value}. You lose ${game['bet_amount']:.2f}"
         game['win'] = False
         update_stats_on_bet(user_id, game_id, original_bet, False, context=context)
     elif player_value > dealer_value:
         # Regular win pays 1.94x (3% house edge)
         winnings = game["bet_amount"] * 1.94
         credit_wallet(user_id, winnings)
-        result = f"🎉 You win! ${winnings:.2f}"
+        result = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You win! ${winnings:.2f}"
         game['win'] = True
         update_stats_on_bet(user_id, game_id, original_bet, True, multiplier=1.94, context=context)
     else:
         credit_wallet(user_id, game["bet_amount"])
-        result = "🤝 Push! Bet returned."
+        result = "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Push! Bet returned."
         game['win'] = None # No win or loss
 
     update_pnl(user_id)
@@ -7840,7 +7840,7 @@ async def handle_dealer_turn(query, context, game_id):
     keyboard = [[await create_provably_fair_button(game_id, context)]]
 
     await query.edit_message_text(
-        f"🃏 <b>Blackjack{double_text}</b> (ID: <code>{game_id}</code>)\n\n{player_text}\n{dealer_text}\n\n{result}",
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack{double_text}</b> (ID: <code>{game_id}</code>)\n\n{player_text}\n{dealer_text}\n\n{result}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -7906,12 +7906,12 @@ async def coin_flip_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🪙 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-         apply_button_style(InlineKeyboardButton("🪙 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+         apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
     ]
     await update.message.reply_text(
-        f"🪙 <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n💰 Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
-        f"🎯 Current Multiplier: 1.94x",
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Current Multiplier: 1.94x",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
     )
@@ -7955,14 +7955,14 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             win_amount = game["bet_amount"] * multiplier
             next_multiplier = 1.94 * (2 ** game["streak"])
             keyboard = [
-                [apply_button_style(InlineKeyboardButton("🪙 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-                 apply_button_style(InlineKeyboardButton("🪙 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
-                [apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')]
+                [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+                 apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
+                [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')]
             ]
             await query.edit_message_text(
-                f"🎉 <b>Correct!</b> The coin landed on {pick}!\n\n"
-                f"💰 Current Win: <b>${win_amount:.2f}</b>\n🔥 Streak: {game['streak']}\n"
-                f"🎯 Next Multiplier: {next_multiplier:.2f}x\n\nContinue playing or cash out?\nID: <code>{game_id}</code>",
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Correct!</b> The coin landed on {pick}!\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current Win: <b>${win_amount:.2f}</b>\n<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Streak: {game['streak']}\n"
+                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Next Multiplier: {next_multiplier:.2f}x\n\nContinue playing or cash out?\nID: <code>{game_id}</code>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=create_styled_keyboard(keyboard)
             )
@@ -7981,15 +7981,15 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             # Add rebet/double and provably fair buttons
             keyboard = [
                 [
-                    apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                    apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
+                    apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                    apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
                 ],
                 [await create_provably_fair_button(game_id, context)]
             ]
             
             await query.edit_message_text(
-                f"❌ <b>Wrong!</b> You picked {pick}, but the coin landed on {bot_choice}.\n\n"
-                f"💔 You lost your bet of ${game['bet_amount']:.2f}\n🎯 Your streak was: {game['streak']}\nID: <code>{game_id}</code>",
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Wrong!</b> You picked {pick}, but the coin landed on {bot_choice}.\n\n"
+                f"<tg-emoji emoji-id='5402186569006210455'>⭐</tg-emoji> You lost your bet of ${game['bet_amount']:.2f}\n<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Your streak was: {game['streak']}\nID: <code>{game_id}</code>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
@@ -8016,15 +8016,15 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         # Add rebet/double and provably fair buttons
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
         
         await query.edit_message_text(
-            f"💸 <b>Cashed Out!</b>\n\n🎉 You won <b>${win_amount:.2f}</b>!\n"
-            f"🔥 Final streak: {game['streak']}\n📈 Final multiplier: {multiplier:.2f}x\nID: <code>{game_id}</code>",
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Cashed Out!</b>\n\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You won <b>${win_amount:.2f}</b>!\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Final streak: {game['streak']}\n<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Final multiplier: {multiplier:.2f}x\nID: <code>{game_id}</code>",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
@@ -8104,12 +8104,12 @@ async def coinflip_rebet_double_callback(update: Update, context: ContextTypes.D
     save_user_data(user.id)
 
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🪙 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-         apply_button_style(InlineKeyboardButton("🪙 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+         apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
     ]
     await query.edit_message_text(
-        f"🪙 <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n💰 Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
-        f"🎯 Current Multiplier: 1.94x",
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Current Multiplier: 1.94x",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
     )
@@ -8264,14 +8264,14 @@ async def highlow_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Add Higher button only if not King (13)
     if current_card != 13:
-        row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
     
     # Add Lower button only if not Ace (1)
     if current_card != 1:
-        row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
     
     # Row 2: Tie button
-    row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+    row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
     
     # Row 3: Skip Card button only (no cashout on first card)
     row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
@@ -8282,16 +8282,16 @@ async def highlow_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Build multiplier text
     mult_text = "Choose your prediction:\n"
     if current_card != 13:
-        mult_text += f"⬆️ Higher: {high_mult:.2f}x\n"
+        mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher: {high_mult:.2f}x\n"
     if current_card != 1:
-        mult_text += f"⬇️ Lower: {low_mult:.2f}x\n"
-    mult_text += f"🔄 Tie: {tie_mult:.2f}x"
+        mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower: {low_mult:.2f}x\n"
+    mult_text += f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie: {tie_mult:.2f}x"
     
     await update.message.reply_text(
-        f"🎴 <b>High-Low Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
-        f"💰 Bet: ${bet:.2f}\n"
-        f"🃏 Current Card: <b>{card_name}</b>\n"
-        f"📊 Cards remaining: {len(deck)}\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>High-Low Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Current Card: <b>{card_name}</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Cards remaining: {len(deck)}\n\n"
         f"{mult_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
@@ -8362,15 +8362,15 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip/Cashout
         row1 = []
         if new_card != 13:
-            row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
         if new_card != 1:
-            row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
         
-        row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+        row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
         
         row3 = [
             apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
+            apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
         ]
         
         keyboard = [row1, row2, row3]
@@ -8378,18 +8378,18 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Build multiplier text
         mult_text = "Next multipliers:\n"
         if new_card != 13:
-            mult_text += f"⬆️ Higher: {high_mult:.2f}x\n"
+            mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher: {high_mult:.2f}x\n"
         if new_card != 1:
-            mult_text += f"⬇️ Lower: {low_mult:.2f}x\n"
-        mult_text += f"🔄 Tie: {tie_mult:.2f}x"
+            mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower: {low_mult:.2f}x\n"
+        mult_text += f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie: {tie_mult:.2f}x"
         
         await query.edit_message_text(
             f"⏭️ <b>Card Skipped!</b>\n\n"
-            f"🃏 New Current Card: <b>{card_name}</b>\n"
-            f"💰 Current Win: <b>${win_amount:.2f}</b>\n"
-            f"🔥 Streak: {game['streak']}\n"
-            f"📈 Current Multiplier: {game['current_multiplier']:.2f}x\n"
-            f"📊 Cards remaining: {len(game['deck'])}\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> New Current Card: <b>{card_name}</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current Win: <b>${win_amount:.2f}</b>\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Streak: {game['streak']}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Current Multiplier: {game['current_multiplier']:.2f}x\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Cards remaining: {len(game['deck'])}\n\n"
             f"{mult_text}\n\n"
             f"Continue playing or cash out?\nID: <code>{game_id}</code>",
             parse_mode=ParseMode.HTML,
@@ -8442,15 +8442,15 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip/Cashout
                 row1 = []
                 if next_card != 13:
-                    row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+                    row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
                 if next_card != 1:
-                    row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+                    row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
                 
-                row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+                row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
                 
                 row3 = [
                     apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary'),
-                    apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
+                    apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
                 ]
                 
                 keyboard = [row1, row2, row3]
@@ -8458,18 +8458,18 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Build multiplier text
                 mult_text = "Next multipliers:\n"
                 if next_card != 13:
-                    mult_text += f"⬆️ Higher: {high_mult:.2f}x\n"
+                    mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher: {high_mult:.2f}x\n"
                 if next_card != 1:
-                    mult_text += f"⬇️ Lower: {low_mult:.2f}x\n"
-                mult_text += f"🔄 Tie: {tie_mult:.2f}x"
+                    mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower: {low_mult:.2f}x\n"
+                mult_text += f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie: {tie_mult:.2f}x"
                 
                 await query.edit_message_text(
-                    f"🎉 <b>Correct!</b> The next card is {card_name}!\n\n"
-                    f"🃏 Current Card: <b>{card_name}</b>\n"
-                    f"💰 Current Win: <b>${win_amount:.2f}</b>\n"
-                    f"🔥 Streak: {game['streak']}\n"
-                    f"📈 Current Total Multiplier: {game['current_multiplier']:.2f}x\n"
-                    f"📊 Cards remaining: {len(game['deck'])}\n\n"
+                    f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Correct!</b> The next card is {card_name}!\n\n"
+                    f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Current Card: <b>{card_name}</b>\n"
+                    f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current Win: <b>${win_amount:.2f}</b>\n"
+                    f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Streak: {game['streak']}\n"
+                    f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Current Total Multiplier: {game['current_multiplier']:.2f}x\n"
+                    f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Cards remaining: {len(game['deck'])}\n\n"
                     f"{mult_text}\n\n"
                     f"Continue playing or cash out?\nID: <code>{game_id}</code>",
                     parse_mode=ParseMode.HTML,
@@ -8491,17 +8491,17 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Add rebet/double and provably fair buttons
                 keyboard = [
                     [
-                        apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                        apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
+                        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
                     ],
                     [await create_provably_fair_button(game_id, context)]
                 ]
                 
                 next_card_name = get_card_name(next_card)
                 await query.edit_message_text(
-                    f"❌ <b>Wrong!</b> The next card was {next_card_name}.\n\n"
-                    f"💔 You lost your bet of ${game['bet_amount']:.2f}\n"
-                    f"🔥 Your streak was: {game['streak']}\n"
+                    f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Wrong!</b> The next card was {next_card_name}.\n\n"
+                    f"<tg-emoji emoji-id='5402186569006210455'>⭐</tg-emoji> You lost your bet of ${game['bet_amount']:.2f}\n"
+                    f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Your streak was: {game['streak']}\n"
                     f"ID: <code>{game_id}</code>",
                     parse_mode=ParseMode.HTML,
                     reply_markup=InlineKeyboardMarkup(keyboard)
@@ -8525,17 +8525,17 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Add rebet/double and provably fair buttons
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
         
         await query.edit_message_text(
-            f"💸 <b>Cashed Out!</b>\n\n"
-            f"🎉 You won <b>${win_amount:.2f}</b>!\n"
-            f"🔥 Final streak: {game['streak']}\n"
-            f"📈 Final multiplier: {game['current_multiplier']:.2f}x\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Cashed Out!</b>\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You won <b>${win_amount:.2f}</b>!\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Final streak: {game['streak']}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Final multiplier: {game['current_multiplier']:.2f}x\n"
             f"ID: <code>{game_id}</code>",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
@@ -8636,11 +8636,11 @@ async def highlow_rebet_double_callback(update: Update, context: ContextTypes.DE
     # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip
     row1 = []
     if current_card != 13:
-        row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
     if current_card != 1:
-        row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
     
-    row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+    row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
     row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
     
     keyboard = [row1, row2, row3]
@@ -8648,16 +8648,16 @@ async def highlow_rebet_double_callback(update: Update, context: ContextTypes.DE
     # Build multiplier text
     mult_text = "Choose your prediction:\n"
     if current_card != 13:
-        mult_text += f"⬆️ Higher: {high_mult:.2f}x\n"
+        mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher: {high_mult:.2f}x\n"
     if current_card != 1:
-        mult_text += f"⬇️ Lower: {low_mult:.2f}x\n"
-    mult_text += f"🔄 Tie: {tie_mult:.2f}x"
+        mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower: {low_mult:.2f}x\n"
+    mult_text += f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie: {tie_mult:.2f}x"
     
     await query.edit_message_text(
-        f"🎴 <b>High-Low Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
-        f"💰 Bet: ${bet:.2f}\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>High-Low Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\n"
         f"?? Current Card: <b>{card_name}</b>\n"
-        f"📊 Cards remaining: {len(deck)}\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Cards remaining: {len(deck)}\n\n"
         f"{mult_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
@@ -8673,11 +8673,11 @@ ROULETTE_BLACK_NUMBERS = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29
 def get_roulette_number_emoji(number):
     """Get colored emoji for roulette number"""
     if number == 0:
-        return "🟢"
+        return "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
     elif number in ROULETTE_RED_NUMBERS:
-        return "🔴"
+        return "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
     else:
-        return "⚫"
+        return "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
 
 def create_roulette_menu_keyboard(user_id, bet_amount, selected=None):
     """Create the main roulette menu with betting options (COLORED buttons - Bot API 9.4)
@@ -8701,13 +8701,13 @@ def create_roulette_menu_keyboard(user_id, bet_amount, selected=None):
         return btn.to_dict()
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("▶️ Start", callback_data=f"roul_start_{user_id}"), 'success')],  # GREEN
-        [InlineKeyboardButton("🎯 Bet on Number", callback_data=f"roul_bet_number_{user_id}").to_dict()],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start", callback_data=f"roul_start_{user_id}"), 'success')],  # GREEN
+        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bet on Number", callback_data=f"roul_bet_number_{user_id}").to_dict()],
         [_btn("1-12", "1-12"), _btn("13-24", "13-24"), _btn("25-36", "25-36")],
         [_btn("1-18", "1-18"), _btn("19-36", "19-36")],
         [_btn("Even", "even"), _btn("Odd", "odd")],
-        [_btn("🔴 Red", "red"), _btn("⚫ Black", "black")],
-        [apply_button_style(InlineKeyboardButton("❌ Cancel Bet", callback_data=f"roul_cancel_{user_id}"), 'danger')]  # RED
+        [_btn("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Red", "red"), _btn("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Black", "black")],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel Bet", callback_data=f"roul_cancel_{user_id}"), 'danger')]  # RED
     ]
     return create_styled_keyboard(keyboard)
 
@@ -8715,12 +8715,12 @@ def create_roulette_number_selection_keyboard(user_id, selected_numbers):
     """Create keyboard for number selection (0-36) with 3 numbers per row (COLORED buttons)"""
     keyboard = [
         # Row 1: GREEN Start button
-        [apply_button_style(InlineKeyboardButton("▶️ Start", callback_data=f"roul_start_numbers_{user_id}"), 'success')]
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start", callback_data=f"roul_start_numbers_{user_id}"), 'success')]
     ]
     
     # Row 2: Number 0 alone
     emoji_0 = get_roulette_number_emoji(0)
-    selected_0 = "✅ " if 0 in selected_numbers else ""
+    selected_0 = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> " if 0 in selected_numbers else ""
     btn_0 = InlineKeyboardButton(f"{selected_0}{emoji_0}  0  ", callback_data=f"roul_num_0_{user_id}")
     if 0 in selected_numbers:
         keyboard.append([apply_button_style(btn_0, 'success')])  # GREEN if selected
@@ -8732,7 +8732,7 @@ def create_roulette_number_selection_keyboard(user_id, selected_numbers):
         row = []
         for num in range(row_start, min(row_start + 3, 37)):
             emoji = get_roulette_number_emoji(num)
-            selected = "✅ " if num in selected_numbers else ""
+            selected = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> " if num in selected_numbers else ""
             btn = InlineKeyboardButton(f"{selected}{emoji}  {num}  ", callback_data=f"roul_num_{num}_{user_id}")
             if num in selected_numbers:
                 row.append(apply_button_style(btn, 'success'))  # GREEN if selected
@@ -8741,7 +8741,7 @@ def create_roulette_number_selection_keyboard(user_id, selected_numbers):
         keyboard.append(row)
     
     # Last row: RED Back button
-    keyboard.append([apply_button_style(InlineKeyboardButton("🔙 Back", callback_data=f"roul_back_{user_id}"), 'danger')])
+    keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"roul_back_{user_id}"), 'danger')])
     
     return create_styled_keyboard(keyboard)
 
@@ -8780,8 +8780,8 @@ async def roulette_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data['roulette_selection'] = None
         
         menu_text = (
-            f"🎯 <b>Roulette Game</b>\n\n"
-            f"💰 Bet Amount: <b>${bet_amount:.2f}</b>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Game</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: <b>${bet_amount:.2f}</b>\n\n"
             f"Select your bet or choose numbers:"
         )
         
@@ -8894,17 +8894,17 @@ async def roulette_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             win = True
             multiplier = config["multiplier"]
 
-    if winning_number == 0: color = "🟢 Green"
-    elif winning_number in ROULETTE_CONFIG["red"]["numbers"]: color = "🔴 Red"
-    else: color = "⚫ Black"
+    if winning_number == 0: color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Green"
+    elif winning_number in ROULETTE_CONFIG["red"]["numbers"]: color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Red"
+    else: color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Black"
 
     if win:
         winnings = bet_amount * multiplier
         credit_wallet(user.id, winnings)
-        result_text = f"🎉 You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+        result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=multiplier, context=context)
     else:
-        result_text = f"😢 You lose ${bet_amount:.2f}. Better luck next time!"
+        result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lose ${bet_amount:.2f}. Better luck next time!"
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
 
     # Note: nonce was incremented at game start for provably fair
@@ -8928,9 +8928,9 @@ async def roulette_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [[await create_provably_fair_button(game_id, context)]]
 
     await update.message.reply_text(
-        f"🎯 <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
-        f"🎰 Winning Number: <b>{winning_number}</b> {color}\n"
-        f"🎲 Your Choice: {choice}\n💰 Your Bet: ${bet_amount:.2f}\n\n{result_text}",
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Winning Number: <b>{winning_number}</b> {color}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Your Choice: {choice}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${bet_amount:.2f}\n\n{result_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -8988,7 +8988,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Check balance
         await ensure_user_in_wallets(user.id, user.username, context=context)
         if get_active_balance_usd(user.id) < rebet_amount:
-            await query.answer(f"❌ Insufficient balance! Need ${rebet_amount:.2f}", show_alert=True)
+            await query.answer(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance! Need ${rebet_amount:.2f}", show_alert=True)
             return
         
         # Deduct bet
@@ -9039,20 +9039,20 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Determine color
         if winning_number == 0:
-            color = "🟢 Green"
+            color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Green"
         elif winning_number in ROULETTE_CONFIG["red"]["numbers"]:
-            color = "🔴 Red"
+            color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Red"
         else:
-            color = "⚫ Black"
+            color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Black"
         
         # Process win/loss
         if win:
             winnings = rebet_amount * multiplier
             credit_wallet(user.id, winnings)
-            result_text = f"🎉 You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+            result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
             update_stats_on_bet(user.id, game_id, rebet_amount, True, multiplier=multiplier, context=context)
         else:
-            result_text = f"😢 You lose ${rebet_amount:.2f}. Better luck next time!"
+            result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lose ${rebet_amount:.2f}. Better luck next time!"
             update_stats_on_bet(user.id, game_id, rebet_amount, False, context=context)
         
         # Store game session with rebet data
@@ -9074,7 +9074,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Add provably fair button and rebet button
         pf_button = await create_provably_fair_button(game_id, context)
-        rebet_button = InlineKeyboardButton("🔄 Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
+        rebet_button = InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
         
         keyboard = [
             [pf_button],
@@ -9083,10 +9083,10 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await safe_edit_message(
             query,
-            f"🎯 <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
-            f"🎰 Winning Number: <b>{winning_number}</b> {color}\n"
-            f"🎲 Your Choice: {choice_display}\n"
-            f"💰 Your Bet: ${rebet_amount:.2f}\n\n{result_text}",
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Winning Number: <b>{winning_number}</b> {color}\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Your Choice: {choice_display}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${rebet_amount:.2f}\n\n{result_text}",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
@@ -9101,15 +9101,15 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Cancel bet
     if action == "cancel":
         context.user_data.clear()
-        await safe_edit_message(query, "🎯 Roulette game cancelled.")
+        await safe_edit_message(query, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette game cancelled.")
         return
     
     # Back to main menu from number selection
     if action == "back":
         context.user_data['roulette_selected_numbers'] = []
         menu_text = (
-            f"🎯 <b>Roulette Game</b>\n\n"
-            f"💰 Bet Amount: <b>${bet_amount:.2f}</b>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Game</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: <b>${bet_amount:.2f}</b>\n\n"
             f"Select your bet or choose numbers:"
         )
         await safe_edit_message(
@@ -9142,10 +9142,10 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         multiplier = multiplier_map.get(len(selected_numbers), 1)
         
         menu_text = (
-            f"🎯 <b>Roulette - Number Selection</b>\n\n"
-            f"💰 Bet Amount: <b>${bet_amount:.2f}</b>\n"
-            f"🎲 Selected: <b>{len(selected_numbers)}/6 numbers</b>\n"
-            f"📊 Multiplier: <b>{multiplier}x</b>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette - Number Selection</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: <b>${bet_amount:.2f}</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Selected: <b>{len(selected_numbers)}/6 numbers</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier: <b>{multiplier}x</b>\n\n"
             f"Select up to 6 numbers (tap to toggle):"
         )
         await safe_edit_message(
@@ -9160,10 +9160,10 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if action == "bet" and len(parts) >= 3 and parts[2] == "number":
         context.user_data['roulette_selected_numbers'] = []
         menu_text = (
-            f"🎯 <b>Roulette - Number Selection</b>\n\n"
-            f"💰 Bet Amount: <b>${bet_amount:.2f}</b>\n"
-            f"🎲 Selected: <b>0/6 numbers</b>\n"
-            f"📊 Multiplier: <b>36x</b>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette - Number Selection</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: <b>${bet_amount:.2f}</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Selected: <b>0/6 numbers</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier: <b>36x</b>\n\n"
             f"Select up to 6 numbers (tap to toggle):"
         )
         await safe_edit_message(
@@ -9231,9 +9231,9 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
             # Update menu to show selection
             menu_text = (
-                f"🎯 <b>Roulette Game</b>\n\n"
-                f"💰 Bet Amount: <b>${bet_amount:.2f}</b>\n"
-                f"🎲 Selected: <b>{display_name}</b>\n\n"
+                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Game</b>\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: <b>${bet_amount:.2f}</b>\n"
+                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Selected: <b>{display_name}</b>\n\n"
                 f"Tap <b>Start</b> to play or select a different option:"
             )
             await safe_edit_message(
@@ -9251,7 +9251,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Check balance
     if get_active_balance_usd(user.id) < bet_amount:
-        await safe_edit_message(query, "❌ Insufficient balance.")
+        await safe_edit_message(query, "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance.")
         context.user_data.clear()
         return
     
@@ -9311,20 +9311,20 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Determine color
     if winning_number == 0: 
-        color = "🟢 Green"
+        color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Green"
     elif winning_number in ROULETTE_CONFIG["red"]["numbers"]: 
-        color = "🔴 Red"
+        color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Red"
     else: 
-        color = "⚫ Black"
+        color = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Black"
     
     # Process win/loss
     if win:
         winnings = bet_amount * multiplier
         credit_wallet(user.id, winnings)
-        result_text = f"🎉 You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+        result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=multiplier, context=context)
     else:
-        result_text = f"😢 You lose ${bet_amount:.2f}. Better luck next time!"
+        result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lose ${bet_amount:.2f}. Better luck next time!"
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
     
     # Note: nonce was incremented at game start for provably fair
@@ -9348,7 +9348,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Add provably fair button and rebet button (user-specific)
     pf_button = await create_provably_fair_button(game_id, context)
-    rebet_button = InlineKeyboardButton("🔄 Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
+    rebet_button = InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
     
     keyboard = [
         [pf_button],
@@ -9357,10 +9357,10 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await safe_edit_message(
         query,
-        f"🎯 <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
-        f"🎰 Winning Number: <b>{winning_number}</b> {color}\n"
-        f"🎲 Your Choice: {choice_display}\n"
-        f"💰 Your Bet: ${bet_amount:.2f}\n\n{result_text}",
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Roulette Result</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Winning Number: <b>{winning_number}</b> {color}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Your Choice: {choice_display}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${bet_amount:.2f}\n\n{result_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -9407,11 +9407,11 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     deduct_wallet(user.id, bet_amount)
     save_user_data(user.id)
 
-    await update.message.reply_text(f"🎲 Rolling the dice...")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Rolling the dice...")
     chat_type = update.effective_chat.type
     animation_wait = await smart_rate_limit(update.effective_chat.id, chat_type)
     try:
-        dice_msg, used_helper = await smart_roll(context, update.effective_chat.id, "🎲")
+        dice_msg, used_helper = await smart_roll(context, update.effective_chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
         dice_result = dice_msg.dice.value
         if used_helper:
             await asyncio.sleep(HELPER_BOT_ANIMATION_DELAY)
@@ -9422,7 +9422,7 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Refund the bet on error
         credit_wallet(user.id, bet_amount)
         save_user_data(user.id)
-        await update.message.reply_text("❌ An error occurred while rolling the dice. Your bet has been refunded.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.")
         return
     game_id = generate_unique_id("DR")
 
@@ -9442,10 +9442,10 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if win:
         winnings = bet_amount * multiplier
         credit_wallet(user.id, winnings)
-        result_text = f"🎉 You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+        result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You win ${winnings:.2f}! (Multiplier: {multiplier}x)"
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=multiplier, context=context)
     else:
-        result_text = f"😢 You lose ${bet_amount:.2f}. Try again!"
+        result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lose ${bet_amount:.2f}. Try again!"
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
 
     game_sessions[game_id] = {
@@ -9459,8 +9459,8 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(user.id)
 
     await update.message.reply_text(
-        f"🎲 <b>Dice Roll Result</b> (ID: <code>{game_id}</code>)\n\n🎯 Result: <b>{dice_result}</b>\n"
-        f"🎲 Your Choice: {choice}\n💰 Your Bet: ${bet_amount:.2f}\n\n{result_text}",
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Dice Roll Result</b> (ID: <code>{game_id}</code>)\n\n<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Result: <b>{dice_result}</b>\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Your Choice: {choice}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${bet_amount:.2f}\n\n{result_text}",
         parse_mode=ParseMode.HTML
     )
 
@@ -9471,10 +9471,10 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ZWNBSP = "\u2060"  # Zero-width space to make empty buttons work
 TILE = {
     "blank": ZWNBSP,
-    "play": "🟩",      # Clickable tile for the current level
-    "safe": "🌴",      # Successfully stepped tile
-    "snake": "🐍",     # Game Over snake
-    "lock": "☁️",      # Unreached levels
+    "play": "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>",      # Clickable tile for the current level
+    "safe": "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>",      # Successfully stepped tile
+    "snake": "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji>",     # Game Over snake
+    "lock": "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji>",      # Unreached levels
 }
 
 
@@ -9560,14 +9560,14 @@ def build_tower_keyboard(game_state):
         
         # Random selection button (like Mines)
         random_btn_dict = apply_button_style(
-            InlineKeyboardButton("🎲 Random", callback_data=f"tower_random_{game_id}"),
+            InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Random", callback_data=f"tower_random_{game_id}"),
             'primary'  # Blue background
         )
         action_row.append(random_btn_dict)
         
         # Cashout button
         cashout_btn_dict = apply_button_style(
-            InlineKeyboardButton(f"💰 Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}"),
+            InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}"),
             'success'  # Green background
         )
         action_row.append(cashout_btn_dict)
@@ -9592,7 +9592,7 @@ async def tower_ask_bet(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
     
     keyboard = [[InlineKeyboardButton("Cancel", callback_data="cancel_game")]]
     await query.edit_message_text(
-        "🏗️ <b>Tower Climb</b>\n\n"
+        "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Tower Climb</b>\n\n"
         "Please enter your bet amount (or type 'all' to bet your entire balance):",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -9615,7 +9615,7 @@ async def tower_receive_bet(update: Update, context: ContextTypes.DEFAULT_TYPE):
             bet_amount = float(bet_str)
     except ValueError:
         await update.message.reply_text(
-            "❌ Invalid amount. Please enter a number or 'all'.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a number or 'all'.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="cancel_game")]])
         )
         return TOWER_BET_AMOUNT
@@ -9627,7 +9627,7 @@ async def tower_receive_bet(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Check balance
     if get_active_balance_usd(user.id) < bet_amount:
         await update.message.reply_text(
-            "❌ Insufficient balance. Please enter a lower amount.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please enter a lower amount.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="cancel_game")]])
         )
         return TOWER_BET_AMOUNT
@@ -9653,29 +9653,29 @@ async def tower_intro(update: Update, context: ContextTypes.DEFAULT_TYPE, bet_am
     diff_config = TOWER_DIFFICULTY_CONFIG[current_difficulty]
     
     intro_text = (
-        f"🏗️ <b>Tower Climb</b>\n\n"
-        f"💰 <b>Bet Amount:</b> ${bet_amount:.2f}\n"
-        f"🎯 <b>Difficulty:</b> {diff_config['name']} ({diff_config['risk']} risk)\n"
-        f"📊 <b>Tiles per floor:</b> {diff_config['tiles']}\n"
-        f"🏆 <b>Floors to climb:</b> 9\n"
-        f"💎 <b>Max Multiplier:</b> {TOWER_MULTIPLIERS[current_difficulty][9]:.2f}x\n\n"
+        f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Tower Climb</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Bet Amount:</b> ${bet_amount:.2f}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Difficulty:</b> {diff_config['name']} ({diff_config['risk']} risk)\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Tiles per floor:</b> {diff_config['tiles']}\n"
+        f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Floors to climb:</b> 9\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Max Multiplier:</b> {TOWER_MULTIPLIERS[current_difficulty][9]:.2f}x\n\n"
         f"Select difficulty or start the game!"
     )
     
     keyboard = [
         # GREEN start button
-        [apply_button_style(InlineKeyboardButton("▶️ Start Game", callback_data=f"tower_start_game"), 'success')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start Game", callback_data=f"tower_start_game"), 'success')],
         # Difficulty selector buttons (BLUE for current difficulty)
         [
-            InlineKeyboardButton("◀️", callback_data="tower_diff_prev").to_dict(),
-            apply_button_style(InlineKeyboardButton(f"⚙️ {diff_config['name']}", callback_data="tower_diff_info"), 'primary'),  # BLUE
-            InlineKeyboardButton("▶️", callback_data="tower_diff_next").to_dict()
+            InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="tower_diff_prev").to_dict(),
+            apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> {diff_config['name']}", callback_data="tower_diff_info"), 'primary'),  # BLUE
+            InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="tower_diff_next").to_dict()
         ],
         [
-            InlineKeyboardButton("📖 Rules", callback_data="tower_rules").to_dict(),
-            InlineKeyboardButton("📊 Multiplier Table", callback_data="tower_multipliers").to_dict()
+            InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rules", callback_data="tower_rules").to_dict(),
+            InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier Table", callback_data="tower_multipliers").to_dict()
         ],
-        [apply_button_style(InlineKeyboardButton("🔙 Back", callback_data="cancel_game"), 'danger')]  # RED
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="cancel_game"), 'danger')]  # RED
     ]
     
     reply_markup = create_styled_keyboard(keyboard)
@@ -9705,13 +9705,13 @@ async def tower_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 bet_amount = float(bet_str)
         else:
             await update.message.reply_text(
-                "❌ Please specify a bet amount.\n"
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Please specify a bet amount.\n"
                 "Usage: <code>/tower 10</code> or <code>/tr all</code>",
                 parse_mode=ParseMode.HTML
             )
             return
     except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Please enter a number or 'all'.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a number or 'all'.")
         return
     
     # Check bet limits
@@ -9720,7 +9720,7 @@ async def tower_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Check balance
     if get_active_balance_usd(user.id) < bet_amount:
-        await update.message.reply_text("❌ Insufficient balance. Please deposit or enter a lower amount.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please deposit or enter a lower amount.")
         return
     
     # Show tower intro
@@ -9767,12 +9767,12 @@ async def tower_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     if query.data == "tower_rules":
         rules_text = (
-            "🎮 <b>Tower Climb - How to Play</b>\n"
+            "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Tower Climb - How to Play</b>\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
             "<b>Objective:</b>\n"
             "Climb all 9 floors to reach the top and win the jackpot.\n\n"
-            "<b>⚠️ Warning:</b>\n"
-            "Each floor has one snake 🐍 hidden behind a tile.\n"
+            "<b><tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Warning:</b>\n"
+            "Each floor has one snake <tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> hidden behind a tile.\n"
             "Selecting the snake tile ends the game immediately.\n\n"
             "<b>How to Play:</b>\n"
             "1. Select your difficulty level\n"
@@ -9783,16 +9783,16 @@ async def tower_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• <b>Easy:</b> 4 tiles per floor (25% risk)\n"
             "• <b>Medium:</b> 3 tiles per floor (33% risk)\n"
             "• <b>Hard:</b> 2 tiles per floor (50% risk)\n\n"
-            "🔥 Higher risk offers bigger rewards!\n\n"
+            "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Higher risk offers bigger rewards!\n\n"
             "House edge: 3.0%"
         )
-        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data="tower_back_to_intro")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="tower_back_to_intro")]]
         await safe_edit_message(query, rules_text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         return
     
     if query.data == "tower_multipliers":
         mult_text = (
-            "📊 <b>Tower Multiplier Table</b>\n"
+            "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Tower Multiplier Table</b>\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
             "<code>Floor   Easy   Medium   Hard</code>\n"
             "─────────────────────────────\n"
@@ -9805,7 +9805,7 @@ async def tower_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         mult_text += "\nHouse edge: 3.0%\nFloor 0: 0.90x (immediate cashout)"
         
-        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data="tower_back_to_intro")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="tower_back_to_intro")]]
         await safe_edit_message(query, mult_text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         return
     
@@ -9924,12 +9924,12 @@ async def start_tower_game(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = build_tower_keyboard(game_sessions[game_id])
     
     await query.edit_message_text(
-        f"🏗️ <b>Tower Climb</b>\n"
+        f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Tower Climb</b>\n"
         f"ID: <code>{game_id}</code>\n\n"
-        f"💰 Bet: ${bet_amount:.2f}\n"
-        f"🎯 Difficulty: {TOWER_DIFFICULTY_CONFIG[difficulty]['name']}\n"
-        f"📊 Floor: 0/9\n"
-        f"💎 Multiplier: 0.90x\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet_amount:.2f}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Difficulty: {TOWER_DIFFICULTY_CONFIG[difficulty]['name']}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Floor: 0/9\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: 0.90x\n\n"
         f"Select a tile to start climbing!",
         parse_mode=ParseMode.HTML,
         reply_markup=keyboard
@@ -9942,9 +9942,9 @@ def create_tower_floor_keyboard(game_id: str, floor: int, tiles_per_floor: int, 
     row = []
     for pos in range(tiles_per_floor):
         if selected_tile is not None and pos == selected_tile:
-            emoji = "✅"  # Safe tile selected
+            emoji = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"  # Safe tile selected
         else:
-            emoji = "🟦"  # Unknown tile
+            emoji = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"  # Unknown tile
         row.append(InlineKeyboardButton(emoji, callback_data=f"tower_pick_{game_id}_{pos}"))
     keyboard.append(row)
     return keyboard
@@ -9952,7 +9952,7 @@ def create_tower_floor_keyboard(game_id: str, floor: int, tiles_per_floor: int, 
 
 def create_tower_game_visual(game):
     """Create visual representation of the tower showing completed floors"""
-    visual = "🏗️ <b>Tower:</b>\n"
+    visual = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Tower:</b>\n"
     current_floor = game.get('current_floor', 0)
     tiles_per_floor = game.get('tiles_per_floor', 3)
     selected_tiles = game.get('selected_tiles', [])
@@ -9962,10 +9962,10 @@ def create_tower_game_visual(game):
     for floor in range(8, -1, -1):
         if floor > current_floor:
             # Future floors - show as unknown
-            visual += "❓" * tiles_per_floor + f"  Floor {floor + 1}\n"
+            visual += "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>" * tiles_per_floor + f"  Floor {floor + 1}\n"
         elif floor == current_floor:
             # Current floor - show current state
-            visual += "🟦" * tiles_per_floor + f"  Floor {floor + 1} ← YOU\n"
+            visual += "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>" * tiles_per_floor + f"  Floor {floor + 1} ← YOU\n"
         else:
             # Completed floors - reveal snake and safe tile
             snake_pos = tower_config[floor]
@@ -9973,11 +9973,11 @@ def create_tower_game_visual(game):
             floor_visual = ""
             for pos in range(tiles_per_floor):
                 if pos == safe_pos:
-                    floor_visual += "✅"
+                    floor_visual += "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"
                 elif pos == snake_pos:
-                    floor_visual += "🐍"
+                    floor_visual += "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji>"
                 else:
-                    floor_visual += "⬜"
+                    floor_visual += "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
             visual += floor_visual + f"  Floor {floor + 1}\n"
     
     return visual
@@ -10009,7 +10009,7 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
                                    result_data=f"Hit snake on floor {current_floor + 1}, Config: {game['tower_config']}")
         
         # Answer the callback query first
-        await query.answer("💔 You hit the snake!")
+        await query.answer("<tg-emoji emoji-id='5402186569006210455'>⭐</tg-emoji> You hit the snake!")
         
         # Build keyboard showing revealed board with all snakes
         keyboard_markup = build_tower_keyboard(game)
@@ -10017,17 +10017,17 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
         keyboard = list(keyboard_markup.inline_keyboard)
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
         ])
         keyboard.append([pf_button])
         
         await query.edit_message_text(
-            f"🐍 <b>Tower Collapsed!</b>\n"
+            f"<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> <b>Tower Collapsed!</b>\n"
             f"ID: <code>{game_id}</code>\n\n"
-            f"💔 You hit the snake on Floor {current_floor + 1}!\n"
-            f"💸 Lost: ${game['bet_amount']:.2f}\n"
-            f"🏗️ Floors climbed: {current_floor}/9",
+            f"<tg-emoji emoji-id='5402186569006210455'>⭐</tg-emoji> You hit the snake on Floor {current_floor + 1}!\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${game['bet_amount']:.2f}\n"
+            f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Floors climbed: {current_floor}/9",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
@@ -10056,7 +10056,7 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
                                    result_data=f"Conquered all floors, Multiplier: {multiplier}x, Config: {game['tower_config']}")
         
         # Answer the callback query first
-        await query.answer("🏆 Tower conquered!")
+        await query.answer("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Tower conquered!")
         
         # Build keyboard showing revealed board
         keyboard_markup = build_tower_keyboard(game)
@@ -10064,18 +10064,18 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
         keyboard = list(keyboard_markup.inline_keyboard)
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
         ])
         keyboard.append([pf_button])
         
         await query.edit_message_text(
-            f"🏆 <b>Tower Conquered!</b>\n"
+            f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Tower Conquered!</b>\n"
             f"ID: <code>{game_id}</code>\n\n"
-            f"🎉 YOU REACHED THE TOP!\n"
-            f"💰 Winnings: <b>${winnings:.2f}</b>\n"
-            f"📈 Final Multiplier: {multiplier}x\n"
-            f"🏗️ All 9 floors completed!",
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> YOU REACHED THE TOP!\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Winnings: <b>${winnings:.2f}</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Final Multiplier: {multiplier}x\n"
+            f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> All 9 floors completed!",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
@@ -10086,17 +10086,17 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     potential_winnings = game["bet_amount"] * multiplier
     
     # Answer the callback query
-    await query.answer("✅ Safe tile!")
+    await query.answer("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Safe tile!")
     
     # Build keyboard for next floor
     keyboard = build_tower_keyboard(game)
     
     await query.edit_message_text(
-        f"✅ <b>Safe! Climbing up...</b>\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Safe! Climbing up...</b>\n"
         f"ID: <code>{game_id}</code>\n\n"
-        f"📊 Floor: {new_floor}/9\n"
-        f"💰 Current Value: <b>${potential_winnings:.2f}</b>\n"
-        f"📈 Multiplier: {multiplier}x\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Floor: {new_floor}/9\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current Value: <b>${potential_winnings:.2f}</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier: {multiplier}x\n\n"
         f"Choose your next tile or cash out!",
         parse_mode=ParseMode.HTML,
         reply_markup=keyboard
@@ -10127,7 +10127,7 @@ async def handle_tower_cashout(update: Update, context: ContextTypes.DEFAULT_TYP
                                result_data=f"Cashed out at floor {current_floor}, Multiplier: {multiplier}x, Config: {game['tower_config']}")
     
     # Answer the callback query first
-    await query.answer(f"💰 Cashed out ${winnings:.2f}!")
+    await query.answer(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cashed out ${winnings:.2f}!")
     
     # Build keyboard showing revealed board
     keyboard_markup = build_tower_keyboard(game)
@@ -10135,17 +10135,17 @@ async def handle_tower_cashout(update: Update, context: ContextTypes.DEFAULT_TYP
     keyboard = list(keyboard_markup.inline_keyboard)
     pf_button = await create_provably_fair_button(game_id, context)
     keyboard.append([
-        apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-        apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
     ])
     keyboard.append([pf_button])
     
     await query.edit_message_text(
-        f"💸 <b>Cashed Out!</b>\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Cashed Out!</b>\n"
         f"ID: <code>{game_id}</code>\n\n"
-        f"🎉 Winnings: <b>${winnings:.2f}</b>\n"
-        f"📈 Multiplier: {multiplier}x\n"
-        f"🏗️ Floors climbed: {current_floor}/9",
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Winnings: <b>${winnings:.2f}</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier: {multiplier}x\n"
+        f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Floors climbed: {current_floor}/9",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -10239,12 +10239,12 @@ async def tower_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     keyboard = build_tower_keyboard(game_sessions[game_id])
     
     await query.edit_message_text(
-        f"🏗️ <b>Tower Climb</b>\n"
+        f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Tower Climb</b>\n"
         f"ID: <code>{game_id}</code>\n\n"
-        f"💰 Bet: ${bet_amount:.2f}\n"
-        f"🎯 Difficulty: {TOWER_DIFFICULTY_CONFIG[difficulty]['name']}\n"
-        f"📊 Floor: 0/9\n"
-        f"💎 Multiplier: 0.90x\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet_amount:.2f}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Difficulty: {TOWER_DIFFICULTY_CONFIG[difficulty]['name']}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Floor: 0/9\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: 0.90x\n\n"
         f"Select a tile to start climbing!",
         parse_mode=ParseMode.HTML,
         reply_markup=keyboard
@@ -10257,11 +10257,11 @@ def create_revealed_floor_keyboard(game_id: str, floor: int, tiles_per_floor: in
     row = []
     for pos in range(tiles_per_floor):
         if pos == selected_pos:
-            emoji = "🐍"  # Selected snake
+            emoji = "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji>"  # Selected snake
         elif pos == snake_pos:
-            emoji = "🐍"  # Snake position
+            emoji = "<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji>"  # Snake position
         else:
-            emoji = "✅"  # Safe tiles
+            emoji = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"  # Safe tiles
         row.append(InlineKeyboardButton(emoji, callback_data=f"tower_noop"))
     keyboard.append(row)
     return keyboard
@@ -10303,8 +10303,8 @@ async def slots_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     client_seed = generate_client_seed()
     nonce = 1
 
-    await update.message.reply_text(f"🎰 Spinning the slots...")
-    slot_msg, used_helper = await smart_roll(context, update.effective_chat.id, "🎰")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...")
+    slot_msg, used_helper = await smart_roll(context, update.effective_chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     slot_value = slot_msg.dice.value
     if used_helper:
         await asyncio.sleep(HELPER_BOT_ANIMATION_DELAY)
@@ -10316,17 +10316,17 @@ async def slots_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     win_type = ""
     # FIX: Updated slot machine logic with new multipliers
     if slot_value == 64: # 777
-        win, multiplier, win_type = True, 20, "🍀 JACKPOT - Triple 7s!"
+        win, multiplier, win_type = True, 20, "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> JACKPOT - Triple 7s!"
     elif slot_value in [1, 22, 43]: # bar, grape, lemon
-        win, multiplier, win_type = True, 10, "🎉 Triple Match!"
+        win, multiplier, win_type = True, 10, "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Triple Match!"
 
     if win:
         winnings = bet_amount * multiplier
         credit_wallet(user.id, winnings)
-        result_text = f"🎉 {win_type}\nYou win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+        result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {win_type}\nYou win ${winnings:.2f}! (Multiplier: {multiplier}x)"
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=multiplier, context=context)
     else:
-        result_text = f"😢 No match! You lose ${bet_amount:.2f}\nTry again for the jackpot!"
+        result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> No match! You lose ${bet_amount:.2f}\nTry again for the jackpot!"
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
 
     game_sessions[game_id] = {
@@ -10348,13 +10348,13 @@ async def slots_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Create keyboard with Rebet and Double buttons (NO provably fair for emoji-based slots)
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
         ]
     ]
     
     await update.message.reply_text(
-        f"🎰 <b>Slots Result</b>\n\n💰 Your Bet: ${bet_amount:.2f}\n\n{result_text}",
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Slots Result</b>\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${bet_amount:.2f}\n\n{result_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -10420,8 +10420,8 @@ async def slots_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     client_seed = generate_client_seed()
     nonce = 1
 
-    await query.edit_message_text(f"🎰 Spinning the slots...")
-    slot_msg, used_helper = await smart_roll(context, query.message.chat.id, "🎰")
+    await query.edit_message_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...")
+    slot_msg, used_helper = await smart_roll(context, query.message.chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     slot_value = slot_msg.dice.value
     if used_helper:
         await asyncio.sleep(HELPER_BOT_ANIMATION_DELAY)
@@ -10433,17 +10433,17 @@ async def slots_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     win_type = ""
     # FIX: Updated slot machine logic with new multipliers
     if slot_value == 64: # 777
-        win, multiplier, win_type = True, 20, "🍀 JACKPOT - Triple 7s!"
+        win, multiplier, win_type = True, 20, "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> JACKPOT - Triple 7s!"
     elif slot_value in [1, 22, 43]: # bar, grape, lemon
-        win, multiplier, win_type = True, 10, "🎉 Triple Match!"
+        win, multiplier, win_type = True, 10, "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Triple Match!"
 
     if win:
         winnings = bet_amount * multiplier
         credit_wallet(user.id, winnings)
-        result_text = f"🎉 {win_type}\nYou win ${winnings:.2f}! (Multiplier: {multiplier}x)"
+        result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {win_type}\nYou win ${winnings:.2f}! (Multiplier: {multiplier}x)"
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=multiplier, context=context)
     else:
-        result_text = f"😢 No match! You lose ${bet_amount:.2f}\nTry again for the jackpot!"
+        result_text = f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> No match! You lose ${bet_amount:.2f}\nTry again for the jackpot!"
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
 
     game_sessions[game_id] = {
@@ -10465,14 +10465,14 @@ async def slots_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     # Create keyboard with Rebet, Double, and Provably Fair buttons
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
         ]
         # NOTE: Slots is emoji-based, no provably fair verification (removed as per previous design decision)
     ]
     
     await query.edit_message_text(
-        f"🎰 <b>Slots Result</b>\n\n💰 Your Bet: ${bet_amount:.2f}\n\n{result_text}",
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Slots Result</b>\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Bet: ${bet_amount:.2f}\n\n{result_text}",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -10541,7 +10541,7 @@ async def dice_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if ongoing_game_id:
             game_name = extract_game_name(ongoing_game_type)
             await update.message.reply_text(
-                f"⚠️ You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
                 f"Please complete it first before starting a new game!",
                 parse_mode=ParseMode.HTML
             )
@@ -10593,7 +10593,7 @@ async def darts_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if ongoing_game_id:
             game_name = extract_game_name(ongoing_game_type)
             await update.message.reply_text(
-                f"⚠️ You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
                 f"Please complete it first before starting a new game!",
                 parse_mode=ParseMode.HTML
             )
@@ -10645,7 +10645,7 @@ async def football_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if ongoing_game_id:
             game_name = extract_game_name(ongoing_game_type)
             await update.message.reply_text(
-                f"⚠️ You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
                 f"Please complete it first before starting a new game!",
                 parse_mode=ParseMode.HTML
             )
@@ -10697,7 +10697,7 @@ async def bowling_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if ongoing_game_id:
             game_name = extract_game_name(ongoing_game_type)
             await update.message.reply_text(
-                f"⚠️ You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have an ongoing <b>{game_name}</b> match (ID: <code>{ongoing_game_id}</code>).\n\n"
                 f"Please complete it first before starting a new game!",
                 parse_mode=ParseMode.HTML
             )
@@ -10777,7 +10777,7 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
     parsed = parse_xdxw_format(update.message.text)
     if not parsed:
         await update.message.reply_text(
-            f"❌ Invalid format!\n\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid format!\n\n"
             f"Usage: /{game_type} <amount> XdX'w\n"
             f"Example: /{game_type} 10 2d3w\n\n"
             f"Where:\n"
@@ -10795,7 +10795,7 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
     try:
         bet_amount_usd, bet_amount_currency, currency = parse_bet_amount(bet_str, user.id)
     except ValueError:
-        await update.message.reply_text("❌ Invalid bet amount. Please enter a number or 'all'.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid bet amount. Please enter a number or 'all'.")
         return
     
     if get_active_balance_usd(user.id) < bet_amount_usd:
@@ -10816,20 +10816,20 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
     
     # Show mode selection
     keyboard = [
-        [InlineKeyboardButton("🎮 Normal Mode (Highest wins)", callback_data=f"xdxw_mode_normal")],
-        [InlineKeyboardButton("🔥 Crazy Mode (Lowest wins)", callback_data=f"xdxw_mode_crazy")],
-        [InlineKeyboardButton("❌ Cancel", callback_data="xdxw_cancel")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Normal Mode (Highest wins)", callback_data=f"xdxw_mode_normal")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crazy Mode (Lowest wins)", callback_data=f"xdxw_mode_crazy")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="xdxw_cancel")]
     ]
     
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     currency_symbol = CURRENCY_SYMBOLS.get(currency, "$")
     
     sent_message = await update.message.reply_text(
         f"{emoji} <b>{game_type.upper()} Challenge Setup</b>\n\n"
-        f"💰 Bet: {currency_symbol}{bet_amount_currency:.2f}\n"
-        f"🔢 Rolls per round: {rolls}\n"
-        f"🏆 Win condition: First to {target}\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: {currency_symbol}{bet_amount_currency:.2f}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rolls per round: {rolls}\n"
+        f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Win condition: First to {target}\n\n"
         f"Select game mode:",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -10849,7 +10849,7 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     user = query.from_user
     
     if query.data == "xdxw_cancel":
-        await query.edit_message_text("❌ Challenge cancelled.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge cancelled.")
         context.user_data.pop('xdxw_challenge', None)
         return
     
@@ -10857,21 +10857,21 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     challenge_data = context.user_data.get('xdxw_challenge')
     
     if not challenge_data:
-        await query.edit_message_text("❌ Challenge data not found. Please try again.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge data not found. Please try again.")
         return
     
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     # Final balance check
     if get_active_balance_usd(user.id) < challenge_data['bet_amount_usd']:
-        await query.edit_message_text("❌ Insufficient balance to create this challenge.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.")
         context.user_data.pop('xdxw_challenge', None)
         return
     
     # Create the match
     match_id = generate_unique_id("EG")  # EG = Emoji Game
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(challenge_data['game_type'], "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(challenge_data['game_type'], "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     game_sessions[match_id] = {
         "id": match_id,
@@ -10902,17 +10902,17 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     # Show challenge with Accept/Play with Bot buttons
     keyboard = [
-        [InlineKeyboardButton("✅ Accept Challenge", callback_data=f"xdxw_accept_{match_id}")],
-        [InlineKeyboardButton("🤖 Play with Bot (Host Only)", callback_data=f"xdxw_playbot_{match_id}")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Challenge", callback_data=f"xdxw_accept_{match_id}")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play with Bot (Host Only)", callback_data=f"xdxw_playbot_{match_id}")]
     ]
     
     await query.edit_message_text(
         f"{emoji} <b>{challenge_data['game_type'].upper()} CHALLENGE!</b> {emoji}\n\n"
-        f"👤 Host: @{user.username or user.id}\n"
-        f"💰 Bet: {currency_symbol}{challenge_data['bet_amount_currency']:.2f}\n"
-        f"🎯 Mode: {mode.title()} ({mode_desc})\n"
-        f"🔢 Rolls per round: {challenge_data['rolls']}\n"
-        f"🏆 Win condition: First to {challenge_data['target']}\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Host: @{user.username or user.id}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: {currency_symbol}{challenge_data['bet_amount_currency']:.2f}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Mode: {mode.title()} ({mode_desc})\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rolls per round: {challenge_data['rolls']}\n"
+        f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Win condition: First to {challenge_data['target']}\n"
         f"🆔 Match ID: <code>{match_id}</code>\n\n"
         f"Tap a button below to join!",
         parse_mode=ParseMode.HTML,
@@ -10970,17 +10970,17 @@ async def xdxw_accept_callback(update: Update, context: ContextTypes.DEFAULT_TYP
     save_user_data(user.id)
     
     game_type = match["game_type"].replace("xdxw_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     currency_symbol = CURRENCY_SYMBOLS.get(match["currency"], "$")
     
     await query.edit_message_text(
-        f"🎮 <b>MATCH STARTED!</b>\n\n"
-        f"👤 @{match['host_username']} vs @{match['opponent_username']}\n"
-        f"💰 Prize Pool: {currency_symbol}{match['bet_amount_currency'] * 2:.2f}\n"
-        f"🔢 Rolls per round: {match['game_rolls']}\n"
-        f"🏆 First to {match['target_score']} wins\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>MATCH STARTED!</b>\n\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> @{match['host_username']} vs @{match['opponent_username']}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Prize Pool: {currency_symbol}{match['bet_amount_currency'] * 2:.2f}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rolls per round: {match['game_rolls']}\n"
+        f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> First to {match['target_score']} wins\n\n"
         f"<b>@{match['host_username']}'s turn!</b>\n"
         f"Send {match['game_rolls']} {emoji} to start round 1.",
         parse_mode=ParseMode.HTML
@@ -11014,8 +11014,8 @@ async def xdxw_playbot_callback(update: Update, context: ContextTypes.DEFAULT_TY
     
     # Setup PvB game state - will be handled by message_listener
     game_type = match["game_type"].replace("xdxw_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     # Register as active PvB game
     context.chat_data[f"active_pvb_game_{user.id}"] = match_id
@@ -11036,11 +11036,11 @@ async def xdxw_playbot_callback(update: Update, context: ContextTypes.DEFAULT_TY
     
     # Show message with option for bot to roll first
     keyboard = [
-        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data=f"xdxw_bot_first_{match_id}")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data=f"xdxw_bot_first_{match_id}")]
     ]
     
     await query.edit_message_text(
-        f"🤖 <b>PLAYING WITH BOT!</b>\n\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>PLAYING WITH BOT!</b>\n\n"
         f"<b>Your turn first!</b> Send {match['game_rolls']} {emoji} to start round 1.\n\n"
         f"<i>Or tap the button below if you want the bot to roll first.</i>",
         parse_mode=ParseMode.HTML,
@@ -11074,14 +11074,14 @@ async def xdxw_bot_first_callback(update: Update, context: ContextTypes.DEFAULT_
     match["waiting_for"] = "user"  # After bot rolls, user responds
     
     game_type = match["game_type"].replace("xdxw_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     game_rolls = match.get("game_rolls", 1)
     chat_id = query.message.chat_id
     
     # Bot rolls first
     await query.edit_message_text(
-        f"🤖 <b>BOT IS ROLLING FIRST!</b>\n\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>BOT IS ROLLING FIRST!</b>\n\n"
         f"Bot is rolling {game_rolls} {emoji}...",
         parse_mode=ParseMode.HTML
     )
@@ -11102,7 +11102,7 @@ async def xdxw_bot_first_callback(update: Update, context: ContextTypes.DEFAULT_
                 await asyncio.sleep(animation_wait)
         except Exception as e:
             logging.error(f"Error sending dice in PvB game: {e}")
-            await context.bot.send_message(chat_id=chat_id, text="❌ An error occurred. Game terminated.")
+            await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
             match['status'] = 'error'
             del context.chat_data[f"active_pvb_game_{user.id}"]
             if user.id in active_pvb_games:
@@ -11127,7 +11127,7 @@ async def xdxw_bot_first_callback(update: Update, context: ContextTypes.DEFAULT_
     
     await context.bot.send_message(
         chat_id=chat_id,
-        text=f"🤖 Bot rolled: {bot_rolls_text} = <b>{bot_total}</b>\n\n"
+        text=f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot rolled: {bot_rolls_text} = <b>{bot_total}</b>\n\n"
              f"{user_mention}, <b>Your turn!</b> Send {game_rolls} {emoji} to respond.",
         parse_mode=ParseMode.HTML
     )
@@ -11222,7 +11222,7 @@ async def play_single_emoji_game(update: Update, context: ContextTypes.DEFAULT_T
         save_user_data(user.id)
         
         await update.message.reply_text(
-            f"🎉 <b>YOU WON!</b>\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>YOU WON!</b>\n\n"
             f"{game_config['emoji']} {game_config['win_description']}!\n"
             f"Bet: {formatted_bet}\n"
             f"Won: {currency_symbol}{winnings_currency:.2f} ({game_config['multiplier']}x)\n\n"
@@ -11235,7 +11235,7 @@ async def play_single_emoji_game(update: Update, context: ContextTypes.DEFAULT_T
         save_user_data(user.id)
         
         await update.message.reply_text(
-            f"😔 <b>You lost</b>\n\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>You lost</b>\n\n"
             f"Better luck next time!\n"
             f"Lost: {formatted_bet}\n\n"
             f"Game ID: <code>{game_id}</code>",
@@ -11261,12 +11261,12 @@ async def create_group_challenge(update: Update, context: ContextTypes.DEFAULT_T
     
     # Show mode and rolls selection
     keyboard = [
-        [InlineKeyboardButton("🎮 Normal Mode", callback_data=f"gc_mode_{game_type}_normal_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
-        [InlineKeyboardButton("🔥 Crazy Mode", callback_data=f"gc_mode_{game_type}_crazy_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Normal Mode", callback_data=f"gc_mode_{game_type}_normal_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crazy Mode", callback_data=f"gc_mode_{game_type}_crazy_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
     ]
     
     sent_message = await update.message.reply_text(
-        f"🎯 <b>Create {game_type.upper()} Challenge</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create {game_type.upper()} Challenge</b>\n\n"
         f"Select game mode:",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -11299,7 +11299,7 @@ async def group_challenge_mode_callback(update: Update, context: ContextTypes.DE
     ]
     
     await safe_edit_message(query,
-        f"🎯 <b>Create {game_type.upper()} Challenge</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create {game_type.upper()} Challenge</b>\n\n"
         f"Mode: {mode.title()}\n"
         f"Select number of rolls:",
         parse_mode=ParseMode.HTML,
@@ -11334,7 +11334,7 @@ async def group_challenge_rolls_callback(update: Update, context: ContextTypes.D
     ]
     
     await safe_edit_message(query,
-        f"🎯 <b>Create {game_type.upper()} Challenge</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create {game_type.upper()} Challenge</b>\n\n"
         f"Mode: {mode.title()}\n"
         f"Rolls: {rolls}\n"
         f"Select target score (First to X wins):",
@@ -11367,13 +11367,13 @@ async def group_challenge_target_callback(update: Update, context: ContextTypes.
     
     # Final check balance
     if get_active_balance_usd(user.id) < bet_amount_usd:
-        await query.edit_message_text("❌ Insufficient balance to create this challenge.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.")
         return
     
     # Create the challenge
     match_id = generate_unique_id("GC")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     game_sessions[match_id] = {
         "id": match_id,
@@ -11399,18 +11399,18 @@ async def group_challenge_target_callback(update: Update, context: ContextTypes.
     # Pin the challenge message
     challenge_msg = await query.message.reply_text(
         f"{emoji} <b>GROUP CHALLENGE!</b> {emoji}\n\n"
-        f"🎮 Game: {game_type.upper()}\n"
-        f"👤 Host: @{user.username or user.id}\n"
-        f"💰 Bet: {formatted_bet}\n"
-        f"🎯 Mode: {mode.title()} ({mode_desc})\n"
-        f"🔢 Rolls: {rolls}\n"
-        f"🏆 Target: First to {target_score}\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Game: {game_type.upper()}\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Host: @{user.username or user.id}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: {formatted_bet}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Mode: {mode.title()} ({mode_desc})\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rolls: {rolls}\n"
+        f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Target: First to {target_score}\n"
         f"🆔 Match ID: <code>{match_id}</code>\n\n"
         f"Tap a button below to join!",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("✅ Accept Challenge", callback_data=f"gc_accept_{match_id}")],
-            [InlineKeyboardButton("🤖 Play with Bot (Host Only)", callback_data=f"gc_playbot_{match_id}")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Challenge", callback_data=f"gc_accept_{match_id}")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play with Bot (Host Only)", callback_data=f"gc_playbot_{match_id}")]
         ])
     )
     
@@ -11421,7 +11421,7 @@ async def group_challenge_target_callback(update: Update, context: ContextTypes.
         logging.warning(f"Could not pin challenge message: {e}")
     
     await query.edit_message_text(
-        f"✅ Challenge created!\nMatch ID: <code>{match_id}</code>",
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Challenge created!\nMatch ID: <code>{match_id}</code>",
         parse_mode=ParseMode.HTML
     )
 
@@ -11477,9 +11477,9 @@ async def group_challenge_accept_callback(update: Update, context: ContextTypes.
     formatted_bet = f"{currency_symbol}{match['bet_amount_currency']:.2f}"
     
     await query.edit_message_text(
-        f"🎮 <b>MATCH STARTED!</b>\n\n"
-        f"👤 @{match['host_username']} vs @{user.username or user.id}\n"
-        f"💰 Prize Pool: {currency_symbol}{match['bet_amount_currency'] * 2:.2f}\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>MATCH STARTED!</b>\n\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> @{match['host_username']} vs @{user.username or user.id}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Prize Pool: {currency_symbol}{match['bet_amount_currency'] * 2:.2f}\n\n"
         f"Match will begin shortly...",
         parse_mode=ParseMode.HTML
     )
@@ -11527,16 +11527,16 @@ async def group_challenge_playbot_callback(update: Update, context: ContextTypes
     match["bot_rolls_first"] = False  # Default: user rolls first
     
     game_type = match["game_type"].replace("group_challenge_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     # Show "Bot Rolls First" option
     keyboard = [
-        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data=f"gc_botfirst_{match_id}")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data=f"gc_botfirst_{match_id}")]
     ]
     
     await query.edit_message_text(
-        f"🤖 <b>PLAYING WITH BOT!</b>\n\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>PLAYING WITH BOT!</b>\n\n"
         f"<b>Your turn first!</b> Send {match['rolls']} {emoji} to start round 1.\n\n"
         f"Or tap below to let the bot roll first:",
         parse_mode=ParseMode.HTML,
@@ -11565,8 +11565,8 @@ async def group_challenge_botfirst_callback(update: Update, context: ContextType
     match["waiting_for"] = "bot"  # Bot should roll first
     
     game_type = match["game_type"].replace("group_challenge_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     # Bot rolls first
     rolls = match.get("rolls", 1)
@@ -11590,7 +11590,7 @@ async def group_challenge_botfirst_callback(update: Update, context: ContextType
     context.user_data['pre_rolled_bot_values'] = roll_values
     
     await query.edit_message_text(
-        f"🤖 <b>BOT ROLLED FIRST!</b>\n\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>BOT ROLLED FIRST!</b>\n\n"
         f"Bot rolled: {roll_values} = <b>{total_value}</b>\n\n"
         f"{user.mention_html()}, <b>Your turn!</b> Send {rolls} {emoji} to respond.",
         parse_mode=ParseMode.HTML
@@ -11606,8 +11606,8 @@ async def execute_group_challenge_game(update: Update, context: ContextTypes.DEF
         return
     
     game_type = match["game_type"].replace("group_challenge_", "")
-    emoji_map = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-    emoji = emoji_map.get(game_type, "🎮")
+    emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji>")
     
     # Initialize game state for turn-based play
     match["players"] = [match["host_id"], match["opponent_id"]]
@@ -11656,16 +11656,16 @@ async def play_vs_bot_game(update: Update, context: ContextTypes.DEFAULT_TYPE, g
     game_id = generate_unique_id("PVB")
     # Handle different game_type naming variations
     emoji_map = {
-        "dice": "🎲", "dice_bot": "🎲",
-        "darts": "🎯",
-        "goal": "⚽", "football": "⚽",
-        "bowl": "🎳", "bowling": "🎳"
+        "dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "dice_bot": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "football": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",
+        "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "bowling": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"
     }
     
     mode_text = "Highest total score wins" if game_mode == "normal" else "Lowest total score wins"
     
     # Get the emoji for this game type
-    emoji = emoji_map.get(game_type, "🎲")  # Default to dice if not found
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")  # Default to dice if not found
 
     # Create game session
     game_sessions[game_id] = {
@@ -11697,7 +11697,7 @@ async def play_vs_bot_game(update: Update, context: ContextTypes.DEFAULT_TYPE, g
     if bot_rolls_first:
         # Bot rolls first
         await update.message.reply_text(
-            f"🎮 {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
             f"<b>Mode:</b> {game_mode.capitalize()} ({mode_text})\n"
             f"<b>Rolls per round:</b> {game_rolls}\n"
             f"<b>Target:</b> First to {target_score} points wins ${bet_amount*1.96:.2f}.\n\n"
@@ -11721,7 +11721,7 @@ async def play_vs_bot_game(update: Update, context: ContextTypes.DEFAULT_TYPE, g
                     await asyncio.sleep(animation_wait)
             except Exception as e:
                 logging.error(f"Error sending dice in PvB game: {e}")
-                await update.message.reply_text("❌ An error occurred. Game terminated.")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
                 game_sessions[game_id]['status'] = 'error'
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
@@ -11738,14 +11738,14 @@ async def play_vs_bot_game(update: Update, context: ContextTypes.DEFAULT_TYPE, g
         game_sessions[game_id]["waiting_for"] = "user"
         
         await update.message.reply_text(
-            f"🤖 Bot rolled: {bot_rolls_text} = <b>{bot_total}</b>\n\n"
+            f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot rolled: {bot_rolls_text} = <b>{bot_total}</b>\n\n"
             f"{user.mention_html()}, <b>Your turn!</b> Send {game_rolls} {emoji} emoji{'s' if game_rolls > 1 else ''} to respond.",
             parse_mode=ParseMode.HTML
         )
     else:
         # User rolls first (default)
         await update.message.reply_text(
-            f"🎮 {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
             f"<b>Mode:</b> {game_mode.capitalize()} ({mode_text})\n"
             f"<b>Rolls per round:</b> {game_rolls}\n"
             f"<b>Target:</b> First to {target_score} points wins ${bet_amount*1.96:.2f}.\n\n"
@@ -11791,11 +11791,11 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     deduct_wallet(user.id, bet_amount)
-    await update.message.reply_text(f"Rolling the dice... 🎲")
+    await update.message.reply_text(f"Rolling the dice... <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     chat_type = update.effective_chat.type
     animation_wait = await smart_rate_limit(update.effective_chat.id, chat_type)
     try:
-        dice_msg, used_helper = await smart_roll(context, update.effective_chat.id, "🎲")
+        dice_msg, used_helper = await smart_roll(context, update.effective_chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
         outcome = dice_msg.dice.value
         if used_helper:
             await asyncio.sleep(HELPER_BOT_ANIMATION_DELAY)
@@ -11806,7 +11806,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Refund the bet on error
         credit_wallet(user.id, bet_amount)
         save_user_data(user.id)
-        await update.message.reply_text("❌ An error occurred while rolling the dice. Your bet has been refunded.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.")
         return
     game_id = generate_unique_id("PRD")
 
@@ -11815,10 +11815,10 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if win:
         winnings = bet_amount * 2
         credit_wallet(user.id, winnings)
-        result_text = f"Result: {outcome} 🎲\n🎉 You won! You receive ${winnings:.2f}."
+        result_text = f"Result: {outcome} <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You won! You receive ${winnings:.2f}."
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=2, context=context)
     else:
-        result_text = f"Result: {outcome} 🎲\n😢 You lost! Better luck next time."
+        result_text = f"Result: {outcome} <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>\n<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> You lost! Better luck next time."
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
 
     game_sessions[game_id] = {
@@ -11848,7 +11848,7 @@ async def limbo_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Show instructions only when no arguments provided
     if len(args) == 1:
         await update.message.reply_text(
-            "🚀 <b>LIMBO</b>\n\n"
+            "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>LIMBO</b>\n\n"
             "<b>How to play:</b>\n"
             "• Choose your target multiplier (1.01 - 1000.00)\n"
             "• A random outcome is generated (1.00 - 1000.00)\n"
@@ -11923,22 +11923,22 @@ async def limbo_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         credit_wallet(user.id, winnings)
         profit = winnings - bet_amount
         result_text = (
-            f"🚀 <b>LIMBO RESULT</b> 🚀\n\n"
-            f"🎯 Target: <b>{target_multiplier:.2f}x</b>\n"
-            f"🎲 Outcome: <b>{outcome:.2f}x</b>\n\n"
-            f"✅ <b>YOU WIN!</b>\n"
-            f"💰 Profit: <b>${profit:.2f}</b>\n"
-            f"💵 Total Payout: <b>${winnings:.2f}</b>\n\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>LIMBO RESULT</b> <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Target: <b>{target_multiplier:.2f}x</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Outcome: <b>{outcome:.2f}x</b>\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>YOU WIN!</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: <b>${profit:.2f}</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: <b>${winnings:.2f}</b>\n\n"
             f"Game ID: <code>{game_id}</code>"
         )
         update_stats_on_bet(user.id, game_id, bet_amount, True, multiplier=target_multiplier, context=context)
     else:
         result_text = (
-            f"🚀 <b>LIMBO RESULT</b> 🚀\n\n"
-            f"🎯 Target: <b>{target_multiplier:.2f}x</b>\n"
-            f"🎲 Outcome: <b>{outcome:.2f}x</b>\n\n"
-            f"❌ <b>YOU LOSE</b>\n"
-            f"💸 Lost: <b>${bet_amount:.2f}</b>\n\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>LIMBO RESULT</b> <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Target: <b>{target_multiplier:.2f}x</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Outcome: <b>{outcome:.2f}x</b>\n\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>YOU LOSE</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: <b>${bet_amount:.2f}</b>\n\n"
             f"Game ID: <code>{game_id}</code>"
         )
         update_stats_on_bet(user.id, game_id, bet_amount, False, context=context)
@@ -11978,7 +11978,7 @@ def create_keno_keyboard(game_id, selected_numbers):
     """Create the 40-number grid for Keno with COLORED buttons (Bot API 9.4)"""
     buttons = []
     for i in range(1, 41):
-        btn = InlineKeyboardButton(str(i) if i not in selected_numbers else f"✓ {i}", 
+        btn = InlineKeyboardButton(str(i) if i not in selected_numbers else f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {i}", 
                                    callback_data=f"keno_pick_{game_id}_{i}")
         # Apply styles: primary (blue) for unselected, success (green) for selected
         if i in selected_numbers:
@@ -11992,18 +11992,18 @@ def create_keno_keyboard(game_id, selected_numbers):
     # Add action buttons (with .to_dict() for non-styled buttons)
     action_row1 = [
         InlineKeyboardButton("ℹ️ How to Play", callback_data=f"keno_info_{game_id}").to_dict(),
-        InlineKeyboardButton("🗑️ Clear All", callback_data=f"keno_clear_{game_id}").to_dict()
+        InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Clear All", callback_data=f"keno_clear_{game_id}").to_dict()
     ]
     action_row2 = [
-        InlineKeyboardButton("📊 Payout Table", callback_data=f"keno_payout_{game_id}").to_dict(),
-        apply_button_style(InlineKeyboardButton("❌ Cancel", callback_data=f"keno_cancel_{game_id}"), 'danger')  # RED
+        InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Payout Table", callback_data=f"keno_payout_{game_id}").to_dict(),
+        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"keno_cancel_{game_id}"), 'danger')  # RED
     ]
     
     # Add place bet button if numbers are selected (GREEN)
     if selected_numbers:
         action_row3 = [
             apply_button_style(
-                InlineKeyboardButton(f"✅ Place Bet ({len(selected_numbers)} numbers)", callback_data=f"keno_place_{game_id}"),
+                InlineKeyboardButton(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Place Bet ({len(selected_numbers)} numbers)", callback_data=f"keno_place_{game_id}"),
                 'success'  # GREEN
             )
         ]
@@ -12015,9 +12015,9 @@ def create_keno_keyboard(game_id, selected_numbers):
 
 def get_keno_payout_text():
     """Get formatted payout table"""
-    text = "🎰 <b>KENO PAYOUT TABLE</b>\n────────────────\n\n"
+    text = "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO PAYOUT TABLE</b>\n────────────────\n\n"
     for picks in range(1, 11):
-        text += f"📊 <b>{picks} Pick{'s' if picks > 1 else ''}:</b>\n"
+        text += f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>{picks} Pick{'s' if picks > 1 else ''}:</b>\n"
         payouts = KENO_PAYOUTS[picks]
         for matches, multiplier in payouts.items():
             if picks == 1 and matches == 0:
@@ -12039,7 +12039,7 @@ async def keno_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = update.message.text.strip().split()
     if len(args) != 2:
         await update.message.reply_text(
-            "🎯 <b>KENO</b>\n\n"
+            "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO</b>\n\n"
             "<b>Usage:</b> <code>/keno amount</code>\n\n"
             "<b>Examples:</b>\n"
             "• <code>/keno 10</code> - Start keno with $10\n"
@@ -12086,12 +12086,12 @@ async def keno_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     }
     
     text = (
-        f"🎯 <b>KENO GAME</b>\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO GAME</b>\n"
         f"────────\n\n"
-        f"📊 <b>Game Status:</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Game Status:</b>\n"
         f"• Numbers Selected: 0/10\n"
         f"• Bet Amount: ${bet_amount:.2f}\n\n"
-        f"📝 <b>Instructions:</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Instructions:</b>\n"
         f"Pick 1 to 10 numbers from the grid below."
     )
     
@@ -12132,12 +12132,12 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             selected.append(number)
         
         text = (
-            f"🎯 <b>KENO GAME</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO GAME</b>\n"
             f"────────\n\n"
-            f"📊 <b>Game Status:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Game Status:</b>\n"
             f"• Numbers Selected: {len(selected)}/10\n"
             f"• Bet Amount: ${game['bet_amount']:.2f}\n\n"
-            f"📝 <b>Instructions:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Instructions:</b>\n"
             f"Pick 1 to 10 numbers from the grid below."
         )
         
@@ -12147,12 +12147,12 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif action == "clear":
         game["selected_numbers"] = []
         text = (
-            f"🎯 <b>KENO GAME</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO GAME</b>\n"
             f"────────\n\n"
-            f"📊 <b>Game Status:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Game Status:</b>\n"
             f"• Numbers Selected: 0/10\n"
             f"• Bet Amount: ${game['bet_amount']:.2f}\n\n"
-            f"📝 <b>Instructions:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Instructions:</b>\n"
             f"Pick 1 to 10 numbers from the grid below."
         )
         keyboard = create_keno_keyboard(game_id, [])
@@ -12170,23 +12170,23 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• But also need more matches to win\n"
             "• Check payout table for details"
         )
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"keno_back_{game_id}")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"keno_back_{game_id}")]])
         await query.edit_message_text(info_text, parse_mode=ParseMode.HTML, reply_markup=keyboard)
     
     elif action == "payout":
         payout_text = get_keno_payout_text()
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"keno_back_{game_id}")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"keno_back_{game_id}")]])
         await query.edit_message_text(payout_text, parse_mode=ParseMode.HTML, reply_markup=keyboard)
     
     elif action == "back":
         selected = game["selected_numbers"]
         text = (
-            f"🎯 <b>KENO GAME</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO GAME</b>\n"
             f"────────\n\n"
-            f"📊 <b>Game Status:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Game Status:</b>\n"
             f"• Numbers Selected: {len(selected)}/10\n"
             f"• Bet Amount: ${game['bet_amount']:.2f}\n\n"
-            f"📝 <b>Instructions:</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Instructions:</b>\n"
             f"Pick 1 to 10 numbers from the grid below."
         )
         keyboard = create_keno_keyboard(game_id, selected)
@@ -12251,29 +12251,29 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         matched_str = ", ".join(str(n) for n in sorted(set(selected) & set(drawn_numbers)))
         
         result_text = (
-            f"🎯 <b>KENO RESULT</b>\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO RESULT</b>\n"
             f"────────────────\n\n"
-            f"📌 <b>Your Numbers:</b> {selected_str}\n"
-            f"🎲 <b>Drawn Numbers:</b> {drawn_str}\n"
-            f"✅ <b>Matches:</b> {matches}/{num_picks}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Numbers:</b> {selected_str}\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Drawn Numbers:</b> {drawn_str}\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Matches:</b> {matches}/{num_picks}\n"
         )
         
         if matched_str:
-            result_text += f"🎊 <b>Matched:</b> {matched_str}\n"
+            result_text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Matched:</b> {matched_str}\n"
         
         result_text += "\n"
         
         if win:
             result_text += (
-                f"🎉 <b>YOU WIN!</b>\n"
-                f"💰 Multiplier: {multiplier}x\n"
-                f"💵 Profit: ${profit:.2f}\n"
-                f"💸 Total Payout: ${winnings:.2f}\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>YOU WIN!</b>\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier}x\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}\n"
             )
         else:
             result_text += (
-                f"❌ <b>NO WIN</b>\n"
-                f"💸 Lost: ${game['bet_amount']:.2f}\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>NO WIN</b>\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${game['bet_amount']:.2f}\n"
                 f"Better luck next time!"
             )
         
@@ -12288,8 +12288,8 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         selected_str_callback = ",".join(str(n) for n in sorted(selected))
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"keno_rebet_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"keno_double_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"keno_rebet_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"keno_double_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
@@ -12298,7 +12298,7 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     elif action == "cancel":
         game["status"] = "cancelled"
-        await query.edit_message_text("❌ Keno game cancelled.", parse_mode=ParseMode.HTML)
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Keno game cancelled.", parse_mode=ParseMode.HTML)
 
 @check_banned
 @check_maintenance
@@ -12409,29 +12409,29 @@ async def keno_rebet_double_callback(update: Update, context: ContextTypes.DEFAU
     matched_str = ", ".join(str(n) for n in sorted(set(selected_numbers) & set(drawn_numbers)))
     
     result_text = (
-        f"🎯 <b>KENO RESULT</b>\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>KENO RESULT</b>\n"
         f"────────────────\n\n"
-        f"📌 <b>Your Numbers:</b> {selected_str_display}\n"
-        f"🎲 <b>Drawn Numbers:</b> {drawn_str}\n"
-        f"✅ <b>Matches:</b> {matches}/{num_picks}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Numbers:</b> {selected_str_display}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Drawn Numbers:</b> {drawn_str}\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Matches:</b> {matches}/{num_picks}\n"
     )
     
     if matched_str:
-        result_text += f"🎊 <b>Matched:</b> {matched_str}\n"
+        result_text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Matched:</b> {matched_str}\n"
     
     result_text += "\n"
     
     if win:
         result_text += (
-            f"🎉 <b>YOU WIN!</b>\n"
-            f"💰 Multiplier: {multiplier}x\n"
-            f"💵 Profit: ${profit:.2f}\n"
-            f"💸 Total Payout: ${winnings:.2f}\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>YOU WIN!</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier}x\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}\n"
         )
     else:
         result_text += (
-            f"❌ <b>NO WIN</b>\n"
-            f"💸 Lost: ${bet_amount:.2f}\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>NO WIN</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${bet_amount:.2f}\n"
             f"Better luck next time!"
         )
     
@@ -12445,8 +12445,8 @@ async def keno_rebet_double_callback(update: Update, context: ContextTypes.DEFAU
     selected_str_callback = ",".join(str(n) for n in sorted(selected_numbers))
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"keno_rebet_{bet_amount}_{selected_str_callback}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"keno_double_{bet_amount}_{selected_str_callback}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"keno_rebet_{bet_amount}_{selected_str_callback}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"keno_double_{bet_amount}_{selected_str_callback}_{user.id}"), 'success')
         ],
         [await create_provably_fair_button(game_id, context)]
     ]
@@ -12513,31 +12513,31 @@ async def crash_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             credit_wallet(user.id, winnings)
             win = True
             result_text = (
-                f"📉 <b>CRASH GAME</b>\n\n"
-                f"🎯 Auto Cashout: {auto_cashout:.2f}x\n"
-                f"💥 Crash Point: {crash_point:.2f}x\n\n"
-                f"✅ <b>CASHED OUT!</b>\n"
-                f"💰 Multiplier: {multiplier:.2f}x\n"
-                f"💵 Profit: ${profit:.2f}\n"
-                f"💸 Total Payout: ${winnings:.2f}"
+                f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>CRASH GAME</b>\n\n"
+                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Auto Cashout: {auto_cashout:.2f}x\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crash Point: {crash_point:.2f}x\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>CASHED OUT!</b>\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier:.2f}x\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}"
             )
         else:
             # Lost
             win = False
             multiplier = 0
             result_text = (
-                f"📉 <b>CRASH GAME</b>\n\n"
-                f"🎯 Auto Cashout: {auto_cashout:.2f}x\n"
-                f"💥 Crash Point: {crash_point:.2f}x\n\n"
-                f"❌ <b>CRASHED!</b>\n"
-                f"💸 Lost: ${bet_amount:.2f}\n"
+                f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>CRASH GAME</b>\n\n"
+                f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Auto Cashout: {auto_cashout:.2f}x\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crash Point: {crash_point:.2f}x\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>CRASHED!</b>\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${bet_amount:.2f}\n"
                 f"The game crashed before you could cash out!"
             )
     else:
         # Manual mode - show crash point immediately
         result_text = (
-            f"📉 <b>CRASH GAME</b>\n\n"
-            f"💥 Crash Point: {crash_point:.2f}x\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>CRASH GAME</b>\n\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crash Point: {crash_point:.2f}x\n\n"
             f"ℹ️ Manual mode - Use auto cashout next time!\n"
             f"Example: /crash 10 2.5"
         )
@@ -12665,17 +12665,17 @@ async def plinko_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                result_data=f"Risk: {risk}, Slot: {result_index + 1}, Multiplier: {multiplier:.2f}x")
     
     result_text = (
-        f"🎪 <b>PLINKO</b>\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>PLINKO</b>\n"
         f"Game ID: <code>{game_id}</code>\n\n"
-        f"🎲 Risk Level: {risk.upper()}\n"
-        f"🎯 Landed in slot: {result_index + 1}\n"
-        f"💰 Multiplier: {multiplier:.2f}x\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Risk Level: {risk.upper()}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Landed in slot: {result_index + 1}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier:.2f}x\n\n"
     )
     
     if win:
-        result_text += f"🎉 <b>WIN!</b>\n💵 Profit: ${profit:.2f}\n💸 Total Payout: ${winnings:.2f}"
+        result_text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>WIN!</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}"
     else:
-        result_text += f"❌ <b>LOST</b>\n💸 Lost: ${abs(profit):.2f}"
+        result_text += f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>LOST</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${abs(profit):.2f}"
     
     # Create keyboard with provably fair button
     keyboard = [[await create_provably_fair_button(game_id, context)]]
@@ -12763,16 +12763,16 @@ async def wheel_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                result_data=f"Segment: {segment + 1}, Multiplier: {multiplier:.1f}x")
     
     result_text = (
-        f"🎡 <b>WHEEL OF FORTUNE</b>\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>WHEEL OF FORTUNE</b>\n"
         f"Game ID: <code>{game_id}</code>\n\n"
-        f"🎯 Segment: #{segment + 1}\n"
-        f"💰 Multiplier: {multiplier:.1f}x\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Segment: #{segment + 1}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier:.1f}x\n\n"
     )
     
     if win:
-        result_text += f"🎉 <b>WIN!</b>\n💵 Profit: ${profit:.2f}\n💸 Total Payout: ${winnings:.2f}"
+        result_text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>WIN!</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}"
     else:
-        result_text += f"❌ <b>LOST</b>\n💸 Lost: ${abs(profit):.2f}"
+        result_text += f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>LOST</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${abs(profit):.2f}"
     
     # Create keyboard with provably fair button
     keyboard = [[await create_provably_fair_button(game_id, context)]]
@@ -12781,13 +12781,13 @@ async def wheel_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # 4. SCRATCH CARD GAME
 SCRATCH_SYMBOLS = {
-    "💎": {"mult": 100, "weight": 1},
-    "👑": {"mult": 50, "weight": 2},
-    "⭐": {"mult": 20, "weight": 5},
-    "💰": {"mult": 10, "weight": 10},
-    "🍀": {"mult": 5, "weight": 20},
-    "🎰": {"mult": 2, "weight": 30},
-    "❌": {"mult": 0, "weight": 50}
+    "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>": {"mult": 100, "weight": 1},
+    "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji>": {"mult": 50, "weight": 2},
+    "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>": {"mult": 20, "weight": 5},
+    "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>": {"mult": 10, "weight": 10},
+    "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>": {"mult": 5, "weight": 20},
+    "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>": {"mult": 2, "weight": 30},
+    "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>": {"mult": 0, "weight": 50}
 }
 
 @check_banned
@@ -12844,7 +12844,7 @@ async def scratch_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             match_symbol = sym
             break
     
-    if match_symbol and match_symbol != "❌":
+    if match_symbol and match_symbol != "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>":
         multiplier = SCRATCH_SYMBOLS[match_symbol]["mult"]
         winnings = bet_amount * multiplier
         profit = winnings - bet_amount
@@ -12863,14 +12863,14 @@ async def scratch_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     card_display = f"{symbols[0]} {symbols[1]} {symbols[2]}\n{symbols[3]} {symbols[4]} {symbols[5]}\n{symbols[6]} {symbols[7]} {symbols[8]}"
     
     result_text = (
-        f"🎫 <b>SCRATCH CARD</b>\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>SCRATCH CARD</b>\n\n"
         f"{card_display}\n\n"
     )
     
     if win:
-        result_text += f"🎉 <b>3 {match_symbol} MATCH!</b>\n💰 Multiplier: {multiplier}x\n💵 Profit: ${profit:.2f}\n💸 Total Payout: ${winnings:.2f}"
+        result_text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>3 {match_symbol} MATCH!</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Multiplier: {multiplier}x\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}"
     else:
-        result_text += f"❌ <b>NO MATCH</b>\n💸 Lost: ${bet_amount:.2f}\nTry again!"
+        result_text += f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>NO MATCH</b>\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${bet_amount:.2f}\nTry again!"
     
     await update.message.reply_text(result_text, parse_mode=ParseMode.HTML)
 
@@ -12922,17 +12922,17 @@ async def coinchain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(user.id)
     
     keyboard = [
-        [InlineKeyboardButton("🪙 Heads", callback_data=f"coinchain_{game_id}_heads"),
-         InlineKeyboardButton("🪙 Tails", callback_data=f"coinchain_{game_id}_tails")],
-        [InlineKeyboardButton("💰 Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
-         InlineKeyboardButton("❌ Cancel", callback_data=f"coinchain_{game_id}_cancel")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"coinchain_{game_id}_heads"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"coinchain_{game_id}_tails")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"coinchain_{game_id}_cancel")]
     ]
     
     text = (
-        f"🪙 <b>COIN TOSS CHAIN</b>\n\n"
-        f"💵 Bet: ${bet_amount:.2f}\n"
-        f"⛓️ Chain: 0 wins\n"
-        f"💰 Current: ${bet_amount:.2f} (1.0x)\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>COIN TOSS CHAIN</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet_amount:.2f}\n"
+        f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Chain: 0 wins\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current: ${bet_amount:.2f} (1.0x)\n\n"
         f"Choose Heads or Tails!\n"
         f"Each correct guess multiplies by 1.9x"
     )
@@ -12951,7 +12951,7 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     game = game_sessions.get(game_id)
     if not game or game["status"] != "active":
-        await query.edit_message_text("❌ Game not found or already ended.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or already ended.")
         return
     
     user_id = game["user_id"]
@@ -12968,19 +12968,19 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         save_user_data(user_id)
         
         result_text = (
-            f"🪙 <b>COIN TOSS CHAIN</b>\n\n"
-            f"💰 <b>CASHED OUT!</b>\n\n"
-            f"⛓️ Chain Length: {game['chain_length']} wins\n"
-            f"💰 Final Multiplier: {multiplier:.2f}x\n"
-            f"💵 Profit: ${profit:.2f}\n"
-            f"💸 Total Payout: ${winnings:.2f}"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>COIN TOSS CHAIN</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>CASHED OUT!</b>\n\n"
+            f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Chain Length: {game['chain_length']} wins\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Final Multiplier: {multiplier:.2f}x\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Profit: ${profit:.2f}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Payout: ${winnings:.2f}"
         )
         await query.edit_message_text(result_text, parse_mode=ParseMode.HTML)
         return
     
     elif action == "cancel":
         game["status"] = "cancelled"
-        await query.edit_message_text("❌ Coin chain game cancelled. Bet refunded.", parse_mode=ParseMode.HTML)
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Coin chain game cancelled. Bet refunded.", parse_mode=ParseMode.HTML)
         credit_wallet(user_id, game["bet_amount"])
         save_user_data(user_id)
         return
@@ -12998,19 +12998,19 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             game["current_multiplier"] *= 1.9
             
             keyboard = [
-                [InlineKeyboardButton("🪙 Heads", callback_data=f"coinchain_{game_id}_heads"),
-                 InlineKeyboardButton("🪙 Tails", callback_data=f"coinchain_{game_id}_tails")],
-                [InlineKeyboardButton("💰 Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
-                 InlineKeyboardButton("❌ Cancel", callback_data=f"coinchain_{game_id}_cancel")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"coinchain_{game_id}_heads"),
+                 InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"coinchain_{game_id}_tails")],
+                [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
+                 InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"coinchain_{game_id}_cancel")]
             ]
             
             current_value = game["bet_amount"] * game["current_multiplier"]
             
             text = (
-                f"🪙 <b>COIN TOSS CHAIN</b>\n\n"
-                f"✅ Correct! It was {result.upper()}!\n\n"
-                f"⛓️ Chain: {game['chain_length']} wins\n"
-                f"💰 Current: ${current_value:.2f} ({game['current_multiplier']:.2f}x)\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>COIN TOSS CHAIN</b>\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Correct! It was {result.upper()}!\n\n"
+                f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Chain: {game['chain_length']} wins\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Current: ${current_value:.2f} ({game['current_multiplier']:.2f}x)\n\n"
                 f"Keep going or cash out?"
             )
             
@@ -13022,10 +13022,10 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             save_user_data(user_id)
             
             result_text = (
-                f"🪙 <b>COIN TOSS CHAIN</b>\n\n"
-                f"❌ Wrong! It was {result.upper()}!\n\n"
-                f"⛓️ Chain Length: {game['chain_length']} wins\n"
-                f"💸 Lost: ${game['bet_amount']:.2f}\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>COIN TOSS CHAIN</b>\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Wrong! It was {result.upper()}!\n\n"
+                f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Chain Length: {game['chain_length']} wins\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Lost: ${game['bet_amount']:.2f}\n\n"
                 f"Better luck next time!"
             )
             await query.edit_message_text(result_text, parse_mode=ParseMode.HTML)
@@ -13046,17 +13046,17 @@ def mines_keyboard(game_id, reveal=False):
     buttons = []
     for i in range(total_cells):  # 0-24 to match mine positions
         if i in game["picks"]: 
-            emoji = "✅"
+            emoji = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"
         elif reveal and i in game["mines"]: 
-            emoji = "💥"
+            emoji = "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji>"
         elif reveal: 
-            emoji = "💎"
+            emoji = "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>"
         else: 
-            emoji = "🟦"  # Blue tile for colorful grid
+            emoji = "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"  # Blue tile for colorful grid
         # Add user_id to callback for user-specific buttons
         btn = InlineKeyboardButton(emoji, callback_data=f"mines_pick_{game_id}_{i}_{user_id}")
         # Apply primary style (BLUE) to unselected tiles
-        if emoji == "🟦":
+        if emoji == "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>":
             buttons.append(apply_button_style(btn, 'primary'))  # BLUE
         else:
             buttons.append(btn.to_dict())
@@ -13067,7 +13067,7 @@ def mines_keyboard(game_id, reveal=False):
         multiplier = get_mines_multiplier(game["num_mines"], safe_picks)
         winnings = game["bet_amount"] * multiplier
         # GREEN cashout button
-        cashout_text = f"💰 Cashout (${winnings:.2f})"
+        cashout_text = f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cashout (${winnings:.2f})"
         cashout_btn = apply_button_style(
             InlineKeyboardButton(cashout_text, callback_data=f"mines_cashout_{game_id}_{user_id}"),
             'success'  # GREEN
@@ -13075,7 +13075,7 @@ def mines_keyboard(game_id, reveal=False):
         keyboard.append([cashout_btn])
         # BLUE random button
         random_btn = apply_button_style(
-            InlineKeyboardButton("🎲 Random", callback_data=f"mines_random_{game_id}_{user_id}"),
+            InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Random", callback_data=f"mines_random_{game_id}_{user_id}"),
             'primary'  # BLUE
         )
         keyboard.append([random_btn])
@@ -13105,7 +13105,7 @@ async def mines_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Cancel", callback_data="cancel_game")]
         ])
-        await update.message.reply_text("❌ You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
         return SELECT_BET_AMOUNT
 
     total_cells = 25
@@ -13139,7 +13139,7 @@ async def mines_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(user.id)
 
     initial_text = (
-        f"💣 <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\nBet: <b>${bet_amount:.2f}</b>\nMines: <b>{num_mines}</b>\n\n"
+        f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\nBet: <b>${bet_amount:.2f}</b>\nMines: <b>{num_mines}</b>\n\n"
         "Click the buttons to reveal tiles. Find gems to increase your multiplier. Avoid the bombs!\n"
         "You can cash out after any successful pick."
     )
@@ -13224,7 +13224,7 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
             )
             
             await query.edit_message_text(
-                f"💥 <b>Boom!</b> Random picked tile {cell} - it was a mine! (ID: <code>{game_id}</code>)\n\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Boom!</b> Random picked tile {cell} - it was a mine! (ID: <code>{game_id}</code>)\n\n"
                 f"You lost your bet of <b>${game['bet_amount']:.2f}</b>.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=keyboard_with_reveal
@@ -13261,7 +13261,7 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
             )
             
             await query.edit_message_text(
-                f"🎉 <b>MAX WIN!</b> (ID: <code>{game_id}</code>)\n\nRandom picked tile {cell} - You found all {safe_picks} gems and won <b>${potential_winnings:.2f}</b>!\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>MAX WIN!</b> (ID: <code>{game_id}</code>)\n\nRandom picked tile {cell} - You found all {safe_picks} gems and won <b>${potential_winnings:.2f}</b>!\n"
                 f"Final Multiplier: <b>{multiplier:.2f}x</b>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=keyboard_with_reveal
@@ -13270,8 +13270,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         
         # Continue playing
         await query.edit_message_text(
-            f"💣 <b>Mines Game</b> (ID: <code>{game_id}</code>)\n\n"
-            f"✅ Safe! Random picked tile {cell} - it's a gem!\n\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game</b> (ID: <code>{game_id}</code>)\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Safe! Random picked tile {cell} - it's a gem!\n\n"
             f"Bet: <b>${game['bet_amount']:.2f}</b> | Mines: <b>{game['num_mines']}</b>\n"
             f"Safe Picks: <b>{safe_picks}</b> | Multiplier: <b>{multiplier:.2f}x</b>\n"
             f"Potential Cashout: <b>${potential_winnings:.2f}</b>",
@@ -13305,8 +13305,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13317,7 +13317,7 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         )
         
         await query.edit_message_text(
-            f"💸 <b>Cashed Out!</b> (ID: <code>{game_id}</code>)\n\nYou won <b>${winnings:.2f}</b> with {safe_picks} correct picks!\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Cashed Out!</b> (ID: <code>{game_id}</code>)\n\nYou won <b>${winnings:.2f}</b> with {safe_picks} correct picks!\n"
             f"Multiplier: <b>{multiplier:.2f}x</b>",
             parse_mode=ParseMode.HTML,
             reply_markup=keyboard_with_reveal
@@ -13349,8 +13349,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13361,7 +13361,7 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         )
         
         await query.edit_message_text(
-            f"💥 <b>Boom!</b> You hit a mine at tile {cell}. (ID: <code>{game_id}</code>)\n\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Boom!</b> You hit a mine at tile {cell}. (ID: <code>{game_id}</code>)\n\n"
             f"You lost your bet of <b>${game['bet_amount']:.2f}</b>.",
             parse_mode=ParseMode.HTML,
             reply_markup=keyboard_with_reveal
@@ -13392,8 +13392,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13404,7 +13404,7 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         )
         
         await query.edit_message_text(
-            f"🎉 <b>MAX WIN!</b> (ID: <code>{game_id}</code>)\n\nYou found all {safe_picks} gems and won <b>${potential_winnings:.2f}</b>!\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>MAX WIN!</b> (ID: <code>{game_id}</code>)\n\nYou found all {safe_picks} gems and won <b>${potential_winnings:.2f}</b>!\n"
             f"Final Multiplier: <b>{multiplier:.2f}x</b>",
             parse_mode=ParseMode.HTML,
             reply_markup=keyboard_with_reveal
@@ -13413,8 +13413,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         return
 
     next_text = (
-        f"💣 <b>Mines Game</b> (ID: <code>{game_id}</code>)\n\n"
-        f"✅ Safe! Tile {cell} is a gem!\n\n"
+        f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Safe! Tile {cell} is a gem!\n\n"
         f"Bet: <b>${game['bet_amount']:.2f}</b> | Mines: <b>{game['num_mines']}</b>\n"
         f"Safe Picks: <b>{safe_picks}</b> | Multiplier: <b>{multiplier:.2f}x</b>\n"
         f"Potential Cashout: <b>${potential_winnings:.2f}</b>"
@@ -13511,7 +13511,7 @@ async def mines_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     save_user_data(user.id)
     
     await query.edit_message_text(
-        f"💣 <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
+        f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\n"
         f"Bet: <b>${bet_amount:.2f}</b> | Mines: <b>{num_mines}</b>\n"
         f"Pick tiles to find gems! Avoid the mines!\n\n"
         f"Tap tiles to reveal, or use Random button.",
@@ -13568,7 +13568,7 @@ async def stop_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TY
         return
     if query.data == "stop_confirm_yes":
         bot_stopped = True
-        await query.edit_message_text("✅ Bot is now stopped. No new matches can be started.")
+        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is now stopped. No new matches can be started.")
     else:
         await query.edit_message_text("Stop cancelled. Bot remains active.")
 
@@ -13580,7 +13580,7 @@ async def resume_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     bot_stopped = False
-    await update.message.reply_text("✅ Bot is resumed. New matches can be started.")
+    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is resumed. New matches can be started.")
 
 # --- BANK COMMAND ---
 @check_banned
@@ -13589,7 +13589,7 @@ async def bank_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(update.effective_user.id, update.effective_user.username, context=context)
     # FIX: Show the house balance from bot settings
     bank = bot_settings.get("house_balance", 0.0)
-    await update.message.reply_text(f"🏦 <b>BOT BANK</b>\n\n"
+    await update.message.reply_text(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>BOT BANK</b>\n\n"
                                     f"This is the designated house balance.\n"
                                     f"Current House Balance: <b>${bank:,.2f}</b>",
                                     parse_mode=ParseMode.HTML)
@@ -13609,13 +13609,13 @@ def _build_rain_message(rain, participants):
         remaining = 0
     per_person = rain['amount'] / count if count > 0 else rain['amount']
     lines = [
-        f"🌧️ <b>Rain Event!</b>",
+        f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> <b>Rain Event!</b>",
         f"",
         f"<b>{creator}</b> is raining <b>{rain['amount']:.4f} {rain['currency']}</b> on the group!",
         f"",
         f"⏳ Time remaining: <b>{remaining // 60}m {remaining % 60}s</b>",
-        f"👥 Participants: <b>{count}</b>",
-        f"💰 Per person (current): <b>{per_person:.6f} {rain['currency']}</b>",
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Participants: <b>{count}</b>",
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Per person (current): <b>{per_person:.6f} {rain['currency']}</b>",
         f"",
         f"Press the button below to join the rain!",
     ]
@@ -13647,7 +13647,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if amount <= 0:
             raise ValueError
     except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Please enter a positive number.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.")
         return
 
     # Parse currency (default to active currency)
@@ -13659,7 +13659,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Validate currency exists in wallet
     wallet = ensure_wallet_dict(user.id)
     if currency not in wallet and currency not in LIVE_PRICES:
-        await update.message.reply_text(f"❌ Unknown currency: <b>{currency}</b>. Use USDT, ETH, BNB, SOL, etc.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Unknown currency: <b>{currency}</b>. Use USDT, ETH, BNB, SOL, etc.", parse_mode=ParseMode.HTML)
         return
 
     # Check balance
@@ -13669,7 +13669,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if available_crypto < amount:
         await update.message.reply_text(
-            f"❌ Insufficient balance.\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance.\n"
             f"You need <b>{amount:.6f} {currency}</b> but have <b>{available_crypto:.6f} {currency}</b>.",
             parse_mode=ParseMode.HTML
         )
@@ -13677,7 +13677,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if amount_usd < RAIN_MIN_AMOUNT:
         await update.message.reply_text(
-            f"❌ Rain amount too small. Minimum is <b>${RAIN_MIN_AMOUNT:.2f}</b> (≈ {RAIN_MIN_AMOUNT/price:.6f} {currency}).",
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Rain amount too small. Minimum is <b>${RAIN_MIN_AMOUNT:.2f}</b> (≈ {RAIN_MIN_AMOUNT/price:.6f} {currency}).",
             parse_mode=ParseMode.HTML
         )
         return
@@ -13704,7 +13704,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     rain = db.get_rain(rain_id)
     text = _build_rain_message(rain, [])
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton("☔ Join Rain", callback_data=f"join_rain_{rain_id}")
+        InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Join Rain", callback_data=f"join_rain_{rain_id}")
     ]])
     sent = await update.message.reply_text(text, reply_markup=keyboard, parse_mode=ParseMode.HTML)
 
@@ -13734,11 +13734,11 @@ async def join_rain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     rain = db.get_rain(rain_id)
 
     if not rain:
-        await query.answer("❌ This rain no longer exists.", show_alert=True)
+        await query.answer("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This rain no longer exists.", show_alert=True)
         return
 
     if rain['status'] != 'active':
-        await query.answer("☔ This rain has already ended!", show_alert=True)
+        await query.answer("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> This rain has already ended!", show_alert=True)
         return
 
     # Check time
@@ -13747,14 +13747,14 @@ async def join_rain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if end_dt.tzinfo is None:
             end_dt = end_dt.replace(tzinfo=timezone.utc)
         if datetime.now(timezone.utc) >= end_dt:
-            await query.answer("☔ This rain has already ended!", show_alert=True)
+            await query.answer("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> This rain has already ended!", show_alert=True)
             return
     except Exception:
         pass
 
     # Prevent creator from joining their own rain
     if user.id == rain['creator_id']:
-        await query.answer("🌂 You can't join your own rain!", show_alert=True)
+        await query.answer("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> You can't join your own rain!", show_alert=True)
         return
 
     # Ensure user is registered
@@ -13763,16 +13763,16 @@ async def join_rain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # Add participant (returns False if already joined)
     added = db.add_rain_participant(rain_id, user.id, user.username)
     if not added:
-        await query.answer("✅ You've already joined this rain!", show_alert=True)
+        await query.answer("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You've already joined this rain!", show_alert=True)
         return
 
-    await query.answer("☔ You joined the rain!")
+    await query.answer("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> You joined the rain!")
 
     # Update the announcement message
     participants = db.get_rain_participants(rain_id)
     text = _build_rain_message(rain, participants)
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(f"☔ Join Rain ({len(participants)})", callback_data=f"join_rain_{rain_id}")
+        InlineKeyboardButton(f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Join Rain ({len(participants)})", callback_data=f"join_rain_{rain_id}")
     ]])
     try:
         await query.edit_message_text(text, reply_markup=keyboard, parse_mode=ParseMode.HTML)
@@ -13805,7 +13805,7 @@ async def finalize_rain_job(context: ContextTypes.DEFAULT_TYPE):
         credit_wallet_crypto(creator_id, amount, currency)
         save_user_data(creator_id)
         text = (
-            f"🌧️ <b>Rain Ended — No Participants</b>\n\n"
+            f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> <b>Rain Ended — No Participants</b>\n\n"
             f"Nobody joined {creator_username}'s rain.\n"
             f"<b>{amount:.6f} {currency}</b> has been refunded."
         )
@@ -13825,10 +13825,10 @@ async def finalize_rain_job(context: ContextTypes.DEFAULT_TYPE):
         recipients_str = ", ".join(recipient_lines)
         creator_display = f"@{rain['creator_username']}" if rain['creator_username'] else creator_username
         text = (
-            f"🌧️ <b>Rain Complete!</b>\n\n"
+            f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> <b>Rain Complete!</b>\n\n"
             f"<b>{creator_display}</b> rained <b>{amount:.6f} {currency}</b> on {len(participants)} user(s)!\n"
-            f"💰 Each received: <b>{per_person:.6f} {currency}</b>\n\n"
-            f"🎉 Recipients: {recipients_str}"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Each received: <b>{per_person:.6f} {currency}</b>\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Recipients: {recipients_str}"
         )
 
     # Edit the original rain message
@@ -13873,7 +13873,7 @@ async def pvp_timeout_warn_job(context: ContextTypes.DEFAULT_TYPE):
     try:
         await context.bot.send_message(
             chat_id=chat_id,
-            text=f"⚠️ {mention}, you have <b>2 minutes</b> left to roll or you will automatically lose the match!",
+            text=f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> {mention}, you have <b>2 minutes</b> left to roll or you will automatically lose the match!",
             parse_mode=ParseMode.HTML
         )
     except Exception as e:
@@ -13931,7 +13931,7 @@ async def pvp_timeout_finish_job(context: ContextTypes.DEFAULT_TYPE):
             text=(
                 f"⏰ <b>Match Timeout!</b>\n\n"
                 f"{idle_mention} failed to roll within 20 minutes.\n"
-                f"🏆 {winner_mention} wins by default and earns <b>${winnings:.2f}</b>!"
+                f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> {winner_mention} wins by default and earns <b>${winnings:.2f}</b>!"
             ),
             parse_mode=ParseMode.HTML
         )
@@ -14006,11 +14006,11 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
         formatted_wagered = format_currency(wagered_24h, user_currency)
         
         text = (
-            f"📊 <b>Your Stats - Last 24 Hours</b>\n\n"
-            f"👤 <b>User:</b> @{stats.get('userinfo', {}).get('username','N/A')}\n"
-            f"🦄 <b>Level:</b> {level_data['name']}\n"
-            f"💰 <b>Balance:</b> {formatted_balance}\n\n"
-            f"🎲 <b>Betting Stats (24h):</b>\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Stats - Last 24 Hours</b>\n\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>User:</b> @{stats.get('userinfo', {}).get('username','N/A')}\n"
+            f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Level:</b> {level_data['name']}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> {formatted_balance}\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Betting Stats (24h):</b>\n"
             f"  Total Bets: {bets_24h}\n"
             f"  Wins: {wins_24h} | Losses: {losses_24h}\n"
             f"  Win Rate: {win_rate:.1f}%\n"
@@ -14041,46 +14041,46 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
         losses = stats.get('bets', {}).get('losses', 0)
         win_rate = (wins / total_bets * 100) if total_bets > 0 else 0
         
-        title = "📊 <b>Your Complete Stats</b>" if not is_group else "📊 <b>Your Stats - All Time</b>"
+        title = "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Complete Stats</b>" if not is_group else "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Stats - All Time</b>"
         
         text = (
             f"{title}\n\n"
-            f"👤 <b>User Info:</b>\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>User Info:</b>\n"
             f"  Username: @{stats.get('userinfo', {}).get('username','N/A')}\n"
             f"  User ID: <code>{user.id}</code>\n"
             f"  Join Date: {stats.get('userinfo', {}).get('join_date', 'N/A')[:10]}\n"
             f"  Currency: {user_currency}\n\n"
-            f"🦄 <b>Level:</b> {level_data['name']}\n"
+            f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Level:</b> {level_data['name']}\n"
             f"  Rakeback Rate: {level_data['rakeback_percentage']}%\n\n"
-            f"💰 <b>Balance:</b> {formatted_balance}\n\n"
-            f"🎲 <b>Betting Stats:</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> {formatted_balance}\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Betting Stats:</b>\n"
             f"  Total Bets: {total_bets}\n"
             f"  Wins: {wins} | Losses: {losses}\n"
             f"  Win Rate: {win_rate:.1f}%\n"
             f"  Total Wagered: {formatted_wagered}\n"
             f"  PvP Wins: {stats.get('bets', {}).get('pvp_wins', 0)}\n\n"
-            f"💵 <b>Financial Stats:</b>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Financial Stats:</b>\n"
             f"  Deposits: {len(stats.get('deposits',[]))} ({formatted_deposits})\n"
             f"  Withdrawals: {len(stats.get('withdrawals',[]))} ({formatted_withdrawals})\n"
             f"  P&L: {formatted_pnl}\n\n"
-            f"🎁 <b>Social Stats:</b>\n"
+            f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Social Stats:</b>\n"
             f"  Tips Received: {stats.get('tips_received', {}).get('count', 0)} ({formatted_tips_received})\n"
             f"  Tips Sent: {stats.get('tips_sent', {}).get('count', 0)} ({formatted_tips_sent})\n"
             f"  Rain Received: {stats.get('rain_received', {}).get('count', 0)} ({formatted_rain})\n\n"
-            f"🤝 <b>Referral Stats:</b>\n"
+            f"<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> <b>Referral Stats:</b>\n"
             f"  Referred Users: {referral_count}\n"
             f"  Commission Earned: {formatted_commission}\n\n"
-            f"🏆 <b>Achievements:</b> {achievement_count} unlocked\n"
+            f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Achievements:</b> {achievement_count} unlocked\n"
         )
     
     if is_group:
         # Group chat: no back button, add 24h/all-time toggle buttons
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🕐 Last 24 Hours", callback_data=f"stats_24h_{user.id}"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("📊 All Time", callback_data=f"stats_alltime_{user.id}"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Last 24 Hours", callback_data=f"stats_24h_{user.id}"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> All Time", callback_data=f"stats_alltime_{user.id}"), 'success')],  # GREEN
         ]
     else:
-        keyboard = [[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]
     
     reply_markup = create_styled_keyboard(keyboard)
     
@@ -14152,9 +14152,9 @@ async def limits_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     game_limits = bot_settings.get('game_limits', {})
     
     if not game_limits:
-        msg = "⚖️ <b>Game Limits</b>\n\n❌ No limits have been set yet."
+        msg = "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> <b>Game Limits</b>\n\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No limits have been set yet."
     else:
-        msg = "⚖️ <b>Game Limits</b>\n\n"
+        msg = "<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> <b>Game Limits</b>\n\n"
         
         # Group games by category
         for game_name in sorted(game_limits.keys()):
@@ -14166,7 +14166,7 @@ async def limits_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             min_str = f"${min_bet:.2f}" if isinstance(min_bet, (int, float)) else min_bet
             max_str = f"${max_bet:.2f}" if isinstance(max_bet, (int, float)) else max_bet
             
-            msg += f"🎮 <b>{display_name}</b>\n"
+            msg += f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>{display_name}</b>\n"
             msg += f"   Min: {min_str} | Max: {max_str}\n\n"
     
     # Use helper bot in groups if available
@@ -14218,23 +14218,23 @@ async def send_users_page(update: Update, context: ContextTypes.DEFAULT_TYPE):
         username = stats.get('userinfo', {}).get('username', 'N/A')
         pnl = stats.get('pnl', 0.0)
         msg += (
-            f"👤 @{username} (ID: <code>{uid}</code>)\n"
-            f"  - 💰 <b>Balance:</b> ${get_total_balance_usd(uid):.2f}\n"
-            f"  - 📈 <b>P&L:</b> ${pnl:.2f}\n"
-            f"  - 🎲 <b>Bets:</b> {stats.get('bets',{}).get('count',0)} (W: {stats.get('bets',{}).get('wins',0)}, L: {stats.get('bets',{}).get('losses',0)})\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> @{username} (ID: <code>{uid}</code>)\n"
+            f"  - <tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> ${get_total_balance_usd(uid):.2f}\n"
+            f"  - <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>P&L:</b> ${pnl:.2f}\n"
+            f"  - <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Bets:</b> {stats.get('bets',{}).get('count',0)} (W: {stats.get('bets',{}).get('wins',0)}, L: {stats.get('bets',{}).get('losses',0)})\n"
         )
 
     keyboard = []
     row = []
     if page > 0:
-        row.append(InlineKeyboardButton("⬅️ Previous", callback_data="users_prev"))
+        row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data="users_prev"))
     if end_index < len(user_ids):
-        row.append(InlineKeyboardButton("Next ➡️", callback_data="users_next"))
+        row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="users_next"))
     if row:
         keyboard.append(row)
 
     # NEW: Back to admin dashboard button
-    keyboard.append([InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")])
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -14265,7 +14265,7 @@ async def users_navigation_callback(update: Update, context: ContextTypes.DEFAUL
 @check_maintenance
 async def generic_emoji_game_command(update: Update, context: ContextTypes.DEFAULT_TYPE, game_type: str):
     if bot_stopped:
-        await update.message.reply_text("🚫 Bot is currently stopped. No new matches can be started.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Bot is currently stopped. No new matches can be started.")
         return
     user = update.effective_user
     await ensure_user_in_wallets(user.id, user.username, context=context)
@@ -14366,7 +14366,7 @@ async def generic_emoji_game_command(update: Update, context: ContextTypes.DEFAU
     keyboard = [[InlineKeyboardButton("Accept", callback_data=f"accept_{match_id}"), InlineKeyboardButton("Decline", callback_data=f"decline_{match_id}")]]
 
     sent_message = await update.message.reply_text(
-        f"🎮 <b>New {game_type.capitalize()} Match Request!</b>\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>New {game_type.capitalize()} Match Request!</b>\n\n"
         f"<b>Host:</b> {user.mention_html()}\n"
         f"<b>Opponent:</b> {opponent_username}\n"
         f"<b>Bet:</b> ${bet_amount:.2f}\n"
@@ -14414,7 +14414,7 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if ongoing_game_id:
             game_name = extract_game_name(ongoing_game_type)
             await query.answer(
-                f"⚠️ You have an ongoing {game_name} match (ID: {ongoing_game_id}). Complete it first!",
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You have an ongoing {game_name} match (ID: {ongoing_game_id}). Complete it first!",
                 show_alert=True
             )
             return
@@ -14424,12 +14424,12 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Show mode selection (Normal/Crazy)
         keyboard = [
-            [InlineKeyboardButton("📊 Normal Mode", callback_data=f"pvb_mode_normal_{game_type}")],
-            [InlineKeyboardButton("🎪 Crazy Mode", callback_data=f"pvb_mode_crazy_{game_type}")],
-            [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Normal Mode", callback_data=f"pvb_mode_normal_{game_type}")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Crazy Mode", callback_data=f"pvb_mode_crazy_{game_type}")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
         ]
         await query.edit_message_text(
-            f"🎮 <b>Select Game Mode</b>\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Select Game Mode</b>\n\n"
             f"<b>Normal Mode:</b> Highest score wins\n"
             f"<b>Crazy Mode:</b> Lowest score wins",
             parse_mode=ParseMode.HTML,
@@ -14451,10 +14451,10 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("1️⃣ 1 Roll", callback_data=f"pvb_rolls_1_{mode}_{game_type}")],
             [InlineKeyboardButton("2️⃣ 2 Rolls", callback_data=f"pvb_rolls_2_{mode}_{game_type}")],
             [InlineKeyboardButton("3️⃣ 3 Rolls", callback_data=f"pvb_rolls_3_{mode}_{game_type}")],
-            [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
         ]
         await query.edit_message_text(
-            f"🎮 <b>Select Number of Rolls</b>\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Select Number of Rolls</b>\n\n"
             f"Mode: <b>{mode.capitalize()}</b>\n"
             f"Choose how many times each player will roll:",
             parse_mode=ParseMode.HTML,
@@ -14482,7 +14482,7 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Update instructions with new command format
         await query.edit_message_text(
-            f"🎮 <b>PvP {game_type.capitalize()} Game</b>\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>PvP {game_type.capitalize()} Game</b>\n\n"
             f"<b>Command Format:</b>\n"
             f"<code>/{game_type} @username amount MX ftY</code>\n\n"
             f"<b>Parameters:</b>\n"
@@ -14500,7 +14500,7 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"• <b>Normal (N):</b> Highest total score wins the point\n"
             f"• <b>Crazy (C):</b> Lowest total score wins the point",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"game_{data.replace('pvp_info_', '')}")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"game_{data.replace('pvp_info_', '')}")]])
         )
 
 async def start_pvb_conversation_after_setup(query, context):
@@ -14532,8 +14532,8 @@ async def balance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("💎 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
-                apply_button_style(InlineKeyboardButton("💸 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
+                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
             ],
         ]
         
@@ -14545,7 +14545,7 @@ async def balance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         formatted_crypto = format_crypto_amount(crypto_balance, active_coin)
         
         text = (
-            f"💵 <b>Balance:</b> ${balance_usd:,.2f} ({formatted_crypto} {active_coin})"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Balance:</b> ${balance_usd:,.2f} ({formatted_crypto} {active_coin})"
         )
         
         reply_markup = create_styled_keyboard(keyboard)
@@ -14561,13 +14561,13 @@ async def balance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # DM: original behavior
     keyboard = [
         [
-            InlineKeyboardButton("💰 Deposit", callback_data="main_deposit"),
-            InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw")
+            InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"),
+            InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw")
         ],
-        [InlineKeyboardButton("💼 View Full Wallet", callback_data="main_wallet")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> View Full Wallet", callback_data="main_wallet")]
     ]
     
-    text = f"💰 <b>Your Balance</b>\n\n{formatted_balance}"
+    text = f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Your Balance</b>\n\n{formatted_balance}"
     
     # Send dashboard image with balance text in caption (NEW FEATURE - Combined)
     dashboard_image = await generate_dashboard_image(user.id, context)
@@ -14605,7 +14605,7 @@ async def matches_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fr
 
     if not user_game_ids:
         text = "You haven't played any matches yet."
-        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
         if from_callback: await update.callback_query.edit_message_text(text, reply_markup=reply_markup)
         else: await update.message.reply_text(text, reply_markup=reply_markup)
         return
@@ -14634,7 +14634,7 @@ async def matches_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fr
     end_index = start_index + page_size
     paginated_completed = completed_games[start_index:end_index]
 
-    msg += f"📜 <b>Your Completed Games (Page {page + 1}):</b>\n\n"
+    msg += f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Completed Games (Page {page + 1}):</b>\n\n"
     if not paginated_completed:
         msg += "No completed games on this page.\n"
 
@@ -14676,13 +14676,13 @@ async def matches_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fr
     keyboard = []
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("⬅️ Previous", callback_data=f"my_matches_{page - 1}"))
+        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data=f"my_matches_{page - 1}"))
     if end_index < len(completed_games):
-        nav_row.append(InlineKeyboardButton("Next ➡️", callback_data=f"my_matches_{page + 1}"))
+        nav_row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"my_matches_{page + 1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")])
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     if from_callback:
@@ -14699,7 +14699,7 @@ async def deals_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
 
     if not user_deal_ids:
         text = "You have no escrow deals."
-        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
         if from_callback: await update.callback_query.edit_message_text(text, reply_markup=reply_markup)
         else: await update.message.reply_text(text, reply_markup=reply_markup)
         return
@@ -14716,7 +14716,7 @@ async def deals_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     end_index = start_index + page_size
     paginated_deals = all_deals[start_index:end_index]
 
-    msg = f"🛡️ <b>Your Escrow Deals (Page {page + 1}):</b>\n\n"
+    msg = f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Your Escrow Deals (Page {page + 1}):</b>\n\n"
     if not paginated_deals:
         msg += "No deals on this page.\n"
 
@@ -14731,13 +14731,13 @@ async def deals_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     keyboard = []
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("⬅️ Previous", callback_data=f"my_deals_{page - 1}"))
+        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data=f"my_deals_{page - 1}"))
     if end_index < len(all_deals):
-        nav_row.append(InlineKeyboardButton("Next ➡️", callback_data=f"my_deals_{page + 1}"))
+        nav_row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"my_deals_{page + 1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")])
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     if from_callback: await update.callback_query.edit_message_text(msg, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
@@ -14752,7 +14752,7 @@ async def he_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("No escrow deals found.")
         return
     all_deal_files.sort(reverse=True)
-    msg = "📜 <b>All Escrow Deals History (Latest 20):</b>\n\n"
+    msg = "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>All Escrow Deals History (Latest 20):</b>\n\n"
     count = 0
     for fname in all_deal_files:
         if count >= 20: break
@@ -14793,7 +14793,7 @@ async def hc_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 msg += f"<b>Player:</b> @{uname}\n"
              msg += "--------------------\n"
 
-    msg += "\n📜 <b>All Casino Matches History (Latest 20 Completed):</b>\n\n"
+    msg += "\n<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>All Casino Matches History (Latest 20 Completed):</b>\n\n"
     for match in completed_games[:20]:
         game_type = match['game_type'].replace('_', ' ').title()
         msg += f"<b>Game:</b> {game_type} | <b>ID:</b> <code>{match['id']}</code>\n"
@@ -14820,7 +14820,7 @@ async def info_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     unique_id = context.args[0]
-    msg = f"🔍 <b>Detailed Info for ID:</b> <code>{unique_id}</code>\n\n"
+    msg = f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Detailed Info for ID:</b> <code>{unique_id}</code>\n\n"
 
     # Check in game sessions
     if unique_id in game_sessions:
@@ -14886,24 +14886,24 @@ async def info_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     if time_left.total_seconds() > 0 else "Ended")
         msg += (
             f"<b>Type:</b> Raffle\n"
-            f"💰 <b>Prize Pool:</b> ${raffle['prize_usd']:.2f}\n"
-            f"🎫 <b>Ticket Cost:</b> ${raffle['ticket_cost']:.2f} wagered\n"
-            f"👥 <b>Type:</b> {raffle['type'].title()}\n"
-            f"🏆 <b>Winners:</b> {raffle['total_winners']}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Prize Pool:</b> ${raffle['prize_usd']:.2f}\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Ticket Cost:</b> ${raffle['ticket_cost']:.2f} wagered\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Type:</b> {raffle['type'].title()}\n"
+            f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Winners:</b> {raffle['total_winners']}\n"
             f"⏰ <b>Time Left:</b> {time_str}\n\n"
-            f"📊 <b>Statistics:</b>\n"
-            f"🎫 Total Tickets: {total_tickets}\n"
-            f"👥 Participants: {participants}\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Statistics:</b>\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Total Tickets: {total_tickets}\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Participants: {participants}\n\n"
             f"<b>Your Progress:</b>\n"
-            f"🎫 Your Tickets: {user_tickets}\n"
-            f"💵 Your Wagered: ${user_wager:.2f}\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Your Tickets: {user_tickets}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Your Wagered: ${user_wager:.2f}\n"
         )
         if raffle.get('type') == 'referrals':
-            msg += "\n💡 Only referrals of the creator can participate"
+            msg += "\n<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Only referrals of the creator can participate"
         await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
         return
 
-    await update.message.reply_text("❌ No game, escrow deal, or raffle found with that ID.", parse_mode=ParseMode.HTML)
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No game, escrow deal, or raffle found with that ID.", parse_mode=ParseMode.HTML)
 
 # --- MESSAGE LISTENER HANDLER ---
 @check_banned
@@ -14983,12 +14983,12 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
         game_type = game['game_type'].replace("pvb_", "").replace("xdxw_", "")
         # Handle different game_type naming variations
         emoji_map = {
-            "dice": "🎲", "dice_bot": "🎲",
-            "darts": "🎯",
-            "goal": "⚽", "football": "⚽",
-            "bowl": "🎳", "bowling": "🎳"
+            "dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "dice_bot": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+            "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+            "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "football": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",
+            "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "bowling": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"
         }
-        expected_emoji = emoji_map.get(game_type, "🎲")  # Default to dice if not found
+        expected_emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")  # Default to dice if not found
         game_rolls = game.get('game_rolls', 1)
         game_mode = game.get('game_mode', 'normal')
         bot_rolls_first = game.get('bot_rolls_first', False)
@@ -15032,21 +15032,21 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                               "user_total": user_total, "bot_total": bot_total, "winner": None}
                 
                 if tie:
-                    result_text = "🤝 It's a tie! No point."
+                    result_text = "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> It's a tie! No point."
                 elif win:
                     game["user_score"] += 1
                     round_result["winner"] = "user"
-                    result_text = f"🎉 {user.first_name} wins this round!"
+                    result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {user.first_name} wins this round!"
                 else:
                     game["bot_score"] += 1
                     round_result["winner"] = "bot"
-                    result_text = "🤖 Bot wins this round!"
+                    result_text = "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot wins this round!"
                 
                 # Consolidated message for bot_rolls_first mode
                 username_display = user.first_name if user.first_name else "Player"
                 await update.message.reply_text(
                     f"{username_display} rolled: [{user_rolls_text}] = <b>{user_total}</b>\n"
-                    f"🤖 Rolled: [{bot_rolls_text}] = <b>{bot_total}</b>\n\n"
+                    f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Rolled: [{bot_rolls_text}] = <b>{bot_total}</b>\n\n"
                     f"{result_text}",
                     parse_mode=ParseMode.HTML
                 )
@@ -15083,7 +15083,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 await asyncio.sleep(animation_wait)  # Smart wait based on chat type
                         except Exception as e:
                             logging.error(f"Error sending dice in PvB game: {e}")
-                            await update.message.reply_text("❌ An error occurred. Game terminated.")
+                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
                             game['status'] = 'error'
                             del context.chat_data[f"active_pvb_game_{user.id}"]
                             if user.id in active_pvb_games:
@@ -15113,19 +15113,19 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                               "user_total": user_total, "bot_total": bot_total, "winner": None}
                 
                 if tie:
-                    result_text = "🤝 It's a tie! No point."
+                    result_text = "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> It's a tie! No point."
                 elif win:
                     game["user_score"] += 1
                     round_result["winner"] = "user"
-                    result_text = f"🎉 {username_display} wins this round!"
+                    result_text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {username_display} wins this round!"
                 else:
                     game["bot_score"] += 1
                     round_result["winner"] = "bot"
-                    result_text = "🤖 Bot wins this round!"
+                    result_text = "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot wins this round!"
                 
                 # Consolidated message showing bot rolls and winner
                 await update.message.reply_text(
-                    f"🤖 Rolled: [{bot_rolls_text}] = <b>{bot_total}</b>\n\n{result_text}",
+                    f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Rolled: [{bot_rolls_text}] = <b>{bot_total}</b>\n\n{result_text}",
                     parse_mode=ParseMode.HTML
                 )
 
@@ -15142,7 +15142,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 game['win'] = True
                 update_stats_on_bet(user.id, game['id'], game['bet_amount'], True, multiplier=1.96, context=context)
                 await asyncio.sleep(0.5)  # Rate limit protection
-                await update.message.reply_text(f"🏆 {user.mention_html()}, Congratulations! You beat the bot ({game['user_score']}-{game['bot_score']}) and win ${winnings:.2f}!", parse_mode=ParseMode.HTML)
+                await update.message.reply_text(f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> {user.mention_html()}, Congratulations! You beat the bot ({game['user_score']}-{game['bot_score']}) and win ${winnings:.2f}!", parse_mode=ParseMode.HTML)
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
                     del active_pvb_games[user.id]
@@ -15151,7 +15151,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 game['win'] = False
                 update_stats_on_bet(user.id, game['id'], game['bet_amount'], False, context=context)
                 await asyncio.sleep(0.5)  # Rate limit protection
-                await update.message.reply_text(f"😔 {user.mention_html()}, Bot wins the match ({game['bot_score']}-{game['user_score']}). You lost ${game['bet_amount']:.2f}.", parse_mode=ParseMode.HTML)
+                await update.message.reply_text(f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> {user.mention_html()}, Bot wins the match ({game['bot_score']}-{game['user_score']}). You lost ${game['bet_amount']:.2f}.", parse_mode=ParseMode.HTML)
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
                     del active_pvb_games[user.id]
@@ -15181,7 +15181,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 await asyncio.sleep(animation_wait)
                         except Exception as e:
                             logging.error(f"Error sending dice in PvB game: {e}")
-                            await update.message.reply_text("❌ An error occurred. Game terminated.")
+                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
                             game['status'] = 'error'
                             del context.chat_data[f"active_pvb_game_{user.id}"]
                             if user.id in active_pvb_games:
@@ -15200,7 +15200,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     
                     username_display = user.first_name if user.first_name else "Player"
                     await update.message.reply_text(
-                        f"🤖 <b>BOT ROLLED FIRST!</b>\n\n"
+                        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>BOT ROLLED FIRST!</b>\n\n"
                         f"Bot rolled: [{bot_rolls_text}] = {bot_total}\n\n"
                         f"{username_display}, Your turn! Send {game_rolls} {expected_emoji} to respond.",
                         parse_mode=ParseMode.HTML
@@ -15272,8 +15272,8 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 await update.message.reply_text("Wait for your opponent to complete their rolls.")
                                 return
 
-                    allowed_emojis = {"dice": "🎲", "darts": "🎯", "goal": "⚽", "bowl": "🎳"}
-                    if emoji != allowed_emojis.get(gtype, "🎲"):
+                    allowed_emojis = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
+                    if emoji != allowed_emojis.get(gtype, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"):
                         await update.message.reply_text(f"Only {allowed_emojis.get(gtype)} emoji allowed for this match!")
                         return
 
@@ -15347,7 +15347,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                             elif p2_total > p1_total:
                                 winner_id = p2
                             else:
-                                extra_info = "🤝 It's a tie! No points this round."
+                                extra_info = "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> It's a tie! No points this round."
                         else:
                             # Crazy mode: lowest total wins
                             if p1_total < p2_total:
@@ -15355,7 +15355,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                             elif p2_total < p1_total:
                                 winner_id = p2
                             else:
-                                extra_info = "🤝 It's a tie! No points this round."
+                                extra_info = "<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> It's a tie! No points this round."
 
                         if DEBUG_EMOJI_GAMES:
                             logging.info(f"WINNER: winner_id={winner_id}, extra_info={extra_info}")
@@ -15365,12 +15365,12 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 match_data["points"][winner_id] += 1
                                 winner_username = match_data['usernames'][winner_id]
                                 winner_mention = f'<a href="tg://user?id={winner_id}">@{winner_username}</a>'
-                                text += f"🎉 {winner_mention} wins this round!"
+                                text += f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {winner_mention} wins this round!"
                                 if DEBUG_EMOJI_GAMES:
                                     logging.info(f"POINTS_UPDATED: {match_data['points']}")
                             except KeyError as e:
                                 logging.error(f"KeyError updating points: winner_id={winner_id}, points_keys={list(match_data.get('points', {}).keys())}, usernames_keys={list(match_data.get('usernames', {}).keys())}, error={e}")
-                                text += f"⚠️ Error updating score (winner_id={winner_id} not found)"
+                                text += f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Error updating score (winner_id={winner_id} not found)"
                         else:
                             text += extra_info
 
@@ -15416,7 +15416,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                             
                             final_winner_username = match_data['usernames'][final_winner]
                             final_winner_mention = f'<a href="tg://user?id={final_winner}">@{final_winner_username}</a>'
-                            text += f"\n\n🏆 <b>{final_winner_mention} wins the match and earns ${winnings:.2f}!</b>"
+                            text += f"\n\n<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>{final_winner_mention} wins the match and earns ${winnings:.2f}!</b>"
                             # Unpin the message
                             if 'pinned_message_id' in match_data:
                                 try: await context.bot.unpin_chat_message(chat_id, match_data['pinned_message_id'])
@@ -15459,7 +15459,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     return
         except Exception as e:
             logging.error(f"Error in PvP game handling: {e}", exc_info=True)
-            await update.message.reply_text("❌ An error occurred processing your roll. Please contact support.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred processing your roll. Please contact support.")
             return
 
 # --- Clear user funds (owner only) ---
@@ -15469,8 +15469,8 @@ async def clear_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Only the bot owner can use this command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    keyboard = [[InlineKeyboardButton("✅ Yes, clear all funds", callback_data="clear_confirm_yes"), InlineKeyboardButton("❌ No, cancel", callback_data="clear_confirm_no")]]
-    await update.message.reply_text("⚠️ WARNING: This will reset all user balances to zero!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, clear all funds", callback_data="clear_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clear_confirm_no")]]
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WARNING: This will reset all user balances to zero!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
 
 async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -15478,8 +15478,8 @@ async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Only the bot owner can use this command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    keyboard = [[InlineKeyboardButton("✅ Yes, erase ALL data", callback_data="clearall_confirm_yes"), InlineKeyboardButton("❌ No, cancel", callback_data="clearall_confirm_no")]]
-    await update.message.reply_text("⚠️ EXTREME WARNING ⚠️\n\nThis will completely erase ALL user data, including all settings. This action is IRREVERSIBLE!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, erase ALL data", callback_data="clearall_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clearall_confirm_no")]]
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> EXTREME WARNING <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>\n\nThis will completely erase ALL user data, including all settings. This action is IRREVERSIBLE!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
 
 async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global user_wallets, user_stats, username_to_userid, escrow_deals, game_sessions, group_settings, bot_settings, gift_codes, recovery_data
@@ -15500,7 +15500,7 @@ async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_T
                     update_pnl(user_id)
                     save_user_data(user_id)
                 users_affected += 1
-        await query.edit_message_text(f"✅ Done! Reset balances to zero for {users_affected} users.")
+        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Done! Reset balances to zero for {users_affected} users.")
     elif query.data == "clearall_confirm_yes":
         backup_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         backup_dir = "backups"
@@ -15536,7 +15536,7 @@ async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_T
         if os.path.exists(STATE_FILE):
             os.remove(STATE_FILE)
 
-        await query.edit_message_text(f"✅ All user data and settings cleared! Removed data for {old_count} users.\nA backup was saved to {backup_file}")
+        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> All user data and settings cleared! Removed data for {old_count} users.\nA backup was saved to {backup_file}")
     else:
         await query.edit_message_text("Operation cancelled. No changes were made.")
 
@@ -15619,15 +15619,15 @@ async def tip_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Send confirmation message with inline buttons
     keyboard = [
         [
-            InlineKeyboardButton("✅ Confirm", callback_data=f"confirm_tip_{tip_id}"),
-            InlineKeyboardButton("❌ Cancel", callback_data=f"cancel_tip_{tip_id}")
+            InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Confirm", callback_data=f"confirm_tip_{tip_id}"),
+            InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"cancel_tip_{tip_id}")
         ]
     ]
     await update.message.reply_text(
-        f"⚠️ <b>Confirm Tip</b> ⚠️\n\n"
-        f"💵 Sending: <b>${tip_amount:.2f}</b>\n"
-        f"💎 Actual: <b>{formatted_crypto} {active_coin}</b>\n"
-        f"👤 To: {tipped_user_mention}\n\n"
+        f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Confirm Tip</b> <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Sending: <b>${tip_amount:.2f}</b>\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Actual: <b>{formatted_crypto} {active_coin}</b>\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> To: {tipped_user_mention}\n\n"
         f"Please confirm or cancel.",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -15649,7 +15649,7 @@ async def tip_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
 
     if data.startswith("cancel_tip_"):
         context.user_data.pop('pending_tip', None)
-        await query.edit_message_text("❌ Tip cancelled.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Tip cancelled.")
         return
 
     if data.startswith("confirm_tip_"):
@@ -15662,7 +15662,7 @@ async def tip_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
 
         # Re-check balance
         if not is_owner and get_active_balance_usd(user.id) < tip_amount:
-            await query.edit_message_text("❌ Insufficient balance. Tip cancelled.")
+            await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Tip cancelled.")
             context.user_data.pop('pending_tip', None)
             return
 
@@ -15686,8 +15686,8 @@ async def tip_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
         formatted_crypto = format_crypto_amount(crypto_amount, coin)
         tipped_user_mention = f"@{target_username}" if target_username else f"user (ID: {target_user_id})"
         await query.edit_message_text(
-            f"✅ Tip sent to {tipped_user_mention}!\n"
-            f"💵 ${tip_amount:.2f} ({formatted_crypto} {coin})",
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Tip sent to {tipped_user_mention}!\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> ${tip_amount:.2f} ({formatted_crypto} {coin})",
             parse_mode=ParseMode.HTML
         )
         try:
@@ -15713,8 +15713,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
         context.user_data['menu_owner_id'] = user.id
 
     help_text = (
-        "🎲 <b>Telegram Gambling & Escrow Bot</b> 🎲\n\n"
-        "<b>🤖 AI Assistant:</b>\n"
+        "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Telegram Gambling & Escrow Bot</b> <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>\n\n"
+        "<b><tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> AI Assistant:</b>\n"
         "• <code>/ai &lt;question&gt;</code> — Ask the AI anything (default: g4f).\n"
         "• <code>/p &lt;SYMBOL&gt;</code> — Get crypto price from MEXC (e.g., /p BTC).\n"
         "• Reply to a message with <code>/ai</code> to discuss it.\n\n"
@@ -15729,9 +15729,9 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
         "• <b>Limbo</b>: <code>/lb amount multiplier</code> or <code>/lb</code> for instructions\n"
         "• <b>Keno</b>: <code>/keno amount</code>\n"
         "• <b>Predict</b>: <code>/predict amount up/down</code>\n"
-        "💡 You can use 'all' instead of an amount to bet your entire balance!\n"
-        "💡 All amounts are in your selected currency (see Settings).\n\n"
-        "<b>🎮 Single Emoji Games:</b>\n"
+        "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> You can use 'all' instead of an amount to bet your entire balance!\n"
+        "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> All amounts are in your selected currency (see Settings).\n\n"
+        "<b><tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Single Emoji Games:</b>\n"
         "• Access via Games → Emoji Games → Single Emoji Games\n"
         "• Quick instant-result games: Darts, Soccer, Basket, Bowling, Slot\n\n"
         "<b>PvP & PvB Games:</b>\n"
@@ -15749,18 +15749,18 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
         "• <code>/tip @user amount</code> or reply to a message\n"
         "• <code>/rain amount N</code> — Rain on N users\n"
         "• <code>/stats</code>, <code>/leaderboard</code>, <code>/leaderboardrf</code>\n\n"
-        "<b>🎁 Bonuses:</b>\n"
+        "<b><tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Bonuses:</b>\n"
         "• <code>/daily</code> — Claim your daily bonus!\n"
         "• <code>/weekly</code> — Weekly VIP bonus (Sat 6PM UTC, 48h window, based on wagers &amp; losses).\n"
         "• <code>/monthly</code> — Monthly VIP bonus (15th, 48h window, based on wagers &amp; losses).\n"
         "• <code>/rk</code> — Claim accumulated rakeback (auto-earned per bet based on VIP tier).\n"
         "• <code>/claim &lt;code&gt;</code> — Claim a gift code.\n\n"
-        "<b>🛡️ History & Info:</b>\n"
+        "<b><tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> History & Info:</b>\n"
         "• <code>/escrow</code>, <code>/deals</code>, <code>/matches</code>\n"
         "• <code>/active</code> — View your active games\n"
         "• <code>/info &lt;id&gt;</code> — Get details of any game/deal\n"
         "• <code>/continue &lt;id&gt;</code> — Resume an active game\n\n"
-        "<b>⚙️ Settings & Account:</b>\n"
+        "<b><tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings & Account:</b>\n"
         "• <code>/referral</code>, <code>/achievements</code>, <code>/level</code>\n"
         "• <code>/language</code> — Change bot language (en/es/fr/ru/hi/zh)\n"
         "• Use Settings menu to:\n"
@@ -15776,7 +15776,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
     )
 
     owner_help = (
-        "\n\n👑 <b>Owner Commands:</b>\n"
+        "\n\n<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Owner Commands:</b>\n"
         "• <code>/admin</code> — Open the admin dashboard.\n"
         "• <code>/setbal @user amount</code> — Manually set a user's balance.\n"
         "• <code>/user @username</code> — Get detailed user info.\n"
@@ -15787,7 +15787,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
         "• <code>/cancelall</code> — Cancel all active matches\n"
         "• <code>/stop</code> & <code>/resume</code> — Pause/resume new games\n"
         "• <code>/clear</code> — Reset all user balances to 0\n"
-        "• <code>/clearall</code> — ⚠️ Erase all user data\n"
+        "• <code>/clearall</code> — <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Erase all user data\n"
         "• <code>/he</code> (all escrow), <code>/hc</code> (all games) — History cmds\n"
         "• <code>/export</code> — Export all user data as a JSON file.\n"
         "• Approve/Cancel withdrawals via inline buttons in withdrawal notifications."
@@ -15796,7 +15796,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
     if is_owner:
         help_text += owner_help
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, help_text, parse_mode=ParseMode.HTML, reply_markup=reply_markup, disable_web_page_preview=True)
@@ -15940,7 +15940,7 @@ async def match_invite_callback(update: Update, context: ContextTypes.DEFAULT_TY
         await ensure_user_in_wallets(user_id, query.from_user.username, context=context)
         if get_active_balance_usd(user_id) < match_data["bet_amount"]:
             await query.edit_message_text(
-                "❌ You don't have enough balance for this bet.",
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance for this bet.",
             )
             match_data["status"] = "cancelled"
             return
@@ -15980,7 +15980,7 @@ async def match_invite_callback(update: Update, context: ContextTypes.DEFAULT_TY
         )
         await context.bot.send_message(
             chat_id=match_data["chat_id"],
-            text=f"🎮 <b>{match_data['game_type'].replace('pvp_','').capitalize()} Match {match_id} Started!</b>\n"
+            text=f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>{match_data['game_type'].replace('pvp_','').capitalize()} Match {match_id} Started!</b>\n"
                  f"{match_data['usernames'][match_data['host_id']]} vs {match_data['usernames'][match_data['players'][1]]}\n"
                  f"First to {match_data['target_points']} points wins ${match_data['bet_amount']*2:.2f}!\n"
                  f"{match_data['usernames'][match_data['host_id']]}, it's your turn.",
@@ -16029,12 +16029,12 @@ async def escrow_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fro
     
     # NEW: Check if escrow feature is enabled
     if not bot_settings.get("escrow_enabled", True):
-        error_msg = "❌ This feature is currently disabled by the owner."
+        error_msg = "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This feature is currently disabled by the owner."
         if from_callback: 
             await safe_edit_message(
                 update.callback_query, 
                 error_msg,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
             )
         else: 
             await update.message.reply_text(error_msg)
@@ -16048,8 +16048,8 @@ async def escrow_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fro
 
     context.user_data['escrow_step'] = 'ask_amount'
     context.user_data['escrow_data'] = {'creator_id': user.id, 'creator_username': user.username}
-    text = "🛡️ <b>New Escrow Deal</b>\n\nPlease enter the deal amount in USDT (BEP20)."
-    keyboard = [[InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]]
+    text = "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>New Escrow Deal</b>\n\nPlease enter the deal amount in USDT (BEP20)."
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]]
     if from_callback:
         await safe_edit_message(update.callback_query, text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
@@ -16070,13 +16070,13 @@ async def handle_escrow_conversation(update: Update, context: ContextTypes.DEFAU
             deal_data['amount'] = amount
             context.user_data['escrow_step'] = 'ask_role'
             keyboard = [
-                [InlineKeyboardButton("🏪 I am the Seller", callback_data="escrow_role_seller")],
-                [InlineKeyboardButton("🛒 I am the Buyer", callback_data="escrow_role_buyer")],
-                [InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> I am the Seller", callback_data="escrow_role_seller")],
+                [InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> I am the Buyer", callback_data="escrow_role_buyer")],
+                [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]
             ]
-            await update.message.reply_text(f"✅ Amount set to ${amount:.2f} USDT.\n\nPlease select your role:", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
+            await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Amount set to ${amount:.2f} USDT.\n\nPlease select your role:", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         except (ValueError, TypeError):
-            await update.message.reply_text("❌ Invalid amount. Please enter a positive number.", reply_markup=InlineKeyboardMarkup(cancel_button))
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.", reply_markup=InlineKeyboardMarkup(cancel_button))
             return
 
     elif step == 'ask_details':
@@ -16097,8 +16097,8 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
         context.user_data['escrow_data']['creator_role'] = role
         context.user_data['escrow_data']['partner_role'] = 'Buyer' if role == 'seller' else 'Seller'
         context.user_data['escrow_step'] = 'ask_details'
-        cancel_button = [[InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]]
-        await query.edit_message_text("✅ Role selected. Now, please provide the deal details (e.g., 'Sale of item X').", reply_markup=InlineKeyboardMarkup(cancel_button))
+        cancel_button = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]]
+        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Role selected. Now, please provide the deal details (e.g., 'Sale of item X').", reply_markup=InlineKeyboardMarkup(cancel_button))
 
     # REMOVED: partner action, as we now force link creation.
 
@@ -16115,10 +16115,10 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             deal['status'] = 'accepted_awaiting_deposit'
             save_escrow_deal(deal_id)
             seller_id, buyer_id = deal['seller']['id'], deal['buyer']['id']
-            await query.edit_message_text(f"✅ You accepted the deal. Seller will now be prompted to deposit ${deal['amount']:.2f} USDT.")
-            deposit_text = (f"✅ The other party accepted the deal!\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
+            await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You accepted the deal. Seller will now be prompted to deposit ${deal['amount']:.2f} USDT.")
+            deposit_text = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> The other party accepted the deal!\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
                             f"Please deposit exactly <code>{deal['amount']}</code> USDT (BEP20) to:\n<code>{ESCROW_DEPOSIT_ADDRESS}</code>\n\n"
-                            f"⚠️ Send from your own wallet (NOT from an exchange). Have enough BNB for gas.")
+                            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Send from your own wallet (NOT from an exchange). Have enough BNB for gas.")
             await context.bot.send_message(chat_id=seller_id, text=deposit_text, parse_mode='HTML')
             context.job_queue.run_repeating(monitor_escrow_deposit, interval=20, first=10, data={'deal_id': deal_id}, name=f"escrow_monitor_{deal_id}")
         else: # Decline
@@ -16141,10 +16141,10 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             if user.id != deal['seller']['id']: await query.answer("Only the seller can release funds.", show_alert=True); return
             if deal['status'] != 'funds_secured': await query.answer("Funds are not in a releasable state.", show_alert=True); return
             keyboard = [
-                [InlineKeyboardButton("✅ Yes, Release Funds", callback_data=f"escrow_action_{deal_id}_releaseconfirm")],
-                [InlineKeyboardButton("❌ No, Cancel", callback_data=f"escrow_action_{deal_id}_releasecancel")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, Release Funds", callback_data=f"escrow_action_{deal_id}_releaseconfirm")],
+                [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, Cancel", callback_data=f"escrow_action_{deal_id}_releasecancel")]
             ]
-            await query.edit_message_text("⚠️ Are you sure you want to release the funds to the buyer? This action is irreversible.", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
+            await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Are you sure you want to release the funds to the buyer? This action is irreversible.", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         elif decision == 'releaseconfirm':
             if user.id != deal['seller']['id']: return
             # NEW: Credit buyer's casino balance directly instead of asking for withdrawal address
@@ -16163,14 +16163,14 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             
             # Notify both parties
             seller_msg = (
-                f"✅ <b>Deal Completed!</b>\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Deal Completed!</b>\n\n"
                 f"<b>Deal ID:</b> <code>{deal_id}</code>\n"
                 f"<b>Amount:</b> ${amount:.2f}\n\n"
                 f"The funds have been credited to the buyer's casino balance.\n"
                 f"Thank you for using our escrow service!"
             )
             buyer_msg = (
-                f"✅ <b>Funds Received!</b>\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Funds Received!</b>\n\n"
                 f"<b>Deal ID:</b> <code>{deal_id}</code>\n"
                 f"<b>Amount:</b> ${amount:.2f}\n\n"
                 f"The funds have been added to your casino balance.\n"
@@ -16184,7 +16184,7 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
         elif decision == 'releasecancel': await query.edit_message_text("Release cancelled.")
         elif decision == 'dispute':
             deal['status'] = 'disputed'; save_escrow_deal(deal_id)
-            dispute_text = f"🚨 A dispute has been opened for deal <code>{deal_id}</code>. Contact @jashanxjagy for assistance."
+            dispute_text = f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> A dispute has been opened for deal <code>{deal_id}</code>. Contact @jashanxjagy for assistance."
             await query.edit_message_text(dispute_text, parse_mode="HTML")
             other_party_id = deal['buyer']['id'] if user.id == deal['seller']['id'] else deal['seller']['id']
             await context.bot.send_message(chat_id=other_party_id, text=dispute_text, parse_mode="HTML")
@@ -16213,7 +16213,7 @@ async def create_and_finalize_escrow_deal(update: Update, context: ContextTypes.
 
     buyer_username = deal_data.get('buyer', {}).get('username') or "TBD (via link)"
     seller_username = deal_data.get('seller', {}).get('username') or "TBD (via link)"
-    deal_summary = (f"🛡️ <b>New Escrow Deal Created</b>\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
+    deal_summary = (f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>New Escrow Deal Created</b>\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
                     f"<b>Amount:</b> ${deal_data['amount']:.2f} USDT\n<b>Seller:</b> @{seller_username}\n"
                     f"<b>Buyer:</b> @{buyer_username}\n<b>Details:</b> {deal_data['details']}")
 
@@ -16242,10 +16242,10 @@ async def handle_escrow_deep_link(update: Update, context: ContextTypes.DEFAULT_
     save_user_data(user.id)
     save_escrow_deal(deal_id)
 
-    deal_summary = (f"🛡️ <b>You are joining an Escrow Deal</b>\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
+    deal_summary = (f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>You are joining an Escrow Deal</b>\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
                     f"<b>Amount:</b> ${deal['amount']:.2f} USDT\n<b>Seller:</b> @{deal['seller']['username']}\n"
                     f"<b>Buyer:</b> @{deal['buyer']['username']}\n<b>Details:</b> {deal['details']}")
-    keyboard = [[InlineKeyboardButton("✅ Accept Deal", callback_data=f"escrow_confirm_{deal_id}_accept"), InlineKeyboardButton("❌ Decline Deal", callback_data=f"escrow_confirm_{deal_id}_decline")]]
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Deal", callback_data=f"escrow_confirm_{deal_id}_accept"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Decline Deal", callback_data=f"escrow_confirm_{deal_id}_decline")]]
     await update.message.reply_text(f"{deal_summary}\n\nPlease confirm to proceed.", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
 
 def generate_verification_code(pf_record):
@@ -16283,11 +16283,11 @@ RED_NUMBERS = {{1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 3
 winning_number = get_provably_fair_result(server_seed, client_seed, nonce, 37)
 
 if winning_number == 0:
-    color = "Green 🟢"
+    color = "Green <tg-emoji emoji-id="5274099962655816924">⭐</tg-emoji>"
 elif winning_number in RED_NUMBERS:
-    color = "Red 🔴"
+    color = "Red <tg-emoji emoji-id="5274099962655816924">⭐</tg-emoji>"
 else:
-    color = "Black ⚫"
+    color = "Black <tg-emoji emoji-id="5274099962655816924">⭐</tg-emoji>"
 
 print(f"=== Roulette Verification ===")
 print(f"Winning Number: {{winning_number}} ({{color}})")
@@ -16354,7 +16354,7 @@ for row in range(5):
     row_str = ""
     for col in range(5):
         idx = row * 5 + col
-        row_str += "💣 " if idx in mine_positions else "💎 "
+        row_str += "<tg-emoji emoji-id="5451882707875276247">⭐</tg-emoji> " if idx in mine_positions else "<tg-emoji emoji-id="5334812855847901773">⭐</tg-emoji> "
     print(f"Row {{row}}: {{row_str}}")
 """
     
@@ -16390,15 +16390,15 @@ print(f"Tiles per floor: {{tiles}}")
 print("Snake positions by floor (position 0 to {{tiles-1}}):")
 for i, pos in enumerate(snake_positions):
     floor_num = i + 1
-    grid = ['🌴' for _ in range(tiles)]
-    grid[pos] = '🐍'
+    grid = ['<tg-emoji emoji-id="5244837092042750681">⭐</tg-emoji>' for _ in range(tiles)]
+    grid[pos] = '<tg-emoji emoji-id="5431609822288033666">⭐</tg-emoji>'
     print(f"Floor {{floor_num}}: {{' '.join(grid)}} (Snake at position {{pos}})")
 """
     
     elif game_type == "blackjack":
         game_code = """# Blackjack Verification
 # Generate and shuffle deck
-suits = ['♠', '♥', '♦', '♣']
+suits = ['<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>', '<tg-emoji emoji-id="5402186569006210455">⭐</tg-emoji>']
 ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 deck = [f"{{r}}{{s}}" for s in suits for r in ranks]
 
@@ -16477,7 +16477,7 @@ async def handle_provably_fair_deep_link(update: Update, context: ContextTypes.D
     
     if not pf_record:
         await update.message.reply_text(
-            "❌ This provably fair verification link is invalid or has expired.\n\n"
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This provably fair verification link is invalid or has expired.\n\n"
             "Verification records are kept for recent games only.",
             parse_mode=ParseMode.HTML
         )
@@ -16487,7 +16487,7 @@ async def handle_provably_fair_deep_link(update: Update, context: ContextTypes.D
     
     # Build the verification message with game details
     text = (
-        f"🔐 <b>Provable Fairness Verification</b>\n\n"
+        f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Provable Fairness Verification</b>\n\n"
         f"<b>Game ID:</b> <code>{pf_record['game_id']}</code>\n"
         f"<b>Game Type:</b> {game_type.title()}\n\n"
         f"<b>Server Seed:</b>\n<code>{pf_record['server_seed']}</code>\n\n"
@@ -16500,7 +16500,7 @@ async def handle_provably_fair_deep_link(update: Update, context: ContextTypes.D
         text += f"<b>Result Data:</b> {pf_record['result_data']}\n\n"
     
     text += (
-        f"💡 <b>How to Verify:</b>\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>How to Verify:</b>\n"
         f"Copy the Python code below (long press on code → Copy) and run it.\n\n"
         f"<b>Online Python Compilers:</b>\n"
         f"• <a href='https://www.programiz.com/python-programming/online-compiler/'>Programiz</a>\n"
@@ -16516,9 +16516,9 @@ async def handle_provably_fair_deep_link(update: Update, context: ContextTypes.D
     verification_code = generate_verification_code(pf_record)
     
     await update.message.reply_text(
-        f"<b>📋 {game_type.title()} Verification Code:</b>\n\n"
+        f"<b><tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> {game_type.title()} Verification Code:</b>\n\n"
         f"{verification_code}\n\n"
-        f"💡 <b>Tip:</b> Long press on the code block to copy it easily!",
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Tip:</b> Long press on the code block to copy it easily!",
         parse_mode=ParseMode.MARKDOWN
     )
 
@@ -16545,18 +16545,18 @@ async def monitor_escrow_deposit(context: ContextTypes.DEFAULT_TYPE):
                         save_escrow_deal(deal_id)
 
                         seller_id, buyer_id = deal['seller']['id'], deal['buyer']['id']
-                        seller_msg = (f"✅ Deposit of ${tx_amount_usdt:.2f} USDT confirmed for deal <code>{deal_id}</code>. Funds are secured.\n\n"
+                        seller_msg = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Deposit of ${tx_amount_usdt:.2f} USDT confirmed for deal <code>{deal_id}</code>. Funds are secured.\n\n"
                                       f"You may now proceed with the buyer. Once they confirm receipt, use the button below to release the funds to them.")
-                        buyer_msg = (f"✅ The seller has deposited ${tx_amount_usdt:.2f} USDT for deal <code>{deal_id}</code>. The funds are now secured by the bot.\n\n"
+                        buyer_msg = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> The seller has deposited ${tx_amount_usdt:.2f} USDT for deal <code>{deal_id}</code>. The funds are now secured by the bot.\n\n"
                                      f"Please proceed with the transaction. Let the seller know once you have received the goods/services as agreed.")
 
                         # Enhanced attractive buttons
                         keyboard_seller = [
-                            [InlineKeyboardButton("✅ Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
-                            [InlineKeyboardButton("🚨 Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+                            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
+                            [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
                         ]
                         keyboard_buyer = [
-                            [InlineKeyboardButton("🚨 Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+                            [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
                         ]
 
                         await context.bot.send_message(seller_id, seller_msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard_seller))
@@ -16587,13 +16587,13 @@ async def release_escrow_funds(update: Update, context: ContextTypes.DEFAULT_TYP
         if receipt.status == 1:
             deal.update({'status': 'completed', 'release_tx_hash': tx_hash.hex()}); save_escrow_deal(deal_id)
             explorer_url = f"https://bscscan.com/tx/{tx_hash.hex()}"
-            success_msg = f"✅ Deal {deal_id} completed! ${deal['amount']:.2f} USDT sent to the buyer. Explorer: {explorer_url}"
+            success_msg = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Deal {deal_id} completed! ${deal['amount']:.2f} USDT sent to the buyer. Explorer: {explorer_url}"
             await context.bot.send_message(deal['seller']['id'], success_msg); await context.bot.send_message(deal['buyer']['id'], success_msg)
         else: raise Exception("Transaction failed on-chain.")
     except Exception as e:
         logging.error(f"FATAL ERROR releasing funds for deal {deal_id}: {e}", exc_info=True)
         deal['status'] = 'release_failed'; save_escrow_deal(deal_id)
-        fail_msg = f"🚨 An error occurred releasing funds for deal {deal_id}. Contact @jashanxjagy immediately."
+        fail_msg = f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred releasing funds for deal {deal_id}. Contact @jashanxjagy immediately."
         await context.bot.send_message(deal['seller']['id'], fail_msg); await context.bot.send_message(deal['buyer']['id'], fail_msg)
         await context.bot.send_message(BOT_OWNER_ID, f"FATAL ERROR releasing funds for deal {deal_id}: {e}")
 
@@ -16617,11 +16617,11 @@ async def escrow_add_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     deal = escrow_deals.get(deal_id)
     
     if not deal:
-        await update.message.reply_text(f"❌ Escrow deal {deal_id} not found.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Escrow deal {deal_id} not found.")
         return
     
     if deal['status'] != 'accepted_awaiting_deposit':
-        await update.message.reply_text(f"❌ Deal {deal_id} is not awaiting deposit. Current status: {deal['status']}")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deal {deal_id} is not awaiting deposit. Current status: {deal['status']}")
         return
     
     # Mark deposit as received
@@ -16633,22 +16633,22 @@ async def escrow_add_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     seller_id = deal['seller']['id']
     buyer_id = deal['buyer']['id']
     
-    seller_msg = (f"✅ Deposit for deal <code>{deal_id}</code> has been confirmed by @jashanxjagy. Funds are secured.\n\n"
+    seller_msg = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Deposit for deal <code>{deal_id}</code> has been confirmed by @jashanxjagy. Funds are secured.\n\n"
                   f"Amount: ${deal['amount']:.2f} USDT\n\n"
                   f"You may now proceed with the buyer. Once they confirm receipt, use the button below to release the funds to them.")
     
-    buyer_msg = (f"✅ The seller's deposit for deal <code>{deal_id}</code> has been confirmed by @jashanxjagy.\n\n"
+    buyer_msg = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> The seller's deposit for deal <code>{deal_id}</code> has been confirmed by @jashanxjagy.\n\n"
                  f"Amount: ${deal['amount']:.2f} USDT\n\n"
                  f"The funds are now secured by the bot. Please proceed with the transaction. Let the seller know once you have received the goods/services as agreed.")
     
     # Create enhanced buttons with better styling
     keyboard_seller = [
-        [InlineKeyboardButton("✅ Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
-        [InlineKeyboardButton("🚨 Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
     ]
     
     keyboard_buyer = [
-        [InlineKeyboardButton("🚨 Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
     ]
     
     await context.bot.send_message(seller_id, seller_msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard_seller))
@@ -16656,7 +16656,7 @@ async def escrow_add_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     # Confirm to owner
     await update.message.reply_text(
-        f"✅ Deposit for deal <code>{deal_id}</code> has been manually confirmed.\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Deposit for deal <code>{deal_id}</code> has been manually confirmed.\n\n"
         f"Amount: ${deal['amount']:.2f} USDT\n"
         f"Seller: {deal['seller']['username']} (ID: {seller_id})\n"
         f"Buyer: {deal['buyer']['username']} (ID: {buyer_id})\n\n"
@@ -16695,46 +16695,46 @@ async def continue_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     fake_update = type('FakeUpdate', (), {'callback_query': FakeQuery(user, update.message)})()
 
     if game_type == 'mines':
-        text = f"💣 Resuming Mines Game (ID: <code>{game_id}</code>)..."
+        text = f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Resuming Mines Game (ID: <code>{game_id}</code>)..."
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=mines_keyboard(game_id))
     elif game_type == 'tower':
-        text = f"🏗️ Resuming Tower Game (ID: <code>{game_id}</code>)..."
+        text = f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Resuming Tower Game (ID: <code>{game_id}</code>)..."
         keyboard = create_tower_keyboard(game_id, game['current_row'], [], game['tower_config'][game['current_row']])
         if game['current_row'] > 0:
             multiplier = TOWER_MULTIPLIERS[game["bombs_per_row"]][game["current_row"]]
             potential_winnings = game["bet_amount"] * multiplier
-            keyboard.append([InlineKeyboardButton(f"💸 Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}")])
+            keyboard.append([InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}")])
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     elif game_type == 'coin_flip':
-        text = f"🪙 Resuming Coin Flip (ID: <code>{game_id}</code>)..."
+        text = f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Resuming Coin Flip (ID: <code>{game_id}</code>)..."
         multiplier = 2 ** game["streak"]
         win_amount = game["bet_amount"] * multiplier
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🪙 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-             apply_button_style(InlineKeyboardButton("🪙 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
         ]
         if game['streak'] > 0:
-            keyboard.append([apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')])
+            keyboard.append([apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')])
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=create_styled_keyboard(keyboard))
     # FIX: Add blackjack continuation
     elif game_type == 'blackjack':
-        text = f"🃏 Resuming Blackjack (ID: <code>{game_id}</code>)..."
+        text = f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Resuming Blackjack (ID: <code>{game_id}</code>)..."
         player_value = calculate_hand_value(game['player_hand'])
         dealer_show_card = game['dealer_hand'][0]
         hand_text = format_hand("Your hand", game['player_hand'], player_value)
         dealer_text = f"Dealer shows: {dealer_show_card}\n"
         keyboard = [
-            [InlineKeyboardButton("👊 Hit", callback_data=f"bj_hit_{game_id}"),
-             InlineKeyboardButton("✋ Stand", callback_data=f"bj_stand_{game_id}")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")],
         ]
         await update.message.reply_text(
-            f"{text}\n\n{hand_text}\n{dealer_text}\n💰 Bet: ${game['bet_amount']:.2f}",
+            f"{text}\n\n{hand_text}\n{dealer_text}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${game['bet_amount']:.2f}",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
     # FIX: Add highlow continuation
     elif game_type == 'highlow':
-        text = f"🎯 Resuming High/Low Game (ID: <code>{game_id}</code>)..."
+        text = f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Resuming High/Low Game (ID: <code>{game_id}</code>)..."
         current_card = game['current_card']
         deck = game['deck']
         streak = game.get('streak', 0)
@@ -16752,37 +16752,37 @@ async def continue_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Add Higher button only if not King (13)
         if current_card != 13:
-            row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
         
         # Add Lower button only if not Ace (1)
         if current_card != 1:
-            row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
         
         # Row 2: Tie button
-        row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+        row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
         
         # Row 3: Skip Card and Cashout buttons (if streak > 0)
         row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
         if streak > 0:
             cashout_amount = game['bet_amount'] * current_multiplier
-            row3.append(apply_button_style(InlineKeyboardButton(f"💸 Cash Out (${cashout_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success'))
+            row3.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${cashout_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success'))
         
         keyboard = [row1, row2, row3]
         
         # Build multiplier text
         mult_text = ""
         if current_card != 13:
-            mult_text += f"⬆️ Higher: {high_mult:.2f}x\n"
+            mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher: {high_mult:.2f}x\n"
         if current_card != 1:
-            mult_text += f"⬇️ Lower: {low_mult:.2f}x\n"
-        mult_text += f"🔄 Tie: {tie_mult:.2f}x"
+            mult_text += f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower: {low_mult:.2f}x\n"
+        mult_text += f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie: {tie_mult:.2f}x"
         
         msg = (
             f"{text}\n\n"
-            f"🃏 <b>Current Card:</b> {card_name}\n"
-            f"💰 <b>Bet:</b> ${game['bet_amount']:.2f}\n"
-            f"🔥 <b>Streak:</b> {streak}\n"
-            f"📊 <b>Current Multiplier:</b> {current_multiplier:.2f}x\n\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Current Card:</b> {card_name}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Bet:</b> ${game['bet_amount']:.2f}\n"
+            f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Streak:</b> {streak}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Current Multiplier:</b> {current_multiplier:.2f}x\n\n"
             f"<b>Multipliers:</b>\n{mult_text}"
         )
         
@@ -16906,7 +16906,7 @@ async def purge_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if await context.bot.delete_messages(chat_id=chat.id, message_ids=chunk):
                 deleted_count += len(chunk)
 
-        purge_feedback = await update.message.reply_text(f"✅ Purged {deleted_count} messages.", quote=False)
+        purge_feedback = await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Purged {deleted_count} messages.", quote=False)
         await asyncio.sleep(5) # Wait 5 seconds
         await purge_feedback.delete() # Delete the feedback message
     except BadRequest as e:
@@ -16930,7 +16930,7 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     
     # Get leaderboard data
     if view == 'all_time':
-        title = "🏆 <b>Top 10 Players - All Time</b> 🏆"
+        title = "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Top 10 Players - All Time</b> <tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>"
         data = leaderboard_data["all_time"]
         msg = f"{title}\n\n"
         if data:
@@ -16939,7 +16939,7 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
         else:
             msg += "No data available yet.\n"
     elif view == 'weekly':
-        title = "📅 <b>Top 10 Players - This Week</b> 📅"
+        title = "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Top 10 Players - This Week</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>"
         data = leaderboard_data["weekly"]
         msg = f"{title}\n\n"
         if data:
@@ -16948,7 +16948,7 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
         else:
             msg += "No data available yet.\n"
     elif view == 'monthly':
-        title = "📆 <b>Top 10 Players - This Month</b> 📆"
+        title = "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Top 10 Players - This Month</b> <tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji>"
         data = leaderboard_data["monthly"]
         msg = f"{title}\n\n"
         if data:
@@ -16957,7 +16957,7 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
         else:
             msg += "No data available yet.\n"
     elif view == 'highest_wins':
-        title = "💰 <b>Highest Wins - This Month</b> 💰"
+        title = "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Highest Wins - This Month</b> <tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>"
         data = leaderboard_data["highest_wins"]
         msg = f"{title}\n\n"
         if data:
@@ -16980,21 +16980,21 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     # Create inline buttons (user-specific, COLORED buttons - Bot API 9.4)
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("📅 Weekly", callback_data=f"leaderboard_weekly_{user_id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("📆 Monthly", callback_data=f"leaderboard_monthly_{user_id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Weekly", callback_data=f"leaderboard_weekly_{user_id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Monthly", callback_data=f"leaderboard_monthly_{user_id}"), 'success')  # GREEN
         ],
         [
-            apply_button_style(InlineKeyboardButton("💰 Highest Wins", callback_data=f"leaderboard_wins_{user_id}"), 'primary')  # BLUE
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Highest Wins", callback_data=f"leaderboard_wins_{user_id}"), 'primary')  # BLUE
         ],
         [
-            apply_button_style(InlineKeyboardButton("🏆 All Time", callback_data=f"leaderboard_alltime_{user_id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> All Time", callback_data=f"leaderboard_alltime_{user_id}"), 'success')  # GREEN
         ],
     ]
     
     # Only show back button in DMs
     if not is_group:
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("🔙 Back to More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more"), 'danger')  # RED
         ])
     
     reply_markup = create_styled_keyboard(keyboard)
@@ -17076,7 +17076,7 @@ async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
     commissions = ref_info.get('commissions', {})
     commission_text = ""
     if commissions:
-        commission_text = "\n\n💎 <b>Accumulated Commissions:</b>\n"
+        commission_text = "\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Accumulated Commissions:</b>\n"
         for currency, amount in commissions.items():
             if amount > 0:
                 symbol = CRYPTO_SYMBOLS.get(currency, "")
@@ -17084,13 +17084,13 @@ async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
                 usd_value = amount * LIVE_PRICES.get(currency, 1.0)
                 commission_text += f"  {symbol} {formatted} {currency} (${usd_value:.2f})\n"
     
-    msg = (f"🤝 <b>Your Referral Dashboard</b> 🤝\n\n"
+    msg = (f"<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> <b>Your Referral Dashboard</b> <tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji>\n\n"
            f"Share your unique link or code to earn commissions!\n\n"
-           f"🔗 <b>Your Link:</b>\n<code>{referral_link}</code>\n\n"
-           f"🎫 <b>Your Code:</b> <code>{ref_info.get('code', 'N/A')}</code>\n"
-           f"💡 Use <code>/setcode YOURCODE</code> to customize it\n\n"
-           f"👥 <b>Total Referrals:</b> {len(ref_info.get('referred_users', []))}\n"
-           f"💰 <b>Total Commission Earned:</b> ${ref_info.get('commission_earned', 0.0):.4f}"
+           f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Your Link:</b>\n<code>{referral_link}</code>\n\n"
+           f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Your Code:</b> <code>{ref_info.get('code', 'N/A')}</code>\n"
+           f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Use <code>/setcode YOURCODE</code> to customize it\n\n"
+           f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Total Referrals:</b> {len(ref_info.get('referred_users', []))}\n"
+           f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Total Commission Earned:</b> ${ref_info.get('commission_earned', 0.0):.4f}"
            f"{commission_text}\n\n"
            f"<b>Commission Rates:</b>\n"
            f"- <b>0.5%</b> of deposits (in native crypto)\n"
@@ -17099,12 +17099,12 @@ async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
     # Add buttons for transferring commissions and viewing referrals
     keyboard = []
     if commissions and any(v > 0 for v in commissions.values()):
-        keyboard.append([apply_button_style(InlineKeyboardButton("📥 Transfer to Balance", callback_data=f"ref_transfer_{user.id}"), 'success')])
+        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Transfer to Balance", callback_data=f"ref_transfer_{user.id}"), 'success')])
     
     if len(ref_info.get('referred_users', [])) > 0:
-        keyboard.append([apply_button_style(InlineKeyboardButton("👥 Check My Referrals", callback_data=f"ref_check_{user.id}"), 'primary')])
+        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Check My Referrals", callback_data=f"ref_check_{user.id}"), 'primary')])
     
-    keyboard.append([InlineKeyboardButton("🔙 Back to More", callback_data="main_more")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")])
     reply_markup = create_styled_keyboard(keyboard) if from_callback else (create_styled_keyboard(keyboard) if keyboard else None)
 
     if from_callback:
@@ -17137,16 +17137,16 @@ async def setcode_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Validate code
     if not new_code.isalnum():
-        await update.message.reply_text("❌ Code must be alphanumeric (letters and numbers only).")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be alphanumeric (letters and numbers only).")
         return
     
     if len(new_code) < 4 or len(new_code) > 12:
-        await update.message.reply_text("❌ Code must be between 4 and 12 characters long.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be between 4 and 12 characters long.")
         return
     
     # Check if code already exists
     if new_code in referral_codes and referral_codes[new_code] != user.id:
-        await update.message.reply_text("❌ This code is already taken. Please choose a different one.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This code is already taken. Please choose a different one.")
         return
     
     # Update user's code
@@ -17165,8 +17165,8 @@ async def setcode_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     bot_username = (await context.bot.get_me()).username
     await update.message.reply_text(
-        f"✅ Your referral code has been updated!\n\n"
-        f"🎫 <b>Your New Code:</b> <code>{new_code}</code>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Your referral code has been updated!\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Your New Code:</b> <code>{new_code}</code>\n\n"
         f"Share this link:\n<code>https://t.me/{bot_username}?start=ref_{user.id}</code>\n\n"
         f"Or tell users to use: <code>/code {new_code}</code>",
         parse_mode=ParseMode.HTML
@@ -17193,19 +17193,19 @@ async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Check if user already has a referrer
     stats = user_stats[user.id]
     if stats['referral'].get('referrer_id'):
-        await update.message.reply_text("❌ You already have a referrer set. You cannot change it.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have a referrer set. You cannot change it.")
         return
     
     # Look up the code
     if code not in referral_codes:
-        await update.message.reply_text("❌ Invalid referral code. Please check and try again.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid referral code. Please check and try again.")
         return
     
     referrer_id = referral_codes[code]
     
     # Can't refer yourself
     if referrer_id == user.id:
-        await update.message.reply_text("❌ You cannot use your own referral code.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You cannot use your own referral code.")
         return
     
     # Set the referrer
@@ -17221,7 +17221,7 @@ async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(referrer_id)
     
     await update.message.reply_text(
-        f"✅ Referrer set successfully!\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Referrer set successfully!\n\n"
         f"You will now earn commissions for your referrer on deposits and wagers."
     )
     
@@ -17229,7 +17229,7 @@ async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         await context.bot.send_message(
             chat_id=referrer_id,
-            text=f"🎉 New referral! User {user.id} has used your code and set you as their referrer.",
+            text=f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> New referral! User {user.id} has used your code and set you as their referrer.",
             parse_mode=ParseMode.HTML
         )
     except (BadRequest, Forbidden):
@@ -17249,17 +17249,17 @@ async def raffle_start_callback(update: Update, context: ContextTypes.DEFAULT_TY
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🔵 Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("🟢 All Players", callback_data="raffle_type_all"), 'success')],
-        [apply_button_style(InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel"), 'danger')]
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> All Players", callback_data="raffle_type_all"), 'success')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel"), 'danger')]
     ]
     
     await safe_edit_message(
         query,
-        "🎰 <b>Create a Raffle</b>\n\n"
+        "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create a Raffle</b>\n\n"
         "Choose the raffle type:\n\n"
-        "🔵 <b>Referrals Only:</b> Only your referrals can participate\n"
-        "🟢 <b>All Players:</b> Anyone can participate by wagering",
+        "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Referrals Only:</b> Only your referrals can participate\n"
+        "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>All Players:</b> Anyone can participate by wagering",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
     )
@@ -17277,12 +17277,12 @@ async def raffle_type_callback(update: Update, context: ContextTypes.DEFAULT_TYP
     
     await safe_edit_message(
         query,
-        f"🎰 <b>Create Raffle - {raffle_type.title()}</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create Raffle - {raffle_type.title()}</b>\n\n"
         f"Enter the <b>prize amount in USD</b>:\n\n"
         f"Your balance: ${get_active_balance_usd(user.id):.2f}\n\n"
         f"The amount will be deducted from your balance immediately.",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
     )
     return RAFFLE_PRIZE_AMOUNT
 
@@ -17292,14 +17292,14 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         prize_usd = float(update.message.text)
         if prize_usd <= 0:
-            await update.message.reply_text("❌ Prize must be positive. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Prize must be positive. Try again:")
             return RAFFLE_PRIZE_AMOUNT
         
         balance = get_active_balance_usd(user.id)
         if prize_usd > balance:
             await update.message.reply_text(
-                f"❌ Insufficient balance. You have ${balance:.2f}. Try again:",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. You have ${balance:.2f}. Try again:",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
             )
             return RAFFLE_PRIZE_AMOUNT
         
@@ -17310,15 +17310,15 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data['raffle_prize_usd'] = prize_usd
         
         await update.message.reply_text(
-            f"✅ Prize set to ${prize_usd:.2f} (deducted from balance)\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Prize set to ${prize_usd:.2f} (deducted from balance)\n\n"
             f"Enter the <b>wager amount needed for 1 ticket</b> (in USD):\n\n"
             f"Example: 10 (users need to wager $10 to earn 1 ticket)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_TICKET_COST
     except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Enter a number:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:")
         return RAFFLE_PRIZE_AMOUNT
 
 async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17326,21 +17326,21 @@ async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_
     try:
         ticket_cost = float(update.message.text)
         if ticket_cost <= 0:
-            await update.message.reply_text("❌ Ticket cost must be positive. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ticket cost must be positive. Try again:")
             return RAFFLE_TICKET_COST
         
         context.user_data['raffle_ticket_cost'] = ticket_cost
         
         await update.message.reply_text(
-            f"✅ Ticket cost set to ${ticket_cost:.2f}\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Ticket cost set to ${ticket_cost:.2f}\n\n"
             f"Enter the <b>raffle duration in days</b> (1-30):\n\n"
             f"Example: 7 (raffle runs for 7 days)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_DURATION
     except ValueError:
-        await update.message.reply_text("❌ Invalid amount. Enter a number:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:")
         return RAFFLE_TICKET_COST
 
 async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17348,21 +17348,21 @@ async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYP
     try:
         duration_days = int(update.message.text)
         if duration_days <= 0 or duration_days > 30:
-            await update.message.reply_text("❌ Duration must be between 1 and 30 days. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Duration must be between 1 and 30 days. Try again:")
             return RAFFLE_DURATION
         
         context.user_data['raffle_duration_days'] = duration_days
         
         await update.message.reply_text(
-            f"✅ Duration set to {duration_days} days\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Duration set to {duration_days} days\n\n"
             f"Enter the <b>number of winners</b> (1-100):\n\n"
             f"Example: 5 (5 winners will be selected)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_NUM_WINNERS
     except ValueError:
-        await update.message.reply_text("❌ Invalid number. Enter an integer:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:")
         return RAFFLE_DURATION
 
 async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17371,7 +17371,7 @@ async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_
     try:
         num_winners = int(update.message.text)
         if num_winners <= 0 or num_winners > 100:
-            await update.message.reply_text("❌ Number of winners must be between 1 and 100. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Number of winners must be between 1 and 100. Try again:")
             return RAFFLE_NUM_WINNERS
         
         # Create the raffle
@@ -17396,12 +17396,12 @@ async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_
             context.user_data.pop(key, None)
         
         await update.message.reply_text(
-            f"✅ <b>Raffle Created!</b>\n\n"
-            f"🎰 <b>Raffle ID:</b> <code>{raffle_id}</code>\n"
-            f"💰 <b>Prize Pool:</b> ${active_raffles[raffle_id]['prize_usd']:.2f}\n"
-            f"🎫 <b>Ticket Cost:</b> ${active_raffles[raffle_id]['ticket_cost']:.2f} wagered\n"
-            f"👥 <b>Type:</b> {active_raffles[raffle_id]['type'].title()}\n"
-            f"🏆 <b>Winners:</b> {num_winners}\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Raffle Created!</b>\n\n"
+            f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Raffle ID:</b> <code>{raffle_id}</code>\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Prize Pool:</b> ${active_raffles[raffle_id]['prize_usd']:.2f}\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Ticket Cost:</b> ${active_raffles[raffle_id]['ticket_cost']:.2f} wagered\n"
+            f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Type:</b> {active_raffles[raffle_id]['type'].title()}\n"
+            f"<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Winners:</b> {num_winners}\n"
             f"⏰ <b>Ends:</b> {end_time.strftime('%Y-%m-%d %H:%M UTC')}\n\n"
             f"Players will automatically earn tickets by wagering!\n"
             f"Use <code>/info {raffle_id}</code> to check progress.",
@@ -17409,7 +17409,7 @@ async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_
         )
         return ConversationHandler.END
     except ValueError:
-        await update.message.reply_text("❌ Invalid number. Enter an integer:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:")
         return RAFFLE_NUM_WINNERS
 
 async def raffle_cancel_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17423,9 +17423,9 @@ async def raffle_cancel_callback(update: Update, context: ContextTypes.DEFAULT_T
         prize = context.user_data['raffle_prize_usd']
         credit_wallet(user.id, prize)
         save_user_data(user.id)
-        await safe_edit_message(query, f"❌ Raffle creation cancelled. ${prize:.2f} refunded.", parse_mode=ParseMode.HTML)
+        await safe_edit_message(query, f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Raffle creation cancelled. ${prize:.2f} refunded.", parse_mode=ParseMode.HTML)
     else:
-        await safe_edit_message(query, "❌ Raffle creation cancelled.", parse_mode=ParseMode.HTML)
+        await safe_edit_message(query, "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Raffle creation cancelled.", parse_mode=ParseMode.HTML)
     
     # Clear context
     for key in ['raffle_type', 'raffle_creator', 'raffle_prize_usd', 'raffle_ticket_cost', 'raffle_duration_days']:
@@ -17441,15 +17441,15 @@ async def raffle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🔵 Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("🟢 All Players", callback_data="raffle_type_all"), 'success')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> All Players", callback_data="raffle_type_all"), 'success')],
     ]
     
     sent_message = await update.message.reply_text(
-        "🎰 <b>Create a Raffle</b>\n\n"
+        "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Create a Raffle</b>\n\n"
         "Choose the raffle type:\n\n"
-        "🔵 <b>Referrals Only:</b> Only your referrals can participate\n"
-        "🟢 <b>All Players:</b> Anyone can participate by wagering",
+        "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Referrals Only:</b> Only your referrals can participate\n"
+        "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>All Players:</b> Anyone can participate by wagering",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
     )
@@ -17463,12 +17463,12 @@ async def raffles_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🎰 My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("🌟 Active Raffles", callback_data="raffles_active"), 'success')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Active Raffles", callback_data="raffles_active"), 'success')],
     ]
     
     sent_message = await update.message.reply_text(
-        "🎰 <b>Raffle Dashboard</b>\n\n"
+        "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Raffle Dashboard</b>\n\n"
         "Select an option:",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
@@ -17491,14 +17491,14 @@ async def raffles_mine_callback(update: Update, context: ContextTypes.DEFAULT_TY
     if not my_raffles:
         await safe_edit_message(
             query,
-            "❌ You haven't created any active raffles.\n\n"
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You haven't created any active raffles.\n\n"
             "Use <code>/raffle</code> to create one!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
         )
         return
     
-    msg = "🎰 <b>Your Active Raffles</b>\n\n"
+    msg = "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Your Active Raffles</b>\n\n"
     for raffle in my_raffles:
         end_time = datetime.fromisoformat(raffle['end_time'].replace('Z', '+00:00'))
         time_left = end_time - datetime.now(timezone.utc)
@@ -17507,7 +17507,7 @@ async def raffles_mine_callback(update: Update, context: ContextTypes.DEFAULT_TY
         
         msg += (
             f"<b>ID:</b> <code>{raffle['id']}</code>\n"
-            f"💰 Prize: ${raffle['prize_usd']:.2f} | 🎫 {total_tickets} tickets | 👥 {participants} players\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Prize: ${raffle['prize_usd']:.2f} | <tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {total_tickets} tickets | <tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> {participants} players\n"
             f"⏰ Ends in: {time_left.days}d {time_left.seconds//3600}h\n"
             f"Use <code>/info {raffle['id']}</code> for details\n\n"
         )
@@ -17516,7 +17516,7 @@ async def raffles_mine_callback(update: Update, context: ContextTypes.DEFAULT_TY
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
     )
 
 async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17527,13 +17527,13 @@ async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_
     if not active_raffles:
         await safe_edit_message(
             query,
-            "❌ No active raffles at the moment.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No active raffles at the moment.",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
         )
         return
     
-    msg = "🌟 <b>Active Raffles</b>\n\n"
+    msg = "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Active Raffles</b>\n\n"
     raffle_list = list(active_raffles.values())[:10]  # Limit to 10
     if len(active_raffles) > 10:
         msg += f"<i>Showing first 10 of {len(active_raffles)} active raffles</i>\n\n"
@@ -17546,8 +17546,8 @@ async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_
         
         msg += (
             f"<b>ID:</b> <code>{raffle['id']}</code>\n"
-            f"💰 Prize: ${raffle['prize_usd']:.2f} | Type: {raffle['type'].title()}\n"
-            f"🎫 {total_tickets} tickets | 👥 {participants} players | 🏆 {raffle['total_winners']} winners\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Prize: ${raffle['prize_usd']:.2f} | Type: {raffle['type'].title()}\n"
+            f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {total_tickets} tickets | <tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> {participants} players | <tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> {raffle['total_winners']} winners\n"
             f"⏰ {time_left.days}d {time_left.seconds//3600}h left\n\n"
         )
     
@@ -17555,7 +17555,7 @@ async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
     )
 
 async def raffles_back_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17565,13 +17565,13 @@ async def raffles_back_callback(update: Update, context: ContextTypes.DEFAULT_TY
     user = query.from_user
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("🎰 My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("🌟 Active Raffles", callback_data="raffles_active"), 'success')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Active Raffles", callback_data="raffles_active"), 'success')],
     ]
     
     await safe_edit_message(
         query,
-        "🎰 <b>Raffle Dashboard</b>\n\n"
+        "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Raffle Dashboard</b>\n\n"
         "Select an option:",
         parse_mode=ParseMode.HTML,
         reply_markup=create_styled_keyboard(keyboard)
@@ -17607,8 +17607,8 @@ async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAU
     if not commissions or not any(v > 0 for v in commissions.values()):
         await safe_edit_message(
             query,
-            "❌ No commissions to transfer.",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No commissions to transfer.",
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
         )
         return
     
@@ -17626,7 +17626,7 @@ async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAU
     save_user_data(user_id)
     
     msg = (
-        "✅ <b>Commission Transfer Complete!</b>\n\n"
+        "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Commission Transfer Complete!</b>\n\n"
         "Transferred to your balance:\n" + "\n".join(transfer_summary) + "\n\n"
         "Your commissions have been reset to 0."
     )
@@ -17635,7 +17635,7 @@ async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAU
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
     )
 
 async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17656,12 +17656,12 @@ async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_
     if not referred_users:
         await safe_edit_message(
             query,
-            "❌ You haven't referred anyone yet.",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You haven't referred anyone yet.",
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
         )
         return
     
-    msg = "👥 <b>Your Referrals</b>\n\n"
+    msg = "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Your Referrals</b>\n\n"
     
     for ref_user_id in referred_users:
         if ref_user_id in user_stats:
@@ -17677,7 +17677,7 @@ async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
     )
 
 @check_banned
@@ -17691,17 +17691,17 @@ async def level_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     current_name = current[0]
     tier = current_name.split()[0] if current_name != "None" else "Bronze"
     rakeback = TIER_RAKEBACK.get(tier, 1)
-    tier_emoji = TIER_EMOJI.get(tier, "🦄")
+    tier_emoji = TIER_EMOJI.get(tier, "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>")
     
     text = f"{tier_emoji} <b>Your Level: {current_name}</b>\n\n"
     
     if next_level is None:
-        text += "🏆 You have reached the maximum level!\n"
-        text += f"💰 Total Wagered: ${total_wager:,.2f}"
+        text += "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> You have reached the maximum level!\n"
+        text += f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Wagered: ${total_wager:,.2f}"
     else:
         next_name, next_wager, next_bonus = next_level
         next_tier = next_name.split()[0]
-        next_emoji = TIER_EMOJI.get(next_tier, "🦄")
+        next_emoji = TIER_EMOJI.get(next_tier, "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>")
         progress = total_wager - current[1]
         total_for_level = next_wager - current[1]
         
@@ -17710,13 +17710,13 @@ async def level_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
         
         text += f"<b>Progress to {next_emoji} {next_name}:</b>\n"
         text += f"{bar} ({percentage:.1f}%)\n\n"
-        text += f"💰 <b>Wagered:</b> ${total_wager:,.2f} / ${next_wager:,.2f}\n"
-        text += f"📊 <b>Wager Needed:</b> ${next_wager - total_wager:,.2f}\n"
-        text += f"💸 <b>Rakeback:</b> {rakeback}%"
+        text += f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Wagered:</b> ${total_wager:,.2f} / ${next_wager:,.2f}\n"
+        text += f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Wager Needed:</b> ${next_wager - total_wager:,.2f}\n"
+        text += f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Rakeback:</b> {rakeback}%"
 
     keyboard = [
-        [InlineKeyboardButton("📜 View All Levels", callback_data="levels_Bronze")],
-        [InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> View All Levels", callback_data="levels_Bronze")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]
     ]
     
     if from_callback:
@@ -17743,13 +17743,13 @@ async def level_all_command(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     user = update.effective_user
     total_wager = _get_total_wager(user.id) if user else 0.0
     
-    tier_emoji = TIER_EMOJI.get(tier, "🦄")
+    tier_emoji = TIER_EMOJI.get(tier, "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>")
     text = f"{tier_emoji} <b>{tier} Levels</b> {tier_emoji}\n\n"
     rakeback = TIER_RAKEBACK.get(tier, 1)
-    text += f"💸 Rakeback Rate: {rakeback}%\n\n"
+    text += f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Rakeback Rate: {rakeback}%\n\n"
     
     for name, wager, bonus in LEVELS_DATA[tier]:
-        reached = "✅" if total_wager >= wager else "⬜"
+        reached = "<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>" if total_wager >= wager else "<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji>"
         text += (f"{reached} {tier_emoji} <b>{name}</b>\n"
                  f"  Wager: ${wager:,} | Bonus: ${bonus}\n")
     
@@ -17759,13 +17759,13 @@ async def level_all_command(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     nav = LEVEL_NAVIGATION[tier]
     if nav["prev"]:
         prev_emoji = TIER_EMOJI.get(nav['prev'], "")
-        nav_row.append(apply_button_style(InlineKeyboardButton(f"⬅️ {prev_emoji} {nav['prev']}", callback_data=f"levels_{nav['prev']}"), 'primary'))
+        nav_row.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> {prev_emoji} {nav['prev']}", callback_data=f"levels_{nav['prev']}"), 'primary'))
     if nav["next"]:
         next_emoji = TIER_EMOJI.get(nav['next'], "")
-        nav_row.append(apply_button_style(InlineKeyboardButton(f"{next_emoji} {nav['next']} ➡️", callback_data=f"levels_{nav['next']}"), 'primary'))
+        nav_row.append(apply_button_style(InlineKeyboardButton(f"{next_emoji} {nav['next']} <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"levels_{nav['next']}"), 'primary'))
     if nav_row:
         keyboard.append(nav_row)
-    keyboard.append([InlineKeyboardButton("🔙 Back to My Level", callback_data="main_level")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to My Level", callback_data="main_level")])
     
     reply_markup = create_styled_keyboard(keyboard)
     
@@ -17821,18 +17821,18 @@ async def user_info_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     level_data = get_user_level(target_user_id)
 
     text = (
-        f"👤 <b>User Info for @{userinfo.get('username','')}</b> (ID: <code>{target_user_id}</code>)\n"
-        f"🗓️ Joined: {join_date} UTC\n"
-        f"🦄 Level: {level_data['level']} ({level_data['name']})\n" # ADDED
-        f"💰 Balance: ${get_total_balance_usd(target_user_id):.2f}\n"
-        f"📈 PnL: ${stats.get('pnl', 0.0):.2f}\n"
-        f"🎲 Total Bets: {stats.get('bets', {}).get('count', 0)} (W: {stats.get('bets', {}).get('wins', 0)}, L: {stats.get('bets', {}).get('losses', 0)})\n"
-        f"💸 Total Wagered: ${stats.get('bets', {}).get('amount', 0.0):.2f}\n"
-        f"💵 Deposits: {len(stats.get('deposits',[]))} (${total_deposits:.2f})\n"
-        f"🏧 Withdrawals: {len(stats.get('withdrawals',[]))} (${total_withdrawals:.2f})\n"
-        f"🎁 Tips Received: {stats.get('tips_received', {}).get('count', 0)} (${stats.get('tips_received', {}).get('amount', 0.0):.2f})\n"
-        f"🎁 Tips Sent: {stats.get('tips_sent', {}).get('count', 0)} (${stats.get('tips_sent', {}).get('amount', 0.0):.2f})\n"
-        f"🌧️ Rain Received: {stats.get('rain_received', {}).get('count', 0)} (${stats.get('rain_received', {}).get('amount', 0.0):.2f})\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>User Info for @{userinfo.get('username','')}</b> (ID: <code>{target_user_id}</code>)\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Joined: {join_date} UTC\n"
+        f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Level: {level_data['level']} ({level_data['name']})\n" # ADDED
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Balance: ${get_total_balance_usd(target_user_id):.2f}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> PnL: ${stats.get('pnl', 0.0):.2f}\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Total Bets: {stats.get('bets', {}).get('count', 0)} (W: {stats.get('bets', {}).get('wins', 0)}, L: {stats.get('bets', {}).get('losses', 0)})\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Total Wagered: ${stats.get('bets', {}).get('amount', 0.0):.2f}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposits: {len(stats.get('deposits',[]))} (${total_deposits:.2f})\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdrawals: {len(stats.get('withdrawals',[]))} (${total_withdrawals:.2f})\n"
+        f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Tips Received: {stats.get('tips_received', {}).get('count', 0)} (${stats.get('tips_received', {}).get('amount', 0.0):.2f})\n"
+        f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Tips Sent: {stats.get('tips_sent', {}).get('count', 0)} (${stats.get('tips_sent', {}).get('amount', 0.0):.2f})\n"
+        f"<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Rain Received: {stats.get('rain_received', {}).get('count', 0)} (${stats.get('rain_received', {}).get('amount', 0.0):.2f})\n"
     )
     await update.message.reply_text(text, parse_mode=ParseMode.HTML)
 
@@ -17844,7 +17844,7 @@ async def ai_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # NEW: Check if AI feature is enabled
     if not bot_settings.get("ai_enabled", True):
-        await update.message.reply_text("❌ This feature is currently disabled by the owner.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This feature is currently disabled by the owner.")
         return
     
     prompt_text = ""
@@ -17883,7 +17883,7 @@ async def ai_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             status_msg = await helper_bot.send_message(
                 chat_id=update.effective_chat.id,
-                text=f"🤖 Thinking with G4f..."
+                text=f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Thinking with G4f..."
             )
             try:
                 ai_response = await g4f.ChatCompletion.create_async(
@@ -17929,13 +17929,13 @@ async def price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             status_msg = await helper_bot.send_message(
                 chat_id=update.effective_chat.id,
-                text=f"📈 Fetching 24hr data for {pair} from MEXC..."
+                text=f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC..."
             )
         except Exception as e:
             logging.warning(f"Helper bot failed for /p status: {e}")
-            status_msg = await update.message.reply_text(f"📈 Fetching 24hr data for {pair} from MEXC...")
+            status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...")
     else:
-        status_msg = await update.message.reply_text(f"📈 Fetching 24hr data for {pair} from MEXC...")
+        status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...")
 
     try:
         async with httpx.AsyncClient() as client:
@@ -17949,17 +17949,17 @@ async def price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         low_price = float(data['lowPrice'])
         volume = float(data['volume'])
         
-        direction_emoji = "🔼" if price_change_percent >= 0 else "🔽"
+        direction_emoji = "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>" if price_change_percent >= 0 else "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>"
 
         text = (
-            f"📈 <b>{data['symbol']}</b> Price: <code>${price:,.8f}</code>\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>{data['symbol']}</b> Price: <code>${price:,.8f}</code>\n\n"
             f"{direction_emoji} <b>24h Change:</b> {price_change_percent:+.2f}%\n"
-            f"⬆️ <b>24h High:</b> ${high_price:,.8f}\n"
-            f"⬇️ <b>24h Low:</b> ${low_price:,.8f}\n"
-            f"📊 <b>24h Volume:</b> {volume:,.2f} {symbol}"
+            f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> <b>24h High:</b> ${high_price:,.8f}\n"
+            f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> <b>24h Low:</b> ${low_price:,.8f}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>24h Volume:</b> {volume:,.2f} {symbol}"
         )
         
-        keyboard = [[InlineKeyboardButton("🔄 Update", callback_data=f"price_update_{pair}")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Update", callback_data=f"price_update_{pair}")]]
 
         # Edit using appropriate bot
         if is_group and helper_bot:
@@ -17982,7 +17982,7 @@ async def price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             error_data = e.response.json()
             error_msg = error_data.get('msg', 'Unknown MEXC error')
             if "Invalid symbol" in error_msg:
-                 await status_msg.edit_text(f"❌ Invalid symbol: `{pair}`. Please check the ticker on MEXC.")
+                 await status_msg.edit_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid symbol: `{pair}`. Please check the ticker on MEXC.")
             else:
                  await status_msg.edit_text(f"An API error occurred: {error_msg}")
         except json.JSONDecodeError:
@@ -18011,17 +18011,17 @@ async def price_update_callback(update: Update, context: ContextTypes.DEFAULT_TY
         low_price = float(data['lowPrice'])
         volume = float(data['volume'])
         
-        direction_emoji = "🔼" if price_change_percent >= 0 else "🔽"
+        direction_emoji = "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>" if price_change_percent >= 0 else "<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>"
 
         text = (
-            f"📈 <b>{data['symbol']}</b> Price: <code>${price:,.8f}</code>\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>{data['symbol']}</b> Price: <code>${price:,.8f}</code>\n\n"
             f"{direction_emoji} <b>24h Change:</b> {price_change_percent:+.2f}%\n"
-            f"⬆️ <b>24h High:</b> ${high_price:,.8f}\n"
-            f"⬇️ <b>24h Low:</b> ${low_price:,.8f}\n"
-            f"📊 <b>24h Volume:</b> {volume:,.2f} {symbol}"
+            f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> <b>24h High:</b> ${high_price:,.8f}\n"
+            f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> <b>24h Low:</b> ${low_price:,.8f}\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>24h Volume:</b> {volume:,.2f} {symbol}"
         )
         
-        keyboard = [[InlineKeyboardButton("🔄 Update", callback_data=f"price_update_{pair}")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Update", callback_data=f"price_update_{pair}")]]
         
         # Check if message content is different before editing to avoid errors
         if query.message.text != text:
@@ -18036,7 +18036,7 @@ async def price_update_callback(update: Update, context: ContextTypes.DEFAULT_TY
 
 async def process_ai_request(update: Update, prompt: str, model_choice: str):
     """Generic function to handle AI requests from different models."""
-    status_msg = await update.message.reply_text(f"🤖 Thinking with {model_choice.title()}...", reply_to_message_id=update.message.message_id)
+    status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Thinking with {model_choice.title()}...", reply_to_message_id=update.message.message_id)
 
     try:
         if model_choice == "perplexity": # Updated name
@@ -18072,7 +18072,7 @@ async def daily_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
 
     # Check if daily bonus is enabled
     if not bot_settings.get("daily_bonus_enabled", True):
-        text = "❌ Daily bonus is currently unavailable. Please contact the admin for more information."
+        text = "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Daily bonus is currently unavailable. Please contact the admin for more information."
         if from_callback:
             await update.callback_query.answer(text, show_alert=True)
         else:
@@ -18103,7 +18103,7 @@ async def daily_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     save_user_data(user.id)
 
     text = get_text("daily_claim_success", lang, amount=bonus_amount)
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, text, reply_markup=reply_markup)
@@ -18122,13 +18122,13 @@ async def achievements_command(update: Update, context: ContextTypes.DEFAULT_TYP
     if not user_achievements:
         text = get_text("no_achievements", user_lang)
     else:
-        text = f"🏅 <b>{get_text('achievements', user_lang)}</b> 🏅\n\n"
+        text = f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>{get_text('achievements', user_lang)}</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\n"
         for ach_id in user_achievements:
             ach_data = ACHIEVEMENTS.get(ach_id)
             if ach_data:
                 text += f"{ach_data['emoji']} <b>{ach_data['name']}</b> - <i>{ach_data['description']}</i>\n"
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, text, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
@@ -18213,7 +18213,7 @@ async def currency_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if currency_code in SUPPORTED_CRYPTOS:
         user_stats[user.id]["active_currency"] = currency_code
         save_user_data(user.id)
-        symbol = CRYPTO_SYMBOLS.get(currency_code, "💎")
+        symbol = CRYPTO_SYMBOLS.get(currency_code, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
         await query.answer(f"Active currency set to {symbol} {currency_code}", show_alert=True)
         # Go back to settings menu
         await settings_command(update, context)
@@ -18237,8 +18237,8 @@ async def admin_dashboard_command(update: Update, context: ContextTypes.DEFAULT_
     temp_banned_users_count = len(bot_settings.get('tempbanned_users', []))
 
     text = (
-        f"👑 <b>Admin Dashboard</b> 👑\n\n"
-        f"📊 <b>Bot Stats:</b>\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>Admin Dashboard</b> <tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji>\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot Stats:</b>\n"
         f"  - Total Users: {total_users}\n"
         f"  - Banned Users: {banned_users_count}\n"
         f"  - Temp Banned (Withdrawals): {temp_banned_users_count}\n"
@@ -18247,20 +18247,20 @@ async def admin_dashboard_command(update: Update, context: ContextTypes.DEFAULT_
         f"  - Active Escrow Deals: {len(escrow_deals)}\n"
         f"  - Active Games: {active_games}\n"
         f"  - Pending Withdrawals: {pending_withdrawals}\n\n"
-        f"⚙️ <b>Bot Settings:</b>\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot Settings:</b>\n"
         f"  - Daily Bonus: ${bot_settings.get('daily_bonus_amount', 0.50):.2f}\n"
         f"  - Maintenance Mode: {'ON' if bot_settings.get('maintenance_mode') else 'OFF'}\n"
         f"  - Withdrawals: {'ON' if bot_settings.get('withdrawals_enabled', True) else 'OFF'}"
     )
 
     keyboard = [
-        [InlineKeyboardButton("👥 User Management", callback_data="admin_users"), InlineKeyboardButton("🔍 Search User", callback_data="admin_search_user")],
-        [InlineKeyboardButton("💸 Pending Withdrawals", callback_data="admin_pending_withdrawals")],
-        [InlineKeyboardButton("🏦 House Balance", callback_data="admin_set_house_balance"), InlineKeyboardButton("⚖️ Game Limits", callback_data="admin_limits")],
-        [InlineKeyboardButton("⚙️ Bot Settings", callback_data="admin_bot_settings"), InlineKeyboardButton("📢 Broadcast", callback_data="admin_broadcast")],
-        [InlineKeyboardButton("🎁 Gift Codes", callback_data="admin_gift_codes"), InlineKeyboardButton("🎮 Active Games", callback_data="admin_active_games")],
-        [InlineKeyboardButton("📊 Export Data", callback_data="admin_export_data")],
-        [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> User Management", callback_data="admin_users"), InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Search User", callback_data="admin_search_user")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Pending Withdrawals", callback_data="admin_pending_withdrawals")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> House Balance", callback_data="admin_set_house_balance"), InlineKeyboardButton("<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Game Limits", callback_data="admin_limits")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Bot Settings", callback_data="admin_bot_settings"), InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Broadcast", callback_data="admin_broadcast")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Gift Codes", callback_data="admin_gift_codes"), InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Active Games", callback_data="admin_active_games")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Export Data", callback_data="admin_export_data")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
     ]
 
     if query:
@@ -18275,12 +18275,12 @@ async def admin_bot_settings_callback(update: Update, context: ContextTypes.DEFA
     if not is_admin(query.from_user.id): return
     await query.answer()
 
-    text = "⚙️ <b>Bot Settings</b>"
+    text = "<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Bot Settings</b>"
     keyboard = [
         [InlineKeyboardButton(f"Daily Bonus: ${bot_settings.get('daily_bonus_amount', 0.50):.2f}", callback_data="admin_set_daily_bonus")],
         [InlineKeyboardButton(f"Maintenance: {'ON' if bot_settings.get('maintenance_mode') else 'OFF'}", callback_data="admin_toggle_maintenance")],
         [InlineKeyboardButton(f"Withdrawals: {'Enabled' if bot_settings.get('withdrawals_enabled', True) else 'Disabled'}", callback_data="admin_toggle_withdrawals")],
-        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
     ]
     await safe_edit_message(query, text, reply_markup=InlineKeyboardMarkup(keyboard))
 
@@ -18309,7 +18309,7 @@ async def admin_actions_callback(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text("Select limit type to set:", reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("Set Minimum Bet", callback_data="admin_limit_type_min")],
             [InlineKeyboardButton("Set Maximum Bet", callback_data="admin_limit_type_max")],
-            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
         ]))
         return ADMIN_LIMITS_CHOOSE_TYPE
     elif action == "admin_set_daily_bonus":
@@ -18348,7 +18348,7 @@ async def admin_ban_management(update: Update, context: ContextTypes.DEFAULT_TYP
     banned_users = bot_settings.get('banned_users', [])
     temp_banned_users = bot_settings.get('tempbanned_users', [])
     
-    text = "🚫 <b>Ban Management</b>\n\n"
+    text = "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Ban Management</b>\n\n"
     text += f"<b>Permanently Banned Users:</b> {len(banned_users)}\n"
     if banned_users:
         for user_id in banned_users[:5]:  # Show first 5
@@ -18366,12 +18366,12 @@ async def admin_ban_management(update: Update, context: ContextTypes.DEFAULT_TYP
             text += f"  ... and {len(temp_banned_users) - 5} more\n"
     
     keyboard = [
-        [InlineKeyboardButton("➕ Ban User", callback_data="admin_ban_user_prompt"),
-         InlineKeyboardButton("➖ Unban User", callback_data="admin_unban_user_prompt")],
-        [InlineKeyboardButton("🚫 Temp Ban (Withdrawals)", callback_data="admin_tempban_user_prompt"),
-         InlineKeyboardButton("✅ Remove Temp Ban", callback_data="admin_untempban_user_prompt")],
-        [InlineKeyboardButton("📋 View All Bans", callback_data="admin_view_all_bans")],
-        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Ban User", callback_data="admin_ban_user_prompt"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Unban User", callback_data="admin_unban_user_prompt")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Temp Ban (Withdrawals)", callback_data="admin_tempban_user_prompt"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Remove Temp Ban", callback_data="admin_untempban_user_prompt")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> View All Bans", callback_data="admin_view_all_bans")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
     ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18383,11 +18383,11 @@ async def admin_pending_withdrawals(update: Update, context: ContextTypes.DEFAUL
     
     pending = [w for w in withdrawal_requests.values() if w.get('status') == 'pending']
     
-    text = "💸 <b>Pending Withdrawal Requests</b>\n\n"
+    text = "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Pending Withdrawal Requests</b>\n\n"
     
     if not pending:
         text += "No pending withdrawals at the moment."
-        keyboard = [[InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]]
     else:
         text += f"Total Pending: {len(pending)}\n\n"
         for w in pending[:5]:  # Show first 5
@@ -18405,8 +18405,8 @@ async def admin_pending_withdrawals(update: Update, context: ContextTypes.DEFAUL
         text += "Use the approval buttons on individual withdrawal notifications to process them."
         
         keyboard = [
-            [InlineKeyboardButton("🔄 Refresh", callback_data="admin_pending_withdrawals")],
-            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Refresh", callback_data="admin_pending_withdrawals")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
         ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18418,11 +18418,11 @@ async def admin_active_games(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     active = [g for g in game_sessions.values() if g.get('status') == 'active']
     
-    text = "🎮 <b>Active Games</b>\n\n"
+    text = "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Active Games</b>\n\n"
     
     if not active:
         text += "No active games at the moment."
-        keyboard = [[InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]]
     else:
         text += f"Total Active Games: {len(active)}\n\n"
         
@@ -18448,8 +18448,8 @@ async def admin_active_games(update: Update, context: ContextTypes.DEFAULT_TYPE)
             text += f"  ... and {len(active) - 5} more\n"
         
         keyboard = [
-            [InlineKeyboardButton("🔄 Refresh", callback_data="admin_active_games")],
-            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Refresh", callback_data="admin_active_games")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
         ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18481,7 +18481,7 @@ async def admin_export_data_callback(update: Update, context: ContextTypes.DEFAU
         await context.bot.send_document(
             chat_id=query.from_user.id,
             document=open(file_path, "rb"),
-            caption=f"📊 Bot Data Export\n\nGenerated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}",
+            caption=f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Bot Data Export\n\nGenerated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}",
             filename=os.path.basename(file_path)
         )
         
@@ -18502,7 +18502,7 @@ async def set_house_balance_step(update: Update, context: ContextTypes.DEFAULT_T
         if amount < 0: raise ValueError
         bot_settings['house_balance'] = amount
         save_bot_state()
-        await update.message.reply_text(f"🏦 House balance set to ${amount:,.2f}.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> House balance set to ${amount:,.2f}.")
     except ValueError:
         await update.message.reply_text("Invalid amount. Please enter a positive number.")
         return ADMIN_SET_HOUSE_BALANCE
@@ -18536,7 +18536,7 @@ async def admin_limits_choose_type_step(update: Update, context: ContextTypes.DE
     if row:
         keyboard.append(row)
 
-    keyboard.append([InlineKeyboardButton("🔙 Back", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="admin_dashboard")])
 
     await query.edit_message_text(f"Select a game to set the <b>{limit_type}imum</b> bet for:",
                                   reply_markup=InlineKeyboardMarkup(keyboard),
@@ -18574,7 +18574,7 @@ async def admin_limits_set_amount_step(update: Update, context: ContextTypes.DEF
         bot_settings['game_limits'][game_name][limit_type] = amount
         save_bot_state()
 
-        await update.message.reply_text(f"✅ Set <b>{limit_type}imum</b> bet for <b>{game_name.replace('_', ' ').title()}</b> to <b>${amount:,.2f}</b>.",
+        await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Set <b>{limit_type}imum</b> bet for <b>{game_name.replace('_', ' ').title()}</b> to <b>${amount:,.2f}</b>.",
                                       parse_mode=ParseMode.HTML)
 
     except ValueError:
@@ -18604,7 +18604,7 @@ async def broadcast_win_to_channel(context: ContextTypes.DEFAULT_TYPE, user_id: 
     
     try:
         win_text = (
-            f"🎉 <b>BIG WIN!</b> 🎉\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>BIG WIN!</b> <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>\n\n"
             f"Player: @{username or 'Anonymous'}\n"
             f"Game: {game_name}\n"
             f"Bet: ${bet_amount:.2f}\n"
@@ -18668,7 +18668,7 @@ async def admin_broadcast_step(update: Update, context: ContextTypes.DEFAULT_TYP
             failed_count += 1
         await asyncio.sleep(0.1) # Avoid hitting rate limits
 
-    await update.message.reply_text(f"Broadcast finished.\n✅ Sent: {sent_count}\n❌ Failed: {failed_count}")
+    await update.message.reply_text(f"Broadcast finished.\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Sent: {sent_count}\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Failed: {failed_count}")
 
     context.user_data.clear()
     await admin_dashboard_command(update, context)
@@ -18702,11 +18702,11 @@ async def display_admin_user_panel(update: Update, context: ContextTypes.DEFAULT
     is_temp_banned = target_user_id in bot_settings.get("tempbanned_users", [])
 
     text = (
-        f"👤 <b>Admin Panel for @{userinfo.get('username','')}</b> (ID: <code>{target_user_id}</code>)\n"
-        f"💰 Balance: ${get_total_balance_usd(target_user_id):.2f}\n"
-        f"📈 PnL: ${stats.get('pnl', 0.0):.2f}\n"
-        f"💵 Deposits: ${total_deposits:.2f} | 💸 Withdrawals: ${total_withdrawals:.2f}\n"
-        f"🚫 Ban Status: {'Banned' if is_banned else 'Not Banned'}\n"
+        f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Admin Panel for @{userinfo.get('username','')}</b> (ID: <code>{target_user_id}</code>)\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Balance: ${get_total_balance_usd(target_user_id):.2f}\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> PnL: ${stats.get('pnl', 0.0):.2f}\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposits: ${total_deposits:.2f} | <tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdrawals: ${total_withdrawals:.2f}\n"
+        f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ban Status: {'Banned' if is_banned else 'Not Banned'}\n"
         f"⏳ Temp Ban (Withdrawal): {'Banned' if is_temp_banned else 'Not Banned'}\n"
     )
 
@@ -18715,13 +18715,13 @@ async def display_admin_user_panel(update: Update, context: ContextTypes.DEFAULT
     items = []
     if history_type == 'matches':
         items = [game_sessions.get(gid) for gid in reversed(stats.get("game_sessions", [])) if gid in game_sessions]
-        text += "\n📜 <b>Match History:</b>\n"
+        text += "\n<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Match History:</b>\n"
     elif history_type == 'deposits':
         items = list(reversed(stats.get("deposits", [])))
-        text += "\n📜 <b>Deposit History:</b>\n"
+        text += "\n<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Deposit History:</b>\n"
     elif history_type == 'withdrawals':
         items = list(reversed(stats.get("withdrawals", [])))
-        text += "\n📜 <b>Withdrawal History:</b>\n"
+        text += "\n<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Withdrawal History:</b>\n"
 
     paginated_items = items[page*page_size : (page+1)*page_size]
     if not paginated_items:
@@ -18754,13 +18754,13 @@ async def display_admin_user_panel(update: Update, context: ContextTypes.DEFAULT
 
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("⬅️", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page-1}"))
+        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page-1}"))
     if (page+1)*page_size < len(items):
-        nav_row.append(InlineKeyboardButton("➡️", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page+1}"))
+        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page+1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("🔙 Back to Admin Dashboard", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin Dashboard", callback_data="admin_dashboard")])
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -18824,7 +18824,7 @@ async def setbal_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     coin = args[2].upper() if len(args) == 3 else "USDT"
     
     if coin not in SUPPORTED_CRYPTOS:
-        await update.message.reply_text(f"❌ Unsupported currency. Supported: {', '.join(SUPPORTED_CRYPTOS)}")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Unsupported currency. Supported: {', '.join(SUPPORTED_CRYPTOS)}")
         return
 
     target_user_id = username_to_userid.get(normalize_username(username))
@@ -18843,9 +18843,9 @@ async def setbal_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         save_user_data(target_user_id)
         formatted = format_crypto_amount(crypto_amount, coin)
         await update.message.reply_text(
-            f"✅ Credited {username}:\n"
-            f"💵 USD Value: ${amount_usd:.2f}\n"
-            f"💎 {coin}: {formatted} {coin} (@ ${price:,.2f})"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Credited {username}:\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> USD Value: ${amount_usd:.2f}\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> {coin}: {formatted} {coin} (@ ${price:,.2f})"
         )
     except ValueError:
         await update.message.reply_text("Invalid amount.")
@@ -18870,7 +18870,7 @@ async def setdaily_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         bot_settings["daily_bonus_amount"] = amount
         bot_settings["daily_bonus_enabled"] = True
-        await update.message.reply_text(f"✅ Daily bonus has been set to ${amount:.2f} and enabled.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus has been set to ${amount:.2f} and enabled.")
     except ValueError:
         await update.message.reply_text("Invalid amount. Please enter a number.")
 
@@ -18882,7 +18882,7 @@ async def dailyoff_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     bot_settings["daily_bonus_enabled"] = False
-    await update.message.reply_text("✅ Daily bonus feature has been disabled. Users will not be able to claim daily bonuses until you enable it again with /dailyon.")
+    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been disabled. Users will not be able to claim daily bonuses until you enable it again with /dailyon.")
 
 async def dailyon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -18893,21 +18893,21 @@ async def dailyon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     bot_settings["daily_bonus_enabled"] = True
     bonus_amount = bot_settings.get("daily_bonus_amount", 0.50)
-    await update.message.reply_text(f"✅ Daily bonus feature has been enabled. Current daily bonus amount: ${bonus_amount:.2f}")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been enabled. Current daily bonus amount: ${bonus_amount:.2f}")
 
 # NEW: Escrow toggle commands (owner only)
 async def escrow_toggle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Toggle escrow feature on/off. Usage: /escrow on|off"""
     user = update.effective_user
     if not is_admin(user.id):
-        await update.message.reply_text("⛔ This is an admin-only command.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     if not context.args or context.args[0].lower() not in ['on', 'off']:
         current_status = "enabled" if bot_settings.get("escrow_enabled", True) else "disabled"
         await update.message.reply_text(
-            f"🛡️ <b>Escrow Feature Status</b>\n\n"
+            f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Escrow Feature Status</b>\n\n"
             f"Current: <b>{current_status.upper()}</b>\n\n"
             f"Usage: <code>/escrow on</code> or <code>/escrow off</code>",
             parse_mode=ParseMode.HTML
@@ -18918,25 +18918,25 @@ async def escrow_toggle_command(update: Update, context: ContextTypes.DEFAULT_TY
     if action == 'off':
         bot_settings["escrow_enabled"] = False
         save_bot_state()
-        await update.message.reply_text("✅ Escrow feature has been <b>DISABLED</b>. Users will not be able to access escrow services.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Escrow feature has been <b>DISABLED</b>. Users will not be able to access escrow services.", parse_mode=ParseMode.HTML)
     else:
         bot_settings["escrow_enabled"] = True
         save_bot_state()
-        await update.message.reply_text("✅ Escrow feature has been <b>ENABLED</b>. Users can now access escrow services.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Escrow feature has been <b>ENABLED</b>. Users can now access escrow services.", parse_mode=ParseMode.HTML)
 
 # NEW: AI toggle commands (owner only)
 async def ai_toggle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Toggle AI assistant feature on/off. Usage: /ai on|off"""
     user = update.effective_user
     if not is_admin(user.id):
-        await update.message.reply_text("⛔ This is an admin-only command.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     if not context.args or context.args[0].lower() not in ['on', 'off']:
         current_status = "enabled" if bot_settings.get("ai_enabled", True) else "disabled"
         await update.message.reply_text(
-            f"🤖 <b>AI Assistant Feature Status</b>\n\n"
+            f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>AI Assistant Feature Status</b>\n\n"
             f"Current: <b>{current_status.upper()}</b>\n\n"
             f"Usage: <code>/ai on</code> or <code>/ai off</code>",
             parse_mode=ParseMode.HTML
@@ -18947,11 +18947,11 @@ async def ai_toggle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if action == 'off':
         bot_settings["ai_enabled"] = False
         save_bot_state()
-        await update.message.reply_text("✅ AI Assistant feature has been <b>DISABLED</b>. Users will not be able to access AI services.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> AI Assistant feature has been <b>DISABLED</b>. Users will not be able to access AI services.", parse_mode=ParseMode.HTML)
     else:
         bot_settings["ai_enabled"] = True
         save_bot_state()
-        await update.message.reply_text("✅ AI Assistant feature has been <b>ENABLED</b>. Users can now access AI services.", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> AI Assistant feature has been <b>ENABLED</b>. Users can now access AI services.", parse_mode=ParseMode.HTML)
 
 
 async def mute_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -18992,7 +18992,7 @@ async def report_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         admins = await context.bot.get_chat_administrators(chat.id)
-        report_text = f"📢 Report from {user.mention_html()} in {chat.title}:\n\n<a href='{update.message.reply_to_message.link}'>Reported Message</a>"
+        report_text = f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Report from {user.mention_html()} in {chat.title}:\n\n<a href='{update.message.reply_to_message.link}'>Reported Message</a>"
         for admin in admins:
             if not admin.user.is_bot:
                 try:
@@ -19038,7 +19038,7 @@ async def lockall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         await context.bot.set_chat_permissions(chat.id, ChatPermissions(can_send_messages=False))
-        await update.message.reply_text("🔒 Chat locked. Only admins can send messages.")
+        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat locked. Only admins can send messages.")
     except BadRequest as e:
         await update.message.reply_text(f"Failed to lock chat: {e.message}")
     except Exception as e:
@@ -19067,7 +19067,7 @@ async def unlockall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             can_send_other_messages=True, can_add_web_page_previews=True,
             can_change_info=False, can_invite_users=True, can_pin_messages=False
         ))
-        await update.message.reply_text("🔓 Chat unlocked. All members can send messages again.")
+        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat unlocked. All members can send messages again.")
     except BadRequest as e:
         await update.message.reply_text(f"Failed to unlock chat: {e.message}")
     except Exception as e:
@@ -19136,9 +19136,9 @@ async def send_active_games_page(update: Update, context: ContextTypes.DEFAULT_T
     keyboard = []
     row = []
     if page > 0:
-        row.append(InlineKeyboardButton("⬅️ Previous", callback_data="activeall_prev"))
+        row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data="activeall_prev"))
     if end_index < len(active_games):
-        row.append(InlineKeyboardButton("Next ➡️", callback_data="activeall_next"))
+        row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="activeall_next"))
     if row:
         keyboard.append(row)
 
@@ -19179,27 +19179,27 @@ async def more_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, page=0):
     
     # Add Escrow only if enabled
     if bot_settings.get("escrow_enabled", True):
-        all_items.append(("🛡️ Escrow", "main_escrow", 'primary'))  # BLUE
+        all_items.append(("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Escrow", "main_escrow", 'primary'))  # BLUE
     
     all_items.extend([
-        ("💼 Wallet", "main_wallet", 'primary'),  # BLUE
-        ("📈 Leaderboard", "main_leaderboard", 'primary'),  # BLUE
-        ("🤝 Referral", "main_referral", 'primary'),  # BLUE
-        ("🦄 Level", "main_level", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> Wallet", "main_wallet", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Leaderboard", "main_leaderboard", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Referral", "main_referral", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Level", "main_level", 'primary'),  # BLUE
     ])
     
     # Add AI Assistant only if enabled
     if bot_settings.get("ai_enabled", True):
-        all_items.append(("🤖 AI Assistant", "main_ai", 'primary'))  # BLUE
+        all_items.append(("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> AI Assistant", "main_ai", 'primary'))  # BLUE
     
     all_items.extend([
-        ("🏆 Achievements", "main_achievements", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Achievements", "main_achievements", 'primary'),  # BLUE
         ("🆘 Support", "main_support", 'primary'),  # BLUE
-        ("❓ Help", "main_help", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Help", "main_help", 'primary'),  # BLUE
         ("ℹ️ Info & Rules", "main_info", 'primary'),  # BLUE
-        ("🎟️ Claim Gift Code", "main_claim_gift", 'primary'),  # BLUE
-        ("📊 Stats", "main_stats", 'primary'),  # BLUE
-        ("💱 Currency", "settings_currency", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Claim Gift Code", "main_claim_gift", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Stats", "main_stats", 'primary'),  # BLUE
+        ("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Currency", "settings_currency", 'primary'),  # BLUE
     ])
     
     keyboard = []
@@ -19211,12 +19211,12 @@ async def more_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, page=0):
         keyboard.append(row)
     
     # Add Terms of Service button (no color for URL buttons)
-    keyboard.append([InlineKeyboardButton("📜 Terms of Service", url="https://telegra.ph/Casino-Terms-of-Service-11-17").to_dict()])
+    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Terms of Service", url="https://telegra.ph/Casino-Terms-of-Service-11-17").to_dict()])
     
     # Back button - RED
-    keyboard.append([apply_button_style(InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main"), 'danger')])
+    keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main"), 'danger')])
     
-    text = f"➕ <b>More Options</b>\n\nSelect an option:"
+    text = f"<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> <b>More Options</b>\n\nSelect an option:"
     
     await safe_edit_message(
         query,
@@ -19233,18 +19233,18 @@ async def settings_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_lang = get_user_lang(user.id)
 
     keyboard = [
-        [InlineKeyboardButton("💱 Active Currency", callback_data="settings_currency")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Active Currency", callback_data="settings_currency")],
         [InlineKeyboardButton(get_text("language", user_lang), callback_data="settings_language")],
         [InlineKeyboardButton(get_text("withdrawal_address", user_lang), callback_data="settings_withdrawal")],
         [InlineKeyboardButton(get_text("back", user_lang), callback_data="back_to_main")]
     ]
     
     active_coin = get_active_currency(user.id)
-    coin_symbol = CRYPTO_SYMBOLS.get(active_coin, "💎")
+    coin_symbol = CRYPTO_SYMBOLS.get(active_coin, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
     user_language = user_stats[user.id].get("userinfo", {}).get("language", "en")
     language_name = LANGUAGES.get(user_language, {}).get("language_name", "English 🇬🇧")
     withdrawal_address = user_stats[user.id].get("withdrawal_address")
-    withdrawal_status = f"<b>{get_text('withdrawal_address', user_lang)}:</b> {'✅ Set' if withdrawal_address else '❌ Not Set'}"
+    withdrawal_status = f"<b>{get_text('withdrawal_address', user_lang)}:</b> {'<tg-emoji emoji-id="5319247469165433798">⭐</tg-emoji> Set' if withdrawal_address else '<tg-emoji emoji-id="5456140674028019486">⭐</tg-emoji> Not Set'}"
     
     await safe_edit_message(
         query,
@@ -19274,18 +19274,18 @@ async def settings_callback_handler(update: Update, context: ContextTypes.DEFAUL
         current_currency = get_active_currency(user.id)
         keyboard = []
         for curr in SUPPORTED_CRYPTOS:
-            symbol = CRYPTO_SYMBOLS.get(curr, "💎")
+            symbol = CRYPTO_SYMBOLS.get(curr, "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji>")
             text = f"{symbol} {curr}"
             if curr == current_currency:
-                text += " ✓"
+                text += " <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"
             keyboard.append([InlineKeyboardButton(text, callback_data=f"setcurrency_{curr}")])
         keyboard.append([InlineKeyboardButton(get_text("back", user_lang), callback_data="main_settings")])
         
         await safe_edit_message(query,
-            f"💱 <b>Select Active Currency</b>\n\n"
+            f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Select Active Currency</b>\n\n"
             "Choose your active crypto currency.\n"
             "All bets, tips, and games will use this currency.\n"
-            "⚠️ Your balance in each coin is separate (segregated wallets).",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Your balance in each coin is separate (segregated wallets).",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
@@ -19298,7 +19298,7 @@ async def settings_callback_handler(update: Update, context: ContextTypes.DEFAUL
         for lang_code, lang_data in LANGUAGES.items():
             text = lang_data.get("language_name", lang_code)
             if lang_code == current_language:
-                text += " ✓"
+                text += " <tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji>"
             keyboard.append([InlineKeyboardButton(text, callback_data=f"lang_{lang_code}")])
         keyboard.append([InlineKeyboardButton(get_text("back", user_lang), callback_data="main_settings")])
         
@@ -19314,22 +19314,22 @@ async def settings_callback_handler(update: Update, context: ContextTypes.DEFAUL
         if withdrawal_address:
             # Show current address and option to change
             await safe_edit_message(query,
-                f"💳 <b>Withdrawal Address</b>\n\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Withdrawal Address</b>\n\n"
                 f"<b>Current Address:</b>\n<code>{withdrawal_address}</code>\n\n"
                 f"This is your USDT-BEP20 withdrawal address.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("🔄 Change Address", callback_data="settings_withdrawal_change")],
-                    [InlineKeyboardButton("🔙 Back to Settings", callback_data="main_settings")]
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Change Address", callback_data="settings_withdrawal_change")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Settings", callback_data="main_settings")]
                 ])
             )
             return
         else:
             # Ask user to set withdrawal address
             await safe_edit_message(query,
-                "💳 <b>Set Withdrawal Address</b>\n\n"
+                "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Set Withdrawal Address</b>\n\n"
                 "Please enter your USDT-BEP20 withdrawal address.\n"
-                "⚠️ Make sure it's a valid BEP20 address.",
+                "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Make sure it's a valid BEP20 address.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="main_settings")]])
             )
@@ -19357,7 +19357,7 @@ async def set_withdrawal_address_step(update: Update, context: ContextTypes.DEFA
 
     if not is_valid_bep20_address(address):
         await update.message.reply_text(
-            "❌ Invalid USDT-BEP20 address. Please enter a valid address starting with 0x.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid USDT-BEP20 address. Please enter a valid address starting with 0x.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="main_settings")]])
         )
         return SETTINGS_WITHDRAWAL_ADDRESS
@@ -19367,7 +19367,7 @@ async def set_withdrawal_address_step(update: Update, context: ContextTypes.DEFA
     save_user_data(user.id)
 
     await update.message.reply_text(
-        f"✅ <b>Withdrawal Address Set!</b>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Withdrawal Address Set!</b>\n\n"
         f"Your withdrawal address has been saved:\n<code>{address}</code>\n\n"
         f"You can now use the withdrawal feature. Use /start to return to the main menu.",
         parse_mode=ParseMode.HTML
@@ -19382,9 +19382,9 @@ async def withdrawal_change_callback(update: Update, context: ContextTypes.DEFAU
     await query.answer()
     
     await query.edit_message_text(
-        "💳 <b>Change Withdrawal Address</b>\n\n"
+        "<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Change Withdrawal Address</b>\n\n"
         "Please enter your new USDT-BEP20 withdrawal address.\n"
-        "⚠️ Make sure it's a valid BEP20 address.",
+        "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Make sure it's a valid BEP20 address.",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="main_settings")]])
     )
@@ -19403,7 +19403,7 @@ async def withdraw_coin_callback(update: Update, context: ContextTypes.DEFAULT_T
     coin = query.data.replace("withdraw_coin_", "")
     
     if coin not in SUPPORTED_CRYPTOS:
-        await query.edit_message_text("❌ Invalid crypto selected.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid crypto selected.")
         return
     
     wallet = ensure_wallet_dict(user.id)
@@ -19416,8 +19416,8 @@ async def withdraw_coin_callback(update: Update, context: ContextTypes.DEFAULT_T
     context.user_data['withdrawal_flow'] = True
     
     await query.edit_message_text(
-        f"💸 <b>Withdraw {coin}</b>\n\n"
-        f"💎 Available: {formatted} {coin} (${balance_usd:,.2f})\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Withdraw {coin}</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Available: {formatted} {coin} (${balance_usd:,.2f})\n\n"
         f"Enter the amount in USD you want to withdraw.\n"
         f"Type 'all' to withdraw your entire {coin} balance.",
         parse_mode=ParseMode.HTML,
@@ -19443,14 +19443,14 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
             amount_usd = float(amount_str)
     except ValueError:
         await update.message.reply_text(
-            "❌ Invalid amount. Please enter a valid number or 'all'.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a valid number or 'all'.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
         )
         return WITHDRAWAL_AMOUNT
     
     if amount_usd <= 0:
         await update.message.reply_text(
-            "❌ Amount must be greater than 0.",
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Amount must be greater than 0.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
         )
         return WITHDRAWAL_AMOUNT
@@ -19458,7 +19458,7 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
     if amount_usd > balance_usd:
         formatted = format_crypto_amount(crypto_balance, coin)
         await update.message.reply_text(
-            f"❌ Insufficient {coin} balance.\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient {coin} balance.\n"
             f"Your {coin} balance: {formatted} {coin} (${balance_usd:,.2f})",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
         )
@@ -19468,31 +19468,31 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
     total_wager_needed, breakdown = calculate_required_wager(user.id)
     if total_wager_needed > 0:
         rejection_msg = (
-            f"❌ <b>Withdrawal Requirements Not Met</b>\n\n"
+            f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Withdrawal Requirements Not Met</b>\n\n"
             f"Before you can withdraw, you must wager the following amounts on casino games:\n\n"
         )
         
         if breakdown["unwagered_tips"] > 0:
             rejection_msg += (
-                f"💸 <b>Tips Received:</b> ${breakdown['unwagered_tips']:,.2f}\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Tips Received:</b> ${breakdown['unwagered_tips']:,.2f}\n"
                 f"   Required wager: ${breakdown['unwagered_tips']:,.2f} (1x)\n\n"
             )
         
         if breakdown["unwagered_deposit"] > 0:
             rejection_msg += (
-                f"💰 <b>Deposits:</b> ${breakdown['unwagered_deposit']:,.2f}\n"
+                f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Deposits:</b> ${breakdown['unwagered_deposit']:,.2f}\n"
                 f"   Required wager: ${breakdown['deposit_wager_needed']:,.2f} (2x)\n\n"
             )
         
         rejection_msg += (
-            f"📊 <b>Total Wager Needed:</b> ${total_wager_needed:,.2f}\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Total Wager Needed:</b> ${total_wager_needed:,.2f}\n\n"
             f"<i>Play any casino game to meet these requirements.</i>"
         )
         
         await update.message.reply_text(
             rejection_msg,
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🎮 Play Games", callback_data="main_games")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Play Games", callback_data="main_games")]])
         )
         return ConversationHandler.END
     
@@ -19524,7 +19524,7 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
     
     # Notify user
     await update.message.reply_text(
-        f"✅ <b>Withdrawal Request Submitted</b>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Withdrawal Request Submitted</b>\n\n"
         f"<b>Request ID:</b> <code>{withdrawal_id}</code>\n"
         f"<b>USD Value:</b> ${amount_usd:.2f}\n"
         f"<b>Coin:</b> {coin}\n"
@@ -19540,7 +19540,7 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
         await context.bot.send_message(
             chat_id=BOT_OWNER_ID,
             text=(
-                f"📤 <b>Withdrawal Request</b>\n\n"
+                f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Withdrawal Request</b>\n\n"
                 f"<b>Request ID:</b> <code>{withdrawal_id}</code>\n"
                 f"<b>User ID:</b> {user.id}\n"
                 f"<b>User:</b> @{user.username or user.id}\n"
@@ -19552,8 +19552,8 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("✅ Approve", callback_data=f"withdrawal_approve_{withdrawal_id}"),
-                 InlineKeyboardButton("❌ Cancel", callback_data=f"withdrawal_cancel_{withdrawal_id}")]
+                [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Approve", callback_data=f"withdrawal_approve_{withdrawal_id}"),
+                 InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"withdrawal_cancel_{withdrawal_id}")]
             ])
         )
     except Exception as e:
@@ -19584,7 +19584,7 @@ async def withdrawal_approve_callback(update: Update, context: ContextTypes.DEFA
     
     # Ask for TXID
     await query.edit_message_text(
-        f"💸 <b>Approve Withdrawal</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Approve Withdrawal</b>\n\n"
         f"<b>Request ID:</b> <code>{withdrawal_id}</code>\n\n"
         f"Please enter the transaction hash (TXID) for this withdrawal:",
         parse_mode=ParseMode.HTML
@@ -19598,7 +19598,7 @@ async def withdrawal_txid_step(update: Update, context: ContextTypes.DEFAULT_TYP
     withdrawal_id = context.user_data.get('withdrawal_approve_id')
     
     if not withdrawal_id or withdrawal_id not in withdrawal_requests:
-        await update.message.reply_text("❌ Withdrawal request not found.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Withdrawal request not found.")
         context.user_data.clear()
         return ConversationHandler.END
     
@@ -19615,7 +19615,7 @@ async def withdrawal_txid_step(update: Update, context: ContextTypes.DEFAULT_TYP
         await context.bot.send_message(
             chat_id=withdrawal["user_id"],
             text=(
-                f"✅ <b>Withdrawal Approved</b>\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Withdrawal Approved</b>\n\n"
                 f"<b>Request ID:</b> <code>{withdrawal_id}</code>\n"
                 f"<b>Amount:</b> {currency_symbol}{withdrawal['amount_currency']:.2f}\n"
                 f"<b>Transaction Hash:</b> <code>{txid}</code>\n\n"
@@ -19627,7 +19627,7 @@ async def withdrawal_txid_step(update: Update, context: ContextTypes.DEFAULT_TYP
         logging.error(f"Failed to notify user about withdrawal approval: {e}")
     
     await update.message.reply_text(
-        f"✅ Withdrawal {withdrawal_id} approved and user notified."
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Withdrawal {withdrawal_id} approved and user notified."
     )
     
     context.user_data.clear()
@@ -19668,7 +19668,7 @@ async def withdrawal_cancel_callback(update: Update, context: ContextTypes.DEFAU
         await context.bot.send_message(
             chat_id=user_id,
             text=(
-                f"❌ <b>Withdrawal Cancelled</b>\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Withdrawal Cancelled</b>\n\n"
                 f"<b>Request ID:</b> <code>{withdrawal_id}</code>\n"
                 f"<b>Amount:</b> {currency_symbol}{withdrawal['amount_currency']:.2f}\n\n"
                 f"Your withdrawal request has been cancelled by the administrator.\n"
@@ -19681,7 +19681,7 @@ async def withdrawal_cancel_callback(update: Update, context: ContextTypes.DEFAU
         logging.error(f"Failed to notify user about withdrawal cancellation: {e}")
     
     await query.edit_message_text(
-        f"❌ Withdrawal {withdrawal_id} cancelled. Funds returned to user's balance."
+        f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Withdrawal {withdrawal_id} cancelled. Funds returned to user's balance."
     )
     
     return ConversationHandler.END
@@ -19767,7 +19767,7 @@ async def recover_token_step(update: Update, context: ContextTypes.DEFAULT_TYPE)
     save_user_data(new_user.id)
     
     await update.message.reply_text(
-        f"✅ <b>Recovery Successful!</b>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Recovery Successful!</b>\n\n"
         f"Welcome back, {new_user.mention_html()}! Your data and balance of ${get_total_balance_usd(new_user.id):,.2f} have been restored. "
         f"{active_games_transferred} active games were transferred to this account. Use /active to see them.",
         parse_mode=ParseMode.HTML
@@ -19888,7 +19888,7 @@ async def claim_gift_code_command(update: Update, context: ContextTypes.DEFAULT_
         user_total_wagered = user_stats[user.id].get("bets", {}).get("amount", 0.0)
         if user_total_wagered < wager_requirement:
             await update.message.reply_text(
-                f"❌ You don't meet the wager requirement for this gift code.\n\n"
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't meet the wager requirement for this gift code.\n\n"
                 f"Required: ${wager_requirement:.2f} wagered\n"
                 f"Your total wagered: ${user_total_wagered:.2f}\n"
                 f"You need to wager ${wager_requirement - user_total_wagered:.2f} more in the casino to claim this code."
@@ -19906,7 +19906,7 @@ async def claim_gift_code_command(update: Update, context: ContextTypes.DEFAULT_
     save_user_data(user.id)
     save_gift_code(code)
     
-    await update.message.reply_text(f"🎉 Success! You have claimed a gift code and received ${amount:.2f}!")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Success! You have claimed a gift code and received ${amount:.2f}!")
 
 @check_banned
 @check_maintenance
@@ -19916,7 +19916,7 @@ async def leaderboard_referral_command(update: Update, context: ContextTypes.DEF
     # Sort users by the number of people they have referred
     sorted_users = sorted(user_stats.items(), key=lambda item: len(item[1].get('referral', {}).get('referred_users', [])), reverse=True)
 
-    msg = "🏆 <b>Top 10 Referrers</b> 🏆\n\n"
+    msg = "<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> <b>Top 10 Referrers</b> <tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji>\n\n"
     for i, (uid, stats) in enumerate(sorted_users[:10]):
         username = stats.get('userinfo', {}).get('username', f'User-{uid}')
         # Remove '@' if present to avoid mentions
@@ -20023,8 +20023,8 @@ async def send_admin_bonus_notification(context: ContextTypes.DEFAULT_TYPE, bonu
         bonus_adjustments[bonus_type]["release_time"] = release_time.isoformat()
         
         message = (
-            f"🔔 <b>{bonus_type.title()} Bonus Notification</b>\n\n"
-            f"📊 <b>Summary:</b>\n"
+            f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>{bonus_type.title()} Bonus Notification</b>\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Summary:</b>\n"
             f"• Total users eligible: {user_count}\n"
             f"• Total bonus amount: ${total_bonus:.2f}\n"
             f"• Average per user: ${total_bonus/user_count:.2f}\n\n"
@@ -20035,10 +20035,10 @@ async def send_admin_bonus_notification(context: ContextTypes.DEFAULT_TYPE, bonu
         
         keyboard = [
             [
-                InlineKeyboardButton("📈 Increase Bonus", callback_data=f"bonus_adjust_{bonus_type}_increase"),
-                InlineKeyboardButton("📉 Decrease Bonus", callback_data=f"bonus_adjust_{bonus_type}_decrease")
+                InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Increase Bonus", callback_data=f"bonus_adjust_{bonus_type}_increase"),
+                InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Decrease Bonus", callback_data=f"bonus_adjust_{bonus_type}_decrease")
             ],
-            [InlineKeyboardButton("✅ No Change", callback_data=f"bonus_adjust_{bonus_type}_nochange")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> No Change", callback_data=f"bonus_adjust_{bonus_type}_nochange")]
         ]
         
         await context.bot.send_message(
@@ -20073,7 +20073,7 @@ async def bonus_adjust_callback(update: Update, context: ContextTypes.DEFAULT_TY
     
     if action == "nochange":
         await query.edit_message_text(
-            f"✅ No adjustment made to {bonus_type} bonus.\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> No adjustment made to {bonus_type} bonus.\n"
             f"Users can claim their bonuses as calculated.",
             parse_mode=ParseMode.HTML
         )
@@ -20085,7 +20085,7 @@ async def bonus_adjust_callback(update: Update, context: ContextTypes.DEFAULT_TY
     context.user_data['bonus_adjust_message_id'] = query.message.message_id
     
     await query.edit_message_text(
-        f"📊 <b>Adjust {bonus_type.title()} Bonus</b>\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Adjust {bonus_type.title()} Bonus</b>\n\n"
         f"Enter the percentage to {action} the bonus:\n"
         f"• For example: <code>10</code> for 10%\n"
         f"• For 50%: <code>50</code>\n\n"
@@ -20104,7 +20104,7 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
     try:
         percentage = float(update.message.text.strip())
         if percentage < 0:
-            await update.message.reply_text("❌ Percentage must be positive. Please try again.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Percentage must be positive. Please try again.")
             return
         
         bonus_type = context.user_data.get('bonus_adjust_type')
@@ -20124,14 +20124,14 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
         
         keyboard = [
             [
-                InlineKeyboardButton("✅ Notify Users", callback_data=f"bonus_notify_{bonus_type}_yes"),
-                InlineKeyboardButton("❌ Don't Notify", callback_data=f"bonus_notify_{bonus_type}_no")
+                InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Notify Users", callback_data=f"bonus_notify_{bonus_type}_yes"),
+                InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Don't Notify", callback_data=f"bonus_notify_{bonus_type}_no")
             ]
         ]
         
         await update.message.reply_text(
-            f"✅ <b>Bonus Adjustment Applied</b>\n\n"
-            f"📊 {bonus_type.title()} bonus {action}d by {abs(percentage):.1f}%\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Bonus Adjustment Applied</b>\n\n"
+            f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> {bonus_type.title()} bonus {action}d by {abs(percentage):.1f}%\n\n"
             f"<b>Impact:</b>\n"
             f"• Before: ${total_before:.2f}\n"
             f"• After: ${total_after:.2f}\n"
@@ -20145,7 +20145,7 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
         context.user_data['awaiting_bonus_percentage'] = False
         
     except ValueError:
-        await update.message.reply_text("❌ Invalid number. Please enter a valid percentage.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Please enter a valid percentage.")
 
 async def bonus_notify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle notify users decision"""
@@ -20170,7 +20170,7 @@ async def bonus_notify_callback(update: Update, context: ContextTypes.DEFAULT_TY
     notify_text = "will be notified" if decision == "yes" else "will NOT be notified"
     
     await query.edit_message_text(
-        f"✅ <b>Settings Updated</b>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Settings Updated</b>\n\n"
         f"Users {notify_text} about the bonus adjustment when they claim their {bonus_type} bonus.\n\n"
         f"Adjustment: {bonus_adjustments[bonus_type]['adjustment_percent']:.1f}%",
         parse_mode=ParseMode.HTML
@@ -20252,11 +20252,11 @@ def main():
             try:
                 channel_id_num = int(WIN_BROADCAST_CHANNEL_ID)
                 if channel_id_num > 0:
-                    logging.warning(f"⚠️ WIN_BROADCAST_CHANNEL_ID ({WIN_BROADCAST_CHANNEL_ID}) is a positive number. "
+                    logging.warning(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WIN_BROADCAST_CHANNEL_ID ({WIN_BROADCAST_CHANNEL_ID}) is a positive number. "
                                   f"Channel IDs usually require a '-100' prefix (e.g., '-100{WIN_BROADCAST_CHANNEL_ID}'). "
                                   f"Broadcasting may fail if this format is incorrect.")
             except ValueError:
-                logging.warning(f"⚠️ WIN_BROADCAST_CHANNEL_ID ({WIN_BROADCAST_CHANNEL_ID}) is not a valid format. "
+                logging.warning(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WIN_BROADCAST_CHANNEL_ID ({WIN_BROADCAST_CHANNEL_ID}) is not a valid format. "
                               f"Use numeric ID (e.g., '-1003848853417') or channel username (e.g., '@mychannel').")
 
     if w3_bsc and w3_bsc.is_connected(): logging.info(f"BSC connected. Chain ID: {w3_bsc.eth.chain_id}")
@@ -20789,23 +20789,23 @@ async def start_game_conversation_from_command(update: Update, context: ContextT
         
         # Check balance
         if get_active_balance_usd(user.id) < bet_amount:
-            await update.message.reply_text("❌ You don't have enough balance. Please enter a lower amount.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.")
             return ConversationHandler.END
         
         # Store bet amount and ask for number of mines
         context.user_data['bet_amount'] = bet_amount
         buttons = [[InlineKeyboardButton(str(i), callback_data=f"bombs_{i}_{user.id}") for i in range(row, row + 8)] for row in range(1, 25, 8)]
-        text = f"💣 <b>Mines Game</b>\n\n💰 Bet Amount: ${bet_amount:.2f}\n\nSelect the number of mines (1-24):"
+        text = f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game</b>\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet Amount: ${bet_amount:.2f}\n\nSelect the number of mines (1-24):"
         buttons.append([InlineKeyboardButton("Cancel", callback_data="cancel_game")])
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(buttons))
         return SELECT_BOMBS
 
     if game_type == 'mines':
         buttons = [[InlineKeyboardButton(str(i), callback_data=f"bombs_{i}") for i in range(row, row + 8)] for row in range(1, 25, 8)]
-        text = "💣 Select the number of mines (1-24):"
+        text = "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Select the number of mines (1-24):"
     else: # tower
         buttons = [[InlineKeyboardButton(f"{i}", callback_data=f"bombs_{i}") for i in range(1, 4)]]
-        text = "🏗️ Select the number of bombs per row (1-3):"
+        text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Select the number of bombs per row (1-3):"
 
     buttons.append([InlineKeyboardButton("Cancel", callback_data="cancel_game")])
     await update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
@@ -20829,10 +20829,10 @@ async def start_game_conversation(update: Update, context: ContextTypes.DEFAULT_
     if game_type == 'mines':
         # NEW: Add user_id to buttons for user-specific interactions
         buttons = [[InlineKeyboardButton(str(i), callback_data=f"bombs_{i}") for i in range(row, row + 8)] for row in range(1, 25, 8)]
-        text = "💣 Select the number of mines (1-24):"
+        text = "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Select the number of mines (1-24):"
     else: # tower
         buttons = [[InlineKeyboardButton(f"{i}", callback_data=f"bombs_{i}") for i in range(1, 4)]]
-        text = "🏗️ Select the number of bombs per row (1-3):"
+        text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Select the number of bombs per row (1-3):"
 
     buttons.append([InlineKeyboardButton("Cancel", callback_data="cancel_game")])
     await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(buttons))
@@ -20903,7 +20903,7 @@ async def select_bombs_callback(update: Update, context: ContextTypes.DEFAULT_TY
             save_user_data(user.id)
 
             initial_text = (
-                f"💣 <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\nBet: <b>${bet_amount:.2f}</b>\nMines: <b>{num_mines}</b>\n\n"
+                f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Mines Game Started!</b> (ID: <code>{game_id}</code>)\n\nBet: <b>${bet_amount:.2f}</b>\nMines: <b>{num_mines}</b>\n\n"
                 "Click the buttons to reveal tiles. Find gems to increase your multiplier. Avoid the bombs!\n"
                 "You can cash out after any successful pick."
             )
@@ -20986,7 +20986,7 @@ async def pvb_get_bet_amount(update: Update, context: ContextTypes.DEFAULT_TYPE)
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Cancel", callback_data="cancel_game")]
         ])
-        await update.message.reply_text("❌ You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
         return SELECT_BET_AMOUNT
 
     context.user_data['bet_amount'] = bet_amount
@@ -21012,12 +21012,12 @@ async def pvb_get_target_score(update: Update, context: ContextTypes.DEFAULT_TYP
     
     # Ask who should roll first
     keyboard = [
-        [InlineKeyboardButton("🎯 You Roll First", callback_data="pvb_first_user")],
-        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data="pvb_first_bot")],
-        [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> You Roll First", callback_data="pvb_first_user")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data="pvb_first_bot")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
     ]
     await update.message.reply_text(
-        f"🎮 <b>Who Rolls First?</b>\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Who Rolls First?</b>\n\n"
         f"Choose who should roll first in each round:",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -21072,14 +21072,14 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
 
     game_id = generate_unique_id("PVB")
     emoji_map = {
-        "dice": "🎲", "dice_bot": "🎲",
-        "darts": "🎯",
-        "goal": "⚽", "football": "⚽",
-        "bowl": "🎳", "bowling": "🎳"
+        "dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "dice_bot": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>",
+        "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "football": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>",
+        "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "bowling": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"
     }
     
     mode_text = "Highest total score wins" if game_mode == "normal" else "Lowest total score wins"
-    emoji = emoji_map.get(game_type, "🎲")
+    emoji = emoji_map.get(game_type, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     
     # Create game session
     game_sessions[game_id] = {
@@ -21114,7 +21114,7 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
         # Bot rolls first
         await context.bot.send_message(
             chat_id=chat_id,
-            text=f"🎮 {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
+            text=f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
                  f"<b>Mode:</b> {game_mode.capitalize()} ({mode_text})\n"
                  f"<b>Rolls per round:</b> {game_rolls}\n"
                  f"<b>Target:</b> First to {target_score} points wins ${bet_amount*1.96:.2f}.\n\n"
@@ -21140,7 +21140,7 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
                     await asyncio.sleep(animation_wait)
             except Exception as e:
                 logging.error(f"Error sending dice in PvB game: {e}")
-                await context.bot.send_message(chat_id=chat_id, text="❌ An error occurred. Game terminated.")
+                await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
                 game_sessions[game_id]['status'] = 'error'
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
@@ -21159,7 +21159,7 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
         username_display = user.first_name if user.first_name else "Player"
         await context.bot.send_message(
             chat_id=chat_id,
-            text=f"🤖 <b>BOT ROLLED FIRST!</b>\n\n"
+            text=f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>BOT ROLLED FIRST!</b>\n\n"
                  f"Bot rolled: [{bot_rolls_text}] = {bot_total}\n\n"
                  f"{username_display}, Your turn! Send {game_rolls} {emoji} to respond.",
             parse_mode=ParseMode.HTML
@@ -21168,7 +21168,7 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
         # User rolls first (default)
         await context.bot.send_message(
             chat_id=chat_id,
-            text=f"🎮 {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
+            text=f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> {game_type.capitalize()} vs Bot started! (ID: <code>{game_id}</code>)\n"
                  f"<b>Mode:</b> {game_mode.capitalize()} ({mode_text})\n"
                  f"<b>Rolls per round:</b> {game_rolls}\n"
                  f"<b>Target:</b> First to {target_score} points wins ${bet_amount*1.96:.2f}.\n\n"
@@ -21186,19 +21186,19 @@ async def cancel_game_conversation(update: Update, context: ContextTypes.DEFAULT
     
     if game_type in ['mines', 'tower']:
         # Return to house games menu for mines and tower
-        text = "🏠 <b>House Games</b>\n\nChoose a game to see how to play:"
+        text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>House Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [InlineKeyboardButton("🃏 Blackjack", callback_data="game_blackjack"),
-             InlineKeyboardButton("🎲 Dice Roll", callback_data="game_dice_roll")],
-            [InlineKeyboardButton("🔮 Predict", callback_data="game_predict"),
-             InlineKeyboardButton("🎯 Roulette", callback_data="game_roulette")],
-            [InlineKeyboardButton("🎰 Slots", callback_data="game_slots"),
-             InlineKeyboardButton("🏗️ Tower", callback_data="game_tower_start")],
-            [InlineKeyboardButton("💣 Mines", callback_data="game_mines_start"),
-             InlineKeyboardButton("🎯 Keno", callback_data="game_keno")],
-            [InlineKeyboardButton("🪙 Coin Flip", callback_data="game_coin_flip"),
-             InlineKeyboardButton("🎴 High-Low", callback_data="game_highlow")],
-            [InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="game_blackjack"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice Roll", callback_data="game_dice_roll")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Predict", callback_data="game_predict"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="game_roulette")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slots", callback_data="game_slots"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="game_tower_start")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="game_mines_start"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="game_keno")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coin Flip", callback_data="game_coin_flip"),
+             InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> High-Low", callback_data="game_highlow")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games")]
         ]
         await query.edit_message_text(
             text,
@@ -21208,13 +21208,13 @@ async def cancel_game_conversation(update: Update, context: ContextTypes.DEFAULT
         set_menu_owner(query.message, query.from_user.id)
     elif game_type in ['dice_bot', 'darts', 'football', 'bowling', 'dice', 'goal', 'bowl']:
         # Return to emoji regular games menu for PvB games
-        text = "🎮 <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
+        text = "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("🎲 Dice", callback_data="game_dice_bot"), 'success')],
-            [apply_button_style(InlineKeyboardButton("🎯 Darts", callback_data="game_darts"), 'success')],
-            [apply_button_style(InlineKeyboardButton("⚽ Football", callback_data="game_football"), 'success')],
-            [apply_button_style(InlineKeyboardButton("🎳 Bowling", callback_data="game_bowling"), 'success')],
-            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="main_games_emoji"), 'danger')]
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice", callback_data="game_dice_bot"), 'success')],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts", callback_data="game_darts"), 'success')],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football", callback_data="game_football"), 'success')],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling", callback_data="game_bowling"), 'success')],
+            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="main_games_emoji"), 'danger')]
         ]
         await query.edit_message_text(
             text,
@@ -21242,13 +21242,13 @@ async def start_ai_conversation(update: Update, context: ContextTypes.DEFAULT_TY
     
     await query.answer()
     keyboard = [
-        [InlineKeyboardButton("🧠 Perplexity (Online)", callback_data="ai_model_perplexity")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Perplexity (Online)", callback_data="ai_model_perplexity")],
         [InlineKeyboardButton("🆓 GPT4Free (Free)", callback_data="ai_model_g4f")],
-        [InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]
     ]
     await safe_edit_message(
         query,
-        "🤖 <b>AI Assistant</b>\n\nWhich AI model would you like to use?",
+        "<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>AI Assistant</b>\n\nWhich AI model would you like to use?",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -21268,9 +21268,9 @@ async def choose_ai_model_callback(update: Update, context: ContextTypes.DEFAULT
 
     await safe_edit_message(
         query,
-        f"🤖 <b>AI Assistant ({model_choice.title()})</b>\n\nI'm ready to help! What's on your mind? Ask me anything.",
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>AI Assistant ({model_choice.title()})</b>\n\nI'm ready to help! What's on your mind? Ask me anything.",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]])
     )
     return ASK_AI_PROMPT
 
@@ -21288,7 +21288,7 @@ async def ai_conversation_prompt(update: Update, context: ContextTypes.DEFAULT_T
     # Prompt again for the next question
     await update.message.reply_text(
         "What else can I help you with?",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]])
     )
     return ASK_AI_PROMPT
 
@@ -21306,16 +21306,16 @@ async def bonuses_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     
     keyboard = [
-        [InlineKeyboardButton("🎁 Daily Bonus", callback_data="main_daily")],
-        [InlineKeyboardButton("📅 Weekly Bonus", callback_data="bonus_weekly")],
-        [InlineKeyboardButton("🗓️ Monthly Bonus", callback_data="bonus_monthly")],
-        [InlineKeyboardButton("💰 Rakeback", callback_data="bonus_rakeback")],
-        [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Daily Bonus", callback_data="main_daily")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Weekly Bonus", callback_data="bonus_weekly")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Monthly Bonus", callback_data="bonus_monthly")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Rakeback", callback_data="bonus_rakeback")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
     ]
     
     await safe_edit_message(
         query,
-        "🎁 <b>Bonuses & Rakeback</b> 🎁\n\n"
+        "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Bonuses & Rakeback</b> <tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji>\n\n"
         "Claim your rewards for playing! Choose an option below.",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -21362,7 +21362,7 @@ async def weekly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TYP
         # Not within the claim window
         next_saturday = last_saturday_6pm + timedelta(days=7)
         time_until = next_saturday - now
-        msg = (f"📅 <b>Weekly Bonus</b>\n\n"
+        msg = (f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Weekly Bonus</b>\n\n"
                f"Weekly bonus is available every <b>Saturday at 6:00 PM UTC</b> for 48 hours.\n"
                f"Next available in: <b>{time_until.days}d {time_until.seconds//3600}h</b>"
                + get_username_bonus_guidance())
@@ -21377,7 +21377,7 @@ async def weekly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TYP
     if last_claim_str:
         last_claim_time = datetime.fromisoformat(last_claim_str)
         if last_claim_time >= last_saturday_6pm:
-            msg = ("✅ You've already claimed your weekly bonus this period!"
+            msg = ("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You've already claimed your weekly bonus this period!"
                    + get_username_bonus_guidance())
             if from_callback:
                 await update.callback_query.answer("Already claimed this week!", show_alert=True)
@@ -21425,19 +21425,19 @@ async def weekly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TYP
     if has_bonus:
         # Show username bonus as 5% of the base bonus (not adjusted bonus)
         username_bonus_amount = bonus * 0.05
-        bonus_text = f"\n🎉 <b>Username Bonus:</b> +5% (${username_bonus_amount:.2f})"
+        bonus_text = f"\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Username Bonus:</b> +5% (${username_bonus_amount:.2f})"
     
     # Add adjustment notification if admin enabled it
     adjustment_text = ""
     if adjustment_percent != 0 and bonus_adjustments["weekly"]["notify_users"]:
         if adjustment_percent > 0:
-            adjustment_text = f"\n\n🎁 <b>Special Bonus!</b> Admin increased all bonuses by {adjustment_percent:.1f}%!"
+            adjustment_text = f"\n\n<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Special Bonus!</b> Admin increased all bonuses by {adjustment_percent:.1f}%!"
         else:
-            adjustment_text = f"\n\n⚠️ Note: Bonuses were adjusted by {adjustment_percent:.1f}% this week."
+            adjustment_text = f"\n\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Note: Bonuses were adjusted by {adjustment_percent:.1f}% this week."
     
     msg = (
-        f"📅 <b>Weekly Bonus Claimed!</b>\n\n"
-        f"💰 Amount: <b>${final_bonus:.2f}</b>{bonus_text}\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Weekly Bonus Claimed!</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Amount: <b>${final_bonus:.2f}</b>{bonus_text}\n\n"
         f"<b>Breakdown:</b>\n"
         f"  VIP Base ({tier}): ${vip_base:.2f}\n"
         f"  Weighted Wager: ${weighted_wager:.4f}\n"
@@ -21447,7 +21447,7 @@ async def weekly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TYP
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
         await safe_edit_message(update.callback_query, msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
         await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
@@ -21484,7 +21484,7 @@ async def monthly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TY
         else:
             next_15th = claim_start
         time_until = next_15th - now
-        msg = (f"🗓️ <b>Monthly Bonus</b>\n\n"
+        msg = (f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Monthly Bonus</b>\n\n"
                f"Monthly bonus is available on the <b>15th of every month</b> for 48 hours.\n"
                f"Next available in: <b>{time_until.days}d {time_until.seconds//3600}h</b>"
                + get_username_bonus_guidance())
@@ -21499,7 +21499,7 @@ async def monthly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TY
     if last_claim_str:
         last_claim_time = datetime.fromisoformat(last_claim_str)
         if last_claim_time >= claim_start:
-            msg = ("✅ You've already claimed your monthly bonus this period!"
+            msg = ("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You've already claimed your monthly bonus this period!"
                    + get_username_bonus_guidance())
             if from_callback:
                 await update.callback_query.answer("Already claimed this month!", show_alert=True)
@@ -21547,19 +21547,19 @@ async def monthly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TY
     if has_bonus:
         # Show username bonus as 5% of the base bonus (not adjusted bonus)
         username_bonus_amount = bonus * 0.05
-        bonus_text = f"\n🎉 <b>Username Bonus:</b> +5% (${username_bonus_amount:.2f})"
+        bonus_text = f"\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Username Bonus:</b> +5% (${username_bonus_amount:.2f})"
     
     # Add adjustment notification if admin enabled it
     adjustment_text = ""
     if adjustment_percent != 0 and bonus_adjustments["monthly"]["notify_users"]:
         if adjustment_percent > 0:
-            adjustment_text = f"\n\n🎁 <b>Special Bonus!</b> Admin increased all bonuses by {adjustment_percent:.1f}%!"
+            adjustment_text = f"\n\n<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Special Bonus!</b> Admin increased all bonuses by {adjustment_percent:.1f}%!"
         else:
-            adjustment_text = f"\n\n⚠️ Note: Bonuses were adjusted by {adjustment_percent:.1f}% this month."
+            adjustment_text = f"\n\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Note: Bonuses were adjusted by {adjustment_percent:.1f}% this month."
     
     msg = (
-        f"🗓️ <b>Monthly Bonus Claimed!</b>\n\n"
-        f"💰 Amount: <b>${final_bonus:.2f}</b>{bonus_text}\n\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>Monthly Bonus Claimed!</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Amount: <b>${final_bonus:.2f}</b>{bonus_text}\n\n"
         f"<b>Breakdown:</b>\n"
         f"  VIP Base ({tier}): ${vip_base:.2f}\n"
         f"  Weighted Wager: ${weighted_wager:.4f}\n"
@@ -21569,7 +21569,7 @@ async def monthly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TY
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
         await safe_edit_message(update.callback_query, msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
         await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
@@ -21590,31 +21590,31 @@ async def demo_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if args[1].lower() == "on":
             bot_settings["demo_enabled"] = True
             save_all_data()
-            await update.message.reply_text("✅ Demo feature enabled!")
+            await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo feature enabled!")
             return
         elif args[1].lower() == "off":
             bot_settings["demo_enabled"] = False
             save_all_data()
-            await update.message.reply_text("❌ Demo feature disabled!")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature disabled!")
             return
         else:
             # Try to set amount
             try:
                 amount = float(args[1])
                 if amount <= 0:
-                    await update.message.reply_text("❌ Amount must be positive!")
+                    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Amount must be positive!")
                     return
                 bot_settings["demo_amount"] = amount
                 save_all_data()
-                await update.message.reply_text(f"✅ Demo amount set to ${amount:.2f}")
+                await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo amount set to ${amount:.2f}")
                 return
             except ValueError:
-                await update.message.reply_text("❌ Invalid amount! Usage: /demo <amount>")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount! Usage: /demo <amount>")
                 return
     
     # Regular user claim
     if not bot_settings.get("demo_enabled", True):
-        await update.message.reply_text("❌ Demo feature is currently disabled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature is currently disabled.")
         return
     
     await ensure_user_in_wallets(user.id, user.username, context=context)
@@ -21643,10 +21643,10 @@ async def demo_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(user.id)
     
     await update.message.reply_text(
-        f"🎁 <b>Demo Claimed!</b>\n\n"
+        f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Demo Claimed!</b>\n\n"
         f"You received <b>${demo_amount:.2f}</b>\n"
         f"New balance: <b>${get_total_balance_usd(user.id):,.2f}</b>\n\n"
-        f"💡 Try your luck with our games!",
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Try your luck with our games!",
         parse_mode=ParseMode.HTML
     )
 
@@ -21663,14 +21663,14 @@ async def serverseed_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # Hash the server seed to show to user (can't reveal actual seed until rotation)
     server_seed_hash = hashlib.sha256(server_seed.encode()).hexdigest()
     
-    keyboard = [[InlineKeyboardButton("🔄 Rotate Seeds", callback_data="pf_rotate_seeds")]]
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rotate Seeds", callback_data="pf_rotate_seeds")]]
     
     await update.message.reply_text(
-        f"🎲 <b>Provably Fair - Server Seed</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Provably Fair - Server Seed</b>\n\n"
         f"<b>Server Seed Hash (SHA-256):</b>\n"
         f"<code>{server_seed_hash}</code>\n\n"
         f"<b>Nonce:</b> {pf_data.get('nonce', 0)}\n\n"
-        f"💡 The actual server seed is hidden until you rotate to a new one.\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> The actual server seed is hidden until you rotate to a new one.\n"
         f"This ensures fairness - we can't change the seed after you know the hash!",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -21688,16 +21688,16 @@ async def seed_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     nonce = pf_data.get("nonce", 0)
     
     keyboard = [
-        [InlineKeyboardButton("🔄 Change Client Seed", callback_data="pf_change_client_seed")],
-        [InlineKeyboardButton("🔄 Rotate All Seeds", callback_data="pf_rotate_seeds")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Change Client Seed", callback_data="pf_change_client_seed")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rotate All Seeds", callback_data="pf_rotate_seeds")]
     ]
     
     await update.message.reply_text(
-        f"🎲 <b>Provably Fair - Your Seed</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Provably Fair - Your Seed</b>\n\n"
         f"<b>Client Seed:</b>\n"
         f"<code>{client_seed}</code>\n\n"
         f"<b>Nonce:</b> {nonce}\n\n"
-        f"💡 You can change your client seed anytime.\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> You can change your client seed anytime.\n"
         f"The nonce increases with each bet using these seeds.",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -21728,14 +21728,14 @@ async def pf_rotate_seeds_callback(update: Update, context: ContextTypes.DEFAULT
     new_seed_hash = hashlib.sha256(pf_data["server_seed"].encode()).hexdigest()
     
     await query.edit_message_text(
-        f"🔄 <b>Seeds Rotated!</b>\n\n"
+        f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> <b>Seeds Rotated!</b>\n\n"
         f"<b>Previous Server Seed (REVEALED):</b>\n"
         f"<code>{old_server_seed}</code>\n\n"
         f"<b>Used for {old_nonce} bets</b>\n\n"
         f"<b>New Server Seed Hash:</b>\n"
         f"<code>{new_seed_hash}</code>\n\n"
-        f"✅ Nonce reset to 0\n"
-        f"💡 You can now verify all bets made with the old seed!",
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Nonce reset to 0\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> You can now verify all bets made with the old seed!",
         parse_mode=ParseMode.HTML
     )
 
@@ -21746,12 +21746,12 @@ async def pf_change_client_seed_callback(update: Update, context: ContextTypes.D
     user = query.from_user
     
     # Add cancel button
-    keyboard = [[InlineKeyboardButton("❌ Cancel", callback_data="pf_cancel_seed_change")]]
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_cancel_seed_change")]]
     
     await query.edit_message_text(
-        f"🔄 <b>Change Client Seed</b>\n\n"
+        f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> <b>Change Client Seed</b>\n\n"
         f"Please send your new client seed.\n\n"
-        f"📝 Requirements:\n"
+        f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Requirements:\n"
         f"• 4-64 characters\n"
         f"• Letters and numbers only\n\n"
         f"Tap Cancel below to abort.",
@@ -21769,14 +21769,14 @@ async def pf_client_seed_input_handler(update: Update, context: ContextTypes.DEF
     # Validate seed
     if len(new_seed) < 4 or len(new_seed) > 64:
         await update.message.reply_text(
-            "❌ Client seed must be between 4-64 characters.\n"
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Client seed must be between 4-64 characters.\n"
             "Please try again or send /cancel"
         )
         return PF_CHANGE_CLIENT_SEED_INPUT
     
     if not new_seed.replace('_', '').replace('-', '').isalnum():
         await update.message.reply_text(
-            "❌ Client seed can only contain letters, numbers, _ and -\n"
+            "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Client seed can only contain letters, numbers, _ and -\n"
             "Please try again or send /cancel"
         )
         return PF_CHANGE_CLIENT_SEED_INPUT
@@ -21792,7 +21792,7 @@ async def pf_client_seed_input_handler(update: Update, context: ContextTypes.DEF
     save_user_data(user.id)
     
     await update.message.reply_text(
-        f"✅ <b>Client Seed Updated!</b>\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Client Seed Updated!</b>\n\n"
         f"<b>Old Seed:</b> <code>{old_seed}</code>\n"
         f"<b>New Seed:</b> <code>{new_seed}</code>\n\n"
         f"Nonce reset to 0",
@@ -21803,14 +21803,14 @@ async def pf_client_seed_input_handler(update: Update, context: ContextTypes.DEF
 
 async def pf_cancel_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel seed change"""
-    await update.message.reply_text("❌ Seed change cancelled.")
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.")
     return ConversationHandler.END
 
 async def pf_cancel_seed_change_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel seed change via inline button"""
     query = update.callback_query
     await query.answer()
-    await query.edit_message_text("❌ Seed change cancelled.")
+    await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.")
     return ConversationHandler.END
 
 async def pf_show_game_details_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -21822,7 +21822,7 @@ async def pf_show_game_details_callback(update: Update, context: ContextTypes.DE
     game = game_sessions.get(game_id)
     
     if not game:
-        await query.edit_message_text("❌ Game not found or expired.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or expired.")
         return
     
     # Get game details
@@ -21832,7 +21832,7 @@ async def pf_show_game_details_callback(update: Update, context: ContextTypes.DE
     game_type = game.get("game_type", "unknown")
     
     text = (
-        f"🎲 <b>Provably Fair Details</b>\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Provably Fair Details</b>\n"
         f"Game ID: <code>{game_id}</code>\n\n"
         f"<b>Server Seed (SHA-256):</b>\n"
         f"<code>{server_seed_hash}</code>\n\n"
@@ -21840,11 +21840,11 @@ async def pf_show_game_details_callback(update: Update, context: ContextTypes.DE
         f"<code>{client_seed}</code>\n\n"
         f"<b>Nonce:</b> {nonce}\n"
         f"<b>Game Type:</b> {game_type}\n\n"
-        f"💡 Use /serverseed to rotate your seed and reveal the actual server seed.\n"
+        f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Use /serverseed to rotate your seed and reveal the actual server seed.\n"
         f"Then you can verify this result independently!"
     )
     
-    keyboard = [[InlineKeyboardButton("🔍 Verify Result", callback_data=f"pf_verify_menu")]]
+    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Verify Result", callback_data=f"pf_verify_menu")]]
     
     await query.edit_message_text(
         text,
@@ -21866,44 +21866,44 @@ async def pf_verify_menu_callback(update: Update, context: ContextTypes.DEFAULT_
         try:
             await context.bot.send_message(
                 chat_id=user.id,
-                text="🔍 <b>Verify Game Result</b>\n\n"
+                text="<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Verify Game Result</b>\n\n"
                      "Select the game type you want to verify:",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("🪙 Coinflip", callback_data="pf_verify_coinflip"),
-                     InlineKeyboardButton("🎯 Roulette", callback_data="pf_verify_roulette")],
-                    [InlineKeyboardButton("🎰 High-Low", callback_data="pf_verify_highlow"),
-                     InlineKeyboardButton("🃏 Blackjack", callback_data="pf_verify_blackjack")],
-                    [InlineKeyboardButton("🎱 Keno", callback_data="pf_verify_keno"),
-                     InlineKeyboardButton("💣 Mines", callback_data="pf_verify_mines")],
-                    [InlineKeyboardButton("🗼 Tower", callback_data="pf_verify_tower")]
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coinflip", callback_data="pf_verify_coinflip"),
+                     InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="pf_verify_roulette")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> High-Low", callback_data="pf_verify_highlow"),
+                     InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="pf_verify_blackjack")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="pf_verify_keno"),
+                     InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="pf_verify_mines")],
+                    [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="pf_verify_tower")]
                 ])
             )
             await query.edit_message_text(
-                f"✅ Check your DM for verification!",
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Check your DM for verification!",
                 parse_mode=ParseMode.HTML
             )
         except Exception as e:
             await query.edit_message_text(
-                f"❌ Please start a private chat with me first by clicking @{context.bot.username}",
+                f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Please start a private chat with me first by clicking @{context.bot.username}",
                 parse_mode=ParseMode.HTML
             )
         return ConversationHandler.END
     
     # In private chat - show menu normally
     keyboard = [
-        [InlineKeyboardButton("🪙 Coinflip", callback_data="pf_verify_coinflip"),
-         InlineKeyboardButton("🎯 Roulette", callback_data="pf_verify_roulette")],
-        [InlineKeyboardButton("🎰 High-Low", callback_data="pf_verify_highlow"),
-         InlineKeyboardButton("🃏 Blackjack", callback_data="pf_verify_blackjack")],
-        [InlineKeyboardButton("🎱 Keno", callback_data="pf_verify_keno"),
-         InlineKeyboardButton("💣 Mines", callback_data="pf_verify_mines")],
-        [InlineKeyboardButton("🗼 Tower", callback_data="pf_verify_tower")],
-        [InlineKeyboardButton("🔙 Back", callback_data="main_menu")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coinflip", callback_data="pf_verify_coinflip"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="pf_verify_roulette")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> High-Low", callback_data="pf_verify_highlow"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="pf_verify_blackjack")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="pf_verify_keno"),
+         InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="pf_verify_mines")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="pf_verify_tower")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="main_menu")]
     ]
     
     await query.edit_message_text(
-        f"🔍 <b>Verify Game Result</b>\n\n"
+        f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>Verify Game Result</b>\n\n"
         f"Select the game type you want to verify.\n\n"
         f"You'll need:\n"
         f"• Server seed (revealed after rotation)\n"
@@ -21923,11 +21923,11 @@ async def pf_verify_coinflip_callback(update: Update, context: ContextTypes.DEFA
     context.user_data['pf_verify_game'] = 'coinflip'
     
     await query.edit_message_text(
-        f"🪙 <b>Verify Coinflip Result</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Verify Coinflip Result</b>\n\n"
         f"I'll calculate the result for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21940,11 +21940,11 @@ async def pf_verify_roulette_callback(update: Update, context: ContextTypes.DEFA
     context.user_data['pf_verify_game'] = 'roulette'
     
     await query.edit_message_text(
-        f"🎯 <b>Verify Roulette Result</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Verify Roulette Result</b>\n\n"
         f"I'll calculate the result for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21957,11 +21957,11 @@ async def pf_verify_highlow_callback(update: Update, context: ContextTypes.DEFAU
     context.user_data['pf_verify_game'] = 'highlow'
     
     await query.edit_message_text(
-        f"🎴 <b>Verify High-Low Result</b>\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Verify High-Low Result</b>\n\n"
         f"I'll calculate the shuffled deck for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21974,11 +21974,11 @@ async def pf_verify_blackjack_callback(update: Update, context: ContextTypes.DEF
     context.user_data['pf_verify_game'] = 'blackjack'
     
     await query.edit_message_text(
-        f"🃏 <b>Verify Blackjack Result</b>\n\n"
+        f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Verify Blackjack Result</b>\n\n"
         f"I'll calculate the shuffled deck for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21991,11 +21991,11 @@ async def pf_verify_keno_callback(update: Update, context: ContextTypes.DEFAULT_
     context.user_data['pf_verify_game'] = 'keno'
     
     await query.edit_message_text(
-        f"🎱 <b>Verify Keno Result</b>\n\n"
+        f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Verify Keno Result</b>\n\n"
         f"I'll calculate the drawn numbers for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22008,11 +22008,11 @@ async def pf_verify_mines_callback(update: Update, context: ContextTypes.DEFAULT
     context.user_data['pf_verify_game'] = 'mines'
     
     await query.edit_message_text(
-        f"💣 <b>Verify Mines Result</b>\n\n"
+        f"<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> <b>Verify Mines Result</b>\n\n"
         f"I'll calculate the mine positions for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22025,11 +22025,11 @@ async def pf_verify_tower_callback(update: Update, context: ContextTypes.DEFAULT
     context.user_data['pf_verify_game'] = 'tower'
     
     await query.edit_message_text(
-        f"🗼 <b>Verify Tower Result</b>\n\n"
+        f"<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>Verify Tower Result</b>\n\n"
         f"I'll calculate the snake positions for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22041,7 +22041,7 @@ async def pf_verify_server_seed_input(update: Update, context: ContextTypes.DEFA
     context.user_data['pf_verify_server_seed'] = server_seed
     
     await update.message.reply_text(
-        f"✅ Server seed saved.\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Server seed saved.\n\n"
         f"Now, please enter the <b>Client Seed</b>:",
         parse_mode=ParseMode.HTML
     )
@@ -22054,7 +22054,7 @@ async def pf_verify_client_seed_input(update: Update, context: ContextTypes.DEFA
     context.user_data['pf_verify_client_seed'] = client_seed
     
     await update.message.reply_text(
-        f"✅ Client seed saved.\n\n"
+        f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Client seed saved.\n\n"
         f"Now, please enter the <b>Nonce</b> (number):",
         parse_mode=ParseMode.HTML
     )
@@ -22066,7 +22066,7 @@ async def pf_verify_nonce_input(update: Update, context: ContextTypes.DEFAULT_TY
     try:
         nonce = int(update.message.text.strip())
     except ValueError:
-        await update.message.reply_text("❌ Invalid nonce. Please enter a number.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid nonce. Please enter a number.")
         return PF_VERIFY_INPUT_NONCE
     
     context.user_data['pf_verify_nonce'] = nonce
@@ -22076,7 +22076,7 @@ async def pf_verify_nonce_input(update: Update, context: ContextTypes.DEFAULT_TY
     if game in ['mines', 'tower']:
         if game == 'mines':
             await update.message.reply_text(
-                f"✅ Nonce saved.\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Nonce saved.\n\n"
                 f"Finally, how many <b>mines</b> were in the game? (1-24):",
                 parse_mode=ParseMode.HTML
             )
@@ -22087,7 +22087,7 @@ async def pf_verify_nonce_input(update: Update, context: ContextTypes.DEFAULT_TY
                 [InlineKeyboardButton("Hard", callback_data="pf_verify_param_hard")]
             ]
             await update.message.reply_text(
-                f"✅ Nonce saved.\n\n"
+                f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Nonce saved.\n\n"
                 f"Finally, select the <b>Difficulty</b>:",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(keyboard)
@@ -22105,11 +22105,11 @@ async def pf_verify_param_input(update: Update, context: ContextTypes.DEFAULT_TY
         try:
             mine_count = int(update.message.text.strip())
             if mine_count < 1 or mine_count > 24:
-                await update.message.reply_text("❌ Invalid mine count. Please enter 1-24.")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid mine count. Please enter 1-24.")
                 return PF_VERIFY_INPUT_PARAM
             context.user_data['pf_verify_param'] = mine_count
         except ValueError:
-            await update.message.reply_text("❌ Invalid input. Please enter a number 1-24.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid input. Please enter a number 1-24.")
             return PF_VERIFY_INPUT_PARAM
     
     # Calculate and show result
@@ -22133,7 +22133,7 @@ async def pf_verify_calculate_result(update_or_query, context: ContextTypes.DEFA
     nonce = context.user_data['pf_verify_nonce']
     game = context.user_data['pf_verify_game']
     
-    result_text = f"🔍 <b>VERIFICATION RESULT</b>\n\n"
+    result_text = f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>VERIFICATION RESULT</b>\n\n"
     result_text += f"<b>Server Seed:</b> <code>{server_seed[:20]}...</code>\n"
     result_text += f"<b>Client Seed:</b> <code>{client_seed}</code>\n"
     result_text += f"<b>Nonce:</b> <code>{nonce}</code>\n\n"
@@ -22219,7 +22219,7 @@ async def pf_verify_cancel_callback(update: Update, context: ContextTypes.DEFAUL
     for key in ['pf_verify_game', 'pf_verify_server_seed', 'pf_verify_client_seed', 'pf_verify_nonce', 'pf_verify_param']:
         context.user_data.pop(key, None)
     
-    await query.edit_message_text("❌ Verification cancelled.", parse_mode=ParseMode.HTML)
+    await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Verification cancelled.", parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 @check_banned
@@ -22249,18 +22249,18 @@ async def rakeback_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
     
     bonus_text = ""
     if has_bonus:
-        bonus_text = f"\n🎉 <b>Username Bonus Applied!</b> +5% extra (${final_amount - rakeback_balance:.4f})"
+        bonus_text = f"\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Username Bonus Applied!</b> +5% extra (${final_amount - rakeback_balance:.4f})"
     
     current_level = get_user_level(user.id)
     message = (
-        f"💰 <b>Rakeback Claimed!</b>\n\n"
+        f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Rakeback Claimed!</b>\n\n"
         f"Amount: <b>${final_amount:.4f}</b>{bonus_text}\n"
         f"VIP Tier: {current_level['name']} ({current_level['rakeback_percentage']}% rakeback rate)"
         + get_username_bonus_guidance()
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
         await update.callback_query.edit_message_text(message, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
     else:
         await update.message.reply_text(message, parse_mode=ParseMode.HTML)
@@ -22270,7 +22270,7 @@ async def admin_gift_code_menu(update: Update, context: ContextTypes.DEFAULT_TYP
     query = update.callback_query
     await query.answer()
     
-    text = "🎁 <b>Gift Code Management</b>\n\nExisting codes:\n"
+    text = "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Gift Code Management</b>\n\nExisting codes:\n"
     if not gift_codes:
         text += "No active gift codes."
     else:
@@ -22280,8 +22280,8 @@ async def admin_gift_code_menu(update: Update, context: ContextTypes.DEFAULT_TYP
             text += f"• <code>{code}</code>: ${data['amount']:.2f}, {data['claims_left']}/{data['total_claims']} left{wager_text}\n"
             
     keyboard = [
-        [InlineKeyboardButton("➕ Create New Code", callback_data="admin_gift_create")],
-        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Create New Code", callback_data="admin_gift_create")],
+        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
     ]
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     
@@ -22343,7 +22343,7 @@ async def admin_gift_code_create_step4(update: Update, context: ContextTypes.DEF
         wager_text = f"Wager requirement: ${wager_requirement:.2f}" if wager_requirement > 0 else "No wager requirement"
         
         # Build gift codes list for display
-        codes_text = "🎁 <b>Gift Code Management</b>\n\nExisting codes:\n"
+        codes_text = "<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> <b>Gift Code Management</b>\n\nExisting codes:\n"
         if not gift_codes:
             codes_text += "No active gift codes."
         else:
@@ -22353,12 +22353,12 @@ async def admin_gift_code_create_step4(update: Update, context: ContextTypes.DEF
                 codes_text += f"• <code>{gift_code}</code>: ${data['amount']:.2f}, {data['claims_left']}/{data['total_claims']} left{wager_text_item}\n"
         
         keyboard = [
-            [InlineKeyboardButton("➕ Create New Code", callback_data="admin_gift_create")],
-            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Create New Code", callback_data="admin_gift_create")],
+            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
         ]
         
         await update.message.reply_text(
-            f"✅ Gift code created successfully!\n\n"
+            f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Gift code created successfully!\n\n"
             f"Code: <code>{code}</code>\n"
             f"Amount: ${amount:.2f}\n"
             f"Uses: {claims}\n"
