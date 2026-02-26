@@ -3798,43 +3798,43 @@ def build_deposit_menu():
     
     keyboard_rows = [
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Ethereum", callback_data="deposit_ETH"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> BNB Chain", callback_data="deposit_BNB"), 'primary')  # BLUE
+            apply_button_style(InlineKeyboardButton("💎 Ethereum", callback_data="deposit_ETH"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💎 BNB Chain", callback_data="deposit_BNB"), 'primary')  # BLUE
         ],
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Base", callback_data="deposit_BASE"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💎 Base", callback_data="deposit_BASE"), 'primary'),  # BLUE
         ]
     ]
     
     # Add TRON if available
     if TRON_AVAILABLE:
         chains_text.append("• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>TRON (TRX)</b> - TRX, USDT")
-        keyboard_rows[-1].append(apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> TRON", callback_data="deposit_TRON"), 'primary'))  # BLUE
+        keyboard_rows[-1].append(apply_button_style(InlineKeyboardButton("💎 TRON", callback_data="deposit_TRON"), 'primary'))  # BLUE
     
     # Add Solana if available
     row_3 = []
     if SOLANA_AVAILABLE:
         chains_text.append("• <tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> <b>Solana (SOL)</b> - SOL, USDT, USDC")
-        row_3.append(apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Solana", callback_data="deposit_SOLANA"), 'primary'))  # BLUE
+        row_3.append(apply_button_style(InlineKeyboardButton("💎 Solana", callback_data="deposit_SOLANA"), 'primary'))  # BLUE
     
     # TON deposit removed as per requirements
     # if TON_AVAILABLE:
     #     chains_text.append("• <tg-emoji emoji-id="5334812855847901773">⭐</tg-emoji> <b>TON</b> - TON")
-    #     row_3.append(InlineKeyboardButton("<tg-emoji emoji-id="5334812855847901773">⭐</tg-emoji> TON", callback_data="deposit_TON"))
+    #     row_3.append(InlineKeyboardButton("💰 TON", callback_data="deposit_TON"))
     
     if row_3:
         keyboard_rows.append(row_3)
     
     # Add bottom row - History BLUE, Back RED
     keyboard_rows.append([
-        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Deposit History", callback_data="deposit_history"), 'primary'),  # BLUE
-        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="back_to_main"), 'danger')  # RED
+        apply_button_style(InlineKeyboardButton("⚙️ Deposit History", callback_data="deposit_history"), 'primary'),  # BLUE
+        apply_button_style(InlineKeyboardButton("🔙 Back", callback_data="back_to_main"), 'danger')  # RED
     ])
     
     # Add OxaPay option if configured
     if OXAPAY_MERCHANT_KEY:
         keyboard_rows.append([
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Deposit via OxaPay", callback_data="deposit_oxapay"), 'primary')
+            apply_button_style(InlineKeyboardButton("🏠 Deposit via OxaPay", callback_data="deposit_oxapay"), 'primary')
         ])
     
     text = (
@@ -3898,7 +3898,7 @@ async def deposit_method_callback(update: Update, context: ContextTypes.DEFAULT_
         else:
             error_msg += f"{chain} address could not be generated. Please try again or contact support."
         
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]]
         await safe_edit_message(
             query,
             error_msg,
@@ -3949,8 +3949,8 @@ async def deposit_method_callback(update: Update, context: ContextTypes.DEFAULT_
     )
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Check Status", callback_data=f"check_deposit_{chain}_{user_id}")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]
+        [InlineKeyboardButton("🔄 Check Status", callback_data=f"check_deposit_{chain}_{user_id}")],
+        [InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]
     ]
     
     await query.message.reply_photo(
@@ -4052,8 +4052,8 @@ async def check_deposit_status(update: Update, context: ContextTypes.DEFAULT_TYP
         )
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Scan Again", callback_data=f"check_deposit_{chain_to_check}_{user_id}" if chain_to_check else "deposit_history")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"back_to_deposit_menu_{user_id}")]
+        [InlineKeyboardButton("🔄 Scan Again", callback_data=f"check_deposit_{chain_to_check}_{user_id}" if chain_to_check else "deposit_history")],
+        [InlineKeyboardButton("🔙 Back", callback_data=f"back_to_deposit_menu_{user_id}")]
     ]
     
     # Use safe_edit_message to handle the transition from Photo -> Text
@@ -5048,11 +5048,11 @@ async def create_provably_fair_button(game_id, context):
     try:
         bot_username = (await context.bot.get_me()).username
         pf_url = f"https://t.me/{bot_username}?start=provablyfair_{game_id}"
-        return InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Provably Fair", url=pf_url)
+        return InlineKeyboardButton("🔒 Provably Fair", url=pf_url)
     except Exception as e:
         logging.error(f"Error creating provably fair button: {e}")
         # Fallback to callback button if we can't get bot username
-        return InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Provably Fair", callback_data=f"pf_show_{game_id}")
+        return InlineKeyboardButton("🔒 Provably Fair", callback_data=f"pf_show_{game_id}")
 
 def generate_mine_positions(server_seed, client_seed, nonce, num_mines):
     """Generate deterministic mine positions for Mines game"""
@@ -6476,8 +6476,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
+                apply_button_style(InlineKeyboardButton("💰 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
+                apply_button_style(InlineKeyboardButton("💰 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
             ],
         ]
         
@@ -6508,20 +6508,20 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         # Row 1: Deposit & Withdraw with styles
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("💰 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💰 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
         ],
         # Row 2: Games & More with styles
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("⚙️ More", callback_data="main_more"), 'danger')  # RED
         ],
         # Row 3: Settings
     ]
 
     # Add Settings button only in DMs
     if update.effective_chat.type == "private":
-        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
@@ -6536,13 +6536,13 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_chat.type == "private":
         links_row = []
         if LINK_PORTAL:
-            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Portal", url=LINK_PORTAL).to_dict())
+            links_row.append(InlineKeyboardButton("🏛️ Portal", url=LINK_PORTAL).to_dict())
         if LINK_CHANNEL:
-            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Channel", url=LINK_CHANNEL).to_dict())
+            links_row.append(InlineKeyboardButton("⚙️ Channel", url=LINK_CHANNEL).to_dict())
         
         links_row_2 = []
         if LINK_CHAT:
-            links_row_2.append(InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> Chat", url=LINK_CHAT).to_dict())
+            links_row_2.append(InlineKeyboardButton("💬 Chat", url=LINK_CHAT).to_dict())
         if LINK_SUPPORT:
             links_row_2.append(InlineKeyboardButton("🆘 Support", url=LINK_SUPPORT).to_dict())
         
@@ -6630,7 +6630,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 query,
                 "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deposits are currently disabled.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
             )
             return
         
@@ -6647,7 +6647,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 "Withdrawals are temporarily disabled by the administrator. "
                 "Please contact support for more information.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
             )
             return
 
@@ -6658,7 +6658,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 "Your account is currently restricted from making withdrawals. "
                 "Please contact support for more information.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]])
             )
             return
 
@@ -6671,8 +6671,8 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 "Please set your USDT-BEP20 withdrawal address in Settings first before requesting a withdrawal.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Go to Settings", callback_data="main_settings")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
+                    [InlineKeyboardButton("⚙️ Go to Settings", callback_data="main_settings")],
+                    [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
                 ])
             )
             return
@@ -6698,7 +6698,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 query,
                 "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>No Balance</b>\n\nYou don't have any crypto balance to withdraw.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="back_to_main")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="back_to_main")]])
             )
             return
         
@@ -6723,7 +6723,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>Escrow Feature Disabled</b>\n\n"
                 "This feature is currently disabled by the owner.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
             )
             return
         await escrow_command(update, context, from_callback=True)
@@ -6761,10 +6761,10 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         )
 
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> My Game Matches", callback_data="my_matches_0")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> My Escrow Deals", callback_data="my_deals_0")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]
+            [InlineKeyboardButton("💰 Withdraw", callback_data="main_withdraw")],
+            [InlineKeyboardButton("⚙️ My Game Matches", callback_data="my_matches_0")],
+            [InlineKeyboardButton("🔒 My Escrow Deals", callback_data="my_deals_0")],
+            [InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]
         ]
 
         # Send dashboard image with wallet text as new message (callback can't edit to photo)
@@ -6819,7 +6819,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> <b>AI Assistant Disabled</b>\n\n"
                 "This feature is currently disabled by the owner.",
                 parse_mode=ParseMode.HTML,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
             )
             return
         return await start_ai_conversation(update, context)
@@ -6833,7 +6833,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> @jashanxjagy\n\n"
             "We're here to help you 24/7!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
         )
 
     elif data == "main_help":
@@ -6862,7 +6862,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             query,
             info_text,
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
         )
 
     ## NEW FEATURE ##
@@ -6896,7 +6896,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "Use the command:\n<code>/claim YOUR_CODE</code>\n\n"
             "Example: <code>/claim GIFT-ABC12345</code>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
         )
     
     elif data == "main_stats":
@@ -6933,13 +6933,13 @@ async def start_command_inline(query, context):
     keyboard = [
         # Row 1: Deposit & Withdraw
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("💰 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💰 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
         ],
         # Row 2: Games & More
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("⚙️ More", callback_data="main_more"), 'danger')  # RED
         ],
         # Row 3: Settings
     ]
@@ -6947,14 +6947,14 @@ async def start_command_inline(query, context):
     # Add Settings button only in DMs - with better error handling
     try:
         if query.message and query.message.chat and query.message.chat.type == "private":
-            keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
+            keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
     except AttributeError:
         # Default to adding settings if we can't determine chat type
-        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
-        keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Admin Panel", callback_data="admin_dashboard").to_dict()])
+        keyboard.append([InlineKeyboardButton("⚙️ Admin Panel", callback_data="admin_dashboard").to_dict()])
 
     # Create links row - Only show in DMs to avoid spam in groups
     try:
@@ -6965,13 +6965,13 @@ async def start_command_inline(query, context):
     if is_private:
         links_row = []
         if LINK_PORTAL:
-            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Portal", url=LINK_PORTAL).to_dict())
+            links_row.append(InlineKeyboardButton("🏛️ Portal", url=LINK_PORTAL).to_dict())
         if LINK_CHANNEL:
-            links_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Channel", url=LINK_CHANNEL).to_dict())
+            links_row.append(InlineKeyboardButton("⚙️ Channel", url=LINK_CHANNEL).to_dict())
         
         links_row_2 = []
         if LINK_CHAT:
-            links_row_2.append(InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> Chat", url=LINK_CHAT).to_dict())
+            links_row_2.append(InlineKeyboardButton("💬 Chat", url=LINK_CHAT).to_dict())
         if LINK_SUPPORT:
             links_row_2.append(InlineKeyboardButton("🆘 Support", url=LINK_SUPPORT).to_dict())
         
@@ -7016,15 +7016,15 @@ async def games_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if is_group:
         # Group chat: only House Games and Emoji Games, no official link, no back button
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> House Games", callback_data="games_category_house"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🏠 House Games", callback_data="games_category_house"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🎲 Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
         ]
     else:
         # DM: full menu
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> House Games", callback_data="games_category_house"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
-            [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Official Group", url="https://t.me/playcsino").to_dict()],
+            [apply_button_style(InlineKeyboardButton("🏠 House Games", callback_data="games_category_house"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🎲 Emoji Games", callback_data="games_category_emoji"), 'success')],  # GREEN
+            [InlineKeyboardButton("🏠 Official Group", url="https://t.me/playcsino").to_dict()],
             [apply_button_style(InlineKeyboardButton(get_text("back", user_lang), callback_data="back_to_main"), 'danger')]  # RED
         ]
     text = get_text("games_menu", user_lang)
@@ -7077,43 +7077,43 @@ async def games_category_callback(update: Update, context: ContextTypes.DEFAULT_
     if category == "house":
         text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>House Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="game_blackjack"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice Roll", callback_data="game_dice_roll"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Predict", callback_data="game_predict"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="game_roulette"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slots", callback_data="game_slots"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="game_tower_start"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="game_mines_start"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="game_keno"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coin Flip", callback_data="game_coin_flip"), 'success'),  # GREEN
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> High-Low", callback_data="game_highlow"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("🎮 Blackjack", callback_data="game_blackjack"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("🎲 Dice Roll", callback_data="game_dice_roll"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🤖 Predict", callback_data="game_predict"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("🎲 Roulette", callback_data="game_roulette"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🎲 Slots", callback_data="game_slots"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("🏛️ Tower", callback_data="game_tower_start"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🏠 Mines", callback_data="game_mines_start"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("🎲 Keno", callback_data="game_keno"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("💰 Coin Flip", callback_data="game_coin_flip"), 'success'),  # GREEN
+             apply_button_style(InlineKeyboardButton("🎮 High-Low", callback_data="game_highlow"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games"), 'danger')]  # RED
         ]
     elif category == "emoji":
         text = "<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> <b>Emoji Games</b>\n\nChoose a category:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Regular Games", callback_data="games_emoji_regular"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Single Emoji Games", callback_data="games_emoji_single"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("🎮 Regular Games", callback_data="games_emoji_regular"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🎲 Single Emoji Games", callback_data="games_emoji_single"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games"), 'danger')]  # RED
         ]
     elif category == "emoji-regular":
         text = "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice", callback_data="game_dice_bot"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts", callback_data="game_darts"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football", callback_data="game_football"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling", callback_data="game_bowling"), 'success')],  # GREEN
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("🎲 Dice", callback_data="game_dice_bot"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🎲 Darts", callback_data="game_darts"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("⚽ Football", callback_data="game_football"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🎲 Bowling", callback_data="game_bowling"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
         ]
     elif category == "emoji-single":
         text = "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Single Emoji Games</b>\n\nQuick games with instant results!\n\nHow to play: Choose a game, set your bet, and watch the emoji!"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts (1.15x)", callback_data="game_single_darts"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Soccer (1.53x)", callback_data="game_single_soccer"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Basket (2.25x)", callback_data="game_single_basket"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling (5.00x)", callback_data="game_single_bowling"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slot (14.5x)", callback_data="game_single_slot"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
+            [apply_button_style(InlineKeyboardButton("🎲 Darts (1.15x)", callback_data="game_single_darts"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("⚽ Soccer (1.53x)", callback_data="game_single_soccer"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("⚽ Basket (2.25x)", callback_data="game_single_basket"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🎲 Bowling (5.00x)", callback_data="game_single_bowling"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🎲 Slot (14.5x)", callback_data="game_single_slot"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="games_category_emoji"), 'danger')]  # RED
         ]
     else:
         return
@@ -7157,7 +7157,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Blackjack: 2.5x your bet\n"
             "• Push: Get your bet back",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_coin_flip":
@@ -7177,7 +7177,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 3 wins: 8x\n"
             "• And so on... <tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
     
     elif data == "game_highlow":
@@ -7197,7 +7197,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Ace is low (1), King is high (13)\n"
             "• Skip gives smaller multiplier but safer",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
     elif data == "game_limbo":
         await safe_edit_message(query,
@@ -7218,7 +7218,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             f"<b>Min bet:</b> ${MIN_BALANCE:.2f}",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]]
+                [[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]]
             ),
         )
     elif data == "game_roulette":
@@ -7244,7 +7244,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Red/Black, Even/Odd, High/Low: 1.96x\n"
             "• Columns: 2.92x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_dice_roll":
@@ -7266,7 +7266,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Exact number: 5.30x\n"
             "• Even/Odd/High/Low: 1.96x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_slots":
@@ -7283,7 +7283,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Triple 7s (JACKPOT): 20x\n"
             "• No match: 0x",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_predict":
@@ -7296,7 +7296,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <code>/predict amount up</code>\n"
             "• <code>/predict all down</code>",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
 
@@ -7321,7 +7321,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• Check payout table in-game\n\n"
             "Uses provably fair system!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="games_category_house")]])
         )
 
     elif data == "game_crash":
@@ -7346,7 +7346,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• High multipliers are rare but exciting!\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_plinko":
@@ -7371,7 +7371,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <code>/plinko all high</code>\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_wheel":
@@ -7395,7 +7395,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 30x-50x: Very Rare (~5%)\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_scratch":
@@ -7421,7 +7421,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slot: 2x\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
         )
 
     elif data == "game_coin_chain":
@@ -7448,7 +7448,7 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "• 10 wins: 613.11x (!)\n\n"
             "Provably fair!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to House Games", callback_data="games_category_house")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to House Games", callback_data="games_category_house")]])
         )
 
     # Single Emoji Games
@@ -7470,8 +7470,8 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 f"Simple, fast, and fun!",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Play {game_config['emoji']}", callback_data=f"play_single_{game_key}")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="games_category_emoji-single")]
+                    [InlineKeyboardButton(f"🎮 Play {game_config['emoji']}", callback_data=f"play_single_{game_key}")],
+                    [InlineKeyboardButton("🔙 Back", callback_data="games_category_emoji-single")]
                 ])
             )
 
@@ -7484,9 +7484,9 @@ async def game_info_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         game_name = game_name_map.get(game_key, game_key.replace("_", " ").title())
 
         keyboard = [
-            [InlineKeyboardButton(f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play vs Bot", callback_data=f"pvb_start_{game_key}")],
-            [InlineKeyboardButton(f"<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Play vs Player", callback_data=f"pvp_info_{game_key}")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Regular Games", callback_data="games_emoji_regular")]
+            [InlineKeyboardButton(f"🤖 Play vs Bot", callback_data=f"pvb_start_{game_key}")],
+            [InlineKeyboardButton(f"👥 Play vs Player", callback_data=f"pvp_info_{game_key}")],
+            [InlineKeyboardButton("🔙 Back to Regular Games", callback_data="games_emoji_regular")]
         ]
 
         await safe_edit_message(query,
@@ -7619,12 +7619,12 @@ async def blackjack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")],
+        [InlineKeyboardButton("🃏 Hit", callback_data=f"bj_hit_{game_id}"),
+         InlineKeyboardButton("🃏 Stand", callback_data=f"bj_stand_{game_id}")],
     ]
 
     if len(player_hand) == 2 and get_active_balance_usd(user.id) >= bet_amount_usd:
-        keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Double Down", callback_data=f"bj_double_{game_id}")])
+        keyboard.append([InlineKeyboardButton("2️⃣ Double Down", callback_data=f"bj_double_{game_id}")])
 
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack Started!</b> (ID: <code>{game_id}</code>)\n\n"
@@ -7723,8 +7723,8 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             await handle_dealer_turn(query, context, game_id)
         else:
             keyboard = [
-                [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
-                 InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")]
+                [InlineKeyboardButton("🃏 Hit", callback_data=f"bj_hit_{game_id}"),
+                 InlineKeyboardButton("🃏 Stand", callback_data=f"bj_stand_{game_id}")]
             ]
             await query.edit_message_text(
                 f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Blackjack</b> (ID: <code>{game_id}</code>)\n\n{hand_text}\n{dealer_text}\n"
@@ -7742,7 +7742,7 @@ async def blackjack_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             await query.answer("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Not enough balance to double down!", show_alert=True)
             # Edit message to show back button
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Game", callback_data=f"bj_continue_{game_id}")]
+                [InlineKeyboardButton("🔙 Back to Game", callback_data=f"bj_continue_{game_id}")]
             ])
             await query.edit_message_text(
                 f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance to double down.\n\n"
@@ -7906,8 +7906,8 @@ async def coin_flip_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-         apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
+        [apply_button_style(InlineKeyboardButton("💰 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+         apply_button_style(InlineKeyboardButton("💰 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
     ]
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
@@ -7955,9 +7955,9 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             win_amount = game["bet_amount"] * multiplier
             next_multiplier = 1.94 * (2 ** game["streak"])
             keyboard = [
-                [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-                 apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
-                [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')]
+                [apply_button_style(InlineKeyboardButton("💰 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+                 apply_button_style(InlineKeyboardButton("💰 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
+                [apply_button_style(InlineKeyboardButton(f"💰 Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')]
             ]
             await query.edit_message_text(
                 f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> <b>Correct!</b> The coin landed on {pick}!\n\n"
@@ -7981,8 +7981,8 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             # Add rebet/double and provably fair buttons
             keyboard = [
                 [
-                    apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                    apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
+                    apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                    apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
                 ],
                 [await create_provably_fair_button(game_id, context)]
             ]
@@ -8016,8 +8016,8 @@ async def coin_flip_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         # Add rebet/double and provably fair buttons
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"coinflip_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"coinflip_double_{game['bet_amount']}_{user.id}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
@@ -8104,8 +8104,8 @@ async def coinflip_rebet_double_callback(update: Update, context: ContextTypes.D
     save_user_data(user.id)
 
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-         apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
+        [apply_button_style(InlineKeyboardButton("💰 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+         apply_button_style(InlineKeyboardButton("💰 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')]
     ]
     await query.edit_message_text(
         f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Coin Flip Started!</b> (ID: <code>{game_id}</code>)\n\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${bet:.2f}\nChoose Heads or Tails!\n\n"
@@ -8264,14 +8264,14 @@ async def highlow_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Add Higher button only if not King (13)
     if current_card != 13:
-        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
     
     # Add Lower button only if not Ace (1)
     if current_card != 1:
-        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
     
     # Row 2: Tie button
-    row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+    row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
     
     # Row 3: Skip Card button only (no cashout on first card)
     row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
@@ -8362,15 +8362,15 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip/Cashout
         row1 = []
         if new_card != 13:
-            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
         if new_card != 1:
-            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
         
-        row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+        row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
         
         row3 = [
             apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
+            apply_button_style(InlineKeyboardButton(f"💰 Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
         ]
         
         keyboard = [row1, row2, row3]
@@ -8442,15 +8442,15 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip/Cashout
                 row1 = []
                 if next_card != 13:
-                    row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+                    row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
                 if next_card != 1:
-                    row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+                    row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
                 
-                row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+                row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
                 
                 row3 = [
                     apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary'),
-                    apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
+                    apply_button_style(InlineKeyboardButton(f"💰 Cash Out (${win_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success')
                 ]
                 
                 keyboard = [row1, row2, row3]
@@ -8491,8 +8491,8 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Add rebet/double and provably fair buttons
                 keyboard = [
                     [
-                        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
+                        apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                        apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
                     ],
                     [await create_provably_fair_button(game_id, context)]
                 ]
@@ -8525,8 +8525,8 @@ async def highlow_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Add rebet/double and provably fair buttons
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"highlow_rebet_{game['bet_amount']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"highlow_double_{game['bet_amount']}_{user.id}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
@@ -8636,11 +8636,11 @@ async def highlow_rebet_double_callback(update: Update, context: ContextTypes.DE
     # Build keyboard - row 1: Higher/Lower, row 2: Tie, row 3: Skip
     row1 = []
     if current_card != 13:
-        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
     if current_card != 1:
-        row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+        row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
     
-    row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+    row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
     row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
     
     keyboard = [row1, row2, row3]
@@ -8701,13 +8701,13 @@ def create_roulette_menu_keyboard(user_id, bet_amount, selected=None):
         return btn.to_dict()
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start", callback_data=f"roul_start_{user_id}"), 'success')],  # GREEN
-        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bet on Number", callback_data=f"roul_bet_number_{user_id}").to_dict()],
+        [apply_button_style(InlineKeyboardButton("▶️ Start", callback_data=f"roul_start_{user_id}"), 'success')],  # GREEN
+        [InlineKeyboardButton("🎲 Bet on Number", callback_data=f"roul_bet_number_{user_id}").to_dict()],
         [_btn("1-12", "1-12"), _btn("13-24", "13-24"), _btn("25-36", "25-36")],
         [_btn("1-18", "1-18"), _btn("19-36", "19-36")],
         [_btn("Even", "even"), _btn("Odd", "odd")],
         [_btn("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Red", "red"), _btn("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Black", "black")],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel Bet", callback_data=f"roul_cancel_{user_id}"), 'danger')]  # RED
+        [apply_button_style(InlineKeyboardButton("❌ Cancel Bet", callback_data=f"roul_cancel_{user_id}"), 'danger')]  # RED
     ]
     return create_styled_keyboard(keyboard)
 
@@ -8715,7 +8715,7 @@ def create_roulette_number_selection_keyboard(user_id, selected_numbers):
     """Create keyboard for number selection (0-36) with 3 numbers per row (COLORED buttons)"""
     keyboard = [
         # Row 1: GREEN Start button
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start", callback_data=f"roul_start_numbers_{user_id}"), 'success')]
+        [apply_button_style(InlineKeyboardButton("▶️ Start", callback_data=f"roul_start_numbers_{user_id}"), 'success')]
     ]
     
     # Row 2: Number 0 alone
@@ -8741,7 +8741,7 @@ def create_roulette_number_selection_keyboard(user_id, selected_numbers):
         keyboard.append(row)
     
     # Last row: RED Back button
-    keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"roul_back_{user_id}"), 'danger')])
+    keyboard.append([apply_button_style(InlineKeyboardButton("🔙 Back", callback_data=f"roul_back_{user_id}"), 'danger')])
     
     return create_styled_keyboard(keyboard)
 
@@ -9074,7 +9074,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Add provably fair button and rebet button
         pf_button = await create_provably_fair_button(game_id, context)
-        rebet_button = InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
+        rebet_button = InlineKeyboardButton("🔄 Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
         
         keyboard = [
             [pf_button],
@@ -9348,7 +9348,7 @@ async def roulette_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Add provably fair button and rebet button (user-specific)
     pf_button = await create_provably_fair_button(game_id, context)
-    rebet_button = InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
+    rebet_button = InlineKeyboardButton("🔄 Rebet", callback_data=f"roul_rebet_{game_id}_{user.id}")
     
     keyboard = [
         [pf_button],
@@ -9560,14 +9560,14 @@ def build_tower_keyboard(game_state):
         
         # Random selection button (like Mines)
         random_btn_dict = apply_button_style(
-            InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Random", callback_data=f"tower_random_{game_id}"),
+            InlineKeyboardButton("🎲 Random", callback_data=f"tower_random_{game_id}"),
             'primary'  # Blue background
         )
         action_row.append(random_btn_dict)
         
         # Cashout button
         cashout_btn_dict = apply_button_style(
-            InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}"),
+            InlineKeyboardButton(f"💰 Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}"),
             'success'  # Green background
         )
         action_row.append(cashout_btn_dict)
@@ -9664,18 +9664,18 @@ async def tower_intro(update: Update, context: ContextTypes.DEFAULT_TYPE, bet_am
     
     keyboard = [
         # GREEN start button
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Start Game", callback_data=f"tower_start_game"), 'success')],
+        [apply_button_style(InlineKeyboardButton("▶️ Start Game", callback_data=f"tower_start_game"), 'success')],
         # Difficulty selector buttons (BLUE for current difficulty)
         [
-            InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="tower_diff_prev").to_dict(),
-            apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> {diff_config['name']}", callback_data="tower_diff_info"), 'primary'),  # BLUE
-            InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="tower_diff_next").to_dict()
+            InlineKeyboardButton("◀️", callback_data="tower_diff_prev").to_dict(),
+            apply_button_style(InlineKeyboardButton(f"⚙️ {diff_config['name']}", callback_data="tower_diff_info"), 'primary'),  # BLUE
+            InlineKeyboardButton("▶️", callback_data="tower_diff_next").to_dict()
         ],
         [
-            InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Rules", callback_data="tower_rules").to_dict(),
-            InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Multiplier Table", callback_data="tower_multipliers").to_dict()
+            InlineKeyboardButton("⚙️ Rules", callback_data="tower_rules").to_dict(),
+            InlineKeyboardButton("⚙️ Multiplier Table", callback_data="tower_multipliers").to_dict()
         ],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="cancel_game"), 'danger')]  # RED
+        [apply_button_style(InlineKeyboardButton("🔙 Back", callback_data="cancel_game"), 'danger')]  # RED
     ]
     
     reply_markup = create_styled_keyboard(keyboard)
@@ -9786,7 +9786,7 @@ async def tower_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Higher risk offers bigger rewards!\n\n"
             "House edge: 3.0%"
         )
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="tower_back_to_intro")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data="tower_back_to_intro")]]
         await safe_edit_message(query, rules_text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         return
     
@@ -9805,7 +9805,7 @@ async def tower_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         mult_text += "\nHouse edge: 3.0%\nFloor 0: 0.90x (immediate cashout)"
         
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="tower_back_to_intro")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back", callback_data="tower_back_to_intro")]]
         await safe_edit_message(query, mult_text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         return
     
@@ -10017,8 +10017,8 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
         keyboard = list(keyboard_markup.inline_keyboard)
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
         ])
         keyboard.append([pf_button])
         
@@ -10064,8 +10064,8 @@ async def handle_tower_pick(update: Update, context: ContextTypes.DEFAULT_TYPE, 
         keyboard = list(keyboard_markup.inline_keyboard)
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
         ])
         keyboard.append([pf_button])
         
@@ -10135,8 +10135,8 @@ async def handle_tower_cashout(update: Update, context: ContextTypes.DEFAULT_TYP
     keyboard = list(keyboard_markup.inline_keyboard)
     pf_button = await create_provably_fair_button(game_id, context)
     keyboard.append([
-        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
-        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
+        apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"tower_rebet_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'primary'),
+        apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"tower_double_{game['bet_amount']}_{game['difficulty']}_{user.id}"), 'success')
     ])
     keyboard.append([pf_button])
     
@@ -10348,8 +10348,8 @@ async def slots_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Create keyboard with Rebet and Double buttons (NO provably fair for emoji-based slots)
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
         ]
     ]
     
@@ -10465,8 +10465,8 @@ async def slots_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     # Create keyboard with Rebet, Double, and Provably Fair buttons
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"slots_rebet_{bet_amount}_{user.id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"slots_double_{bet_amount}_{user.id}"), 'success')  # GREEN
         ]
         # NOTE: Slots is emoji-based, no provably fair verification (removed as per previous design decision)
     ]
@@ -10816,9 +10816,9 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
     
     # Show mode selection
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Normal Mode (Highest wins)", callback_data=f"xdxw_mode_normal")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crazy Mode (Lowest wins)", callback_data=f"xdxw_mode_crazy")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="xdxw_cancel")]
+        [InlineKeyboardButton("🎮 Normal Mode (Highest wins)", callback_data=f"xdxw_mode_normal")],
+        [InlineKeyboardButton("🏠 Crazy Mode (Lowest wins)", callback_data=f"xdxw_mode_crazy")],
+        [InlineKeyboardButton("❌ Cancel", callback_data="xdxw_cancel")]
     ]
     
     emoji_map = {"dice": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "darts": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", "goal": "<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji>", "bowl": "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>"}
@@ -10902,8 +10902,8 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     # Show challenge with Accept/Play with Bot buttons
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Challenge", callback_data=f"xdxw_accept_{match_id}")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play with Bot (Host Only)", callback_data=f"xdxw_playbot_{match_id}")]
+        [InlineKeyboardButton("✅ Accept Challenge", callback_data=f"xdxw_accept_{match_id}")],
+        [InlineKeyboardButton("🤖 Play with Bot (Host Only)", callback_data=f"xdxw_playbot_{match_id}")]
     ]
     
     await query.edit_message_text(
@@ -11036,7 +11036,7 @@ async def xdxw_playbot_callback(update: Update, context: ContextTypes.DEFAULT_TY
     
     # Show message with option for bot to roll first
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data=f"xdxw_bot_first_{match_id}")]
+        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data=f"xdxw_bot_first_{match_id}")]
     ]
     
     await query.edit_message_text(
@@ -11261,8 +11261,8 @@ async def create_group_challenge(update: Update, context: ContextTypes.DEFAULT_T
     
     # Show mode and rolls selection
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Normal Mode", callback_data=f"gc_mode_{game_type}_normal_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Crazy Mode", callback_data=f"gc_mode_{game_type}_crazy_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
+        [InlineKeyboardButton("🎮 Normal Mode", callback_data=f"gc_mode_{game_type}_normal_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
+        [InlineKeyboardButton("🏠 Crazy Mode", callback_data=f"gc_mode_{game_type}_crazy_{bet_amount_usd}_{bet_amount_currency}_{currency}")],
     ]
     
     sent_message = await update.message.reply_text(
@@ -11409,8 +11409,8 @@ async def group_challenge_target_callback(update: Update, context: ContextTypes.
         f"Tap a button below to join!",
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Challenge", callback_data=f"gc_accept_{match_id}")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Play with Bot (Host Only)", callback_data=f"gc_playbot_{match_id}")]
+            [InlineKeyboardButton("✅ Accept Challenge", callback_data=f"gc_accept_{match_id}")],
+            [InlineKeyboardButton("🤖 Play with Bot (Host Only)", callback_data=f"gc_playbot_{match_id}")]
         ])
     )
     
@@ -11532,7 +11532,7 @@ async def group_challenge_playbot_callback(update: Update, context: ContextTypes
     
     # Show "Bot Rolls First" option
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data=f"gc_botfirst_{match_id}")]
+        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data=f"gc_botfirst_{match_id}")]
     ]
     
     await query.edit_message_text(
@@ -11978,7 +11978,7 @@ def create_keno_keyboard(game_id, selected_numbers):
     """Create the 40-number grid for Keno with COLORED buttons (Bot API 9.4)"""
     buttons = []
     for i in range(1, 41):
-        btn = InlineKeyboardButton(str(i) if i not in selected_numbers else f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> {i}", 
+        btn = InlineKeyboardButton(str(i) if i not in selected_numbers else f"✅ {i}", 
                                    callback_data=f"keno_pick_{game_id}_{i}")
         # Apply styles: primary (blue) for unselected, success (green) for selected
         if i in selected_numbers:
@@ -11992,18 +11992,18 @@ def create_keno_keyboard(game_id, selected_numbers):
     # Add action buttons (with .to_dict() for non-styled buttons)
     action_row1 = [
         InlineKeyboardButton("ℹ️ How to Play", callback_data=f"keno_info_{game_id}").to_dict(),
-        InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Clear All", callback_data=f"keno_clear_{game_id}").to_dict()
+        InlineKeyboardButton("⚙️ Clear All", callback_data=f"keno_clear_{game_id}").to_dict()
     ]
     action_row2 = [
-        InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Payout Table", callback_data=f"keno_payout_{game_id}").to_dict(),
-        apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"keno_cancel_{game_id}"), 'danger')  # RED
+        InlineKeyboardButton("⚙️ Payout Table", callback_data=f"keno_payout_{game_id}").to_dict(),
+        apply_button_style(InlineKeyboardButton("❌ Cancel", callback_data=f"keno_cancel_{game_id}"), 'danger')  # RED
     ]
     
     # Add place bet button if numbers are selected (GREEN)
     if selected_numbers:
         action_row3 = [
             apply_button_style(
-                InlineKeyboardButton(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Place Bet ({len(selected_numbers)} numbers)", callback_data=f"keno_place_{game_id}"),
+                InlineKeyboardButton(f"✅ Place Bet ({len(selected_numbers)} numbers)", callback_data=f"keno_place_{game_id}"),
                 'success'  # GREEN
             )
         ]
@@ -12170,12 +12170,12 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• But also need more matches to win\n"
             "• Check payout table for details"
         )
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"keno_back_{game_id}")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"keno_back_{game_id}")]])
         await query.edit_message_text(info_text, parse_mode=ParseMode.HTML, reply_markup=keyboard)
     
     elif action == "payout":
         payout_text = get_keno_payout_text()
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"keno_back_{game_id}")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"keno_back_{game_id}")]])
         await query.edit_message_text(payout_text, parse_mode=ParseMode.HTML, reply_markup=keyboard)
     
     elif action == "back":
@@ -12288,8 +12288,8 @@ async def keno_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         selected_str_callback = ",".join(str(n) for n in sorted(selected))
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"keno_rebet_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"keno_double_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"keno_rebet_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"keno_double_{game['bet_amount']}_{selected_str_callback}_{game['user_id']}"), 'success')
             ],
             [await create_provably_fair_button(game_id, context)]
         ]
@@ -12445,8 +12445,8 @@ async def keno_rebet_double_callback(update: Update, context: ContextTypes.DEFAU
     selected_str_callback = ",".join(str(n) for n in sorted(selected_numbers))
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"keno_rebet_{bet_amount}_{selected_str_callback}_{user.id}"), 'primary'),
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"keno_double_{bet_amount}_{selected_str_callback}_{user.id}"), 'success')
+            apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"keno_rebet_{bet_amount}_{selected_str_callback}_{user.id}"), 'primary'),
+            apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"keno_double_{bet_amount}_{selected_str_callback}_{user.id}"), 'success')
         ],
         [await create_provably_fair_button(game_id, context)]
     ]
@@ -12922,10 +12922,10 @@ async def coinchain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_user_data(user.id)
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"coinchain_{game_id}_heads"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"coinchain_{game_id}_tails")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"coinchain_{game_id}_cancel")]
+        [InlineKeyboardButton("💰 Heads", callback_data=f"coinchain_{game_id}_heads"),
+         InlineKeyboardButton("💰 Tails", callback_data=f"coinchain_{game_id}_tails")],
+        [InlineKeyboardButton("💰 Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
+         InlineKeyboardButton("❌ Cancel", callback_data=f"coinchain_{game_id}_cancel")]
     ]
     
     text = (
@@ -12998,10 +12998,10 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             game["current_multiplier"] *= 1.9
             
             keyboard = [
-                [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"coinchain_{game_id}_heads"),
-                 InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"coinchain_{game_id}_tails")],
-                [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
-                 InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"coinchain_{game_id}_cancel")]
+                [InlineKeyboardButton("💰 Heads", callback_data=f"coinchain_{game_id}_heads"),
+                 InlineKeyboardButton("💰 Tails", callback_data=f"coinchain_{game_id}_tails")],
+                [InlineKeyboardButton("💰 Cash Out", callback_data=f"coinchain_{game_id}_cashout"),
+                 InlineKeyboardButton("❌ Cancel", callback_data=f"coinchain_{game_id}_cancel")]
             ]
             
             current_value = game["bet_amount"] * game["current_multiplier"]
@@ -13075,7 +13075,7 @@ def mines_keyboard(game_id, reveal=False):
         keyboard.append([cashout_btn])
         # BLUE random button
         random_btn = apply_button_style(
-            InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Random", callback_data=f"mines_random_{game_id}_{user_id}"),
+            InlineKeyboardButton("🎲 Random", callback_data=f"mines_random_{game_id}_{user_id}"),
             'primary'  # BLUE
         )
         keyboard.append([random_btn])
@@ -13305,8 +13305,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13349,8 +13349,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13392,8 +13392,8 @@ async def mines_pick_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         pf_button = await create_provably_fair_button(game_id, context)
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
+                apply_button_style(InlineKeyboardButton("🔄 Rebet", callback_data=f"mines_rebet_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'primary'),
+                apply_button_style(InlineKeyboardButton("💰 Double", callback_data=f"mines_double_{game['bet_amount']}_{game['num_mines']}_{user.id}"), 'success')
             ],
             [pf_button]
         ]
@@ -13704,7 +13704,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     rain = db.get_rain(rain_id)
     text = _build_rain_message(rain, [])
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Join Rain", callback_data=f"join_rain_{rain_id}")
+        InlineKeyboardButton("🎁 Join Rain", callback_data=f"join_rain_{rain_id}")
     ]])
     sent = await update.message.reply_text(text, reply_markup=keyboard, parse_mode=ParseMode.HTML)
 
@@ -13772,7 +13772,7 @@ async def join_rain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     participants = db.get_rain_participants(rain_id)
     text = _build_rain_message(rain, participants)
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(f"<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Join Rain ({len(participants)})", callback_data=f"join_rain_{rain_id}")
+        InlineKeyboardButton(f"🎁 Join Rain ({len(participants)})", callback_data=f"join_rain_{rain_id}")
     ]])
     try:
         await query.edit_message_text(text, reply_markup=keyboard, parse_mode=ParseMode.HTML)
@@ -14076,11 +14076,11 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     if is_group:
         # Group chat: no back button, add 24h/all-time toggle buttons
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Last 24 Hours", callback_data=f"stats_24h_{user.id}"), 'primary')],  # BLUE
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> All Time", callback_data=f"stats_alltime_{user.id}"), 'success')],  # GREEN
+            [apply_button_style(InlineKeyboardButton("🔄 Last 24 Hours", callback_data=f"stats_24h_{user.id}"), 'primary')],  # BLUE
+            [apply_button_style(InlineKeyboardButton("⚙️ All Time", callback_data=f"stats_alltime_{user.id}"), 'success')],  # GREEN
         ]
     else:
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]
     
     reply_markup = create_styled_keyboard(keyboard)
     
@@ -14227,14 +14227,14 @@ async def send_users_page(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = []
     row = []
     if page > 0:
-        row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data="users_prev"))
+        row.append(InlineKeyboardButton("◀️ Previous", callback_data="users_prev"))
     if end_index < len(user_ids):
-        row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="users_next"))
+        row.append(InlineKeyboardButton("Next ➡️", callback_data="users_next"))
     if row:
         keyboard.append(row)
 
     # NEW: Back to admin dashboard button
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")])
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -14424,9 +14424,9 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Show mode selection (Normal/Crazy)
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Normal Mode", callback_data=f"pvb_mode_normal_{game_type}")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Crazy Mode", callback_data=f"pvb_mode_crazy_{game_type}")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
+            [InlineKeyboardButton("⚙️ Normal Mode", callback_data=f"pvb_mode_normal_{game_type}")],
+            [InlineKeyboardButton("🎮 Crazy Mode", callback_data=f"pvb_mode_crazy_{game_type}")],
+            [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
         ]
         await query.edit_message_text(
             f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Select Game Mode</b>\n\n"
@@ -14451,7 +14451,7 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("1️⃣ 1 Roll", callback_data=f"pvb_rolls_1_{mode}_{game_type}")],
             [InlineKeyboardButton("2️⃣ 2 Rolls", callback_data=f"pvb_rolls_2_{mode}_{game_type}")],
             [InlineKeyboardButton("3️⃣ 3 Rolls", callback_data=f"pvb_rolls_3_{mode}_{game_type}")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
+            [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
         ]
         await query.edit_message_text(
             f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Select Number of Rolls</b>\n\n"
@@ -14500,7 +14500,7 @@ async def pvb_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"• <b>Normal (N):</b> Highest total score wins the point\n"
             f"• <b>Crazy (C):</b> Lowest total score wins the point",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data=f"game_{data.replace('pvp_info_', '')}")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data=f"game_{data.replace('pvp_info_', '')}")]])
         )
 
 async def start_pvb_conversation_after_setup(query, context):
@@ -14532,8 +14532,8 @@ async def balance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
-                apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
+                apply_button_style(InlineKeyboardButton("💰 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
+                apply_button_style(InlineKeyboardButton("💰 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
             ],
         ]
         
@@ -14561,10 +14561,10 @@ async def balance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # DM: original behavior
     keyboard = [
         [
-            InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Deposit", callback_data="main_deposit"),
-            InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Withdraw", callback_data="main_withdraw")
+            InlineKeyboardButton("💰 Deposit", callback_data="main_deposit"),
+            InlineKeyboardButton("💰 Withdraw", callback_data="main_withdraw")
         ],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> View Full Wallet", callback_data="main_wallet")]
+        [InlineKeyboardButton("💬 View Full Wallet", callback_data="main_wallet")]
     ]
     
     text = f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Your Balance</b>\n\n{formatted_balance}"
@@ -14605,7 +14605,7 @@ async def matches_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fr
 
     if not user_game_ids:
         text = "You haven't played any matches yet."
-        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
         if from_callback: await update.callback_query.edit_message_text(text, reply_markup=reply_markup)
         else: await update.message.reply_text(text, reply_markup=reply_markup)
         return
@@ -14676,13 +14676,13 @@ async def matches_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fr
     keyboard = []
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data=f"my_matches_{page - 1}"))
+        nav_row.append(InlineKeyboardButton("◀️ Previous", callback_data=f"my_matches_{page - 1}"))
     if end_index < len(completed_games):
-        nav_row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"my_matches_{page + 1}"))
+        nav_row.append(InlineKeyboardButton("Next ➡️", callback_data=f"my_matches_{page + 1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")])
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     if from_callback:
@@ -14699,7 +14699,7 @@ async def deals_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
 
     if not user_deal_ids:
         text = "You have no escrow deals."
-        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")]]) if from_callback else None
         if from_callback: await update.callback_query.edit_message_text(text, reply_markup=reply_markup)
         else: await update.message.reply_text(text, reply_markup=reply_markup)
         return
@@ -14731,13 +14731,13 @@ async def deals_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     keyboard = []
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data=f"my_deals_{page - 1}"))
+        nav_row.append(InlineKeyboardButton("◀️ Previous", callback_data=f"my_deals_{page - 1}"))
     if end_index < len(all_deals):
-        nav_row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"my_deals_{page + 1}"))
+        nav_row.append(InlineKeyboardButton("Next ➡️", callback_data=f"my_deals_{page + 1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Wallet", callback_data="main_wallet")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to Wallet", callback_data="main_wallet")])
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     if from_callback: await update.callback_query.edit_message_text(msg, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
@@ -15469,7 +15469,7 @@ async def clear_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Only the bot owner can use this command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, clear all funds", callback_data="clear_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clear_confirm_no")]]
+    keyboard = [[InlineKeyboardButton("✅ Yes, clear all funds", callback_data="clear_confirm_yes"), InlineKeyboardButton("❌ No, cancel", callback_data="clear_confirm_no")]]
     await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WARNING: This will reset all user balances to zero!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
 
 async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -15478,7 +15478,7 @@ async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Only the bot owner can use this command.")
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, erase ALL data", callback_data="clearall_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clearall_confirm_no")]]
+    keyboard = [[InlineKeyboardButton("✅ Yes, erase ALL data", callback_data="clearall_confirm_yes"), InlineKeyboardButton("❌ No, cancel", callback_data="clearall_confirm_no")]]
     await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> EXTREME WARNING <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>\n\nThis will completely erase ALL user data, including all settings. This action is IRREVERSIBLE!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
 
 async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -15619,8 +15619,8 @@ async def tip_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Send confirmation message with inline buttons
     keyboard = [
         [
-            InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Confirm", callback_data=f"confirm_tip_{tip_id}"),
-            InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"cancel_tip_{tip_id}")
+            InlineKeyboardButton("✅ Confirm", callback_data=f"confirm_tip_{tip_id}"),
+            InlineKeyboardButton("❌ Cancel", callback_data=f"cancel_tip_{tip_id}")
         ]
     ]
     await update.message.reply_text(
@@ -15796,7 +15796,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from_
     if is_owner:
         help_text += owner_help
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, help_text, parse_mode=ParseMode.HTML, reply_markup=reply_markup, disable_web_page_preview=True)
@@ -16034,7 +16034,7 @@ async def escrow_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fro
             await safe_edit_message(
                 update.callback_query, 
                 error_msg,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]])
             )
         else: 
             await update.message.reply_text(error_msg)
@@ -16049,7 +16049,7 @@ async def escrow_command(update: Update, context: ContextTypes.DEFAULT_TYPE, fro
     context.user_data['escrow_step'] = 'ask_amount'
     context.user_data['escrow_data'] = {'creator_id': user.id, 'creator_username': user.username}
     text = "<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>New Escrow Deal</b>\n\nPlease enter the deal amount in USDT (BEP20)."
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]]
+    keyboard = [[InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]]
     if from_callback:
         await safe_edit_message(update.callback_query, text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
@@ -16070,9 +16070,9 @@ async def handle_escrow_conversation(update: Update, context: ContextTypes.DEFAU
             deal_data['amount'] = amount
             context.user_data['escrow_step'] = 'ask_role'
             keyboard = [
-                [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> I am the Seller", callback_data="escrow_role_seller")],
-                [InlineKeyboardButton("<tg-emoji emoji-id='5431609822288033666'>⭐</tg-emoji> I am the Buyer", callback_data="escrow_role_buyer")],
-                [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]
+                [InlineKeyboardButton("🏛️ I am the Seller", callback_data="escrow_role_seller")],
+                [InlineKeyboardButton("💬 I am the Buyer", callback_data="escrow_role_buyer")],
+                [InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]
             ]
             await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Amount set to ${amount:.2f} USDT.\n\nPlease select your role:", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         except (ValueError, TypeError):
@@ -16097,7 +16097,7 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
         context.user_data['escrow_data']['creator_role'] = role
         context.user_data['escrow_data']['partner_role'] = 'Buyer' if role == 'seller' else 'Seller'
         context.user_data['escrow_step'] = 'ask_details'
-        cancel_button = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]]
+        cancel_button = [[InlineKeyboardButton("❌ Cancel", callback_data="escrow_action_cancel_setup")]]
         await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Role selected. Now, please provide the deal details (e.g., 'Sale of item X').", reply_markup=InlineKeyboardMarkup(cancel_button), parse_mode=ParseMode.HTML)
 
     # REMOVED: partner action, as we now force link creation.
@@ -16141,8 +16141,8 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             if user.id != deal['seller']['id']: await query.answer("Only the seller can release funds.", show_alert=True); return
             if deal['status'] != 'funds_secured': await query.answer("Funds are not in a releasable state.", show_alert=True); return
             keyboard = [
-                [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, Release Funds", callback_data=f"escrow_action_{deal_id}_releaseconfirm")],
-                [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, Cancel", callback_data=f"escrow_action_{deal_id}_releasecancel")]
+                [InlineKeyboardButton("✅ Yes, Release Funds", callback_data=f"escrow_action_{deal_id}_releaseconfirm")],
+                [InlineKeyboardButton("❌ No, Cancel", callback_data=f"escrow_action_{deal_id}_releasecancel")]
             ]
             await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Are you sure you want to release the funds to the buyer? This action is irreversible.", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         elif decision == 'releaseconfirm':
@@ -16245,7 +16245,7 @@ async def handle_escrow_deep_link(update: Update, context: ContextTypes.DEFAULT_
     deal_summary = (f"<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> <b>You are joining an Escrow Deal</b>\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
                     f"<b>Amount:</b> ${deal['amount']:.2f} USDT\n<b>Seller:</b> @{deal['seller']['username']}\n"
                     f"<b>Buyer:</b> @{deal['buyer']['username']}\n<b>Details:</b> {deal['details']}")
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Accept Deal", callback_data=f"escrow_confirm_{deal_id}_accept"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Decline Deal", callback_data=f"escrow_confirm_{deal_id}_decline")]]
+    keyboard = [[InlineKeyboardButton("✅ Accept Deal", callback_data=f"escrow_confirm_{deal_id}_accept"), InlineKeyboardButton("❌ Decline Deal", callback_data=f"escrow_confirm_{deal_id}_decline")]]
     await update.message.reply_text(f"{deal_summary}\n\nPlease confirm to proceed.", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
 
 def generate_verification_code(pf_record):
@@ -16552,11 +16552,11 @@ async def monitor_escrow_deposit(context: ContextTypes.DEFAULT_TYPE):
 
                         # Enhanced attractive buttons
                         keyboard_seller = [
-                            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
-                            [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+                            [InlineKeyboardButton("✅ Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
+                            [InlineKeyboardButton("❌ Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
                         ]
                         keyboard_buyer = [
-                            [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+                            [InlineKeyboardButton("❌ Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
                         ]
 
                         await context.bot.send_message(seller_id, seller_msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard_seller))
@@ -16643,12 +16643,12 @@ async def escrow_add_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     # Create enhanced buttons with better styling
     keyboard_seller = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+        [InlineKeyboardButton("✅ Release Funds to Buyer", callback_data=f"escrow_action_{deal_id}_release")],
+        [InlineKeyboardButton("❌ Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
     ]
     
     keyboard_buyer = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
+        [InlineKeyboardButton("❌ Open Dispute", callback_data=f"escrow_action_{deal_id}_dispute")]
     ]
     
     await context.bot.send_message(seller_id, seller_msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard_seller))
@@ -16703,18 +16703,18 @@ async def continue_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if game['current_row'] > 0:
             multiplier = TOWER_MULTIPLIERS[game["bombs_per_row"]][game["current_row"]]
             potential_winnings = game["bet_amount"] * multiplier
-            keyboard.append([InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}")])
+            keyboard.append([InlineKeyboardButton(f"💰 Cash Out (${potential_winnings:.2f})", callback_data=f"tower_cashout_{game_id}")])
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     elif game_type == 'coin_flip':
         text = f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Resuming Coin Flip (ID: <code>{game_id}</code>)..."
         multiplier = 2 ** game["streak"]
         win_amount = game["bet_amount"] * multiplier
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
-             apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
+            [apply_button_style(InlineKeyboardButton("💰 Heads", callback_data=f"flip_pick_{game_id}_Heads"), 'primary'),
+             apply_button_style(InlineKeyboardButton("💰 Tails", callback_data=f"flip_pick_{game_id}_Tails"), 'primary')],
         ]
         if game['streak'] > 0:
-            keyboard.append([apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')])
+            keyboard.append([apply_button_style(InlineKeyboardButton(f"💰 Cash Out (${win_amount:.2f})", callback_data=f"flip_cashout_{game_id}"), 'success')])
         await update.message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=create_styled_keyboard(keyboard))
     # FIX: Add blackjack continuation
     elif game_type == 'blackjack':
@@ -16724,8 +16724,8 @@ async def continue_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         hand_text = format_hand("Your hand", game['player_hand'], player_value)
         dealer_text = f"Dealer shows: {dealer_show_card}\n"
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Hit", callback_data=f"bj_hit_{game_id}"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5397782960512444700'>⭐</tg-emoji> Stand", callback_data=f"bj_stand_{game_id}")],
+            [InlineKeyboardButton("🃏 Hit", callback_data=f"bj_hit_{game_id}"),
+             InlineKeyboardButton("🃏 Stand", callback_data=f"bj_stand_{game_id}")],
         ]
         await update.message.reply_text(
             f"{text}\n\n{hand_text}\n{dealer_text}\n<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Bet: ${game['bet_amount']:.2f}",
@@ -16752,20 +16752,20 @@ async def continue_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Add Higher button only if not King (13)
         if current_card != 13:
-            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬆️ Higher ({high_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_high"), 'primary'))
         
         # Add Lower button only if not Ace (1)
         if current_card != 1:
-            row1.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
+            row1.append(apply_button_style(InlineKeyboardButton(f"⬇️ Lower ({low_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_low"), 'success'))
         
         # Row 2: Tie button
-        row2 = [apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
+        row2 = [apply_button_style(InlineKeyboardButton(f"🔄 Tie ({tie_mult:.2f}x)", callback_data=f"hl_pick_{game_id}_tie"), 'primary')]
         
         # Row 3: Skip Card and Cashout buttons (if streak > 0)
         row3 = [apply_button_style(InlineKeyboardButton("⏭️ Skip Card", callback_data=f"hl_skip_{game_id}"), 'primary')]
         if streak > 0:
             cashout_amount = game['bet_amount'] * current_multiplier
-            row3.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Cash Out (${cashout_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success'))
+            row3.append(apply_button_style(InlineKeyboardButton(f"💰 Cash Out (${cashout_amount:.2f})", callback_data=f"hl_cashout_{game_id}"), 'success'))
         
         keyboard = [row1, row2, row3]
         
@@ -16980,21 +16980,21 @@ async def leaderboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     # Create inline buttons (user-specific, COLORED buttons - Bot API 9.4)
     keyboard = [
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Weekly", callback_data=f"leaderboard_weekly_{user_id}"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Monthly", callback_data=f"leaderboard_monthly_{user_id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("⚙️ Weekly", callback_data=f"leaderboard_weekly_{user_id}"), 'primary'),  # BLUE
+            apply_button_style(InlineKeyboardButton("⚙️ Monthly", callback_data=f"leaderboard_monthly_{user_id}"), 'success')  # GREEN
         ],
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Highest Wins", callback_data=f"leaderboard_wins_{user_id}"), 'primary')  # BLUE
+            apply_button_style(InlineKeyboardButton("💰 Highest Wins", callback_data=f"leaderboard_wins_{user_id}"), 'primary')  # BLUE
         ],
         [
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> All Time", callback_data=f"leaderboard_alltime_{user_id}"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("🎟️ All Time", callback_data=f"leaderboard_alltime_{user_id}"), 'success')  # GREEN
         ],
     ]
     
     # Only show back button in DMs
     if not is_group:
         keyboard.append([
-            apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("🔙 Back to More", callback_data="main_more"), 'danger')  # RED
         ])
     
     reply_markup = create_styled_keyboard(keyboard)
@@ -17099,12 +17099,12 @@ async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
     # Add buttons for transferring commissions and viewing referrals
     keyboard = []
     if commissions and any(v > 0 for v in commissions.values()):
-        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Transfer to Balance", callback_data=f"ref_transfer_{user.id}"), 'success')])
+        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Transfer to Balance", callback_data=f"ref_transfer_{user.id}"), 'success')])
     
     if len(ref_info.get('referred_users', [])) > 0:
-        keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> Check My Referrals", callback_data=f"ref_check_{user.id}"), 'primary')])
+        keyboard.append([apply_button_style(InlineKeyboardButton("👥 Check My Referrals", callback_data=f"ref_check_{user.id}"), 'primary')])
     
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to More", callback_data="main_more")])
     reply_markup = create_styled_keyboard(keyboard) if from_callback else (create_styled_keyboard(keyboard) if keyboard else None)
 
     if from_callback:
@@ -17249,9 +17249,9 @@ async def raffle_start_callback(update: Update, context: ContextTypes.DEFAULT_TY
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> All Players", callback_data="raffle_type_all"), 'success')],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel"), 'danger')]
+        [apply_button_style(InlineKeyboardButton("💎 Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("💎 All Players", callback_data="raffle_type_all"), 'success')],
+        [apply_button_style(InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel"), 'danger')]
     ]
     
     await safe_edit_message(
@@ -17282,7 +17282,7 @@ async def raffle_type_callback(update: Update, context: ContextTypes.DEFAULT_TYP
         f"Your balance: ${get_active_balance_usd(user.id):.2f}\n\n"
         f"The amount will be deducted from your balance immediately.",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
     )
     return RAFFLE_PRIZE_AMOUNT
 
@@ -17299,7 +17299,7 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if prize_usd > balance:
             await update.message.reply_text(
                 f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. You have ${balance:.2f}. Try again:",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
             , parse_mode=ParseMode.HTML)
             return RAFFLE_PRIZE_AMOUNT
         
@@ -17314,7 +17314,7 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"Enter the <b>wager amount needed for 1 ticket</b> (in USD):\n\n"
             f"Example: 10 (users need to wager $10 to earn 1 ticket)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_TICKET_COST
     except ValueError:
@@ -17336,7 +17336,7 @@ async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_
             f"Enter the <b>raffle duration in days</b> (1-30):\n\n"
             f"Example: 7 (raffle runs for 7 days)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_DURATION
     except ValueError:
@@ -17358,7 +17358,7 @@ async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYP
             f"Enter the <b>number of winners</b> (1-100):\n\n"
             f"Example: 5 (5 winners will be selected)",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="raffle_cancel")]])
         )
         return RAFFLE_NUM_WINNERS
     except ValueError:
@@ -17441,8 +17441,8 @@ async def raffle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5274099962655816924'>⭐</tg-emoji> All Players", callback_data="raffle_type_all"), 'success')],
+        [apply_button_style(InlineKeyboardButton("💎 Referrals Only", callback_data="raffle_type_referrals"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("💎 All Players", callback_data="raffle_type_all"), 'success')],
     ]
     
     sent_message = await update.message.reply_text(
@@ -17463,8 +17463,8 @@ async def raffles_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Active Raffles", callback_data="raffles_active"), 'success')],
+        [apply_button_style(InlineKeyboardButton("🎲 My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("🎟️ Active Raffles", callback_data="raffles_active"), 'success')],
     ]
     
     sent_message = await update.message.reply_text(
@@ -17494,7 +17494,7 @@ async def raffles_mine_callback(update: Update, context: ContextTypes.DEFAULT_TY
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You haven't created any active raffles.\n\n"
             "Use <code>/raffle</code> to create one!",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
         )
         return
     
@@ -17516,7 +17516,7 @@ async def raffles_mine_callback(update: Update, context: ContextTypes.DEFAULT_TY
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
     )
 
 async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17529,7 +17529,7 @@ async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_
             query,
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No active raffles at the moment.",
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
         )
         return
     
@@ -17555,7 +17555,7 @@ async def raffles_active_callback(update: Update, context: ContextTypes.DEFAULT_
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="raffles_back")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="raffles_back")]])
     )
 
 async def raffles_back_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17565,8 +17565,8 @@ async def raffles_back_callback(update: Update, context: ContextTypes.DEFAULT_TY
     user = query.from_user
     
     keyboard = [
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
-        [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5249381781622247862'>⭐</tg-emoji> Active Raffles", callback_data="raffles_active"), 'success')],
+        [apply_button_style(InlineKeyboardButton("🎲 My Raffles", callback_data=f"raffles_mine_{user.id}"), 'primary')],
+        [apply_button_style(InlineKeyboardButton("🎟️ Active Raffles", callback_data="raffles_active"), 'success')],
     ]
     
     await safe_edit_message(
@@ -17608,7 +17608,7 @@ async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAU
         await safe_edit_message(
             query,
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No commissions to transfer.",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
         )
         return
     
@@ -17635,7 +17635,7 @@ async def referral_transfer_callback(update: Update, context: ContextTypes.DEFAU
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
     )
 
 async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17657,7 +17657,7 @@ async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_
         await safe_edit_message(
             query,
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You haven't referred anyone yet.",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
         )
         return
     
@@ -17677,7 +17677,7 @@ async def referral_check_callback(update: Update, context: ContextTypes.DEFAULT_
         query,
         msg,
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Referral", callback_data="main_referral")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Referral", callback_data="main_referral")]])
     )
 
 @check_banned
@@ -17715,8 +17715,8 @@ async def level_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
         text += f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> <b>Rakeback:</b> {rakeback}%"
 
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> View All Levels", callback_data="levels_Bronze")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]
+        [InlineKeyboardButton("⚙️ View All Levels", callback_data="levels_Bronze")],
+        [InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]
     ]
     
     if from_callback:
@@ -17759,13 +17759,13 @@ async def level_all_command(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     nav = LEVEL_NAVIGATION[tier]
     if nav["prev"]:
         prev_emoji = TIER_EMOJI.get(nav['prev'], "")
-        nav_row.append(apply_button_style(InlineKeyboardButton(f"<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> {prev_emoji} {nav['prev']}", callback_data=f"levels_{nav['prev']}"), 'primary'))
+        nav_row.append(apply_button_style(InlineKeyboardButton(f"◀️ {prev_emoji} {nav['prev']}", callback_data=f"levels_{nav['prev']}"), 'primary'))
     if nav["next"]:
         next_emoji = TIER_EMOJI.get(nav['next'], "")
-        nav_row.append(apply_button_style(InlineKeyboardButton(f"{next_emoji} {nav['next']} <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"levels_{nav['next']}"), 'primary'))
+        nav_row.append(apply_button_style(InlineKeyboardButton(f"{next_emoji} {nav['next']} ➡️", callback_data=f"levels_{nav['next']}"), 'primary'))
     if nav_row:
         keyboard.append(nav_row)
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to My Level", callback_data="main_level")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to My Level", callback_data="main_level")])
     
     reply_markup = create_styled_keyboard(keyboard)
     
@@ -17959,7 +17959,7 @@ async def price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>24h Volume:</b> {volume:,.2f} {symbol}"
         )
         
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Update", callback_data=f"price_update_{pair}")]]
+        keyboard = [[InlineKeyboardButton("🔄 Update", callback_data=f"price_update_{pair}")]]
 
         # Edit using appropriate bot
         if is_group and helper_bot:
@@ -18021,7 +18021,7 @@ async def price_update_callback(update: Update, context: ContextTypes.DEFAULT_TY
             f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> <b>24h Volume:</b> {volume:,.2f} {symbol}"
         )
         
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Update", callback_data=f"price_update_{pair}")]]
+        keyboard = [[InlineKeyboardButton("🔄 Update", callback_data=f"price_update_{pair}")]]
         
         # Check if message content is different before editing to avoid errors
         if query.message.text != text:
@@ -18103,7 +18103,7 @@ async def daily_command(update: Update, context: ContextTypes.DEFAULT_TYPE, from
     save_user_data(user.id)
 
     text = get_text("daily_claim_success", lang, amount=bonus_amount)
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, text, reply_markup=reply_markup)
@@ -18128,7 +18128,7 @@ async def achievements_command(update: Update, context: ContextTypes.DEFAULT_TYP
             if ach_data:
                 text += f"{ach_data['emoji']} <b>{ach_data['name']}</b> - <i>{ach_data['description']}</i>\n"
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to More", callback_data="main_more")]]) if from_callback else None
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to More", callback_data="main_more")]]) if from_callback else None
 
     if from_callback:
         await safe_edit_message(update.callback_query, text, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
@@ -18254,13 +18254,13 @@ async def admin_dashboard_command(update: Update, context: ContextTypes.DEFAULT_
     )
 
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5210952531676504517'>⭐</tg-emoji> User Management", callback_data="admin_users"), InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Search User", callback_data="admin_search_user")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Pending Withdrawals", callback_data="admin_pending_withdrawals")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> House Balance", callback_data="admin_set_house_balance"), InlineKeyboardButton("<tg-emoji emoji-id='5334544901428229844'>⭐</tg-emoji> Game Limits", callback_data="admin_limits")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Bot Settings", callback_data="admin_bot_settings"), InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Broadcast", callback_data="admin_broadcast")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Gift Codes", callback_data="admin_gift_codes"), InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Active Games", callback_data="admin_active_games")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Export Data", callback_data="admin_export_data")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
+        [InlineKeyboardButton("👥 User Management", callback_data="admin_users"), InlineKeyboardButton("🔒 Search User", callback_data="admin_search_user")],
+        [InlineKeyboardButton("💰 Pending Withdrawals", callback_data="admin_pending_withdrawals")],
+        [InlineKeyboardButton("💰 House Balance", callback_data="admin_set_house_balance"), InlineKeyboardButton("📊 Game Limits", callback_data="admin_limits")],
+        [InlineKeyboardButton("⚙️ Bot Settings", callback_data="admin_bot_settings"), InlineKeyboardButton("⚙️ Broadcast", callback_data="admin_broadcast")],
+        [InlineKeyboardButton("🎁 Gift Codes", callback_data="admin_gift_codes"), InlineKeyboardButton("🎮 Active Games", callback_data="admin_active_games")],
+        [InlineKeyboardButton("⚙️ Export Data", callback_data="admin_export_data")],
+        [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
     ]
 
     if query:
@@ -18280,7 +18280,7 @@ async def admin_bot_settings_callback(update: Update, context: ContextTypes.DEFA
         [InlineKeyboardButton(f"Daily Bonus: ${bot_settings.get('daily_bonus_amount', 0.50):.2f}", callback_data="admin_set_daily_bonus")],
         [InlineKeyboardButton(f"Maintenance: {'ON' if bot_settings.get('maintenance_mode') else 'OFF'}", callback_data="admin_toggle_maintenance")],
         [InlineKeyboardButton(f"Withdrawals: {'Enabled' if bot_settings.get('withdrawals_enabled', True) else 'Disabled'}", callback_data="admin_toggle_withdrawals")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
     ]
     await safe_edit_message(query, text, reply_markup=InlineKeyboardMarkup(keyboard))
 
@@ -18309,7 +18309,7 @@ async def admin_actions_callback(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text("Select limit type to set:", reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("Set Minimum Bet", callback_data="admin_limit_type_min")],
             [InlineKeyboardButton("Set Maximum Bet", callback_data="admin_limit_type_max")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
         ]), parse_mode=ParseMode.HTML)
         return ADMIN_LIMITS_CHOOSE_TYPE
     elif action == "admin_set_daily_bonus":
@@ -18366,12 +18366,12 @@ async def admin_ban_management(update: Update, context: ContextTypes.DEFAULT_TYP
             text += f"  ... and {len(temp_banned_users) - 5} more\n"
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Ban User", callback_data="admin_ban_user_prompt"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Unban User", callback_data="admin_unban_user_prompt")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Temp Ban (Withdrawals)", callback_data="admin_tempban_user_prompt"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Remove Temp Ban", callback_data="admin_untempban_user_prompt")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> View All Bans", callback_data="admin_view_all_bans")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("⚙️ Ban User", callback_data="admin_ban_user_prompt"),
+         InlineKeyboardButton("⚙️ Unban User", callback_data="admin_unban_user_prompt")],
+        [InlineKeyboardButton("❌ Temp Ban (Withdrawals)", callback_data="admin_tempban_user_prompt"),
+         InlineKeyboardButton("✅ Remove Temp Ban", callback_data="admin_untempban_user_prompt")],
+        [InlineKeyboardButton("⚙️ View All Bans", callback_data="admin_view_all_bans")],
+        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
     ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18387,7 +18387,7 @@ async def admin_pending_withdrawals(update: Update, context: ContextTypes.DEFAUL
     
     if not pending:
         text += "No pending withdrawals at the moment."
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]]
     else:
         text += f"Total Pending: {len(pending)}\n\n"
         for w in pending[:5]:  # Show first 5
@@ -18405,8 +18405,8 @@ async def admin_pending_withdrawals(update: Update, context: ContextTypes.DEFAUL
         text += "Use the approval buttons on individual withdrawal notifications to process them."
         
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Refresh", callback_data="admin_pending_withdrawals")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("🔄 Refresh", callback_data="admin_pending_withdrawals")],
+            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
         ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18422,7 +18422,7 @@ async def admin_active_games(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     if not active:
         text += "No active games at the moment."
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]]
     else:
         text += f"Total Active Games: {len(active)}\n\n"
         
@@ -18448,8 +18448,8 @@ async def admin_active_games(update: Update, context: ContextTypes.DEFAULT_TYPE)
             text += f"  ... and {len(active) - 5} more\n"
         
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Refresh", callback_data="admin_active_games")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("🔄 Refresh", callback_data="admin_active_games")],
+            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
         ]
     
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -18536,7 +18536,7 @@ async def admin_limits_choose_type_step(update: Update, context: ContextTypes.DE
     if row:
         keyboard.append(row)
 
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("🔙 Back", callback_data="admin_dashboard")])
 
     await query.edit_message_text(f"Select a game to set the <b>{limit_type}imum</b> bet for:",
                                   reply_markup=InlineKeyboardMarkup(keyboard),
@@ -18754,13 +18754,13 @@ async def display_admin_user_panel(update: Update, context: ContextTypes.DEFAULT
 
     nav_row = []
     if page > 0:
-        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page-1}"))
+        nav_row.append(InlineKeyboardButton("◀️", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page-1}"))
     if (page+1)*page_size < len(items):
-        nav_row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page+1}"))
+        nav_row.append(InlineKeyboardButton("▶️", callback_data=f"admin_user_{target_user_id}_history_{history_type}_{page+1}"))
     if nav_row:
         keyboard.append(nav_row)
 
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin Dashboard", callback_data="admin_dashboard")])
+    keyboard.append([InlineKeyboardButton("🔙 Back to Admin Dashboard", callback_data="admin_dashboard")])
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -19136,9 +19136,9 @@ async def send_active_games_page(update: Update, context: ContextTypes.DEFAULT_T
     keyboard = []
     row = []
     if page > 0:
-        row.append(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Previous", callback_data="activeall_prev"))
+        row.append(InlineKeyboardButton("◀️ Previous", callback_data="activeall_prev"))
     if end_index < len(active_games):
-        row.append(InlineKeyboardButton("Next <tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji>", callback_data="activeall_next"))
+        row.append(InlineKeyboardButton("Next ➡️", callback_data="activeall_next"))
     if row:
         keyboard.append(row)
 
@@ -19211,10 +19211,10 @@ async def more_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, page=0):
         keyboard.append(row)
     
     # Add Terms of Service button (no color for URL buttons)
-    keyboard.append([InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Terms of Service", url="https://telegra.ph/Casino-Terms-of-Service-11-17").to_dict()])
+    keyboard.append([InlineKeyboardButton("⚙️ Terms of Service", url="https://telegra.ph/Casino-Terms-of-Service-11-17").to_dict()])
     
     # Back button - RED
-    keyboard.append([apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main"), 'danger')])
+    keyboard.append([apply_button_style(InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main"), 'danger')])
     
     text = f"<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> <b>More Options</b>\n\nSelect an option:"
     
@@ -19233,7 +19233,7 @@ async def settings_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_lang = get_user_lang(user.id)
 
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Active Currency", callback_data="settings_currency")],
+        [InlineKeyboardButton("💰 Active Currency", callback_data="settings_currency")],
         [InlineKeyboardButton(get_text("language", user_lang), callback_data="settings_language")],
         [InlineKeyboardButton(get_text("withdrawal_address", user_lang), callback_data="settings_withdrawal")],
         [InlineKeyboardButton(get_text("back", user_lang), callback_data="back_to_main")]
@@ -19319,8 +19319,8 @@ async def settings_callback_handler(update: Update, context: ContextTypes.DEFAUL
                 f"This is your USDT-BEP20 withdrawal address.",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Change Address", callback_data="settings_withdrawal_change")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Settings", callback_data="main_settings")]
+                    [InlineKeyboardButton("🔄 Change Address", callback_data="settings_withdrawal_change")],
+                    [InlineKeyboardButton("🔙 Back to Settings", callback_data="main_settings")]
                 ])
             )
             return
@@ -19492,7 +19492,7 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
         await update.message.reply_text(
             rejection_msg,
             parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Play Games", callback_data="main_games")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🎮 Play Games", callback_data="main_games")]])
         )
         return ConversationHandler.END
     
@@ -19552,8 +19552,8 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Approve", callback_data=f"withdrawal_approve_{withdrawal_id}"),
-                 InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data=f"withdrawal_cancel_{withdrawal_id}")]
+                [InlineKeyboardButton("✅ Approve", callback_data=f"withdrawal_approve_{withdrawal_id}"),
+                 InlineKeyboardButton("❌ Cancel", callback_data=f"withdrawal_cancel_{withdrawal_id}")]
             ])
         )
     except Exception as e:
@@ -20035,10 +20035,10 @@ async def send_admin_bonus_notification(context: ContextTypes.DEFAULT_TYPE, bonu
         
         keyboard = [
             [
-                InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Increase Bonus", callback_data=f"bonus_adjust_{bonus_type}_increase"),
-                InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Decrease Bonus", callback_data=f"bonus_adjust_{bonus_type}_decrease")
+                InlineKeyboardButton("⚙️ Increase Bonus", callback_data=f"bonus_adjust_{bonus_type}_increase"),
+                InlineKeyboardButton("⚙️ Decrease Bonus", callback_data=f"bonus_adjust_{bonus_type}_decrease")
             ],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> No Change", callback_data=f"bonus_adjust_{bonus_type}_nochange")]
+            [InlineKeyboardButton("✅ No Change", callback_data=f"bonus_adjust_{bonus_type}_nochange")]
         ]
         
         await context.bot.send_message(
@@ -20124,8 +20124,8 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
         
         keyboard = [
             [
-                InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Notify Users", callback_data=f"bonus_notify_{bonus_type}_yes"),
-                InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Don't Notify", callback_data=f"bonus_notify_{bonus_type}_no")
+                InlineKeyboardButton("✅ Notify Users", callback_data=f"bonus_notify_{bonus_type}_yes"),
+                InlineKeyboardButton("❌ Don't Notify", callback_data=f"bonus_notify_{bonus_type}_no")
             ]
         ]
         
@@ -21012,9 +21012,9 @@ async def pvb_get_target_score(update: Update, context: ContextTypes.DEFAULT_TYP
     
     # Ask who should roll first
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> You Roll First", callback_data="pvb_first_user")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Bot Rolls First", callback_data="pvb_first_bot")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel", callback_data="cancel_game")]
+        [InlineKeyboardButton("🎲 You Roll First", callback_data="pvb_first_user")],
+        [InlineKeyboardButton("🤖 Bot Rolls First", callback_data="pvb_first_bot")],
+        [InlineKeyboardButton("🔙 Cancel", callback_data="cancel_game")]
     ]
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Who Rolls First?</b>\n\n"
@@ -21188,17 +21188,17 @@ async def cancel_game_conversation(update: Update, context: ContextTypes.DEFAULT
         # Return to house games menu for mines and tower
         text = "<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> <b>House Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="game_blackjack"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice Roll", callback_data="game_dice_roll")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Predict", callback_data="game_predict"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="game_roulette")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Slots", callback_data="game_slots"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="game_tower_start")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="game_mines_start"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="game_keno")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coin Flip", callback_data="game_coin_flip"),
-             InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> High-Low", callback_data="game_highlow")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Categories", callback_data="main_games")]
+            [InlineKeyboardButton("🎮 Blackjack", callback_data="game_blackjack"),
+             InlineKeyboardButton("🎲 Dice Roll", callback_data="game_dice_roll")],
+            [InlineKeyboardButton("🤖 Predict", callback_data="game_predict"),
+             InlineKeyboardButton("🎲 Roulette", callback_data="game_roulette")],
+            [InlineKeyboardButton("🎲 Slots", callback_data="game_slots"),
+             InlineKeyboardButton("🏛️ Tower", callback_data="game_tower_start")],
+            [InlineKeyboardButton("🏠 Mines", callback_data="game_mines_start"),
+             InlineKeyboardButton("🎲 Keno", callback_data="game_keno")],
+            [InlineKeyboardButton("💰 Coin Flip", callback_data="game_coin_flip"),
+             InlineKeyboardButton("🎮 High-Low", callback_data="game_highlow")],
+            [InlineKeyboardButton("🔙 Back to Categories", callback_data="main_games")]
         ]
         await query.edit_message_text(
             text,
@@ -21210,11 +21210,11 @@ async def cancel_game_conversation(update: Update, context: ContextTypes.DEFAULT
         # Return to emoji regular games menu for PvB games
         text = "<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> <b>Regular Emoji Games</b>\n\nChoose a game to see how to play:"
         keyboard = [
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Dice", callback_data="game_dice_bot"), 'success')],
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Darts", callback_data="game_darts"), 'success')],
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5411590687663608498'>⭐</tg-emoji> Football", callback_data="game_football"), 'success')],
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Bowling", callback_data="game_bowling"), 'success')],
-            [apply_button_style(InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Emoji Games", callback_data="main_games_emoji"), 'danger')]
+            [apply_button_style(InlineKeyboardButton("🎲 Dice", callback_data="game_dice_bot"), 'success')],
+            [apply_button_style(InlineKeyboardButton("🎲 Darts", callback_data="game_darts"), 'success')],
+            [apply_button_style(InlineKeyboardButton("⚽ Football", callback_data="game_football"), 'success')],
+            [apply_button_style(InlineKeyboardButton("🎲 Bowling", callback_data="game_bowling"), 'success')],
+            [apply_button_style(InlineKeyboardButton("🔙 Back to Emoji Games", callback_data="main_games_emoji"), 'danger')]
         ]
         await query.edit_message_text(
             text,
@@ -21242,9 +21242,9 @@ async def start_ai_conversation(update: Update, context: ContextTypes.DEFAULT_TY
     
     await query.answer()
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Perplexity (Online)", callback_data="ai_model_perplexity")],
+        [InlineKeyboardButton("🤖 Perplexity (Online)", callback_data="ai_model_perplexity")],
         [InlineKeyboardButton("🆓 GPT4Free (Free)", callback_data="ai_model_g4f")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]
+        [InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]
     ]
     await safe_edit_message(
         query,
@@ -21270,7 +21270,7 @@ async def choose_ai_model_callback(update: Update, context: ContextTypes.DEFAULT
         query,
         f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> <b>AI Assistant ({model_choice.title()})</b>\n\nI'm ready to help! What's on your mind? Ask me anything.",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]])
     )
     return ASK_AI_PROMPT
 
@@ -21288,7 +21288,7 @@ async def ai_conversation_prompt(update: Update, context: ContextTypes.DEFAULT_T
     # Prompt again for the next question
     await update.message.reply_text(
         "What else can I help you with?",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Cancel & Back to Menu", callback_data="cancel_ai")]])
     , parse_mode=ParseMode.HTML)
     return ASK_AI_PROMPT
 
@@ -21306,11 +21306,11 @@ async def bonuses_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5244837092042750681'>⭐</tg-emoji> Daily Bonus", callback_data="main_daily")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Weekly Bonus", callback_data="bonus_weekly")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Monthly Bonus", callback_data="bonus_monthly")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Rakeback", callback_data="bonus_rakeback")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Main Menu", callback_data="back_to_main")]
+        [InlineKeyboardButton("🎁 Daily Bonus", callback_data="main_daily")],
+        [InlineKeyboardButton("⚙️ Weekly Bonus", callback_data="bonus_weekly")],
+        [InlineKeyboardButton("⚙️ Monthly Bonus", callback_data="bonus_monthly")],
+        [InlineKeyboardButton("💰 Rakeback", callback_data="bonus_rakeback")],
+        [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main")]
     ]
     
     await safe_edit_message(
@@ -21447,7 +21447,7 @@ async def weekly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TYP
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
         await safe_edit_message(update.callback_query, msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
         await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
@@ -21569,7 +21569,7 @@ async def monthly_bonus_command(update: Update, context: ContextTypes.DEFAULT_TY
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
         await safe_edit_message(update.callback_query, msg, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     else:
         await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
@@ -21663,7 +21663,7 @@ async def serverseed_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # Hash the server seed to show to user (can't reveal actual seed until rotation)
     server_seed_hash = hashlib.sha256(server_seed.encode()).hexdigest()
     
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rotate Seeds", callback_data="pf_rotate_seeds")]]
+    keyboard = [[InlineKeyboardButton("🔄 Rotate Seeds", callback_data="pf_rotate_seeds")]]
     
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> <b>Provably Fair - Server Seed</b>\n\n"
@@ -21688,8 +21688,8 @@ async def seed_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     nonce = pf_data.get("nonce", 0)
     
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Change Client Seed", callback_data="pf_change_client_seed")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> Rotate All Seeds", callback_data="pf_rotate_seeds")]
+        [InlineKeyboardButton("🔄 Change Client Seed", callback_data="pf_change_client_seed")],
+        [InlineKeyboardButton("🔄 Rotate All Seeds", callback_data="pf_rotate_seeds")]
     ]
     
     await update.message.reply_text(
@@ -21746,7 +21746,7 @@ async def pf_change_client_seed_callback(update: Update, context: ContextTypes.D
     user = query.from_user
     
     # Add cancel button
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_cancel_seed_change")]]
+    keyboard = [[InlineKeyboardButton("❌ Cancel", callback_data="pf_cancel_seed_change")]]
     
     await query.edit_message_text(
         f"<tg-emoji emoji-id='5224607267797606837'>⭐</tg-emoji> <b>Change Client Seed</b>\n\n"
@@ -21844,7 +21844,7 @@ async def pf_show_game_details_callback(update: Update, context: ContextTypes.DE
         f"Then you can verify this result independently!"
     )
     
-    keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Verify Result", callback_data=f"pf_verify_menu")]]
+    keyboard = [[InlineKeyboardButton("🔒 Verify Result", callback_data=f"pf_verify_menu")]]
     
     await query.edit_message_text(
         text,
@@ -21870,13 +21870,13 @@ async def pf_verify_menu_callback(update: Update, context: ContextTypes.DEFAULT_
                      "Select the game type you want to verify:",
                 parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coinflip", callback_data="pf_verify_coinflip"),
-                     InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="pf_verify_roulette")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> High-Low", callback_data="pf_verify_highlow"),
-                     InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="pf_verify_blackjack")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="pf_verify_keno"),
-                     InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="pf_verify_mines")],
-                    [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="pf_verify_tower")]
+                    [InlineKeyboardButton("💰 Coinflip", callback_data="pf_verify_coinflip"),
+                     InlineKeyboardButton("🎲 Roulette", callback_data="pf_verify_roulette")],
+                    [InlineKeyboardButton("🎲 High-Low", callback_data="pf_verify_highlow"),
+                     InlineKeyboardButton("🎮 Blackjack", callback_data="pf_verify_blackjack")],
+                    [InlineKeyboardButton("🎲 Keno", callback_data="pf_verify_keno"),
+                     InlineKeyboardButton("🏠 Mines", callback_data="pf_verify_mines")],
+                    [InlineKeyboardButton("🏛️ Tower", callback_data="pf_verify_tower")]
                 ])
             )
             await query.edit_message_text(
@@ -21892,14 +21892,14 @@ async def pf_verify_menu_callback(update: Update, context: ContextTypes.DEFAULT_
     
     # In private chat - show menu normally
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> Coinflip", callback_data="pf_verify_coinflip"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Roulette", callback_data="pf_verify_roulette")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> High-Low", callback_data="pf_verify_highlow"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5213430392798851273'>⭐</tg-emoji> Blackjack", callback_data="pf_verify_blackjack")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Keno", callback_data="pf_verify_keno"),
-         InlineKeyboardButton("<tg-emoji emoji-id='5451882707875276247'>⭐</tg-emoji> Mines", callback_data="pf_verify_mines")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5900086068748752426'>⭐</tg-emoji> Tower", callback_data="pf_verify_tower")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back", callback_data="main_menu")]
+        [InlineKeyboardButton("💰 Coinflip", callback_data="pf_verify_coinflip"),
+         InlineKeyboardButton("🎲 Roulette", callback_data="pf_verify_roulette")],
+        [InlineKeyboardButton("🎲 High-Low", callback_data="pf_verify_highlow"),
+         InlineKeyboardButton("🎮 Blackjack", callback_data="pf_verify_blackjack")],
+        [InlineKeyboardButton("🎲 Keno", callback_data="pf_verify_keno"),
+         InlineKeyboardButton("🏠 Mines", callback_data="pf_verify_mines")],
+        [InlineKeyboardButton("🏛️ Tower", callback_data="pf_verify_tower")],
+        [InlineKeyboardButton("🔙 Back", callback_data="main_menu")]
     ]
     
     await query.edit_message_text(
@@ -21927,7 +21927,7 @@ async def pf_verify_coinflip_callback(update: Update, context: ContextTypes.DEFA
         f"I'll calculate the result for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21944,7 +21944,7 @@ async def pf_verify_roulette_callback(update: Update, context: ContextTypes.DEFA
         f"I'll calculate the result for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21961,7 +21961,7 @@ async def pf_verify_highlow_callback(update: Update, context: ContextTypes.DEFAU
         f"I'll calculate the shuffled deck for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21978,7 +21978,7 @@ async def pf_verify_blackjack_callback(update: Update, context: ContextTypes.DEF
         f"I'll calculate the shuffled deck for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -21995,7 +21995,7 @@ async def pf_verify_keno_callback(update: Update, context: ContextTypes.DEFAULT_
         f"I'll calculate the drawn numbers for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22012,7 +22012,7 @@ async def pf_verify_mines_callback(update: Update, context: ContextTypes.DEFAULT
         f"I'll calculate the mine positions for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22029,7 +22029,7 @@ async def pf_verify_tower_callback(update: Update, context: ContextTypes.DEFAULT
         f"I'll calculate the snake positions for you!\n\n"
         f"Please enter the <b>Server Seed</b> (revealed after rotation):",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="pf_verify_cancel")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="pf_verify_cancel")]])
     )
     
     return PF_VERIFY_INPUT_SERVER_SEED
@@ -22260,7 +22260,7 @@ async def rakeback_command(update: Update, context: ContextTypes.DEFAULT_TYPE, f
     )
     
     if from_callback:
-        keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Bonuses", callback_data="main_bonuses")]]
+        keyboard = [[InlineKeyboardButton("🔙 Back to Bonuses", callback_data="main_bonuses")]]
         await update.callback_query.edit_message_text(message, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
     else:
         await update.message.reply_text(message, parse_mode=ParseMode.HTML)
@@ -22280,8 +22280,8 @@ async def admin_gift_code_menu(update: Update, context: ContextTypes.DEFAULT_TYP
             text += f"• <code>{code}</code>: ${data['amount']:.2f}, {data['claims_left']}/{data['total_claims']} left{wager_text}\n"
             
     keyboard = [
-        [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Create New Code", callback_data="admin_gift_create")],
-        [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+        [InlineKeyboardButton("⚙️ Create New Code", callback_data="admin_gift_create")],
+        [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
     ]
     await query.edit_message_text(text, parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
     
@@ -22353,8 +22353,8 @@ async def admin_gift_code_create_step4(update: Update, context: ContextTypes.DEF
                 codes_text += f"• <code>{gift_code}</code>: ${data['amount']:.2f}, {data['claims_left']}/{data['total_claims']} left{wager_text_item}\n"
         
         keyboard = [
-            [InlineKeyboardButton("<tg-emoji emoji-id='5233326571099534068'>⭐</tg-emoji> Create New Code", callback_data="admin_gift_create")],
-            [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
+            [InlineKeyboardButton("⚙️ Create New Code", callback_data="admin_gift_create")],
+            [InlineKeyboardButton("🔙 Back to Admin", callback_data="admin_dashboard")]
         ]
         
         await update.message.reply_text(
