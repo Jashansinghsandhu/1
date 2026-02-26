@@ -3852,7 +3852,7 @@ async def deposit_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     
     if not DEPOSIT_ENABLED:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deposits are currently disabled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deposits are currently disabled.", parse_mode=ParseMode.HTML)
         return
     
     # In group chats, don't show inline buttons - redirect to DM
@@ -3860,7 +3860,7 @@ async def deposit_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         await update.message.reply_text(
             f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> To deposit, please message me privately: @{bot_username}"
-        )
+        , parse_mode=ParseMode.HTML)
         return
     
     text, keyboard_rows = build_deposit_menu()
@@ -4163,14 +4163,14 @@ async def oxapay_receive_currency(update: Update, context: ContextTypes.DEFAULT_
     else:
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Failed to create OxaPay invoice. Please try again later or contact support."
-        )
+        , parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 
 async def oxapay_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel OxaPay flow."""
     if update.message:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> OxaPay deposit cancelled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> OxaPay deposit cancelled.", parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 
@@ -9407,7 +9407,7 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     deduct_wallet(user.id, bet_amount)
     save_user_data(user.id)
 
-    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Rolling the dice...")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Rolling the dice...", parse_mode=ParseMode.HTML)
     chat_type = update.effective_chat.type
     animation_wait = await smart_rate_limit(update.effective_chat.id, chat_type)
     try:
@@ -9422,7 +9422,7 @@ async def dice_roll_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Refund the bet on error
         credit_wallet(user.id, bet_amount)
         save_user_data(user.id)
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.", parse_mode=ParseMode.HTML)
         return
     game_id = generate_unique_id("DR")
 
@@ -9617,7 +9617,7 @@ async def tower_receive_bet(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a number or 'all'.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="cancel_game")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return TOWER_BET_AMOUNT
     
     # Check bet limits
@@ -9629,7 +9629,7 @@ async def tower_receive_bet(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please enter a lower amount.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="cancel_game")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return TOWER_BET_AMOUNT
     
     # Show tower intro
@@ -9711,7 +9711,7 @@ async def tower_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a number or 'all'.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a number or 'all'.", parse_mode=ParseMode.HTML)
         return
     
     # Check bet limits
@@ -9720,7 +9720,7 @@ async def tower_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Check balance
     if get_active_balance_usd(user.id) < bet_amount:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please deposit or enter a lower amount.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Please deposit or enter a lower amount.", parse_mode=ParseMode.HTML)
         return
     
     # Show tower intro
@@ -10303,7 +10303,7 @@ async def slots_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     client_seed = generate_client_seed()
     nonce = 1
 
-    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...", parse_mode=ParseMode.HTML)
     slot_msg, used_helper = await smart_roll(context, update.effective_chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     slot_value = slot_msg.dice.value
     if used_helper:
@@ -10420,7 +10420,7 @@ async def slots_rebet_double_callback(update: Update, context: ContextTypes.DEFA
     client_seed = generate_client_seed()
     nonce = 1
 
-    await query.edit_message_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...")
+    await query.edit_message_text(f"<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji> Spinning the slots...", parse_mode=ParseMode.HTML)
     slot_msg, used_helper = await smart_roll(context, query.message.chat.id, "<tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
     slot_value = slot_msg.dice.value
     if used_helper:
@@ -10787,7 +10787,7 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
             f"• /{game_type} 5 1d1w - 1 roll, first to 1 wins\n"
             f"• /{game_type} 10 2d3w - 2 rolls, first to 3 wins\n"
             f"• /{game_type} all 3d5w - 3 rolls, first to 5 wins"
-        )
+        , parse_mode=ParseMode.HTML)
         return
     
     bet_str, rolls, target = parsed
@@ -10795,7 +10795,7 @@ async def create_xdxw_challenge(update: Update, context: ContextTypes.DEFAULT_TY
     try:
         bet_amount_usd, bet_amount_currency, currency = parse_bet_amount(bet_str, user.id)
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid bet amount. Please enter a number or 'all'.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid bet amount. Please enter a number or 'all'.", parse_mode=ParseMode.HTML)
         return
     
     if get_active_balance_usd(user.id) < bet_amount_usd:
@@ -10849,7 +10849,7 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     user = query.from_user
     
     if query.data == "xdxw_cancel":
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge cancelled.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge cancelled.", parse_mode=ParseMode.HTML)
         context.user_data.pop('xdxw_challenge', None)
         return
     
@@ -10857,14 +10857,14 @@ async def xdxw_mode_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     challenge_data = context.user_data.get('xdxw_challenge')
     
     if not challenge_data:
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge data not found. Please try again.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Challenge data not found. Please try again.", parse_mode=ParseMode.HTML)
         return
     
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     # Final balance check
     if get_active_balance_usd(user.id) < challenge_data['bet_amount_usd']:
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.", parse_mode=ParseMode.HTML)
         context.user_data.pop('xdxw_challenge', None)
         return
     
@@ -11102,7 +11102,7 @@ async def xdxw_bot_first_callback(update: Update, context: ContextTypes.DEFAULT_
                 await asyncio.sleep(animation_wait)
         except Exception as e:
             logging.error(f"Error sending dice in PvB game: {e}")
-            await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
+            await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.", parse_mode=ParseMode.HTML)
             match['status'] = 'error'
             del context.chat_data[f"active_pvb_game_{user.id}"]
             if user.id in active_pvb_games:
@@ -11367,7 +11367,7 @@ async def group_challenge_target_callback(update: Update, context: ContextTypes.
     
     # Final check balance
     if get_active_balance_usd(user.id) < bet_amount_usd:
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance to create this challenge.", parse_mode=ParseMode.HTML)
         return
     
     # Create the challenge
@@ -11721,7 +11721,7 @@ async def play_vs_bot_game(update: Update, context: ContextTypes.DEFAULT_TYPE, g
                     await asyncio.sleep(animation_wait)
             except Exception as e:
                 logging.error(f"Error sending dice in PvB game: {e}")
-                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.", parse_mode=ParseMode.HTML)
                 game_sessions[game_id]['status'] = 'error'
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
@@ -11791,7 +11791,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     deduct_wallet(user.id, bet_amount)
-    await update.message.reply_text(f"Rolling the dice... <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>")
+    await update.message.reply_text(f"Rolling the dice... <tg-emoji emoji-id='5424976816530014958'>⭐</tg-emoji>", parse_mode=ParseMode.HTML)
     chat_type = update.effective_chat.type
     animation_wait = await smart_rate_limit(update.effective_chat.id, chat_type)
     try:
@@ -11806,7 +11806,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Refund the bet on error
         credit_wallet(user.id, bet_amount)
         save_user_data(user.id)
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred while rolling the dice. Your bet has been refunded.", parse_mode=ParseMode.HTML)
         return
     game_id = generate_unique_id("PRD")
 
@@ -12951,7 +12951,7 @@ async def coinchain_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     game = game_sessions.get(game_id)
     if not game or game["status"] != "active":
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or already ended.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or already ended.", parse_mode=ParseMode.HTML)
         return
     
     user_id = game["user_id"]
@@ -13105,7 +13105,7 @@ async def mines_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Cancel", callback_data="cancel_game")]
         ])
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard, parse_mode=ParseMode.HTML)
         return SELECT_BET_AMOUNT
 
     total_cells = 25
@@ -13568,7 +13568,7 @@ async def stop_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TY
         return
     if query.data == "stop_confirm_yes":
         bot_stopped = True
-        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is now stopped. No new matches can be started.")
+        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is now stopped. No new matches can be started.", parse_mode=ParseMode.HTML)
     else:
         await query.edit_message_text("Stop cancelled. Bot remains active.")
 
@@ -13580,7 +13580,7 @@ async def resume_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     bot_stopped = False
-    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is resumed. New matches can be started.")
+    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Bot is resumed. New matches can be started.", parse_mode=ParseMode.HTML)
 
 # --- BANK COMMAND ---
 @check_banned
@@ -13647,7 +13647,7 @@ async def rain_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if amount <= 0:
             raise ValueError
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.", parse_mode=ParseMode.HTML)
         return
 
     # Parse currency (default to active currency)
@@ -14265,7 +14265,7 @@ async def users_navigation_callback(update: Update, context: ContextTypes.DEFAUL
 @check_maintenance
 async def generic_emoji_game_command(update: Update, context: ContextTypes.DEFAULT_TYPE, game_type: str):
     if bot_stopped:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Bot is currently stopped. No new matches can be started.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Bot is currently stopped. No new matches can be started.", parse_mode=ParseMode.HTML)
         return
     user = update.effective_user
     await ensure_user_in_wallets(user.id, user.username, context=context)
@@ -15083,7 +15083,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 await asyncio.sleep(animation_wait)  # Smart wait based on chat type
                         except Exception as e:
                             logging.error(f"Error sending dice in PvB game: {e}")
-                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
+                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.", parse_mode=ParseMode.HTML)
                             game['status'] = 'error'
                             del context.chat_data[f"active_pvb_game_{user.id}"]
                             if user.id in active_pvb_games:
@@ -15181,7 +15181,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                 await asyncio.sleep(animation_wait)
                         except Exception as e:
                             logging.error(f"Error sending dice in PvB game: {e}")
-                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
+                            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.", parse_mode=ParseMode.HTML)
                             game['status'] = 'error'
                             del context.chat_data[f"active_pvb_game_{user.id}"]
                             if user.id in active_pvb_games:
@@ -15459,7 +15459,7 @@ async def message_listener(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     return
         except Exception as e:
             logging.error(f"Error in PvP game handling: {e}", exc_info=True)
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred processing your roll. Please contact support.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred processing your roll. Please contact support.", parse_mode=ParseMode.HTML)
             return
 
 # --- Clear user funds (owner only) ---
@@ -15470,7 +15470,7 @@ async def clear_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, clear all funds", callback_data="clear_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clear_confirm_no")]]
-    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WARNING: This will reset all user balances to zero!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> WARNING: This will reset all user balances to zero!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
 
 async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -15479,7 +15479,7 @@ async def clearall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     keyboard = [[InlineKeyboardButton("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Yes, erase ALL data", callback_data="clearall_confirm_yes"), InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> No, cancel", callback_data="clearall_confirm_no")]]
-    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> EXTREME WARNING <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>\n\nThis will completely erase ALL user data, including all settings. This action is IRREVERSIBLE!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard))
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> EXTREME WARNING <tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji>\n\nThis will completely erase ALL user data, including all settings. This action is IRREVERSIBLE!\n\nAre you absolutely sure?", reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.HTML)
 
 async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global user_wallets, user_stats, username_to_userid, escrow_deals, game_sessions, group_settings, bot_settings, gift_codes, recovery_data
@@ -15500,7 +15500,7 @@ async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_T
                     update_pnl(user_id)
                     save_user_data(user_id)
                 users_affected += 1
-        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Done! Reset balances to zero for {users_affected} users.")
+        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Done! Reset balances to zero for {users_affected} users.", parse_mode=ParseMode.HTML)
     elif query.data == "clearall_confirm_yes":
         backup_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         backup_dir = "backups"
@@ -15536,7 +15536,7 @@ async def clear_confirm_callback(update: Update, context: ContextTypes.DEFAULT_T
         if os.path.exists(STATE_FILE):
             os.remove(STATE_FILE)
 
-        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> All user data and settings cleared! Removed data for {old_count} users.\nA backup was saved to {backup_file}")
+        await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> All user data and settings cleared! Removed data for {old_count} users.\nA backup was saved to {backup_file}", parse_mode=ParseMode.HTML)
     else:
         await query.edit_message_text("Operation cancelled. No changes were made.")
 
@@ -15649,7 +15649,7 @@ async def tip_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
 
     if data.startswith("cancel_tip_"):
         context.user_data.pop('pending_tip', None)
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Tip cancelled.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Tip cancelled.", parse_mode=ParseMode.HTML)
         return
 
     if data.startswith("confirm_tip_"):
@@ -15662,7 +15662,7 @@ async def tip_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
 
         # Re-check balance
         if not is_owner and get_active_balance_usd(user.id) < tip_amount:
-            await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Tip cancelled.")
+            await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. Tip cancelled.", parse_mode=ParseMode.HTML)
             context.user_data.pop('pending_tip', None)
             return
 
@@ -15941,7 +15941,7 @@ async def match_invite_callback(update: Update, context: ContextTypes.DEFAULT_TY
         if get_active_balance_usd(user_id) < match_data["bet_amount"]:
             await query.edit_message_text(
                 "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance for this bet.",
-            )
+            parse_mode=ParseMode.HTML)
             match_data["status"] = "cancelled"
             return
 
@@ -16076,7 +16076,7 @@ async def handle_escrow_conversation(update: Update, context: ContextTypes.DEFAU
             ]
             await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Amount set to ${amount:.2f} USDT.\n\nPlease select your role:", parse_mode=ParseMode.HTML, reply_markup=InlineKeyboardMarkup(keyboard))
         except (ValueError, TypeError):
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.", reply_markup=InlineKeyboardMarkup(cancel_button))
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a positive number.", reply_markup=InlineKeyboardMarkup(cancel_button), parse_mode=ParseMode.HTML)
             return
 
     elif step == 'ask_details':
@@ -16098,7 +16098,7 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
         context.user_data['escrow_data']['partner_role'] = 'Buyer' if role == 'seller' else 'Seller'
         context.user_data['escrow_step'] = 'ask_details'
         cancel_button = [[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="escrow_action_cancel_setup")]]
-        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Role selected. Now, please provide the deal details (e.g., 'Sale of item X').", reply_markup=InlineKeyboardMarkup(cancel_button))
+        await query.edit_message_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Role selected. Now, please provide the deal details (e.g., 'Sale of item X').", reply_markup=InlineKeyboardMarkup(cancel_button), parse_mode=ParseMode.HTML)
 
     # REMOVED: partner action, as we now force link creation.
 
@@ -16115,7 +16115,7 @@ async def escrow_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             deal['status'] = 'accepted_awaiting_deposit'
             save_escrow_deal(deal_id)
             seller_id, buyer_id = deal['seller']['id'], deal['buyer']['id']
-            await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You accepted the deal. Seller will now be prompted to deposit ${deal['amount']:.2f} USDT.")
+            await query.edit_message_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> You accepted the deal. Seller will now be prompted to deposit ${deal['amount']:.2f} USDT.", parse_mode=ParseMode.HTML)
             deposit_text = (f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> The other party accepted the deal!\n\n<b>Deal ID:</b> <code>{deal_id}</code>\n"
                             f"Please deposit exactly <code>{deal['amount']}</code> USDT (BEP20) to:\n<code>{ESCROW_DEPOSIT_ADDRESS}</code>\n\n"
                             f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Send from your own wallet (NOT from an exchange). Have enough BNB for gas.")
@@ -16617,11 +16617,11 @@ async def escrow_add_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     deal = escrow_deals.get(deal_id)
     
     if not deal:
-        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Escrow deal {deal_id} not found.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Escrow deal {deal_id} not found.", parse_mode=ParseMode.HTML)
         return
     
     if deal['status'] != 'accepted_awaiting_deposit':
-        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deal {deal_id} is not awaiting deposit. Current status: {deal['status']}")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Deal {deal_id} is not awaiting deposit. Current status: {deal['status']}", parse_mode=ParseMode.HTML)
         return
     
     # Mark deposit as received
@@ -16906,7 +16906,7 @@ async def purge_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if await context.bot.delete_messages(chat_id=chat.id, message_ids=chunk):
                 deleted_count += len(chunk)
 
-        purge_feedback = await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Purged {deleted_count} messages.", quote=False)
+        purge_feedback = await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Purged {deleted_count} messages.", quote=False, parse_mode=ParseMode.HTML)
         await asyncio.sleep(5) # Wait 5 seconds
         await purge_feedback.delete() # Delete the feedback message
     except BadRequest as e:
@@ -17137,16 +17137,16 @@ async def setcode_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Validate code
     if not new_code.isalnum():
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be alphanumeric (letters and numbers only).")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be alphanumeric (letters and numbers only).", parse_mode=ParseMode.HTML)
         return
     
     if len(new_code) < 4 or len(new_code) > 12:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be between 4 and 12 characters long.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Code must be between 4 and 12 characters long.", parse_mode=ParseMode.HTML)
         return
     
     # Check if code already exists
     if new_code in referral_codes and referral_codes[new_code] != user.id:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This code is already taken. Please choose a different one.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This code is already taken. Please choose a different one.", parse_mode=ParseMode.HTML)
         return
     
     # Update user's code
@@ -17193,19 +17193,19 @@ async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Check if user already has a referrer
     stats = user_stats[user.id]
     if stats['referral'].get('referrer_id'):
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have a referrer set. You cannot change it.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You already have a referrer set. You cannot change it.", parse_mode=ParseMode.HTML)
         return
     
     # Look up the code
     if code not in referral_codes:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid referral code. Please check and try again.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid referral code. Please check and try again.", parse_mode=ParseMode.HTML)
         return
     
     referrer_id = referral_codes[code]
     
     # Can't refer yourself
     if referrer_id == user.id:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You cannot use your own referral code.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You cannot use your own referral code.", parse_mode=ParseMode.HTML)
         return
     
     # Set the referrer
@@ -17223,7 +17223,7 @@ async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Referrer set successfully!\n\n"
         f"You will now earn commissions for your referrer on deposits and wagers."
-    )
+    , parse_mode=ParseMode.HTML)
     
     # Notify referrer
     try:
@@ -17292,7 +17292,7 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         prize_usd = float(update.message.text)
         if prize_usd <= 0:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Prize must be positive. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Prize must be positive. Try again:", parse_mode=ParseMode.HTML)
             return RAFFLE_PRIZE_AMOUNT
         
         balance = get_active_balance_usd(user.id)
@@ -17300,7 +17300,7 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(
                 f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient balance. You have ${balance:.2f}. Try again:",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Cancel", callback_data="raffle_cancel")]])
-            )
+            , parse_mode=ParseMode.HTML)
             return RAFFLE_PRIZE_AMOUNT
         
         # Deduct prize from balance immediately
@@ -17318,7 +17318,7 @@ async def raffle_prize_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return RAFFLE_TICKET_COST
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:", parse_mode=ParseMode.HTML)
         return RAFFLE_PRIZE_AMOUNT
 
 async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17326,7 +17326,7 @@ async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_
     try:
         ticket_cost = float(update.message.text)
         if ticket_cost <= 0:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ticket cost must be positive. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Ticket cost must be positive. Try again:", parse_mode=ParseMode.HTML)
             return RAFFLE_TICKET_COST
         
         context.user_data['raffle_ticket_cost'] = ticket_cost
@@ -17340,7 +17340,7 @@ async def raffle_ticket_cost_step(update: Update, context: ContextTypes.DEFAULT_
         )
         return RAFFLE_DURATION
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Enter a number:", parse_mode=ParseMode.HTML)
         return RAFFLE_TICKET_COST
 
 async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17348,7 +17348,7 @@ async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYP
     try:
         duration_days = int(update.message.text)
         if duration_days <= 0 or duration_days > 30:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Duration must be between 1 and 30 days. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Duration must be between 1 and 30 days. Try again:", parse_mode=ParseMode.HTML)
             return RAFFLE_DURATION
         
         context.user_data['raffle_duration_days'] = duration_days
@@ -17362,7 +17362,7 @@ async def raffle_duration_step(update: Update, context: ContextTypes.DEFAULT_TYP
         )
         return RAFFLE_NUM_WINNERS
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:", parse_mode=ParseMode.HTML)
         return RAFFLE_DURATION
 
 async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17371,7 +17371,7 @@ async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_
     try:
         num_winners = int(update.message.text)
         if num_winners <= 0 or num_winners > 100:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Number of winners must be between 1 and 100. Try again:")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Number of winners must be between 1 and 100. Try again:", parse_mode=ParseMode.HTML)
             return RAFFLE_NUM_WINNERS
         
         # Create the raffle
@@ -17409,7 +17409,7 @@ async def raffle_num_winners_step(update: Update, context: ContextTypes.DEFAULT_
         )
         return ConversationHandler.END
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Enter an integer:", parse_mode=ParseMode.HTML)
         return RAFFLE_NUM_WINNERS
 
 async def raffle_cancel_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17844,7 +17844,7 @@ async def ai_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # NEW: Check if AI feature is enabled
     if not bot_settings.get("ai_enabled", True):
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This feature is currently disabled by the owner.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This feature is currently disabled by the owner.", parse_mode=ParseMode.HTML)
         return
     
     prompt_text = ""
@@ -17884,7 +17884,7 @@ async def ai_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             status_msg = await helper_bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Thinking with G4f..."
-            )
+            , parse_mode=ParseMode.HTML)
             try:
                 ai_response = await g4f.ChatCompletion.create_async(
                     model=g4f.models.default,
@@ -17930,12 +17930,12 @@ async def price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             status_msg = await helper_bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC..."
-            )
+            , parse_mode=ParseMode.HTML)
         except Exception as e:
             logging.warning(f"Helper bot failed for /p status: {e}")
-            status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...")
+            status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...", parse_mode=ParseMode.HTML)
     else:
-        status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...")
+        status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5409048419211682843'>⭐</tg-emoji> Fetching 24hr data for {pair} from MEXC...", parse_mode=ParseMode.HTML)
 
     try:
         async with httpx.AsyncClient() as client:
@@ -18036,7 +18036,7 @@ async def price_update_callback(update: Update, context: ContextTypes.DEFAULT_TY
 
 async def process_ai_request(update: Update, prompt: str, model_choice: str):
     """Generic function to handle AI requests from different models."""
-    status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Thinking with {model_choice.title()}...", reply_to_message_id=update.message.message_id)
+    status_msg = await update.message.reply_text(f"<tg-emoji emoji-id='5246762912428603768'>⭐</tg-emoji> Thinking with {model_choice.title()}...", reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML)
 
     try:
         if model_choice == "perplexity": # Updated name
@@ -18310,7 +18310,7 @@ async def admin_actions_callback(update: Update, context: ContextTypes.DEFAULT_T
             [InlineKeyboardButton("Set Minimum Bet", callback_data="admin_limit_type_min")],
             [InlineKeyboardButton("Set Maximum Bet", callback_data="admin_limit_type_max")],
             [InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Back to Admin", callback_data="admin_dashboard")]
-        ]))
+        ]), parse_mode=ParseMode.HTML)
         return ADMIN_LIMITS_CHOOSE_TYPE
     elif action == "admin_set_daily_bonus":
         await query.edit_message_text("Please enter the new daily bonus amount (e.g., 0.75).", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="admin_bot_settings")]]))
@@ -18502,7 +18502,7 @@ async def set_house_balance_step(update: Update, context: ContextTypes.DEFAULT_T
         if amount < 0: raise ValueError
         bot_settings['house_balance'] = amount
         save_bot_state()
-        await update.message.reply_text(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> House balance set to ${amount:,.2f}.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> House balance set to ${amount:,.2f}.", parse_mode=ParseMode.HTML)
     except ValueError:
         await update.message.reply_text("Invalid amount. Please enter a positive number.")
         return ADMIN_SET_HOUSE_BALANCE
@@ -18668,7 +18668,7 @@ async def admin_broadcast_step(update: Update, context: ContextTypes.DEFAULT_TYP
             failed_count += 1
         await asyncio.sleep(0.1) # Avoid hitting rate limits
 
-    await update.message.reply_text(f"Broadcast finished.\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Sent: {sent_count}\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Failed: {failed_count}")
+    await update.message.reply_text(f"Broadcast finished.\n<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Sent: {sent_count}\n<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Failed: {failed_count}", parse_mode=ParseMode.HTML)
 
     context.user_data.clear()
     await admin_dashboard_command(update, context)
@@ -18824,7 +18824,7 @@ async def setbal_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     coin = args[2].upper() if len(args) == 3 else "USDT"
     
     if coin not in SUPPORTED_CRYPTOS:
-        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Unsupported currency. Supported: {', '.join(SUPPORTED_CRYPTOS)}")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Unsupported currency. Supported: {', '.join(SUPPORTED_CRYPTOS)}", parse_mode=ParseMode.HTML)
         return
 
     target_user_id = username_to_userid.get(normalize_username(username))
@@ -18846,7 +18846,7 @@ async def setbal_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Credited {username}:\n"
             f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> USD Value: ${amount_usd:.2f}\n"
             f"<tg-emoji emoji-id='5334812855847901773'>⭐</tg-emoji> {coin}: {formatted} {coin} (@ ${price:,.2f})"
-        )
+        , parse_mode=ParseMode.HTML)
     except ValueError:
         await update.message.reply_text("Invalid amount.")
 
@@ -18870,7 +18870,7 @@ async def setdaily_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         bot_settings["daily_bonus_amount"] = amount
         bot_settings["daily_bonus_enabled"] = True
-        await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus has been set to ${amount:.2f} and enabled.")
+        await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus has been set to ${amount:.2f} and enabled.", parse_mode=ParseMode.HTML)
     except ValueError:
         await update.message.reply_text("Invalid amount. Please enter a number.")
 
@@ -18882,7 +18882,7 @@ async def dailyoff_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
     bot_settings["daily_bonus_enabled"] = False
-    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been disabled. Users will not be able to claim daily bonuses until you enable it again with /dailyon.")
+    await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been disabled. Users will not be able to claim daily bonuses until you enable it again with /dailyon.", parse_mode=ParseMode.HTML)
 
 async def dailyon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -18893,14 +18893,14 @@ async def dailyon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     bot_settings["daily_bonus_enabled"] = True
     bonus_amount = bot_settings.get("daily_bonus_amount", 0.50)
-    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been enabled. Current daily bonus amount: ${bonus_amount:.2f}")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Daily bonus feature has been enabled. Current daily bonus amount: ${bonus_amount:.2f}", parse_mode=ParseMode.HTML)
 
 # NEW: Escrow toggle commands (owner only)
 async def escrow_toggle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Toggle escrow feature on/off. Usage: /escrow on|off"""
     user = update.effective_user
     if not is_admin(user.id):
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.", parse_mode=ParseMode.HTML)
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
@@ -18929,7 +18929,7 @@ async def ai_toggle_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Toggle AI assistant feature on/off. Usage: /ai on|off"""
     user = update.effective_user
     if not is_admin(user.id):
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> This is an admin-only command.", parse_mode=ParseMode.HTML)
         return
     await ensure_user_in_wallets(user.id, user.username, context=context)
     
@@ -19038,7 +19038,7 @@ async def lockall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         await context.bot.set_chat_permissions(chat.id, ChatPermissions(can_send_messages=False))
-        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat locked. Only admins can send messages.")
+        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat locked. Only admins can send messages.", parse_mode=ParseMode.HTML)
     except BadRequest as e:
         await update.message.reply_text(f"Failed to lock chat: {e.message}")
     except Exception as e:
@@ -19067,7 +19067,7 @@ async def unlockall_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             can_send_other_messages=True, can_add_web_page_previews=True,
             can_change_info=False, can_invite_users=True, can_pin_messages=False
         ))
-        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat unlocked. All members can send messages again.")
+        await update.message.reply_text("<tg-emoji emoji-id='5453901475648390219'>⭐</tg-emoji> Chat unlocked. All members can send messages again.", parse_mode=ParseMode.HTML)
     except BadRequest as e:
         await update.message.reply_text(f"Failed to unlock chat: {e.message}")
     except Exception as e:
@@ -19359,7 +19359,7 @@ async def set_withdrawal_address_step(update: Update, context: ContextTypes.DEFA
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid USDT-BEP20 address. Please enter a valid address starting with 0x.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="main_settings")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return SETTINGS_WITHDRAWAL_ADDRESS
 
     # Save the withdrawal address
@@ -19403,7 +19403,7 @@ async def withdraw_coin_callback(update: Update, context: ContextTypes.DEFAULT_T
     coin = query.data.replace("withdraw_coin_", "")
     
     if coin not in SUPPORTED_CRYPTOS:
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid crypto selected.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid crypto selected.", parse_mode=ParseMode.HTML)
         return
     
     wallet = ensure_wallet_dict(user.id)
@@ -19445,14 +19445,14 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount. Please enter a valid number or 'all'.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return WITHDRAWAL_AMOUNT
     
     if amount_usd <= 0:
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Amount must be greater than 0.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return WITHDRAWAL_AMOUNT
     
     if amount_usd > balance_usd:
@@ -19461,7 +19461,7 @@ async def process_withdrawal_amount(update: Update, context: ContextTypes.DEFAUL
             f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Insufficient {coin} balance.\n"
             f"Your {coin} balance: {formatted} {coin} (${balance_usd:,.2f})",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cancel", callback_data="back_to_main")]])
-        )
+        , parse_mode=ParseMode.HTML)
         return WITHDRAWAL_AMOUNT
     
     # Check wager requirements
@@ -19598,7 +19598,7 @@ async def withdrawal_txid_step(update: Update, context: ContextTypes.DEFAULT_TYP
     withdrawal_id = context.user_data.get('withdrawal_approve_id')
     
     if not withdrawal_id or withdrawal_id not in withdrawal_requests:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Withdrawal request not found.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Withdrawal request not found.", parse_mode=ParseMode.HTML)
         context.user_data.clear()
         return ConversationHandler.END
     
@@ -19628,7 +19628,7 @@ async def withdrawal_txid_step(update: Update, context: ContextTypes.DEFAULT_TYP
     
     await update.message.reply_text(
         f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Withdrawal {withdrawal_id} approved and user notified."
-    )
+    , parse_mode=ParseMode.HTML)
     
     context.user_data.clear()
     return ConversationHandler.END
@@ -19682,7 +19682,7 @@ async def withdrawal_cancel_callback(update: Update, context: ContextTypes.DEFAU
     
     await query.edit_message_text(
         f"<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Withdrawal {withdrawal_id} cancelled. Funds returned to user's balance."
-    )
+    , parse_mode=ParseMode.HTML)
     
     return ConversationHandler.END
 
@@ -19892,7 +19892,7 @@ async def claim_gift_code_command(update: Update, context: ContextTypes.DEFAULT_
                 f"Required: ${wager_requirement:.2f} wagered\n"
                 f"Your total wagered: ${user_total_wagered:.2f}\n"
                 f"You need to wager ${wager_requirement - user_total_wagered:.2f} more in the casino to claim this code."
-            )
+            , parse_mode=ParseMode.HTML)
             return
         
     # All checks passed, award the user
@@ -19906,7 +19906,7 @@ async def claim_gift_code_command(update: Update, context: ContextTypes.DEFAULT_
     save_user_data(user.id)
     save_gift_code(code)
     
-    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Success! You have claimed a gift code and received ${amount:.2f}!")
+    await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Success! You have claimed a gift code and received ${amount:.2f}!", parse_mode=ParseMode.HTML)
 
 @check_banned
 @check_maintenance
@@ -20104,7 +20104,7 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
     try:
         percentage = float(update.message.text.strip())
         if percentage < 0:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Percentage must be positive. Please try again.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Percentage must be positive. Please try again.", parse_mode=ParseMode.HTML)
             return
         
         bonus_type = context.user_data.get('bonus_adjust_type')
@@ -20145,7 +20145,7 @@ async def bonus_percentage_input(update: Update, context: ContextTypes.DEFAULT_T
         context.user_data['awaiting_bonus_percentage'] = False
         
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Please enter a valid percentage.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid number. Please enter a valid percentage.", parse_mode=ParseMode.HTML)
 
 async def bonus_notify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle notify users decision"""
@@ -20789,7 +20789,7 @@ async def start_game_conversation_from_command(update: Update, context: ContextT
         
         # Check balance
         if get_active_balance_usd(user.id) < bet_amount:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", parse_mode=ParseMode.HTML)
             return ConversationHandler.END
         
         # Store bet amount and ask for number of mines
@@ -20986,7 +20986,7 @@ async def pvb_get_bet_amount(update: Update, context: ContextTypes.DEFAULT_TYPE)
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Cancel", callback_data="cancel_game")]
         ])
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard)
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> You don't have enough balance. Please enter a lower amount.", reply_markup=keyboard, parse_mode=ParseMode.HTML)
         return SELECT_BET_AMOUNT
 
     context.user_data['bet_amount'] = bet_amount
@@ -21140,7 +21140,7 @@ async def play_vs_bot_game_from_callback(query, context: ContextTypes.DEFAULT_TY
                     await asyncio.sleep(animation_wait)
             except Exception as e:
                 logging.error(f"Error sending dice in PvB game: {e}")
-                await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.")
+                await context.bot.send_message(chat_id=chat_id, text="<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> An error occurred. Game terminated.", parse_mode=ParseMode.HTML)
                 game_sessions[game_id]['status'] = 'error'
                 del context.chat_data[f"active_pvb_game_{user.id}"]
                 if user.id in active_pvb_games:
@@ -21289,7 +21289,7 @@ async def ai_conversation_prompt(update: Update, context: ContextTypes.DEFAULT_T
     await update.message.reply_text(
         "What else can I help you with?",
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("<tg-emoji emoji-id='5269501182258205420'>⭐</tg-emoji> Cancel & Back to Menu", callback_data="cancel_ai")]])
-    )
+    , parse_mode=ParseMode.HTML)
     return ASK_AI_PROMPT
 
 async def cancel_ai_conversation(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -21590,31 +21590,31 @@ async def demo_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if args[1].lower() == "on":
             bot_settings["demo_enabled"] = True
             save_all_data()
-            await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo feature enabled!")
+            await update.message.reply_text("<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo feature enabled!", parse_mode=ParseMode.HTML)
             return
         elif args[1].lower() == "off":
             bot_settings["demo_enabled"] = False
             save_all_data()
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature disabled!")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature disabled!", parse_mode=ParseMode.HTML)
             return
         else:
             # Try to set amount
             try:
                 amount = float(args[1])
                 if amount <= 0:
-                    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Amount must be positive!")
+                    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Amount must be positive!", parse_mode=ParseMode.HTML)
                     return
                 bot_settings["demo_amount"] = amount
                 save_all_data()
-                await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo amount set to ${amount:.2f}")
+                await update.message.reply_text(f"<tg-emoji emoji-id='5319247469165433798'>⭐</tg-emoji> Demo amount set to ${amount:.2f}", parse_mode=ParseMode.HTML)
                 return
             except ValueError:
-                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount! Usage: /demo <amount>")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid amount! Usage: /demo <amount>", parse_mode=ParseMode.HTML)
                 return
     
     # Regular user claim
     if not bot_settings.get("demo_enabled", True):
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature is currently disabled.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Demo feature is currently disabled.", parse_mode=ParseMode.HTML)
         return
     
     await ensure_user_in_wallets(user.id, user.username, context=context)
@@ -21771,14 +21771,14 @@ async def pf_client_seed_input_handler(update: Update, context: ContextTypes.DEF
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Client seed must be between 4-64 characters.\n"
             "Please try again or send /cancel"
-        )
+        , parse_mode=ParseMode.HTML)
         return PF_CHANGE_CLIENT_SEED_INPUT
     
     if not new_seed.replace('_', '').replace('-', '').isalnum():
         await update.message.reply_text(
             "<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Client seed can only contain letters, numbers, _ and -\n"
             "Please try again or send /cancel"
-        )
+        , parse_mode=ParseMode.HTML)
         return PF_CHANGE_CLIENT_SEED_INPUT
     
     await ensure_user_in_wallets(user.id, user.username, context=context)
@@ -21803,14 +21803,14 @@ async def pf_client_seed_input_handler(update: Update, context: ContextTypes.DEF
 
 async def pf_cancel_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel seed change"""
-    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.")
+    await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.", parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 async def pf_cancel_seed_change_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Cancel seed change via inline button"""
     query = update.callback_query
     await query.answer()
-    await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.")
+    await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Seed change cancelled.", parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 async def pf_show_game_details_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -21822,7 +21822,7 @@ async def pf_show_game_details_callback(update: Update, context: ContextTypes.DE
     game = game_sessions.get(game_id)
     
     if not game:
-        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or expired.")
+        await query.edit_message_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Game not found or expired.", parse_mode=ParseMode.HTML)
         return
     
     # Get game details
@@ -22066,7 +22066,7 @@ async def pf_verify_nonce_input(update: Update, context: ContextTypes.DEFAULT_TY
     try:
         nonce = int(update.message.text.strip())
     except ValueError:
-        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid nonce. Please enter a number.")
+        await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid nonce. Please enter a number.", parse_mode=ParseMode.HTML)
         return PF_VERIFY_INPUT_NONCE
     
     context.user_data['pf_verify_nonce'] = nonce
@@ -22105,11 +22105,11 @@ async def pf_verify_param_input(update: Update, context: ContextTypes.DEFAULT_TY
         try:
             mine_count = int(update.message.text.strip())
             if mine_count < 1 or mine_count > 24:
-                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid mine count. Please enter 1-24.")
+                await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid mine count. Please enter 1-24.", parse_mode=ParseMode.HTML)
                 return PF_VERIFY_INPUT_PARAM
             context.user_data['pf_verify_param'] = mine_count
         except ValueError:
-            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid input. Please enter a number 1-24.")
+            await update.message.reply_text("<tg-emoji emoji-id='5456140674028019486'>⭐</tg-emoji> Invalid input. Please enter a number 1-24.", parse_mode=ParseMode.HTML)
             return PF_VERIFY_INPUT_PARAM
     
     # Calculate and show result
