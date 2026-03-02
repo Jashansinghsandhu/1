@@ -418,27 +418,36 @@ def _utf16_len(text: str) -> int:
 # Mapping of Unicode emoji used in button labels → premium custom emoji sticker IDs.
 # IDs from the official Bot API 9.4 premium emoji mapping provided in the spec.
 _PREMIUM_EMOJI_MAP = {
-    # --- Exact IDs from the spec ---
+    # --- New User-Provided IDs ---
+    '💸': '5904725269083592656',   # Flying Money
+    '🚀': '5188481279963715781',   # Rocket
+    '🎯': '5461009483314517035',   # Dart
+    '📥': '5443127283898405358',   # Inbox / Deposit
+    '📤': '5445355530111437729',   # Outbox / Withdraw
+    '↗️': '5429651785352501917',   # Top Right Arrow
+    '⛏': '5197371802136892976',   # Pickaxe / Mines
+    '🛫': '5201691993775818138',   # Airplane / Aviator / Crash
+    '⭐': '5267500801240092311',   # Star (without variation selector)
+    '⭐️': '5267500801240092311',   # Star (with variation selector)
+    '🔡': '5381971708427132282',   # Input Letters
+    '⚙️': '5260343246831237239',   # Gear / Settings
+    '🥷': '5386534612962915793',   # Ninja
+
+    # --- Previous Mappings ---
     '👛': '5424976816530014958',   # Wallet / Purse
     '✔️': '5206607081334906820',   # Checkmark
     '💵': '5409048419211682843',   # Dollar Banknote
     '⚡': '5456140674028019486',   # Lightning
-    '📥': '5443127283898405358',   # Inbox / Deposit
     '💣': '5469654973308476699',   # Bomb
     '🎲': '5260547274957672345',   # Dice
-    '🎯': '5310278924616356636',   # Dart
     '🎳': '5370853837689070338',   # Bowling
     '⚽': '5375159220280762629',   # Soccer
     '🎮': '5319247469165433798',   # Game Controller
-    '💸': '5904725269083592656',   # Flying Money
     '🔴': '5904364603499879557',   # Red Circle
-    '⚙️': '5902065430196918507',   # Gear / Settings
     '👋': '5904734666472037015',   # Waving Hand
     '✅': '5904720115122837688',   # Green Check Button
     '💰': '5902373911927987238',   # Money Bag
     '💲': '5902414005447698749',   # Heavy Dollar Sign
-    '⭐️': '5902434346412809097',   # Star (with variation selector)
-    '⭐': '5902434346412809097',   # Star (without variation selector)
     '🤖': '5897736927796269145',   # Robot
     '📌': '5397782960512444700',   # Pushpin
     '🛍️': '5453901475648390219',   # Shopping Bags
@@ -452,10 +461,14 @@ _PREMIUM_EMOJI_MAP = {
     '🤝': '5904220988383436077',   # Handshake
     '📊': '5231200819986047254',   # Bar Chart
     '🚫': '5927205879530131073',   # Cancel / No Entry
-    # --- Additional mappings using spec IDs for common button emojis ---
+    '❌': '5927205879530131073',   # Cross Mark → Cancel
+    '🎰': '5424976816530014958',   # Slots
+    '🏙️': '5188481279963715781',   # Tower/Cityscape
+    '🗼': '5188481279963715781',   # Tower
+    '🎡': '5904364603499879557',   # Roulette Wheel
+    # --- Additional mappings for common button emojis ---
     '💎': '5902373911927987238',   # Diamond → Money Bag
     '🔙': '5220079633533250496',   # Back → Point Left
-    '❌': '5927205879530131073',   # Cross Mark → Cancel
     '💬': '5253742260054409879',   # Speech Bubble → Envelope
     '🆘': '5927205879530131073',   # SOS → Cancel
     '🔄': '5416117059207572332',   # Cycle → Right Arrow
@@ -468,11 +481,14 @@ _PREMIUM_EMOJI_MAP = {
     '🎁': '5461151367559141950',   # Gift → Party Popper
     '🃏': '5260547274957672345',   # Joker Card → Dice
     '🆓': '5904720115122837688',   # Free → Green Check
-    '🏆': '5902434346412809097',   # Trophy → Star
+    '🏆': '5267500801240092311',   # Trophy → Star
     '📈': '5231200819986047254',   # Chart Up → Bar Chart
     '🔔': '5397782960512444700',   # Bell → Pushpin
     '🎟️': '5461151367559141950',   # Ticket → Party Popper
     'ℹ️': '5397782960512444700',   # Info → Pushpin
+    '🏠': '5188481279963715781',   # House → Cityscape
+    '🏛️': '5188481279963715781',   # Classical Building → Tower
+    '🔒': '5397782960512444700',   # Lock → Pushpin
 }
 
 _TG_EMOJI_RE = _re.compile(r"<tg-emoji emoji-id='(\d+)'>(.*?)</tg-emoji>", _re.DOTALL)
@@ -549,8 +565,9 @@ class InlineKeyboardButton(_BaseInlineKeyboardButton):  # type: ignore[misc]  # 
     # an imported name with a subclass of itself as a "misc" error.
     """InlineKeyboardButton with automatic premium-emoji icon_custom_emoji_id support."""
 
-    def to_dict(self) -> dict:
-        return _enrich_button_dict(super().to_dict())
+    def to_dict(self, **kwargs) -> dict:
+        # Pass **kwargs to super().to_dict() to prevent the 'recursive' TypeError
+        return _enrich_button_dict(super().to_dict(**kwargs))
 
 # ========================================
 
