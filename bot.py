@@ -415,42 +415,64 @@ def _utf16_len(text: str) -> int:
     """Return string length in UTF-16 code units (Telegram API uses this for entity offsets/lengths)."""
     return len(text.encode('utf-16-le')) // 2
 
-# Mapping of common Unicode emoji used in button labels → premium custom emoji sticker IDs.
-# IDs are reused from premium emoji already present elsewhere in this bot.
+# Mapping of Unicode emoji used in button labels → premium custom emoji sticker IDs.
+# IDs from the official Bot API 9.4 premium emoji mapping provided in the spec.
 _PREMIUM_EMOJI_MAP = {
-    '💰': '5334812855847901773',
-    '💎': '5334812855847901773',
-    '🎮': '5213430392798851273',
-    '🏠': '5246762912428603768',
-    '🎲': '5424976816530014958',
-    '⚙️': '5409048419211682843',
-    '🔙': '5269501182258205420',
-    '❌': '5456140674028019486',
-    '✅': '5319247469165433798',
-    '⭐': '5334812855847901773',
-    '🏛️': '5246762912428603768',
-    '💬': '5213430392798851273',
-    '🆘': '5456140674028019486',
-    '▶️': '5319247469165433798',
-    '🔒': '5453901475648390219',
-    '🔄': '5334812855847901773',
-    '⬆️': '5319247469165433798',
-    '⬇️': '5210952531676504517',
-    '⏭️': '5269501182258205420',
-    '⚽': '5411590687663608498',
-    '🎁': '5244837092042750681',
-    '📊': '5409048419211682843',
-    '🤖': '5246762912428603768',
-    '🃏': '5424976816530014958',
-    '👥': '5213430392798851273',
-    '◀️': '5269501182258205420',
-    '🆓': '5244837092042750681',
-    '🏆': '5249381781622247862',
-    '🔑': '5453901475648390219',
-    '📈': '5409048419211682843',
-    '🔔': '5244837092042750681',
-    '⚡': '5334812855847901773',
-    '🎯': '5424976816530014958',
+    # --- Exact IDs from the spec ---
+    '👛': '5424976816530014958',   # Wallet / Purse
+    '✔️': '5206607081334906820',   # Checkmark
+    '💵': '5409048419211682843',   # Dollar Banknote
+    '⚡': '5456140674028019486',   # Lightning
+    '📥': '5443127283898405358',   # Inbox / Deposit
+    '💣': '5469654973308476699',   # Bomb
+    '🎲': '5260547274957672345',   # Dice
+    '🎯': '5310278924616356636',   # Dart
+    '🎳': '5370853837689070338',   # Bowling
+    '⚽': '5375159220280762629',   # Soccer
+    '🎮': '5319247469165433798',   # Game Controller
+    '💸': '5904725269083592656',   # Flying Money
+    '🔴': '5904364603499879557',   # Red Circle
+    '⚙️': '5902065430196918507',   # Gear / Settings
+    '👋': '5904734666472037015',   # Waving Hand
+    '✅': '5904720115122837688',   # Green Check Button
+    '💰': '5902373911927987238',   # Money Bag
+    '💲': '5902414005447698749',   # Heavy Dollar Sign
+    '⭐️': '5902434346412809097',   # Star (with variation selector)
+    '⭐': '5902434346412809097',   # Star (without variation selector)
+    '🤖': '5897736927796269145',   # Robot
+    '📌': '5397782960512444700',   # Pushpin
+    '🛍️': '5453901475648390219',   # Shopping Bags
+    '🔥': '5424972470023104089',   # Fire
+    '➡️': '5416117059207572332',   # Right Arrow
+    '✉️': '5253742260054409879',   # Envelope
+    '❄️': '5449449325434266744',   # Snowflake
+    '🎉': '5461151367559141950',   # Party Popper
+    '🗓️': '5413879192267805083',   # Calendar
+    '👈': '5220079633533250496',   # Point Left
+    '🤝': '5904220988383436077',   # Handshake
+    '📊': '5231200819986047254',   # Bar Chart
+    '🚫': '5927205879530131073',   # Cancel / No Entry
+    # --- Additional mappings using spec IDs for common button emojis ---
+    '💎': '5902373911927987238',   # Diamond → Money Bag
+    '🔙': '5220079633533250496',   # Back → Point Left
+    '❌': '5927205879530131073',   # Cross Mark → Cancel
+    '💬': '5253742260054409879',   # Speech Bubble → Envelope
+    '🆘': '5927205879530131073',   # SOS → Cancel
+    '🔄': '5416117059207572332',   # Cycle → Right Arrow
+    '⬆️': '5416117059207572332',   # Up Arrow → Right Arrow
+    '⬇️': '5416117059207572332',   # Down Arrow → Right Arrow
+    '⏭️': '5416117059207572332',   # Next Track → Right Arrow
+    '▶️': '5416117059207572332',   # Play → Right Arrow
+    '◀️': '5220079633533250496',   # Reverse → Point Left
+    '👥': '5904220988383436077',   # Group → Handshake
+    '🎁': '5461151367559141950',   # Gift → Party Popper
+    '🃏': '5260547274957672345',   # Joker Card → Dice
+    '🆓': '5904720115122837688',   # Free → Green Check
+    '🏆': '5902434346412809097',   # Trophy → Star
+    '📈': '5231200819986047254',   # Chart Up → Bar Chart
+    '🔔': '5397782960512444700',   # Bell → Pushpin
+    '🎟️': '5461151367559141950',   # Ticket → Party Popper
+    'ℹ️': '5397782960512444700',   # Info → Pushpin
 }
 
 _TG_EMOJI_RE = _re.compile(r"<tg-emoji emoji-id='(\d+)'>(.*?)</tg-emoji>", _re.DOTALL)
@@ -459,68 +481,57 @@ _HTML_TAG_RE = _re.compile(r'<[^>]+>')
 
 def _enrich_button_dict(btn_dict: dict) -> dict:
     """
-    Enrich an InlineKeyboardButton dict with proper premium emoji text_entities.
+    Enrich an InlineKeyboardButton dict with premium emoji support (Bot API 9.4).
 
     Two cases are handled:
-    1. Text contains <tg-emoji emoji-id='ID'>FALLBACK</tg-emoji> HTML (wrong usage):
-       - Strips the HTML, keeps the fallback character.
-       - Builds ``text_entities`` list with type 'custom_emoji' so Telegram renders
-         the premium sticker instead of the fallback.
+    1. Text contains legacy <tg-emoji emoji-id='ID'>FALLBACK</tg-emoji> HTML:
+       - Strips the HTML tags and all Unicode emoji fallback chars from the text.
+       - Sets ``icon_custom_emoji_id`` to the first embedded emoji-id so Telegram
+         renders the premium sticker as the button icon.
     2. Text starts with a plain Unicode emoji present in _PREMIUM_EMOJI_MAP:
-       - Adds a single 'custom_emoji' entity at offset 0 so the premium version
-         of that emoji is displayed in the button.
+       - Removes the leading emoji (and one trailing space) from the text.
+       - Sets ``icon_custom_emoji_id`` to the mapped premium emoji ID.
 
-    Already-enriched dicts (those that have ``text_entities`` and whose text
-    contains no unprocessed HTML) are returned unchanged to avoid
-    double-processing.
+    Already-enriched dicts (those that already have ``icon_custom_emoji_id``) are
+    returned unchanged to avoid double-processing.
     """
     text = btn_dict.get('text', '')
 
-    # Skip only when there is nothing to do: no HTML to strip and entities
-    # already populated (e.g. a previous call already added custom_emoji).
-    if 'text_entities' in btn_dict and '<tg-emoji' not in text:
+    # Skip if already enriched with icon_custom_emoji_id, or if text is empty.
+    if 'icon_custom_emoji_id' in btn_dict or not text:
         return btn_dict
-    if not text:
-        return btn_dict
-
-    entities = []
 
     if '<tg-emoji' in text:
-        # Strip <tg-emoji> HTML, extract custom emoji entities
-        clean_text = ''
-        prev_end = 0
-        for match in _TG_EMOJI_RE.finditer(text):
-            before = _HTML_TAG_RE.sub('', text[prev_end:match.start()])
-            clean_text += before
-            emoji_id = match.group(1)
-            fallback = match.group(2)
-            offset = _utf16_len(clean_text)
-            length = _utf16_len(fallback)
-            clean_text += fallback
-            entities.append({
-                'type': 'custom_emoji',
-                'offset': offset,
-                'length': length,
-                'custom_emoji_id': emoji_id,
-            })
-            prev_end = match.end()
-        clean_text += _HTML_TAG_RE.sub('', text[prev_end:])
+        # Extract the first premium emoji ID embedded in the HTML.
+        first_match = _TG_EMOJI_RE.search(text)
         btn_dict = dict(btn_dict)
-        btn_dict['text'] = clean_text
-        if entities:
-            btn_dict['text_entities'] = entities
-    else:
-        # No HTML – look for a leading Unicode emoji and map it to a premium ID
-        for emoji_char, emoji_id in _PREMIUM_EMOJI_MAP.items():
-            if text.startswith(emoji_char):
-                btn_dict = dict(btn_dict)
-                btn_dict['text_entities'] = [{
-                    'type': 'custom_emoji',
-                    'offset': 0,
-                    'length': _utf16_len(emoji_char),
-                    'custom_emoji_id': emoji_id,
-                }]
+        btn_dict.pop('text_entities', None)
+        if first_match:
+            btn_dict['icon_custom_emoji_id'] = first_match.group(1)
+        # Strip all HTML tags to leave only plain text.
+        clean_text = _HTML_TAG_RE.sub('', text).strip()
+        # Also strip any remaining leading emoji (the HTML fallback char).
+        for emoji_char in _PREMIUM_EMOJI_MAP:
+            if clean_text.startswith(emoji_char):
+                clean_text = clean_text[len(emoji_char):]
+                if clean_text.startswith(' '):
+                    clean_text = clean_text[1:]
                 break
+        btn_dict['text'] = clean_text
+        return btn_dict
+
+    # Look for a leading Unicode emoji and replace it with icon_custom_emoji_id.
+    for emoji_char, emoji_id in _PREMIUM_EMOJI_MAP.items():
+        if text.startswith(emoji_char):
+            remaining = text[len(emoji_char):]
+            # Strip one leading space that typically follows the emoji.
+            if remaining.startswith(' '):
+                remaining = remaining[1:]
+            btn_dict = dict(btn_dict)
+            btn_dict.pop('text_entities', None)
+            btn_dict['text'] = remaining
+            btn_dict['icon_custom_emoji_id'] = emoji_id
+            return btn_dict
 
     return btn_dict
 
@@ -528,14 +539,15 @@ def _enrich_button_dict(btn_dict: dict) -> dict:
 # Shadow the imported InlineKeyboardButton with a subclass that automatically
 # applies _enrich_button_dict whenever a button is serialised. This ensures
 # every InlineKeyboardButton created anywhere in this module gets proper
-# premium-emoji text_entities without requiring individual call-site changes.
+# icon_custom_emoji_id set and old Unicode emojis stripped from the text,
+# without requiring individual call-site changes.
 _BaseInlineKeyboardButton = InlineKeyboardButton
 
 
 class InlineKeyboardButton(_BaseInlineKeyboardButton):  # type: ignore[misc]  # noqa: N801
     # type: ignore[misc] is required because Python's type system flags shadowing
     # an imported name with a subclass of itself as a "misc" error.
-    """InlineKeyboardButton with automatic premium-emoji text_entities support."""
+    """InlineKeyboardButton with automatic premium-emoji icon_custom_emoji_id support."""
 
     def to_dict(self) -> dict:
         return _enrich_button_dict(super().to_dict())
